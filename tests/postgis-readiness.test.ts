@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict';
 import { execFileSync, spawnSync } from 'node:child_process';
 import { randomUUID } from 'node:crypto';
-import { access, chmod, mkdtemp, rm, writeFile } from 'node:fs/promises';
+import { access, chmod, mkdtemp, readdir, rm, writeFile } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import path from 'node:path';
 import test from 'node:test';
@@ -57,7 +57,8 @@ test('database readiness excludes the temporary PostGIS bootstrap server', { tim
     assert.equal(migration.status, 0, migration.stdout + migration.stderr);
     const applied = probe(['psql', '-U', 'skeleton', '-d', 'skeleton', '-Atc', 'SELECT count(*) FROM schema_migrations']);
     assert.equal(applied.status, 0, applied.stderr);
-    assert.equal(Number(applied.stdout.trim()), 15, 'All current migrations must finish after final readiness');
+    const shipped = (await readdir(path.join(root, 'server/migrations'))).filter(name => /^\d{3}-.*\.sql$/.test(name)).length;
+    assert.equal(Number(applied.stdout.trim()), shipped, 'All current migrations must finish after final readiness');
     console.log(JSON.stringify({ final: { configured: 0, tcp: 0, migration: migration.status, applied: Number(applied.stdout.trim()) } }));
   } finally {
     await writeFile(path.join(directory, 'release'), 'cleanup\n');

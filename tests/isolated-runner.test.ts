@@ -74,6 +74,7 @@ console.error('Unexpected fixture command');process.exit(2);
     const env: NodeJS.ProcessEnv = { ...process.env, PATH: bin + path.delimiter + process.env.PATH,
       STARTUP_TEST_CALLS: calls, STARTUP_TEST_CAPTURE_EXIT: String(captureExit), ISOLATED_REPORT_PATH: path.join(directory, 'result.json') };
     delete env.CI_CANDIDATE_ARCHIVE;
+    delete env.ISOLATED_RUN;
     const run = spawnSync(process.execPath, ['scripts/test-isolated.mjs'], { cwd: directory, env, encoding: 'utf8', timeout: 20_000 });
     assert.equal(run.status, 1, run.stderr);
     const report = JSON.parse(await readFile(path.join(directory, 'result.json'), 'utf8'));
@@ -166,6 +167,8 @@ console.error('Unexpected fixture command');process.exit(2);
   const env: NodeJS.ProcessEnv = { ...process.env, PATH: bin + path.delimiter + process.env.PATH,
     RUNNER_TEST_CALLS: calls, RUNNER_TEST_BIND_FAILURES: String(bindFailures), ISOLATED_REPORT_PATH: path.join(directory, 'result.json'), ...extraEnv };
   delete env.CI_CANDIDATE_ARCHIVE;
+  // CI's isolated jobs set ISOLATED_RUN for their own run; the fixture decides its own mode.
+  if (!('ISOLATED_RUN' in extraEnv)) delete env.ISOLATED_RUN;
   const run = spawnSync(process.execPath, ['scripts/test-isolated.mjs'], { cwd: directory, env, encoding: 'utf8', timeout: 30_000 });
   const report = JSON.parse(await readFile(path.join(directory, 'result.json'), 'utf8'));
   const invoked = (await readFile(calls, 'utf8').catch(() => '')).trim().split('\n').filter(Boolean).map(line => JSON.parse(line));

@@ -5,6 +5,7 @@ import { spawn, type ChildProcess } from 'node:child_process';
 import { createServer } from 'node:net';
 import { setTimeout } from 'node:timers/promises';
 import { fileURLToPath } from 'node:url';
+import { readdirSync } from 'node:fs';
 import pg from 'pg';
 import { migrateDatabase } from '../server/migrations.ts';
 import { minimalGeodataSchema, seedMinimalGeodata } from './helpers/minimal-geodata.ts';
@@ -12,6 +13,8 @@ import { geodataReadiness } from '../server/startup-check.ts';
 import { testDatabaseUrl } from './helpers/test-database.ts';
 
 const root = fileURLToPath(new URL('..', import.meta.url));
+// The newest migration this release ships, so the ledger cases follow new migrations without edits.
+const latest = readdirSync(new URL('../server/migrations/', import.meta.url)).filter(name => /^\d{3}-.*\.sql$/.test(name)).length;
 const adminUrl = testDatabaseUrl();
 const runtimePassword = process.env.RUNTIME_DB_PASSWORD ?? 'runtime-local-only';
 const schema = minimalGeodataSchema;
@@ -90,11 +93,11 @@ const cases: { name: string; token: string; exit: number; sentence: string; brea
     fix: ['DELETE FROM schema_migrations', 'INSERT INTO schema_migrations SELECT * FROM zz_ledger_backup'] },
   { name: 'C2 ledger newer than the release', token: 'ledger_newer_than_application', exit: 81,
     sentence: 'The database was migrated by a newer release.',
-    break: ["INSERT INTO schema_migrations (version, checksum) VALUES (16, 'ab')"],
-    fix: ['DELETE FROM schema_migrations WHERE version = 16'] },
+    break: [`INSERT INTO schema_migrations (version, checksum) VALUES (${latest + 1}, 'ab')`],
+    fix: [`DELETE FROM schema_migrations WHERE version = ${latest + 1}`] },
   { name: 'C3 migration missing', token: 'migration_required', exit: 82,
     sentence: 'This release has migrations the database does not have yet.',
-    break: ['DELETE FROM schema_migrations WHERE version = 15'],
+    break: [`DELETE FROM schema_migrations WHERE version = ${latest}`],
     fix: ['DELETE FROM schema_migrations', 'INSERT INTO schema_migrations SELECT * FROM zz_ledger_backup'] },
   { name: 'C4 ledger table missing', token: 'ledger_missing', exit: 83,
     sentence: 'The database has no migration ledger.',

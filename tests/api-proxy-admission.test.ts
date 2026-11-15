@@ -13,9 +13,9 @@ test('proxy bounds challenge traffic and returns usable Android backoff', { skip
   assert.equal(limited.headers.get('access-control-allow-origin'), 'https://localhost');
   assert.equal(limited.headers.get('access-control-expose-headers'), 'Retry-After');
   assert.deepEqual(await limited.json(), { error: 'try_again' });
-  const reports = await Promise.all(Array.from({ length: 8 }, () => fetch(`${web}/api/reports`, {
-    method: 'POST', headers: { 'content-type': 'application/json' }, body: '{}'
-  })));
+  // A body route allows 4 connections per client at a time, so the eight go in fours.
+  const postReport = () => fetch(`${web}/api/reports`, { method: 'POST', headers: { 'content-type': 'application/json' }, body: '{}' });
+  const reports = [...await Promise.all(Array.from({ length: 4 }, postReport)), ...await Promise.all(Array.from({ length: 4 }, postReport))];
   assert.ok(reports.every(response => response.status === 400),
     `Report statuses: ${reports.map(response => response.status).join(', ')}`);
 });
@@ -36,9 +36,14 @@ test('proxy gives health, downloads, assets and Notice batches separate bounded 
   const immutable = await Promise.all(Array.from({ length: 24 }, () => fetch(`${web}/_app/immutable/absent-file`)));
   assert.ok(immutable.every(response => response.status === 404));
   const eventPath = '/api/reports/00000000-0000-4000-8000-000000000000/events';
-  const batch = await Promise.all(Array.from({ length: 18 }, () => fetch(`${web}${eventPath}`)));
+  // Events are POST only, and a body route allows 4 connections per client at a time, so the batch
+  // goes in fours: what is measured here is the events rate budget, not the connection share.
+  const postEvent = () => fetch(`${web}${eventPath}`, { method: 'POST', headers: { 'content-type': 'application/json' }, body: '{}' });
+  const batch: Response[] = [];
+  for (let sent = 0; sent < 18; sent += 4) batch.push(...await Promise.all(Array.from({ length: Math.min(4, 18 - sent) }, postEvent)));
   assert.ok(batch.filter(response => response.status === 404).length >= 15,
     `Notice batch statuses: ${batch.map(response => response.status).join(', ')}`);
-  const overBurst = await Promise.all(Array.from({ length: 8 }, () => fetch(`${web}${eventPath}`)));
+  const overBurst: Response[] = [];
+  for (let sent = 0; sent < 8; sent += 4) overBurst.push(...await Promise.all(Array.from({ length: 4 }, postEvent)));
   assert.ok(overBurst.some(response => response.status === 429));
 });

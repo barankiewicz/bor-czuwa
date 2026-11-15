@@ -79,7 +79,7 @@ test('a failed Findings enqueue rolls back Report and events', async () => {
   }
 });
 
-test('concurrent writes stop at 50, retries do not count, and Warsaw midnight rotates the salt', async () => {
+test('concurrent writes stop at 50, a replay pays its count, and Warsaw midnight rotates the salt', async () => {
   let now = Date.parse('2026-10-24T21:55:00Z');
   const server = await startClockedApi(now);
   const { base, database } = server;
@@ -97,7 +97,8 @@ test('concurrent writes stop at 50, retries do not count, and Warsaw midnight ro
     const responses = await Promise.all(payloads.map(payload => fetch(`${base}/api/reports`, {
       method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify(payload)
     })));
-    assert.equal(responses.filter(r => r.status === 201).length, 49);
+    // The first Report and its replay took two of the 50 (ticket 48: a replay pays its count).
+    assert.equal(responses.filter(r => r.status === 201).length, 48);
     const refusedIndex = responses.findIndex(r => r.status === 429);
     const refused = responses[refusedIndex];
     assert.ok(refused);
@@ -106,7 +107,8 @@ test('concurrent writes stop at 50, retries do not count, and Warsaw midnight ro
     for (const [table, column] of [['report', 'id'], ['report_event', 'report_id'], ['findings_job', 'report_id']]) {
       assert.equal((await database.query(`SELECT 1 FROM ${table} WHERE ${column} = $1`, [rejectedId])).rowCount, 0);
     }
-    assert.equal((await postReport(base, first)).status, 200);
+    // With the budget spent, even a replay of a stored Report waits for the next day like a new one.
+    assert.equal((await postReport(base, first)).status, 429);
     now = Date.parse('2026-10-24T22:00:00Z');
     await server.setTime(now);
     assert.equal((await postReport(base, newReport())).status, 201);
