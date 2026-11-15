@@ -55,7 +55,7 @@ export type NotificationsPort = {
   getPending(): Promise<{ notifications: Listed[] }>;
   schedule(options: { notifications: {
     id: number; title: string; body: string; channelId: string; actionTypeId: string; isExactNotification: boolean;
-    schedule: { at: Date }; extra: { draftReminderDay: string; draftIds: string[] };
+    schedule: { at: Date }; extra: { draftReminderDay: string; draftIds: string[]; guard: string };
   }[] }): Promise<unknown>;
   cancel(options: { notifications: { id: number }[] }): Promise<void>;
   getDeliveredNotifications(): Promise<{ notifications: { id: number }[] }>;
@@ -75,9 +75,10 @@ export function reminderExtra(extra: Record<string, unknown> | undefined): Remin
   return { day: extra.draftReminderDay, draftIds: extra.draftIds.filter((id): id is string => typeof id === 'string') };
 }
 
-export function notificationId(key: string) {
+/** A reminder's Android id. The install's guard is mixed in so the Warsaw day alone cannot name it. */
+export function notificationId(key: string, guard: string) {
   let hash = 2166136261;
-  for (const char of key) hash = Math.imul(hash ^ char.charCodeAt(0), 16777619);
+  for (const char of `${guard}:${key}`) hash = Math.imul(hash ^ char.charCodeAt(0), 16777619);
   return hash & 0x7fffffff;
 }
 
@@ -88,12 +89,15 @@ const sameIds = (a: string[], b: string[]) => a.length === b.length && a.every((
  * never scheduled again; it is only withdrawn from the shade when none of its Drafts wants reminding.
  */
 export async function syncDraftReminders(port: NotificationsPort, drafts: RemindedDraft[], options: {
-  now: Date; enabled: boolean; exact: boolean; text: (draftIds: string[]) => { title: string; body: string };
+  now: Date; enabled: boolean; exact: boolean; guard: string | undefined; text: (draftIds: string[]) => { title: string; body: string };
 }) {
+  // The app shell's guard could not be read: nothing can be trusted when tapped, so nothing is changed.
+  if (options.guard === undefined) return [];
+  const guard = options.guard;
   const plan = options.enabled ? planDraftReminders(drafts, options.now) : [];
   const wanted = new Map(plan.map(item => {
     const { title, body } = options.text(item.draftIds);
-    return [notificationId(`draft-reminder:${item.day}`), { ...item, title, body }] as const;
+    return [notificationId(`draft-reminder:${item.day}`, guard), { ...item, title, body }] as const;
   }));
   const reminding = new Set(options.enabled ? drafts.filter(draft => !draft.remindersOff).map(draft => draft.id) : []);
   const { notifications } = await port.getPending();
@@ -112,7 +116,7 @@ export async function syncDraftReminders(port: NotificationsPort, drafts: Remind
       continue;
     }
     const want = wanted.get(item.id);
-    if (want && want.title === item.title && want.body === item.body && item.isExactNotification === options.exact && sameIds(reminder.draftIds, want.draftIds)) kept.add(item.id);
+    if (want && want.title === item.title && want.body === item.body && item.isExactNotification === options.exact && extra.guard === guard && sameIds(reminder.draftIds, want.draftIds)) kept.add(item.id);
     else cancel.push(item.id);
   }
   if (cancel.length) await port.cancel({ notifications: cancel.map(id => ({ id })) });
@@ -124,7 +128,54 @@ export async function syncDraftReminders(port: NotificationsPort, drafts: Remind
   const due = [...wanted].filter(([id]) => !kept.has(id));
   if (due.length) await port.schedule({ notifications: due.map(([id, item]) => ({
     id, title: item.title, body: item.body, channelId: draftReminderChannel, actionTypeId: draftReminderActionType,
-    isExactNotification: options.exact, schedule: { at: item.at }, extra: { draftReminderDay: item.day, draftIds: item.draftIds }
+    isExactNotification: options.exact, schedule: { at: item.at }, extra: { draftReminderDay: item.day, draftIds: item.draftIds, guard }
   })) });
   return plan;
+}
+
+/** The part of the local notifications plugin that follow-up checks use. */
+export type FollowUpPort = {
+  getPending(): Promise<{ notifications: Listed[] }>;
+  schedule(options: { notifications: {
+    id: number; title: string; body: string; channelId: string; isExactNotification: boolean;
+    schedule: { at: Date }; extra: { followUpNoticeId: string; guard: string };
+  }[] }): Promise<{ warning?: unknown }>;
+  cancel(options: { notifications: { id: number }[] }): Promise<void>;
+  getDeliveredNotifications(): Promise<{ notifications: Listed[] }>;
+  removeDeliveredNotificationsById(options: { ids: number[] }): Promise<void>;
+};
+
+/**
+ * Makes the plugin's follow-up checks match the signed Notices that await a reply. A check made before
+ * reminders carried the guard sits under an id the Notice id gives away, so it is replaced.
+ * Returns false when a check could only be scheduled inexactly.
+ */
+export async function reconcileFollowUps(port: FollowUpPort, current: Iterable<readonly [string, Date]>,
+  options: { guard: string; now: Date; title: string }) {
+  const wanted = new Map(current);
+  const pending = await port.getPending();
+  const obsolete = pending.notifications.filter(item => typeof item.extra?.followUpNoticeId === 'string' &&
+    (!wanted.has(item.extra.followUpNoticeId) || item.extra.guard !== options.guard));
+  if (obsolete.length) await port.cancel({ notifications: obsolete.map(item => ({ id: item.id })) });
+  const delivered = await port.getDeliveredNotifications();
+  const dismissed = delivered.notifications.filter(item => typeof item.extra?.followUpNoticeId === 'string' &&
+    !wanted.has(item.extra.followUpNoticeId));
+  if (dismissed.length) await port.removeDeliveredNotificationsById({ ids: dismissed.map(item => item.id) });
+  const scheduled = new Map(pending.notifications.filter(item => !obsolete.includes(item)).map(item => [item.extra?.followUpNoticeId, item] as const));
+  let scheduledExactly = true;
+  for (const [id, at] of wanted) {
+    // "No reply yet" moves the check-in, so a reminder pending for the old time is scheduled again over its id.
+    const existing = scheduled.get(id);
+    const pendingAt = existing?.schedule?.at ? new Date(existing.schedule.at).getTime() : NaN;
+    // An unreadable pending time keeps the reminder rather than rescheduling it on every start.
+    if ((existing?.title === options.title && (Number.isNaN(pendingAt) || Math.abs(pendingAt - at.getTime()) < 60_000)) || at.getTime() <= options.now.getTime()) continue;
+    const result = await port.schedule({ notifications: [{
+      id: notificationId(`follow-up:${id}`, options.guard), title: options.title,
+      body: 'Sprawdź, czy urząd odpowiedział na Twoje powiadomienie.',
+      channelId: 'follow-up-checks', schedule: { at }, isExactNotification: false,
+      extra: { followUpNoticeId: id, guard: options.guard }
+    }] });
+    if (result.warning) scheduledExactly = false;
+  }
+  return scheduledExactly;
 }

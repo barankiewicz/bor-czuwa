@@ -67,7 +67,8 @@ class Indexing(unittest.TestCase):
         with self.assertRaisesRegex(AssertionError, 'missing exclusion header'):
             indexing.check(self.build, 'public', self.root / 'evidence', lifted)
 
-    def test_rendered_proxy_negotiates_modern_tls_and_refuses_abuse(self):
+    def serve_rendered_proxy(self):
+        """Run the production nginx render over the synthetic build; return its HTTPS and HTTP ports."""
         config = subprocess.check_output([
             'python3', str(ROOT / 'ops/production/render-nginx.py'), indexing.DOMAIN], text=True)
         config_file = self.root / 'hardening.conf'
@@ -77,140 +78,182 @@ class Indexing(unittest.TestCase):
         subprocess.run(['openssl', 'req', '-x509', '-newkey', 'rsa:2048', '-nodes', '-days', '1',
                         '-subj', f'/CN={indexing.DOMAIN}', '-keyout', str(certs / 'privkey.pem'),
                         '-out', str(certs / 'fullchain.pem')], check=True, capture_output=True)
+        name = 'proxy-hardening-' + uuid.uuid4().hex
+        self.addCleanup(subprocess.run, ['podman', 'rm', '--force', name], capture_output=True)
+        subprocess.run(['podman', 'run', '--detach', '--name', name, '--memory', '256m',
+                        '--publish', '127.0.0.1::443', '--publish', '127.0.0.1::80',
+                        '--volume', f'{self.build}:/opt/bor-czuwa/current/build:ro,Z',
+                        '--volume', f'{config_file}:/etc/nginx/nginx.conf:ro,Z',
+                        '--volume', f'{certs}:/etc/letsencrypt/live/{indexing.DOMAIN}:ro,Z',
+                        '--entrypoint', '/bin/sh', indexing.IMAGE, '-c',
+                        'adduser -D -H -G www-data www-data; exec nginx -g "daemon off;"'],
+                       check=True, capture_output=True)
+        host, port = subprocess.check_output(['podman', 'port', name, '443'], text=True).strip().rsplit(':', 1)
+        http_port = int(subprocess.check_output(['podman', 'port', name, '80'], text=True).strip().rsplit(':', 1)[1])
+        for attempt in range(50):
+            try:
+                socket.create_connection((host, int(port)), timeout=1).close()
+                break
+            except OSError:
+                if attempt == 49:
+                    raise
+                time.sleep(0.1)
+        return host, int(port), http_port
+
+    def test_slow_uploads_cannot_take_the_page_or_health_check(self):
+        host, port, _ = self.serve_rendered_proxy()
+
+        def open_tls():
+            raw = socket.create_connection((host, port), timeout=15)
+            return ssl._create_unverified_context().wrap_socket(raw, server_hostname=indexing.DOMAIN)
+
+        def get(target):
+            with open_tls() as connection:
+                connection.sendall(f'GET {target} HTTP/1.1\r\nHost: {indexing.DOMAIN}\r\nConnection: close\r\n\r\n'.encode())
+                return int(connection.recv(65536).split()[1])
+
+        # Forty uploads from one client that promise a body and send one byte of it, as a client
+        # dripping bytes under client_body_timeout would hold them. They open just under the
+        # reports rate (5 a second), so only the connection limits can refuse them, and the
+        # checks run before the 10 s body timeout closes the first one.
+        held = []
+        try:
+            for _ in range(40):
+                connection = open_tls()
+                connection.sendall(f'POST /api/reports HTTP/1.1\r\nHost: {indexing.DOMAIN}\r\n'
+                                   'Content-Type: application/json\r\nContent-Length: 100\r\n\r\n{'.encode())
+                held.append(connection)
+                time.sleep(0.21)
+            # The page and readiness stay reachable from the same address while they are held.
+            self.assertEqual(get('/'), 200)
+            self.assertEqual(get('/api/ready'), 502)
+            refused = 0
+            for connection in held:
+                connection.settimeout(0.05)
+                try:
+                    if connection.recv(64).startswith(b'HTTP/1.1 429'):
+                        refused += 1
+                except (TimeoutError, ssl.SSLError, OSError):
+                    pass
+            # Only a few uploads may be in flight per client.
+            self.assertGreaterEqual(refused, 30)
+        finally:
+            for connection in held:
+                connection.close()
+
+    def test_rendered_proxy_negotiates_modern_tls_and_refuses_abuse(self):
         (self.build / '.well-known').mkdir()
         (self.build / '.well-known/security.txt').write_text('Contact: synthetic\n')
-        name = 'proxy-hardening-' + uuid.uuid4().hex
-        try:
-            subprocess.run(['podman', 'run', '--detach', '--name', name,
-                            '--publish', '127.0.0.1::443', '--publish', '127.0.0.1::80',
-                            '--volume', f'{self.build}:/opt/bor-czuwa/current/build:ro,Z',
-                            '--volume', f'{config_file}:/etc/nginx/nginx.conf:ro,Z',
-                            '--volume', f'{certs}:/etc/letsencrypt/live/{indexing.DOMAIN}:ro,Z',
-                            '--entrypoint', '/bin/sh', indexing.IMAGE, '-c',
-                            'adduser -D -H -G www-data www-data; exec nginx -g "daemon off;"'],
-                           check=True, capture_output=True)
-            host, port = subprocess.check_output(['podman', 'port', name, '443'], text=True).strip().rsplit(':', 1)
-            port = int(port)
-            http_port = int(subprocess.check_output(['podman', 'port', name, '80'], text=True).strip().rsplit(':', 1)[1])
+        host, port, http_port = self.serve_rendered_proxy()
 
-            def context(version=None, ciphers=None, alpn=None):
-                value = ssl._create_unverified_context()
-                if version:
-                    value.minimum_version = value.maximum_version = version
-                if ciphers:
-                    value.set_ciphers(ciphers)
-                if alpn:
-                    value.set_alpn_protocols(alpn)
-                return value
+        def context(version=None, ciphers=None, alpn=None):
+            value = ssl._create_unverified_context()
+            if version:
+                value.minimum_version = value.maximum_version = version
+            if ciphers:
+                value.set_ciphers(ciphers)
+            if alpn:
+                value.set_alpn_protocols(alpn)
+            return value
 
-            def connect(value):
-                raw = socket.create_connection((host, port), timeout=15)
-                return value.wrap_socket(raw, server_hostname=indexing.DOMAIN)
+        def connect(value):
+            raw = socket.create_connection((host, port), timeout=15)
+            return value.wrap_socket(raw, server_hostname=indexing.DOMAIN)
 
-            def exchange(request, value=None, prefix=b''):
-                with connect(value or context()) as connection:
-                    connection.sendall(prefix + request)
-                    data = b''
-                    try:
-                        while chunk := connection.recv(65536):
-                            data += chunk
-                    except (ssl.SSLError, ConnectionError, TimeoutError):
-                        pass
-                    return data
-
-            for attempt in range(50):
+        def exchange(request, value=None, prefix=b''):
+            with connect(value or context()) as connection:
+                connection.sendall(prefix + request)
+                data = b''
                 try:
-                    connect(context()).close()
-                    break
-                except OSError:
-                    if attempt == 49:
-                        raise
-                    time.sleep(0.1)
-            with connect(context(alpn=['h2', 'http/1.1'])) as connection:
-                self.assertEqual(connection.selected_alpn_protocol(), 'h2')
-            with connect(context(ssl.TLSVersion.TLSv1_3)) as connection:
-                self.assertEqual(connection.version(), 'TLSv1.3')
-            with connect(context(ssl.TLSVersion.TLSv1_2, 'ECDHE-RSA-AES128-GCM-SHA256')) as connection:
-                self.assertEqual(connection.cipher()[0], 'ECDHE-RSA-AES128-GCM-SHA256')
-            # A CBC suite is refused by the server, not merely unavailable to this client.
-            probe = context(ssl.TLSVersion.TLSv1_2)
-            probe.set_ciphers('ECDHE-RSA-AES128-SHA')
-            with self.assertRaises(ssl.SSLError):
-                connect(probe)
-            def request(method, target, extra=''):
-                data = exchange(f'{method} {target} HTTP/1.1\r\nHost: {indexing.DOMAIN}\r\n{extra}'
-                                'Connection: close\r\n\r\n'.encode())
-                head, _, body = data.partition(b'\r\n\r\n')
-                return int(head.split()[1]), head.decode().lower(), body.decode(errors='replace')
+                    while chunk := connection.recv(65536):
+                        data += chunk
+                except (ssl.SSLError, ConnectionError, TimeoutError):
+                    pass
+                return data
 
-            status, head, body = request('GET', '/')
-            self.assertEqual(status, 200)
-            self.assertIn('strict-transport-security: max-age=31536000\r\n', head + '\r\n')
-            self.assertNotIn('includesubdomains', head)
-            self.assertNotIn('preload', head)
-            status, head, _ = request('GET', '/api/reports')
-            self.assertEqual(status, 405)
-            self.assertIn('strict-transport-security', head)
-            for method, target in [('PUT', '/api/reports'), ('PATCH', '/api/reports'), ('DELETE', '/api/reports'),
-                                   ('TRACE', '/'), ('POST', '/'), ('PUT', '/'), ('POST', '/service-worker.js'),
-                                   ('POST', '/_app/immutable/fixture.js'), ('GET', '/api/reports'),
-                                   ('POST', '/api/health'), ('PUT', '/api/reports/00000000-0000-4000-8000-000000000001'),
-                                   ('POST', '/api/geodata/synthetic/ambony')]:
-                status, head, body = request(method, target)
-                self.assertEqual((method, target, status), (method, target, 405))
-                self.assertEqual(body, '{"error":"method_not_allowed"}' if target.startswith('/api/') else 'Method not allowed\n')
-                self.assertNotIn('nginx', body.lower())
-                for header in ['x-content-type-options: nosniff', 'content-security-policy:',
-                               'strict-transport-security: max-age=31536000', 'x-robots-tag: noindex']:
-                    self.assertIn(header, head, (method, target, header))
-            # The route's own methods still reach the (absent) API: 502 means it was proxied.
-            for method, target in [('POST', '/api/reports'), ('GET', '/api/ready'), ('OPTIONS', '/api/reports'),
-                                   ('DELETE', '/api/reports/00000000-0000-4000-8000-000000000001')]:
-                self.assertEqual(request(method, target)[0], 502, (method, target))
-            for target in ['/.env', '/.git/config', '/_app/.hidden', '/index.html.bak', '/service-worker.js~', '/dump.sql']:
-                status, head, body = request('GET', target)
-                self.assertEqual((target, status, body), (target, 404, 'Not found\n'))
-                self.assertIn('text/plain', head)
-                self.assertIn('x-content-type-options: nosniff', head)
-                self.assertNotIn('nginx', body.lower())
-            status, head, body = request('GET', '/missing')
-            self.assertEqual((status, body), (404, 'Not found\n'))
-            status, head, body = request('GET', '/api/nothing-here')
-            self.assertEqual(status, 502)
-            self.assertIn('application/json', head)
-            self.assertEqual(body, '{"error":"unavailable"}')
-            self.assertIn('strict-transport-security: max-age=31536000', head)
-            # /.well-known/ stays reachable for security.txt and App Links; other dotfiles do not.
-            status, _, body = request('GET', '/.well-known/security.txt')
-            self.assertEqual((status, body), (200, 'Contact: synthetic\n'))
-            status, head, body = request('GET', '/api/worker-status')
-            self.assertEqual((status, body, 'application/json' in head), (404, '{"error":"not_found"}', True))
-            # Stock nginx always names itself in Server, but server_tokens off keeps the version out.
-            self.assertIn('server: nginx\r\n', head + '\r\n')
-            status, _, body = request('POST', '/api/reports', 'Content-Length: 9000\r\n')
-            self.assertIn(status, (413, 400))
-            # A header line beyond the 8k buffer is refused before any route sees it.
-            status, _, body = request('GET', '/', 'X-Padding: ' + 'a' * 9000 + '\r\n')
-            self.assertIn(status, (400, 431))
+        with connect(context(alpn=['h2', 'http/1.1'])) as connection:
+            self.assertEqual(connection.selected_alpn_protocol(), 'h2')
+        with connect(context(ssl.TLSVersion.TLSv1_3)) as connection:
+            self.assertEqual(connection.version(), 'TLSv1.3')
+        with connect(context(ssl.TLSVersion.TLSv1_2, 'ECDHE-RSA-AES128-GCM-SHA256')) as connection:
+            self.assertEqual(connection.cipher()[0], 'ECDHE-RSA-AES128-GCM-SHA256')
+        # A CBC suite is refused by the server, not merely unavailable to this client.
+        probe = context(ssl.TLSVersion.TLSv1_2)
+        probe.set_ciphers('ECDHE-RSA-AES128-SHA')
+        with self.assertRaises(ssl.SSLError):
+            connect(probe)
+        def request(method, target, extra=''):
+            data = exchange(f'{method} {target} HTTP/1.1\r\nHost: {indexing.DOMAIN}\r\n{extra}'
+                            'Connection: close\r\n\r\n'.encode())
+            head, _, body = data.partition(b'\r\n\r\n')
+            return int(head.split()[1]), head.decode().lower(), body.decode(errors='replace')
+
+        status, head, body = request('GET', '/')
+        self.assertEqual(status, 200)
+        self.assertIn('strict-transport-security: max-age=31536000\r\n', head + '\r\n')
+        self.assertNotIn('includesubdomains', head)
+        self.assertNotIn('preload', head)
+        status, head, _ = request('GET', '/api/reports')
+        self.assertEqual(status, 405)
+        self.assertIn('strict-transport-security', head)
+        for method, target in [('PUT', '/api/reports'), ('PATCH', '/api/reports'), ('DELETE', '/api/reports'),
+                               ('TRACE', '/'), ('POST', '/'), ('PUT', '/'), ('POST', '/service-worker.js'),
+                               ('POST', '/_app/immutable/fixture.js'), ('GET', '/api/reports'),
+                               ('POST', '/api/health'), ('PUT', '/api/reports/00000000-0000-4000-8000-000000000001'),
+                               ('POST', '/api/geodata/synthetic/ambony')]:
+            status, head, body = request(method, target)
+            self.assertEqual((method, target, status), (method, target, 405))
+            self.assertEqual(body, '{"error":"method_not_allowed"}' if target.startswith('/api/') else 'Method not allowed\n')
             self.assertNotIn('nginx', body.lower())
-            # A client that dribbles its headers is cut off at client_header_timeout (10s) with 408.
-            started = time.monotonic()
-            data = exchange(b'', prefix=f'GET / HTTP/1.1\r\nHost: {indexing.DOMAIN}\r\nX-Slow: a'.encode())
-            elapsed = time.monotonic() - started
-            self.assertGreaterEqual(elapsed, 9)
-            self.assertLess(elapsed, 14)
-            self.assertTrue(data == b'' or data.startswith(b'HTTP/1.1 408'), data[:80])
-            # HSTS is for the TLS host only: the plain-HTTP redirect carries none, and POST is refused there.
-            def plain(method):
-                with socket.create_connection((host, http_port), timeout=5) as connection:
-                    connection.sendall(f'{method} /x HTTP/1.1\r\nHost: {indexing.DOMAIN}\r\nConnection: close\r\n\r\n'.encode())
-                    return connection.recv(65536).decode().lower()
-            redirect = plain('GET')
-            self.assertTrue(redirect.startswith('http/1.1 301'))
-            self.assertNotIn('strict-transport-security', redirect)
-            self.assertTrue(plain('POST').startswith('http/1.1 405'))
-        finally:
-            subprocess.run(['podman', 'rm', '--force', name], capture_output=True)
+            for header in ['x-content-type-options: nosniff', 'content-security-policy:',
+                           'strict-transport-security: max-age=31536000', 'x-robots-tag: noindex']:
+                self.assertIn(header, head, (method, target, header))
+        # The route's own methods still reach the (absent) API: 502 means it was proxied.
+        for method, target in [('POST', '/api/reports'), ('GET', '/api/ready'), ('OPTIONS', '/api/reports'),
+                               ('DELETE', '/api/reports/00000000-0000-4000-8000-000000000001')]:
+            self.assertEqual(request(method, target)[0], 502, (method, target))
+        for target in ['/.env', '/.git/config', '/_app/.hidden', '/index.html.bak', '/service-worker.js~', '/dump.sql']:
+            status, head, body = request('GET', target)
+            self.assertEqual((target, status, body), (target, 404, 'Not found\n'))
+            self.assertIn('text/plain', head)
+            self.assertIn('x-content-type-options: nosniff', head)
+            self.assertNotIn('nginx', body.lower())
+        status, head, body = request('GET', '/missing')
+        self.assertEqual((status, body), (404, 'Not found\n'))
+        status, head, body = request('GET', '/api/nothing-here')
+        self.assertEqual(status, 502)
+        self.assertIn('application/json', head)
+        self.assertEqual(body, '{"error":"unavailable"}')
+        self.assertIn('strict-transport-security: max-age=31536000', head)
+        # /.well-known/ stays reachable for security.txt and App Links; other dotfiles do not.
+        status, _, body = request('GET', '/.well-known/security.txt')
+        self.assertEqual((status, body), (200, 'Contact: synthetic\n'))
+        status, head, body = request('GET', '/api/worker-status')
+        self.assertEqual((status, body, 'application/json' in head), (404, '{"error":"not_found"}', True))
+        # Stock nginx always names itself in Server, but server_tokens off keeps the version out.
+        self.assertIn('server: nginx\r\n', head + '\r\n')
+        status, _, body = request('POST', '/api/reports', 'Content-Length: 9000\r\n')
+        self.assertIn(status, (413, 400))
+        # A header line beyond the 8k buffer is refused before any route sees it.
+        status, _, body = request('GET', '/', 'X-Padding: ' + 'a' * 9000 + '\r\n')
+        self.assertIn(status, (400, 431))
+        self.assertNotIn('nginx', body.lower())
+        # A client that dribbles its headers is cut off at client_header_timeout (10s) with 408.
+        started = time.monotonic()
+        data = exchange(b'', prefix=f'GET / HTTP/1.1\r\nHost: {indexing.DOMAIN}\r\nX-Slow: a'.encode())
+        elapsed = time.monotonic() - started
+        self.assertGreaterEqual(elapsed, 9)
+        self.assertLess(elapsed, 14)
+        self.assertTrue(data == b'' or data.startswith(b'HTTP/1.1 408'), data[:80])
+        # HSTS is for the TLS host only: the plain-HTTP redirect carries none, and POST is refused there.
+        def plain(method):
+            with socket.create_connection((host, http_port), timeout=5) as connection:
+                connection.sendall(f'{method} /x HTTP/1.1\r\nHost: {indexing.DOMAIN}\r\nConnection: close\r\n\r\n'.encode())
+                return connection.recv(65536).decode().lower()
+        redirect = plain('GET')
+        self.assertTrue(redirect.startswith('http/1.1 301'))
+        self.assertNotIn('strict-transport-security', redirect)
+        self.assertTrue(plain('POST').startswith('http/1.1 405'))
 
     def test_private_gate_preserves_report_bearer_and_never_grants_failed_auth(self):
         gate = self.root / 'gate'

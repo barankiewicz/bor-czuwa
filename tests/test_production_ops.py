@@ -212,6 +212,8 @@ class ProxyHardening(unittest.TestCase):
                 'no proxy read timeout': config.replace('proxy_read_timeout 15s;', ''),
                 'huge header buffers': config.replace('large_client_header_buffers 4 8k;', 'large_client_header_buffers 64 1m;'),
                 'no connection limit': config.replace('limit_conn connections 40;', ''),
+                'upload route on the shared pool': config.replace('limit_conn upload_connections 40;', '', 1),
+                'upload route with a large client share': config.replace('limit_conn connections 4;', 'limit_conn connections 40;', 1),
                 'PUT allowed': config.replace(post, 'if ($request_method !~ ^(?:POST|PUT|OPTIONS)$) { return 405; }'),
                 'no method list': config.replace(post, ''),
                 'dotfiles served': config.replace('location ~ /\\.(?!well-known/) { return 404; }', ''),
@@ -1510,3 +1512,33 @@ class MonitorFixes(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
+
+
+class DeploySudo(unittest.TestCase):
+    """The deploy account's root commands are the installed controls, never an interpreter over an upload."""
+
+    def allowed(self):
+        text = (ROOT / 'ops/production/sudoers-deploy').read_text()
+        rule = ' '.join(line.rstrip('\\').strip() for line in text.splitlines() if line and not line.startswith('#'))
+        commands = [command.strip() for command in rule.split('NOPASSWD:', 1)[1].split(',')]
+        return [re.fullmatch(r'/usr/bin/bash (/usr/local/lib/bor-czuwa-release/[a-z-]+\.sh) \*', command).group(1)
+                for command in commands]
+
+    def test_every_sudo_in_deploy_runs_an_allowed_installed_control(self):
+        installed = (ROOT / 'ops/production/install-release-control.sh').read_text()
+        allowed = self.allowed()
+        self.assertTrue(allowed)
+        for script in allowed:
+            self.assertIn('ops/production/' + Path(script).name, installed, script)
+        calls = re.findall(r'sudo -n ([^"]+)"', (ROOT / 'ops/production/deploy.sh').read_text())
+        self.assertTrue(calls)
+        for call in calls:
+            words = call.replace('$control', '/usr/local/lib/bor-czuwa-release').split()
+            self.assertEqual(words[0], 'bash', call)
+            self.assertIn(words[1], allowed, call)
+
+    def test_the_sudoers_file_parses(self):
+        if shutil.which('visudo') is None:
+            self.skipTest('visudo not installed')
+        result = subprocess.run(['visudo', '-cf', str(ROOT / 'ops/production/sudoers-deploy')], capture_output=True, text=True)
+        self.assertEqual(result.returncode, 0, result.stdout + result.stderr)

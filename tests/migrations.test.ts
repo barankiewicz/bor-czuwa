@@ -43,7 +43,7 @@ test('fresh and concurrent migrations apply once; runtime has data privileges wi
     try {
       await assertSchemaCompatible(admin);
       const before = await admin.query('SELECT version, checksum, applied_at FROM schema_migrations ORDER BY version');
-      assert.deepEqual(before.rows.map(row => row.version), [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]);
+      assert.deepEqual(before.rows.map(row => row.version), [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17]);
       const indexes = await admin.query(`SELECT indexname, indexdef FROM pg_indexes
         WHERE schemaname = 'public' AND indexname IN
           ('report_event_report_id_id_idx', 'findings_job_ready_idx') ORDER BY indexname`);
@@ -121,7 +121,7 @@ test('fresh and concurrent migrations apply once; runtime has data privileges wi
       await admin.query("UPDATE schema_migrations SET checksum = 'changed' WHERE version = 2");
       await assert.rejects(assertSchemaCompatible(admin), /schema_migration_mismatch/);
       await admin.query('UPDATE schema_migrations SET checksum = $1 WHERE version = 2', [before.rows[1].checksum]);
-      await admin.query("INSERT INTO schema_migrations (version, checksum) VALUES (17, 'future')");
+      await admin.query("INSERT INTO schema_migrations (version, checksum) VALUES (18, 'future')");
       await assert.rejects(assertSchemaCompatible(admin), /schema_version_newer_than_application/);
       await assert.rejects(migrateDatabase(url, 'must-not-replace-runtime-password'),
         /schema_version_newer_than_application/);
@@ -389,7 +389,7 @@ test('upgrading a 013 database floors fine server times, leaves the phone time a
       assert.equal(before.m, '13');
       await migrateDatabase(url, runtimePassword);
       await assertSchemaCompatible(admin);
-      assert.deepEqual(await counts(), { ...before, m: '16' });
+      assert.deepEqual(await counts(), { ...before, m: '17' });
       assert.deepEqual((await admin.query("SELECT indexname FROM pg_indexes WHERE tablename = 'findings' AND indexname LIKE 'findings_report%' ORDER BY 1")).rows.map(row => row.indexname), ['findings_report_id_key']);
       const read = async (sql: string, ...args: unknown[]) => (await admin.query(sql, args)).rows[0].at.toISOString();
       assert.equal(await read('SELECT computed_at AS at FROM findings WHERE report_id = $1', id), '2026-09-24T12:00:00.000Z');

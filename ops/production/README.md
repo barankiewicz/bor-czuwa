@@ -895,6 +895,24 @@ python3 ops/production/check-ssh.py <operator> <port>
 ssh -o PreferredAuthentications=password -o PubkeyAuthentication=no <operator>@<host>   # must be refused
 ```
 
+### 3a. The operator's sudo
+
+`deploy.sh` needs root for three fixed, root-owned controls only: `receive.sh` (takes the upload
+into a staging directory it created, and only the files activation reads), `activate.sh` and
+`rollback.sh`. `ops/production/sudoers-deploy` allows exactly those without a password. Give the
+operator a password first, from a kept session, then install the rule and remove any broader one:
+
+```sh
+sudo passwd <operator>                      # the password every other sudo will ask for
+sed 's/^OPERATOR /<operator> /' ops/production/sudoers-deploy | sudo tee /etc/sudoers.d/bor-czuwa-deploy >/dev/null
+sudo chmod 0440 /etc/sudoers.d/bor-czuwa-deploy && sudo visudo -cf /etc/sudoers.d/bor-czuwa-deploy
+sudo grep -rn 'NOPASSWD' /etc/sudoers /etc/sudoers.d/   # only the bor-czuwa-deploy lines may remain
+sudo -k; sudo -n true; echo $?                           # 1: anything else now needs the password
+```
+
+On Ubuntu the cloud image's `/etc/sudoers.d/90-cloud-init-users` grants the default account
+`NOPASSWD:ALL`; remove that line once a second session has proved the password works.
+
 ### 4. nginx: TLS, HSTS, request handling (after activation)
 
 Rendered by `render-nginx.py`, refused by `audit-nginx.py` if any of it is missing (so activation
@@ -919,7 +937,8 @@ renewing. A cautious ramp, if wanted: `300` at first activation, check `curl -sS
 each change is a file edit plus the next activation.
 
 Request handling: header buffers 2k plus 4 x 8k, 10 s header and body timeouts, 15 s send timeout,
-2 s upstream connect, a per-client connection limit, and per location only the methods it needs (405
+2 s upstream connect, a per-client connection limit, a separate pool of 40 connections with 4 per client
+for every route that takes a request body (a client dripping a body cannot use up the page's connections), and per location only the methods it needs (405
 otherwise, including `/_stats/website`, which takes POST only). Dotfiles other than `/.well-known/` and
 `*.bak`, `*.old`, `*.sql`, `*~` and the like answer 404 like any missing file. Error responses carry
 the security headers and a bare status: JSON under `/api/`, one line of plain text elsewhere. nginx

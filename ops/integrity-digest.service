@@ -38,4 +38,4 @@ ProtectHome=true
 # No MemoryDenyWriteExecute: npm and tsx run on V8.
 RestrictAddressFamilies=AF_INET AF_INET6 AF_UNIX
 StandardOutput=null
-StandardError=null
+StandardError=journal

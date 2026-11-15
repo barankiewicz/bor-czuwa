@@ -873,14 +873,32 @@ also work with the runtime role.
 npm run operator -- counts
 npm run operator -- exclude <report-id> fabricated
 npm run operator -- exclude --cluster <report-id> duplicate
+npm run operator -- exclude --cluster <report-id> duplicate --confirm <token>
 npm run operator -- lift-exclusion <report-id>
 npm run operator -- unpublish <report-id>
 npm run operator -- digest-preview 2026-09-24
 npm run operator -- digest 2026-09-24
 ```
 
-`--cluster` acts on all Reports connected through points within 1 m and 30 days,
-points within 500 m and 60 minutes, or matching photo hashes.
+`--cluster` acts on the Reports connected through points within 1 m and 30 days,
+points within 500 m and 60 minutes, or matching photo hashes within 30 days. Public
+Reports can link themselves, so a Report keeps at most 100 matches and a cluster at most
+100 members; the window and the cap are `integrity_window()` and `integrity_cap()` in SQL,
+the only place they are written. A Signal count that hit the cap is stored with
+`matches_clipped` and shown as "clipped at 100" in the digest and the preview. Without
+`--confirm` the command prints each member, why it joined and which Report it was reached
+from, excludes nothing and exits with an error. The error names a token, the count and a
+short hash of the sorted ids; `--confirm <token>` (or `--confirm=<token>`) excludes exactly
+that set, so a swapped member is refused. A cluster over the cap is refused; exclude those
+Reports one by one. One accept or withdrawal queues at most 99 neighbours plus up to 100 Reports
+whose capped list held the changed one; in a cluster dense enough to fill that reverse bound, a
+Report beyond it can keep a stale count until its next refresh.
+
+The digest names at most 10 ids per cluster and lists at most 50 clusters, about 25 KB at
+most. It reads one snapshot, marks a clipped cluster as truncated, and turns an expansion
+that hits the statement timeout into a warning line. A failed run is retried twice, 5
+minutes apart; after the third failure the command exits non-zero, so
+`integrity-digest.service` fails and its journal shows `digest_gave_up_after_3_attempts`.
 Preview prints the gmina-level digest. `digest` mails it. Without a date, both
 commands use yesterday in Warsaw. Configure `SMTP_HOST`, `SMTP_PORT` (465 or 587),
 `SMTP_USER`, `SMTP_PASSWORD`, `DIGEST_FROM`, and `DIGEST_TO` in the operator's

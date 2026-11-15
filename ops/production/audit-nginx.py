@@ -27,6 +27,19 @@ def blocks(config, opener):
                     break
 
 
+def outside_blocks(body):
+    """The text of a block at its own level, with every nested block removed."""
+    depth, kept = 0, []
+    for char in body:
+        if char == '{':
+            depth += 1
+        elif char == '}':
+            depth -= 1
+        elif depth == 0:
+            kept.append(char)
+    return ''.join(kept)
+
+
 def seconds(value):
     match = re.fullmatch(r'(\d+)([sm]?)', value.strip())
     return int(match.group(1)) * (60 if match.group(2) == 'm' else 1) if match else None
@@ -69,7 +82,9 @@ def audit_tls_and_requests(config):
     if not re.search(r'\blarge_client_header_buffers\s+[1-4]\s+(?:[1-8]k);', config) \
             or not re.search(r'\bclient_header_buffer_size\s+[1-4]k;', config):
         raise ValueError('header_buffers_required')
-    if len(re.findall(r'\blimit_conn\s+connections\s+\d+;', config)) < servers:
+    # Every server limits connections per client at its own level, not only in some locations.
+    if any(not re.search(r'\blimit_conn\s+connections\s+\d+;', outside_blocks(body))
+           for _, body in blocks(config, r'\bserver')):
         raise ValueError('limit_conn_required')
     for header, body in blocks(config, r'\blocation\s+[^{;]+?'):
         # Internal locations (named, or the auth_request subrequest) cannot be reached from outside.
@@ -79,6 +94,12 @@ def audit_tls_and_requests(config):
         allowed = re.search(r'if\s+\(\$request_method\s+!~\s+\^\(\?:([A-Z|]+)\)\$\)\s*\{\s*return\s+405;\s*\}', body)
         if not allowed or not set(allowed.group(1).split('|')) <= METHODS:
             raise ValueError('method_allowlist_required')
+        # A route that takes a body is held as long as its client drips it, so it draws on the
+        # upload pool with a small per-client share instead of the connections the page uses.
+        if {'POST', 'DELETE'} & set(allowed.group(1).split('|')) and not (
+                re.search(r'\blimit_conn\s+upload_connections\s+\d+;', body)
+                and re.search(r'\blimit_conn\s+connections\s+[1-8];', body)):
+            raise ValueError('upload_pool_required')
     for pattern in [r'location\s+~\s+/\\\.\(\?!well-known/\)\s*\{\s*return\s+404;\s*\}',
                     r'location\s+~\*\s+\(\?:~\|\\\.\(\?:[a-z|]*bak[a-z|]*\)\)\$\s*\{\s*return\s+404;\s*\}']:
         if not re.search(pattern, config):

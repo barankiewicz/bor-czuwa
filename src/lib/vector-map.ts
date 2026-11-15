@@ -1,4 +1,4 @@
-import { decodeTile, type Feature, type Layer } from './vector-tile';
+import { decodeTile, type Feature, type Layer } from './vector-tile.js';
 
 /** What the map under the direction target draws, bottom to top. Everything else in the tiles is left out. */
 export const fills = ['wood', 'water'] as const;

@@ -25,12 +25,12 @@ else
   release=$(printf '%s' "$receipt" | python3 -c 'import json,sys; print(json.load(sys.stdin)["sourceCommit"])')
 fi
 [[ $release =~ ^[a-f0-9]{40}$ ]]
-staging=$("${ssh_command[@]}" "$2" "sudo -n mktemp -d $base/staging.XXXXXXXX")
+staging=$("${ssh_command[@]}" "$2" "sudo -n bash $control/receive.sh $environment new")
 [[ $staging =~ ^$base/staging\.[A-Za-z0-9]+$ ]]
 files=(verification.zip)
 if [[ $environment == production ]]; then files+=(acceptance.json acceptance.json.sig); fi
 for file in "${files[@]}"; do
-  "${ssh_command[@]}" "$2" "sudo -n tee $staging/$file >/dev/null" < "$1/$file"
+  "${ssh_command[@]}" "$2" "sudo -n bash $control/receive.sh $environment $staging $file" < "$1/$file"
 done
 "${ssh_command[@]}" "$2" "sudo -n bash $control/activate.sh $3 $release $staging $environment"
 if [[ $environment == demo ]]; then

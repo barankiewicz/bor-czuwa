@@ -126,6 +126,32 @@ class HostHardening(unittest.TestCase):
             self.assertEqual((base / 'releases' / release / 'payload/package.json').stat().st_uid, 0)
             self.assertFalse((base / 'releases' / release / 'payload/package.json').stat().st_mode & 0o022)
 
+    def test_receive_writes_only_known_candidate_files_into_its_own_staging(self):
+        control = Path('/usr/local/lib/bor-czuwa-release')
+        control.mkdir(parents=True, exist_ok=True)
+        for name in ['receive.sh', 'environment.sh', 'startup_refusals.py']:
+            shutil.copy(ROOT / 'ops/production' / name, control / name)
+        Path('/opt/bor-czuwa').mkdir(parents=True, exist_ok=True)
+        receive = ['bash', str(control / 'receive.sh'), 'production']
+        staging = subprocess.run(receive + ['new'], check=True, capture_output=True, text=True).stdout.strip()
+        self.assertRegex(staging, r'^/opt/bor-czuwa/staging\.[A-Za-z0-9]+$')
+        subprocess.run(receive + [staging, 'verification.zip'], input=b'zip', check=True)
+        self.assertEqual(Path(staging, 'verification.zip').read_bytes(), b'zip')
+        # Not twice, not another name, not a path out of the directory, not a directory it did not make.
+        Path('/opt/bor-czuwa/staging.other').mkdir()
+        os.chown('/opt/bor-czuwa/staging.other', 1, 1)
+        for arguments in [[staging, 'verification.zip'], [staging, 'activate.sh'], [staging, '../../../etc/cron.d/x'],
+                          ['/opt/bor-czuwa/staging.other', 'verification.zip'], ['/etc', 'verification.zip'],
+                          [staging + '/..', 'verification.zip']]:
+            refused = subprocess.run(receive + arguments, input=b'x', capture_output=True)
+            self.assertNotEqual(refused.returncode, 0, arguments)
+        self.assertFalse(Path('/etc/cron.d/x').exists())
+        self.assertEqual(Path(staging, 'verification.zip').read_bytes(), b'zip')
+        # Only the installed copy runs.
+        copy = Path('/tmp/receive.sh')
+        shutil.copy(ROOT / 'ops/production/receive.sh', copy)
+        self.assertNotEqual(subprocess.run(['bash', str(copy), 'production', 'new'], capture_output=True).returncode, 0)
+
     def test_maintenance_config_passes_the_audit_over_a_live_config_from_the_old_template(self):
         """A host activated before the hardening has the old render live; closing it must still work."""
         control = Path('/usr/local/lib/bor-czuwa-release')
@@ -169,7 +195,8 @@ class HostHardening(unittest.TestCase):
         env = {**os.environ, 'MIGRATION_DATABASE_URL': 'postgresql://bor_czuwa_owner:disposable-owner@localhost/bor_czuwa',
                'RUNTIME_DB_PASSWORD': 'disposable-runtime'}
         subprocess.run(['runuser', '-u', 'bor-czuwa-maint', '--', 'npm', 'run', 'migrate'], cwd=ROOT, env=env, check=True)
-        self.assertEqual(sql('SELECT count(*) FROM schema_migrations'), '15')
+        # Every versioned migration in the checkout, so a new one does not need this number edited.
+        self.assertEqual(sql('SELECT count(*) FROM schema_migrations'), str(len(list((ROOT / 'server/migrations').glob('*.sql')))))
         sql('ALTER ROLE app_runtime CREATEDB')
         rejected = subprocess.run(['runuser', '-u', 'bor-czuwa-maint', '--', 'npm', 'run', 'migrate'],
                                   cwd=ROOT, env=env, capture_output=True, text=True)
@@ -562,6 +589,12 @@ class SystemdSandbox(unittest.TestCase):
                 subprocess.run(['useradd', '--system', '--create-home', user], check=True)
         Path('/etc/bor-czuwa-demo').mkdir(exist_ok=True)
         shutil.copy('/etc/bor-czuwa/monitor.env', '/etc/bor-czuwa-demo/monitor.env')
+        # The demo monitor reads its certificate host from the private deployment file.
+        config = Path('/etc/bor-czuwa-demo/deployment.json')
+        if not config.exists():
+            config.write_text(json.dumps({'domain': 'demo.example', 'certificateName': 'demo',
+                                          'demoTestRecipient': 'a@example.test', 'accessUser': 'owner'}))
+            config.chmod(0o600)
         demo = Path('/opt/bor-czuwa-demo')
         demo.mkdir(exist_ok=True)
         if not (demo / 'current').is_symlink():

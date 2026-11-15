@@ -1,16 +1,47 @@
+import { createHash } from 'node:crypto';
 import nodemailer from 'nodemailer';
+import type { Pool, PoolClient } from 'pg';
 import { pool } from './db.ts';
 
 export type ExclusionReason = 'fabricated' | 'duplicate' | 'test';
 
+// The cluster walk, its cap and the Integrity window all live in SQL (integrity_cap, integrity_window,
+// integrity_cluster); this file only reads them back. Public Reports can link themselves, so the walk
+// stops at the cap and says so.
+export type ClusterMember = { id: string; linkedFrom: string | null; reasons: string[]; signalClipped: boolean };
+export type ClusterPreview = { members: ClusterMember[]; truncated: boolean; cap: number };
+
+type Queryable = { query: Pool['query'] };
+
+// One vocabulary for link reasons, in the digest's Signals line and in the Exclusion preview.
+const reasonLabels = ['duplicate_point', 'burst', 'duplicate_photo'] as const;
+
+export async function clusterPreview(seedId: string, db: Queryable = pool): Promise<ClusterPreview> {
+  const { rows } = await db.query('SELECT * FROM integrity_cluster($1)', [seedId]);
+  if (!rows.length) throw new Error('report_not_found');
+  const { rows: clipped } = await db.query(
+    'SELECT report_id FROM integrity_signal WHERE report_id = ANY($1::uuid[]) AND matches_clipped',
+    [rows.map(row => row.report_id)]);
+  const clippedIds = new Set(clipped.map(row => row.report_id as string));
+  return {
+    truncated: rows[0].truncated as boolean,
+    cap: rows[0].member_cap as number,
+    members: rows.map(row => ({ id: row.report_id as string, linkedFrom: row.linked_from as string | null,
+      reasons: reasonLabels.filter(label => row[label]) as string[], signalClipped: clippedIds.has(row.report_id) }))
+  };
+}
+
 export async function clusterReportIds(seedId: string) {
-  const result = await pool.query(`WITH RECURSIVE cluster(report_id) AS (
-      SELECT id FROM report WHERE id = $1
-      UNION
-      SELECT matched.report_id FROM cluster CROSS JOIN LATERAL integrity_matches(cluster.report_id) matched
-    ) SELECT report_id AS id FROM cluster ORDER BY report_id`, [seedId]);
-  if (!result.rowCount) throw new Error('report_not_found');
-  return result.rows.map(row => row.id as string);
+  const { members, truncated } = await clusterPreview(seedId);
+  if (truncated) throw new Error('cluster_truncated');
+  return members.map(member => member.id);
+}
+
+// What --confirm must repeat: the member count and a short hash of the sorted ids, so a swapped
+// member with the same total is a different token.
+export function clusterConfirmation(members: ClusterMember[]) {
+  const digest = createHash('sha256').update(members.map(member => member.id).sort().join('\n')).digest('hex');
+  return `${members.length}-${digest.slice(0, 8)}`;
 }
 
 async function recordExclusion(ids: string[], kind: 'excluded' | 'exclusion_lifted', reason?: ExclusionReason) {
@@ -63,38 +94,80 @@ export async function reportCounts() {
   return row as { included: number; excluded: number };
 }
 
-export async function digestForDay(day: string) {
+// The digest names at most this many ids per cluster and this many clusters, so one message stays
+// under about 25 KB however large a flood is.
+const DIGEST_IDS_PER_CLUSTER = 10;
+const DIGEST_MAX_CLUSTERS = 50;
+
+export async function digestForDay(day: string, options: { expansionTimeoutMs?: number } = {}) {
   if (!/^\d{4}-\d{2}-\d{2}$/.test(day) || Number.isNaN(Date.parse(day))) throw new Error('invalid_day');
-  const { rows: seeds } = await pool.query(`SELECT s.report_id, s.duplicate_point_count,
+  // One snapshot: a Report withdrawn while the digest runs cannot vanish between listing and expanding.
+  const client = await pool.connect();
+  let discard: Error | undefined;
+  try {
+    await client.query('BEGIN ISOLATION LEVEL REPEATABLE READ READ ONLY');
+    const text = await digestInSnapshot(client, day, options.expansionTimeoutMs);
+    await client.query('COMMIT');
+    return text;
+  } catch (error) {
+    await client.query('ROLLBACK').catch(rollbackError => { discard = rollbackError as Error; });
+    throw error;
+  } finally { client.release(discard); }
+}
+
+async function digestInSnapshot(db: PoolClient, day: string, expansionTimeoutMs?: number) {
+  const { rows: seeds } = await db.query(`SELECT s.report_id, s.duplicate_point_count,
       s.burst_count, s.duplicate_photo_count, s.over_limit_hour, s.over_limit_day
     FROM integrity_signal s JOIN report r ON r.id = s.report_id
     WHERE (r.received_at AT TIME ZONE 'Europe/Warsaw')::date = $1::date
       AND (s.duplicate_point_count > 0 OR s.burst_count >= 6 OR s.duplicate_photo_count > 0
         OR s.over_limit_hour IS NOT NULL OR s.over_limit_day IS NOT NULL)
     ORDER BY s.report_id`, [day]);
-  const groups: { ids: Set<string>; signals: typeof seeds }[] = [];
+  const groups: { ids: Set<string>; signals: typeof seeds; truncated: boolean; cap: number }[] = [];
+  const warnings: string[] = [];
+  // In production nothing is set here: the pool's 10 s statement_timeout (server/db.ts) is what raises 57014
+  // below. The option exists so a test can reach that path with a 1 ms limit.
+  if (expansionTimeoutMs) await db.query(`SET LOCAL statement_timeout = ${Math.floor(expansionTimeoutMs)}`);
   for (const seed of seeds) {
     const existing = groups.find(group => group.ids.has(seed.report_id));
     if (existing) {
       existing.signals.push(seed);
       continue;
     }
-    const ids = new Set(await clusterReportIds(seed.report_id));
+    // A savepoint lets a statement timeout cost only this seed, not the snapshot transaction.
+    await db.query('SAVEPOINT expansion');
+    let preview: ClusterPreview | null;
+    try {
+      preview = await clusterPreview(seed.report_id, db);
+      await db.query('RELEASE SAVEPOINT expansion');
+    } catch (error) {
+      await db.query('ROLLBACK TO SAVEPOINT expansion');
+      if ((error as Error).message === 'report_not_found') preview = null;
+      else if ((error as { code?: string }).code === '57014') {
+        warnings.push(`Warning: the cluster of ${seed.report_id} timed out while expanding and is not listed`);
+        preview = null;
+      } else throw error;
+    }
+    if (!preview) continue;
+    const ids = new Set(preview.members.map(member => member.id));
     const matches = groups.filter(group => [...ids].some(id => group.ids.has(id)));
-    const group = matches[0] ?? { ids: new Set<string>(), signals: [] };
+    const group = matches[0] ?? { ids: new Set<string>(), signals: [], truncated: false, cap: preview.cap };
     for (const id of ids) group.ids.add(id);
+    group.truncated ||= preview.truncated;
     group.signals.push(seed);
     if (!matches.length) groups.push(group);
     for (const other of matches.slice(1)) {
       for (const id of other.ids) group.ids.add(id);
       group.signals.push(...other.signals);
+      group.truncated ||= other.truncated;
       groups.splice(groups.indexOf(other), 1);
     }
   }
-  const lines = [`Integrity digest ${day}`, `${groups.length} clusters`];
-  for (const [index, group] of groups.entries()) {
+  if (expansionTimeoutMs) await db.query('RESET statement_timeout');
+  const lines = [`Integrity digest ${day}`, `${groups.length} clusters${groups.length > DIGEST_MAX_CLUSTERS ? `, the first ${DIGEST_MAX_CLUSTERS} listed` : ''}`, ...warnings];
+  for (const [index, group] of groups.slice(0, DIGEST_MAX_CLUSTERS).entries()) {
     const ids = [...group.ids].sort();
-    const { rows: places } = await pool.query(`SELECT DISTINCT j.name FROM report r
+    const { rows: places } = await db.query(`SELECT DISTINCT j.name FROM report r
       JOIN current_geodata c ON true
       JOIN recipient_jurisdiction j ON j.snapshot_id = c.snapshot_id AND j.kind = 'gmina'
         AND ST_Covers(j.geom, ST_Transform(ST_SetSRID(ST_MakePoint(r.incident_lon, r.incident_lat), 4326), 2180))
@@ -105,11 +178,30 @@ export async function digestForDay(day: string) {
       group.signals.some(signal => signal.duplicate_photo_count > 0) && 'duplicate_photo',
       group.signals.some(signal => signal.over_limit_hour !== null || signal.over_limit_day !== null) && 'over_limit'
     ].filter(Boolean).join(', ');
-    lines.push('', `Cluster ${index + 1}: ${ids.length} Reports`,
-      `Gmina: ${places.map(row => row.name).join(', ') || 'unknown'}`,
-      `Signals: ${types}`, `Report ids: ${ids.join(', ')}`);
+    const { rows: [clipped] } = await db.query(
+      'SELECT count(*)::int AS n FROM integrity_signal WHERE report_id = ANY($1::uuid[]) AND matches_clipped', [ids]);
+    const listed = ids.slice(0, DIGEST_IDS_PER_CLUSTER).join(', ');
+    lines.push('', group.truncated
+      ? `Cluster ${index + 1}: ${ids.length}+ Reports, truncated at ${group.cap}; more are linked than listed`
+      : `Cluster ${index + 1}: ${ids.length} Reports`,
+    `Gmina: ${places.map(row => row.name).join(', ') || 'unknown'}`,
+    `Signals: ${types}${clipped.n ? `; counts clipped at ${group.cap} on ${clipped.n} Reports (that many or more)` : ''}`,
+    `Report ids: ${listed}${ids.length > DIGEST_IDS_PER_CLUSTER ? ` and ${ids.length - DIGEST_IDS_PER_CLUSTER} more` : ''}`);
   }
   return lines.join('\n') + '\n';
+}
+
+// A failed daily run (database busy, SMTP down) is tried again, 3 attempts 5 minutes apart. After the last
+// one it throws, the CLI exits non-zero and integrity-digest.service fails with the reason in the journal.
+export async function retryDigest<T>(run: () => Promise<T>, { attempts = 3, delayMs = 300_000 } = {}) {
+  let last: unknown;
+  for (let attempt = 1; attempt <= attempts; attempt++) {
+    try { return await run(); } catch (error) {
+      last = error;
+      if (attempt < attempts) await new Promise(resolve => setTimeout(resolve, delayMs));
+    }
+  }
+  throw new Error(`digest_gave_up_after_${attempts}_attempts: ${(last as Error).message}`);
 }
 
 export async function mailDigest(day: string) {
@@ -121,8 +213,8 @@ export async function mailDigest(day: string) {
   if (![465, 587].includes(port)) throw new Error('invalid_smtp_port');
   const transport = nodemailer.createTransport({ host: SMTP_HOST, port, secure: port === 465,
     requireTLS: true, auth: { user: SMTP_USER, pass: SMTP_PASSWORD } });
-  await transport.sendMail({ from: DIGEST_FROM, to: DIGEST_TO,
-    subject: `Integrity digest ${day}`, text: await digestForDay(day) });
+  await retryDigest(async () => transport.sendMail({ from: DIGEST_FROM, to: DIGEST_TO,
+    subject: `Integrity digest ${day}`, text: await digestForDay(day) }));
 }
 
 export async function requeueFindings(reason: string, since?: string) {

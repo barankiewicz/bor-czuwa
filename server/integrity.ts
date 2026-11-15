@@ -11,7 +11,7 @@ export async function queueIntegrityRefresh(db: Pool | PoolClient, reportId: str
 export async function queueIntegrityNeighbors(db: Pool | PoolClient, reportId: string) {
   // A pending row is locked by ON CONFLICT until this transaction commits.
   await db.query(`INSERT INTO integrity_refresh (report_id, requested_at)
-    SELECT report_id, now() FROM integrity_matches($1) WHERE report_id <> $1
+    SELECT report_id, now() FROM integrity_affected($1) WHERE report_id <> $1
     ON CONFLICT (report_id) DO UPDATE SET requested_at = now(), available_at = now(),
       attempts = 0, failed_reason = NULL, error_class = NULL, failure_step = NULL,
       generation = integrity_refresh.generation + 1, lease_until = NULL
@@ -19,19 +19,24 @@ export async function queueIntegrityNeighbors(db: Pool | PoolClient, reportId: s
 }
 
 export async function computeIntegritySignals(db: Pool | PoolClient, reportId: string) {
-  await db.query(`WITH counts AS (
+  // One match beyond the cap is fetched only to learn that the list was clipped.
+  await db.query(`WITH fetched AS MATERIALIZED (SELECT * FROM integrity_matches_limited($1, integrity_cap() + 1)),
+      kept AS (SELECT * FROM fetched ORDER BY gap, report_id LIMIT integrity_cap()),
+      counts AS (
       SELECT $1::uuid AS report_id,
-        count(*) FILTER (WHERE matched.duplicate_point)::int AS duplicate_point_count,
-        count(*) FILTER (WHERE matched.burst)::int AS burst_count,
-        count(*) FILTER (WHERE matched.duplicate_photo)::int AS duplicate_photo_count
-      FROM integrity_matches($1) matched
+        count(*) FILTER (WHERE duplicate_point)::int AS duplicate_point_count,
+        count(*) FILTER (WHERE burst)::int AS burst_count,
+        count(*) FILTER (WHERE duplicate_photo)::int AS duplicate_photo_count,
+        (SELECT count(*) FROM fetched) > integrity_cap() AS matches_clipped
+      FROM kept
     )
-    INSERT INTO integrity_signal (report_id, duplicate_point_count, burst_count, duplicate_photo_count)
-    SELECT report_id, duplicate_point_count, burst_count, duplicate_photo_count FROM counts ORDER BY report_id
+    INSERT INTO integrity_signal (report_id, duplicate_point_count, burst_count, duplicate_photo_count, matches_clipped)
+    SELECT report_id, duplicate_point_count, burst_count, duplicate_photo_count, matches_clipped FROM counts ORDER BY report_id
     ON CONFLICT (report_id) DO UPDATE SET
       duplicate_point_count = EXCLUDED.duplicate_point_count,
       burst_count = EXCLUDED.burst_count,
-      duplicate_photo_count = EXCLUDED.duplicate_photo_count`, [reportId]);
+      duplicate_photo_count = EXCLUDED.duplicate_photo_count,
+      matches_clipped = EXCLUDED.matches_clipped`, [reportId]);
 }
 
 export async function backfillNextIntegritySignal(db: Pool) {

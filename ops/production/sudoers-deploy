@@ -1,0 +1,8 @@
+# The operator account's only root commands, for deploy.sh and rollback. Install it with
+#   sudo install -m 0440 -o root -g root ops/production/sudoers-deploy /etc/sudoers.d/bor-czuwa-deploy
+# after replacing OPERATOR, and check it with `sudo visudo -cf /etc/sudoers.d/bor-czuwa-deploy`.
+# Each script is the installed, root-owned control copy and validates its own arguments; nothing
+# from an upload runs as root. Everything else the operator does with sudo asks for a password.
+OPERATOR ALL=(root) NOPASSWD: /usr/bin/bash /usr/local/lib/bor-czuwa-release/receive.sh *, \
+  /usr/bin/bash /usr/local/lib/bor-czuwa-release/activate.sh *, \
+  /usr/bin/bash /usr/local/lib/bor-czuwa-release/rollback.sh *

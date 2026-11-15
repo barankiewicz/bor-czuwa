@@ -10,7 +10,7 @@ const files = ['001-baseline.sql', '002-runtime-grants.sql', '003-worker-snapsho
   '010-worker-failure-diagnostics.sql', '011-minute-receive-times.sql',
   '012-excluded-withdrawal-count.sql', '013-area-findings-shape.sql',
   '014-coarse-times-findings-lock.sql', '015-five-km-estimates.sql',
-  '016-withdrawal-binds-token.sql'] as const;
+  '016-withdrawal-binds-token.sql', '017-bounded-integrity-graph.sql'] as const;
 const lockId = 26092703;
 
 function validateRuntimeRole(role: string) {

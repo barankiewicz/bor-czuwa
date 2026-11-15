@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import { test } from 'node:test';
-import { draftReminderSlots, planDraftReminders, syncDraftReminders, type NotificationsPort } from '../src/lib/draft-reminders.ts';
+import { notificationId, reconcileFollowUps, draftReminderSlots, planDraftReminders, syncDraftReminders, type NotificationsPort } from '../src/lib/draft-reminders.ts';
 
 const iso = (dates: Date[]) => dates.map(date => date.toISOString());
 
@@ -76,7 +76,7 @@ const text = (draftIds: string[]) => draftIds.length === 1
   ? { title: `Dokończ ${draftIds[0]}`, body: 'Dalej: Kiedy to się stało?' }
   : { title: `Szkice do dokończenia: ${draftIds.length}`, body: 'Wybierz w Moich zapisach.' };
 const sync = (port: NotificationsPort, drafts: ReturnType<typeof draft>[], now: string, enabled = true) =>
-  syncDraftReminders(port, drafts, { now: new Date(now), enabled, exact: true, text });
+  syncDraftReminders(port, drafts, { now: new Date(now), enabled, exact: true, text, guard: 'g1' });
 const pending = (plugin: ReturnType<typeof fakePlugin>) => [...plugin.stored.values()]
   .map(item => [item.schedule.at, item.title, item.extra.draftIds]).sort();
 
@@ -140,9 +140,9 @@ test('turning reminders off cancels every pending one and turning them on restor
 test('granting exact alarms upgrades pending reminders without moving their Warsaw slots', async () => {
   const plugin = fakePlugin();
   const drafts = [draft('a', '2026-10-03T07:00:00.000Z')];
-  await syncDraftReminders(plugin.port, drafts, { now: new Date('2026-10-03T18:00:00.000Z'), enabled: true, exact: false, text });
+  await syncDraftReminders(plugin.port, drafts, { now: new Date('2026-10-03T18:00:00.000Z'), enabled: true, exact: false, text, guard: 'g1' });
   assert.ok((await plugin.port.getPending()).notifications.every(item => item.isExactNotification === false));
-  await syncDraftReminders(plugin.port, drafts, { now: new Date('2026-10-04T08:05:00.000Z'), enabled: true, exact: true, text });
+  await syncDraftReminders(plugin.port, drafts, { now: new Date('2026-10-04T08:05:00.000Z'), enabled: true, exact: true, text, guard: 'g1' });
   assert.deepEqual((await plugin.port.getPending()).notifications.map(item => [item.schedule!.at, item.isExactNotification]), [
     ['2026-10-04T08:00:00.000Z', false], ['2026-10-06T08:00:00.000Z', true]
   ]);
@@ -157,4 +157,79 @@ test('a per-Draft reminder from an earlier version is replaced', async () => {
     ['2026-10-04T08:00:00.000Z', 'Dokończ a', ['a']],
     ['2026-10-06T08:00:00.000Z', 'Dokończ a', ['a']]
   ]);
+});
+
+test('a reminder carries this install\'s guard and an id that the date alone does not give away', async () => {
+  const one = fakePlugin();
+  const two = fakePlugin();
+  const drafts = [draft('a', '2026-10-03T07:00:00.000Z')];
+  await sync(one.port, drafts, '2026-10-03T18:00:00.000Z');
+  await syncDraftReminders(two.port, drafts, { now: new Date('2026-10-03T18:00:00.000Z'), enabled: true, exact: true, text, guard: 'g2' });
+  assert.ok([...one.stored.values()].every(item => item.extra.guard === 'g1'));
+  assert.ok([...two.stored.values()].every(item => item.extra.guard === 'g2'));
+  const ids = (plugin: typeof one) => [...plugin.stored.keys()].sort();
+  assert.notDeepEqual(ids(one), ids(two));
+  // What an outside app can compute from the Warsaw day, with no guard, is not one of the ids.
+  assert.ok(![...one.stored.keys()].includes(notificationId('draft-reminder:2026-10-04', '')));
+});
+
+test('a pending reminder made without the guard is replaced, not kept', async () => {
+  const plugin = fakePlugin([{ id: notificationId('draft-reminder:2026-10-04', ''), title: 'Dokończ a', body: 'Dalej: Kiedy to się stało?',
+    schedule: { at: '2026-10-04T08:00:00.000Z' }, isExactNotification: true,
+    extra: { draftReminderDay: '2026-10-04', draftIds: ['a'] } }]);
+  await sync(plugin.port, [draft('a', '2026-10-03T07:00:00.000Z')], '2026-10-03T18:00:00.000Z');
+  assert.ok([...plugin.stored.values()].every(item => item.extra.guard === 'g1'));
+  assert.equal(plugin.stored.size, 2);
+});
+
+test('syncing again with the same guard keeps the pending reminders as they are', async () => {
+  const plugin = fakePlugin();
+  const drafts = [draft('a', '2026-10-03T07:00:00.000Z')];
+  await sync(plugin.port, drafts, '2026-10-03T18:00:00.000Z');
+  plugin.scheduled.length = 0;
+  await sync(plugin.port, drafts, '2026-10-03T18:05:00.000Z');
+  assert.deepEqual(plugin.scheduled, []);
+});
+
+test('without the app shell guard nothing is scheduled, cancelled or thrown', async () => {
+  const plugin = fakePlugin([{ id: 7, title: 'Dokończ a', body: 'x', schedule: { at: '2026-10-04T08:00:00.000Z' },
+    extra: { draftReminderDay: '2026-10-04', draftIds: ['a'], guard: 'g1' } }]);
+  const result = await syncDraftReminders(plugin.port, [draft('a', '2026-10-03T07:00:00.000Z')],
+    { now: new Date('2026-10-03T18:00:00.000Z'), enabled: true, exact: true, text, guard: undefined });
+  assert.deepEqual(result, []);
+  assert.deepEqual(plugin.scheduled, []);
+  assert.ok(plugin.stored.has(7));
+});
+
+function fakeFollowUps(initial: { id: number; title: string; at: string; extra: Record<string, unknown> }[]) {
+  const stored = new Map(initial.map(item => [item.id, { ...item, schedule: { at: item.at } }]));
+  const port = {
+    async getPending() { return { notifications: [...stored.values()] }; },
+    async schedule({ notifications }: { notifications: { id: number; title: string; schedule: { at: Date }; extra: Record<string, unknown> }[] }) {
+      for (const item of notifications) stored.set(item.id, { id: item.id, title: item.title, at: item.schedule.at.toISOString(),
+        schedule: { at: item.schedule.at.toISOString() }, extra: item.extra });
+      return {};
+    },
+    async cancel({ notifications }: { notifications: { id: number }[] }) { for (const { id } of notifications) stored.delete(id); },
+    async getDeliveredNotifications() { return { notifications: [] }; },
+    async removeDeliveredNotificationsById() {}
+  } as unknown as Parameters<typeof reconcileFollowUps>[0];
+  return { port, stored };
+}
+
+test('a follow-up check made without the guard is replaced, one with it is kept', async () => {
+  const at = new Date('2026-12-20T09:00:00.000Z');
+  const options = { guard: 'g1', now: new Date('2026-11-15T00:00:00.000Z'), title: 'Bór czuwa' };
+  const oldId = notificationId('follow-up:n1', '');
+  const plugin = fakeFollowUps([{ id: oldId, title: 'Bór czuwa', at: at.toISOString(), extra: { followUpNoticeId: 'n1' } }]);
+  await reconcileFollowUps(plugin.port, [['n1', at]], options);
+  assert.equal(plugin.stored.has(oldId), false);
+  const kept = [...plugin.stored.values()];
+  assert.equal(kept.length, 1);
+  assert.equal(kept[0].extra.guard, 'g1');
+  assert.equal(kept[0].id, notificationId('follow-up:n1', 'g1'));
+  // Syncing again changes nothing.
+  const before = JSON.stringify([...plugin.stored.values()]);
+  await reconcileFollowUps(plugin.port, [['n1', at]], options);
+  assert.equal(JSON.stringify([...plugin.stored.values()]), before);
 });

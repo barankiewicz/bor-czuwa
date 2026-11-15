@@ -1,4 +1,4 @@
-import { project, tileSize, type Point } from './map-tiles';
+import { project, tileSize, type Point } from './map-tiles.js';
 
 /** Contour lines under the direction target, made on the phone from Terrarium elevation tiles (Mapzen's
  * terrain tiles on AWS open data; over Poland the heights are Copernicus EU-DEM). Zoom 12 is about 23 m a

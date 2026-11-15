@@ -3,7 +3,7 @@ import { Capacitor, registerPlugin } from '@capacitor/core';
 import { signedNoticeCheckInAt, type LocalDraft, type LocalReport } from './local-store';
 import type { LocalPhoto } from './photos';
 import { beamSpread, deviceHeading, lowAccuracySpread, nativeSpread, rotationFromEuler, type HeadingSample, type NativeReading } from './compass';
-import { draftReminderActionType, notificationId, reminderExtra, syncDraftReminders, type NotificationsPort } from './draft-reminders';
+import { draftReminderActionType, reconcileFollowUps, reminderExtra, syncDraftReminders, type FollowUpPort, type NotificationsPort } from './draft-reminders';
 import { handoffNotice, handoffRecipient } from './demo-handoff.js';
 
 export const isAndroidApp = typeof window !== 'undefined' && Capacitor.isNativePlatform();
@@ -13,6 +13,11 @@ const reminderTitle = 'Bór czuwa';
 // The plugin is a proxy that answers every property, `then` included, so it must never be the
 // value an async function resolves with; the module around it is safe to await.
 const localNotifications = () => import('@capacitor/local-notifications');
+
+/** This install's secret from the app shell: reminders carry it, and the shell ignores a tap that lacks it. */
+let reminderGuardValue: Promise<string> | undefined;
+const reminderGuard = () => reminderGuardValue ??= registerPlugin<{ nonce(): Promise<{ nonce: string }> }>('ReminderGuard')
+  .nonce().then(result => result.nonce, error => { reminderGuardValue = undefined; throw error; });
 
 export type ReminderIssue = 'exact' | 'notifications';
 
@@ -24,13 +29,14 @@ export async function syncReminders(drafts: LocalDraft[], enabled: boolean,
   text: (draftIds: string[]) => { title: string; body: string }, actions: { finish: string; stop: string }): Promise<ReminderIssue | undefined> {
   if (!isAndroidApp) return undefined;
   const { LocalNotifications } = await localNotifications();
+  const guard = await reminderGuard().catch(() => undefined);
   const permission = (await LocalNotifications.checkPermissions()).display;
   const allowed = permission === 'granted';
   if (allowed) await LocalNotifications.registerActionTypes({ types: [{ id: draftReminderActionType,
     actions: [{ id: 'finish', title: actions.finish }, { id: 'stop', title: actions.stop }] }] });
   const exact = allowed && (await LocalNotifications.checkExactNotificationSetting()).exact_alarm === 'granted';
   const plan = await syncDraftReminders(LocalNotifications as unknown as NotificationsPort, drafts,
-    { now: new Date(), enabled: enabled && allowed, exact, text });
+    { now: new Date(), enabled: enabled && allowed, exact, text, guard });
   if (!enabled || !drafts.some(draft => !draft.remindersOff)) return undefined;
   if (permission === 'denied') return 'notifications';
   return plan.length && allowed && !exact ? 'exact' : undefined;
@@ -70,35 +76,14 @@ export async function watchDraftReminderActions(onAction: (action: 'finish' | 's
 export async function reconcileSignedNoticeCheckIns(reports: LocalReport[]) {
   if (!isAndroidApp) return true;
   const { LocalNotifications } = await localNotifications();
-  const pending = await LocalNotifications.getPending();
-  const current = new Map((checkInEnabled ? reports : []).flatMap(report => (report.notices ?? []).flatMap(notice => {
-    const at = signedNoticeCheckInAt(notice);
-    return at ? [[notice.id, at] as const] : [];
-  })));
-  const obsolete = pending.notifications.filter(item => typeof item.extra?.followUpNoticeId === 'string' &&
-    !current.has(item.extra.followUpNoticeId));
-  if (obsolete.length) await LocalNotifications.cancel({ notifications: obsolete.map(item => ({ id: item.id })) });
-  const delivered = await LocalNotifications.getDeliveredNotifications();
-  const dismissed = delivered.notifications.filter(item => typeof item.extra?.followUpNoticeId === 'string' &&
-    !current.has(item.extra.followUpNoticeId));
-  if (dismissed.length) await LocalNotifications.removeDeliveredNotificationsById({ ids: dismissed.map(item => item.id) });
-  const scheduled = new Map(pending.notifications.map(item => [item.extra?.followUpNoticeId, item] as const));
-  let scheduledExactly = true;
-  for (const [id, at] of current) {
-    // "No reply yet" moves the check-in, so a reminder pending for the old time is scheduled again over its id.
-    const existing = scheduled.get(id);
-    const pendingAt = existing?.schedule?.at ? new Date(existing.schedule.at).getTime() : NaN;
-    // An unreadable pending time keeps the reminder rather than rescheduling it on every start.
-    if ((existing?.title === reminderTitle && (Number.isNaN(pendingAt) || Math.abs(pendingAt - at.getTime()) < 60_000)) || at.getTime() <= Date.now()) continue;
-    const result = await LocalNotifications.schedule({ notifications: [{
-      id: notificationId(`follow-up:${id}`), title: reminderTitle,
-      body: 'Sprawdź, czy urząd odpowiedział na Twoje powiadomienie.',
-      channelId: 'follow-up-checks', schedule: { at }, isExactNotification: false,
-      extra: { followUpNoticeId: id }
-    }] });
-    if (result.warning) scheduledExactly = false;
-  }
-  return scheduledExactly;
+  // Without the guard no reminder could be trusted when tapped, so none is scheduled.
+  const guard = await reminderGuard().catch(() => undefined);
+  if (!guard) return true;
+  return reconcileFollowUps(LocalNotifications as unknown as FollowUpPort, (checkInEnabled ? reports : []).flatMap(report =>
+    (report.notices ?? []).flatMap(notice => {
+      const at = signedNoticeCheckInAt(notice);
+      return at ? [[notice.id, at] as const] : [];
+    })), { guard, now: new Date(), title: reminderTitle });
 }
 
 export async function watchAppState(onBackground: () => void, onForeground: () => void) {

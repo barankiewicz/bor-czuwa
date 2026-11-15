@@ -295,7 +295,7 @@ test.describe('on a phone', () => {
 
     // Turned off in Menu, it stays off for later Reports and nothing more is fetched.
     await mapSwitch(page, false);
-    await expect(page.getByText('Mapa pod tarczą kierunku wyłączona.')).toBeAttached();
+    await expect(page.getByRole('status').filter({ hasText: 'Mapa pod tarczą kierunku wyłączona.' })).toBeAttached();
     const before = tiles.length;
     await page.goto('/');
     await startEvent(page, 'Strzał');
