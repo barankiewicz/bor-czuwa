@@ -1,0 +1,45 @@
+[Unit]
+Description=Refresh geodata snapshot
+After=network-online.target postgresql.service
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+User=bor-czuwa-maint
+NoNewPrivileges=true
+WorkingDirectory=/opt/bor-czuwa/current
+EnvironmentFile=/etc/bor-czuwa/maintenance.env
+Environment=GEODATA_REFRESH_LOG=/var/lib/bor-czuwa/geodata-tmp/refresh.log
+Environment=GEODATA_EXTRACT_DIR=/var/lib/bor-czuwa/geodata-extracts
+Environment=TMPDIR=/var/lib/bor-czuwa/geodata-tmp
+StateDirectory=bor-czuwa/geodata-tmp
+ExecStart=/usr/bin/flock /var/lib/bor-czuwa/geodata-tmp/refresh.lock /usr/bin/env DATABASE_URL=${MIGRATION_DATABASE_URL} /opt/bor-czuwa/current/.venv/bin/python scripts/ingest.py
+UMask=0077
+LimitCORE=0
+# Sandbox: no capabilities, no device or kernel access, no namespaces, no privileged or resource syscalls.
+CapabilityBoundingSet=
+AmbientCapabilities=
+PrivateDevices=true
+ProtectKernelTunables=true
+ProtectKernelModules=true
+ProtectKernelLogs=true
+ProtectControlGroups=true
+ProtectClock=true
+ProtectHostname=true
+ProtectProc=invisible
+ProcSubset=pid
+RestrictNamespaces=true
+RestrictRealtime=true
+RestrictSUIDSGID=true
+LockPersonality=true
+RemoveIPC=true
+SystemCallArchitectures=native
+SystemCallFilter=@system-service
+SystemCallFilter=~@privileged @resources
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/var/lib/bor-czuwa/geodata-extracts
+RestrictAddressFamilies=AF_INET AF_INET6 AF_UNIX
+StandardOutput=null
+StandardError=null

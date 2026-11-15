@@ -1,0 +1,44 @@
+[Unit]
+Description=Check liveness, database, worker age and scheduled jobs
+After=bor-czuwa-api.service
+
+[Service]
+Type=oneshot
+User=bor-czuwa-maint
+NoNewPrivileges=true
+WorkingDirectory=/opt/bor-czuwa/current
+EnvironmentFile=/etc/bor-czuwa/monitor.env
+ExecStart=/usr/bin/python3 ops/production/monitor.py
+UMask=0077
+LimitCORE=0
+# Sandbox: no capabilities, no device or kernel access, no namespaces, no privileged or resource syscalls.
+CapabilityBoundingSet=
+AmbientCapabilities=
+PrivateDevices=true
+ProtectKernelTunables=true
+ProtectKernelModules=true
+ProtectKernelLogs=true
+ProtectControlGroups=true
+ProtectClock=true
+ProtectHostname=true
+ProtectProc=invisible
+ProcSubset=pid
+RestrictNamespaces=true
+RestrictRealtime=true
+RestrictSUIDSGID=true
+LockPersonality=true
+RemoveIPC=true
+SystemCallArchitectures=native
+SystemCallFilter=@system-service
+SystemCallFilter=~@privileged @resources
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+# The state file lives here; monitor.py reads the path from STATE_DIRECTORY, so the demo copy of this unit
+# (deployment.py rewrites the name) writes under its own directory.
+StateDirectory=bor-czuwa/monitor
+StateDirectoryMode=0700
+RestrictAddressFamilies=AF_INET AF_INET6 AF_UNIX
+MemoryDenyWriteExecute=true
+StandardOutput=null
+StandardError=null

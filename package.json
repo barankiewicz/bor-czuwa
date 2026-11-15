@@ -1,0 +1,68 @@
+{
+  "name": "bor-czuwa",
+  "version": "0.1.3",
+  "private": true,
+  "license": "GPL-3.0-or-later",
+  "type": "module",
+  "workspaces": ["landing"],
+  "scripts": {
+    "dev": "vite --host 127.0.0.1",
+    "build": "vite build && node scripts/write-security-headers.mjs && node scripts/check-release.mjs",
+    "build:staging": "MODE=staging vite build --mode staging && node scripts/write-security-headers.mjs",
+    "build:android": "bash scripts/build-android.sh",
+    "build:release": "bash scripts/build-release.sh",
+    "finalize:android:test": "node scripts/finalize-private-android.mjs",
+    "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json && tsc -p tsconfig.server.json && npm run check -w landing",
+    "build:landing": "npm run build -w landing",
+    "test:landing": "vite build && npm run build:landing && tsx --test landing/tests/*.test.ts",
+    "start": "tsx server/main.ts",
+    "migrate": "tsx server/migrate.ts",
+    "ingest": "python scripts/ingest.py",
+    "load-rule-sets": "tsx server/load-rule-sets.ts",
+    "operator": "tsx server/operator-cli.ts",
+    "test:api": "tsx --test --test-concurrency=1 tests/*.test.ts",
+    "test:browser": "playwright test",
+    "test:isolated": "node scripts/test-isolated.mjs",
+    "test:check-in": "node scripts/test-isolated.mjs --check-in-gate",
+    "test:workloads": "node scripts/generate-workloads.mjs",
+    "test": "npm run test:api && npm run test:browser",
+    "stack": "systemctl --user start podman.socket && podman compose up --build -d --wait",
+    "test:ops": "python3 -m unittest -v tests.test_production_ops tests.test_nginx_indexing tests.test_extract_artifact tests.test_geodata_fetch"
+  },
+  "dependencies": {
+    "@capacitor/android": "^8.5.2",
+    "@capacitor/app": "^8.1.1",
+    "@capacitor/core": "^8.5.2",
+    "@capacitor/local-notifications": "^8.3.1",
+    "@pdf-lib/fontkit": "^1.1.1",
+    "altcha-lib": "^2.5.0",
+    "idb": "^8.0.3",
+    "marked": "^16.4.2",
+    "nodemailer": "^10.0.10",
+    "pdf-lib": "^1.17.1",
+    "pg": "^8.16.3",
+    "zod": "^4.1.5"
+  },
+  "devDependencies": {
+    "@capacitor/cli": "^8.5.2",
+    "@playwright/test": "^1.55.0",
+    "@sveltejs/adapter-static": "^3.0.9",
+    "@sveltejs/kit": "^2.37.0",
+    "@sveltejs/vite-plugin-svelte": "^6.2.0",
+    "@types/node": "^24.3.0",
+    "@types/nodemailer": "^8.0.2",
+    "@types/pg": "^8.15.5",
+    "svelte": "^5.38.0",
+    "svelte-check": "^4.3.1",
+    "tsx": "^4.20.5",
+    "typescript": "^5.9.2",
+    "vite": "^7.1.3"
+  },
+  "engines": {
+    "node": ">=22.12"
+  },
+  "overrides": {
+    "cookie": "^0.7.2",
+    "uuid": "^11.1.1"
+  }
+}

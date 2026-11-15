@@ -1,0 +1,73 @@
+apply plugin: 'com.android.application'
+
+def releaseVersion = new groovy.json.JsonSlurper().parse(file('../../package.json')).version
+if (!(releaseVersion ==~ /\d+\.\d+\.\d+/)) throw new GradleException('Release version must be major.minor.patch')
+def versionParts = releaseVersion.tokenize('.').collect { it.toInteger() }
+if (versionParts[0] > 209999 || versionParts[1] > 99 || versionParts[2] > 99) {
+    throw new GradleException('Release version exceeds versionCode ranges')
+}
+def releaseVersionCode = versionParts[0] * 10000 + versionParts[1] * 100 + versionParts[2]
+if (releaseVersionCode < 1) throw new GradleException('Release versionCode must be positive')
+
+// Match the synchronized payload, not an environment variable left over in the Gradle daemon.
+def capacitorConfigFile = file('src/main/assets/capacitor.config.json')
+def synchronizedAppId = capacitorConfigFile.exists()
+    ? new groovy.json.JsonSlurper().parse(capacitorConfigFile).appId
+    : 'pl.borczuwa.app'
+if (!(synchronizedAppId in ['pl.borczuwa.app', 'pl.borczuwa.app.demo'])) {
+    throw new GradleException('Unsupported synchronized Android application ID')
+}
+def demoBuild = synchronizedAppId == 'pl.borczuwa.app.demo'
+
+android {
+    namespace = "pl.borczuwa.app"
+    compileSdk = rootProject.ext.compileSdkVersion
+    defaultConfig {
+        applicationId(demoBuild ? "pl.borczuwa.app.demo" : "pl.borczuwa.app")
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        versionCode releaseVersionCode
+        versionName releaseVersion
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        aaptOptions {
+             // Files and dirs to omit from the packaged assets dir, modified to accommodate modern web apps.
+             // Default: https://android.googlesource.com/platform/frameworks/base/+/282e181b58cf72b6ca770dc7ca5f91f135444502/tools/aapt/AaptAssets.cpp#61
+            ignoreAssetsPattern = '!.svn:!.git:!.ds_store:!*.scc:.*:!CVS:!thumbs.db:!picasa.ini:!*~'
+        }
+    }
+    buildTypes {
+        release {
+            // Signing is performed only by the verified-candidate release script.
+            signingConfig null
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    if (demoBuild) {
+        // Build-type overlays keep APK/AAB paths stable and leave production resources untouched.
+        sourceSets {
+            debug.res.srcDir 'src/demo/res'
+            release.res.srcDir 'src/demo/res'
+        }
+    }
+}
+
+repositories {
+    flatDir{
+        dirs '../capacitor-cordova-android-plugins/src/main/libs', 'libs'
+    }
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation "androidx.appcompat:appcompat:$androidxAppCompatVersion"
+    implementation "androidx.coordinatorlayout:coordinatorlayout:$androidxCoordinatorLayoutVersion"
+    implementation "androidx.core:core-splashscreen:$coreSplashScreenVersion"
+    implementation project(':capacitor-android')
+    testImplementation "junit:junit:$junitVersion"
+    androidTestImplementation "androidx.test.ext:junit:$androidxJunitVersion"
+    androidTestImplementation "androidx.test.espresso:espresso-core:$androidxEspressoCoreVersion"
+    implementation project(':capacitor-cordova-android-plugins')
+}
+
+apply from: 'capacitor.build.gradle'

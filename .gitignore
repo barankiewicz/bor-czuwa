@@ -1,0 +1,11 @@
+.scratch/
+docs/
+CONTEXT.md
+DESIGN.md
+design.md
+node_modules/
+.svelte-kit/
+build/
+test-results/
+playwright-report/
+__pycache__/

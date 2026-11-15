@@ -1,0 +1,15 @@
+Słyszysz strzał przy domu, widzisz człowieka z bronią albo znajdujesz ranne zwierzę? Bór czuwa pozwala zapisać zdarzenie i przygotować powiadomienie do organu właściwego dla tego miejsca.
+
+Najpierw zadbaj o siebie. Nie podchodź, nie śledź nikogo i nie przeszkadzaj w polowaniu. Możesz odejść i dokończyć zapis później.
+
+Jednym dotknięciem zapisujesz szkic z czasem i dostępnym miejscem. Działa bez internetu. Później wybierasz rodzaj zdarzenia: strzał, człowiek z bronią, szczątki w lesie, ranne zwierzę albo kłusownictwo. Możesz dopisać notatkę i, przy zdarzeniach innych niż strzał, dołączyć zdjęcia.
+
+Po połączeniu z internetem serwer oblicza pomiary dotyczące miejsca i czasu. Aplikacja podaje je wraz z niepewnością i przepisami. Pomiary nie rozstrzygają o winie.
+
+Możesz przygotować osobne powiadomienia do policji, Państwowej Straży Łowieckiej, gminy, a gdy miejsce tego wymaga, także do parku narodowego lub RDOŚ. Samodzielnie przekazujesz powiadomienie ze swojej poczty albo zapisujesz PDF. Możesz wybrać powiadomienie podpisane lub bez podpisu. Adresat zobaczy adres poczty, z której wyślesz wiadomość. Wysłanie nie jest wymagane, żeby zgłoszenie zostało policzone.
+
+Aplikacja nie wymaga konta. Notatki, zdjęcia i dane podpisu zostają na telefonie; trafiają do adresata dopiero, gdy samodzielnie je przekażesz. Zgłoszenie na serwerze zawiera miejsce i czas, rodzaj zdarzenia oraz dane potrzebne do pomiarów. Przy zgłoszeniu z domu dokładna pozycja domu zostaje na telefonie. Możesz wycofać zgłoszenie w aplikacji.
+
+Bór czuwa działa po polsku i po angielsku. Powiadomienia zawsze powstają po polsku. Kod aplikacji jest otwarty.
+
+To nie jest kanał alarmowy. Zapisanie zgłoszenia nie sprowadza pomocy. W nagłym zagrożeniu dzwoń pod 112. Aplikacja nie jest usługą urzędową i nie reprezentuje policji ani innych organów.

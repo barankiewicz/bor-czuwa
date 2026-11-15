@@ -1,0 +1,16 @@
+{
+  "id": "moniecki-2026-09-25-osm-v1",
+  "powiat_teryt": "2008",
+  "source_url": "https://opendata.geoportal.gov.pl/bdot10k/schemat2021/GeoParquet/OT_BUBD_A.parquet",
+  "retrieved_at": "2026-09-24T16:00:00Z",
+  "source_sha256": "e33771b0bd0499aa4aba46bf4cc5cdc3c519b57ecffe4dce1fb0b529909a2f79",
+  "sha256": "f51c1088332ba8a7fc2f5225a95e88e084964f32a434b27833642395dae41647",
+  "coverage_bbox_2180": [
+    742298.0668925589,
+    618265.2127666455,
+    756298.0668925589,
+    630265.2127666455
+  ],
+  "row_count": 41521,
+  "residential_count": 11946
+}

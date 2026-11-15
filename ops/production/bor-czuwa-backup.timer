@@ -1,0 +1,9 @@
+[Unit]
+Description=Report backups disabled by owner decision on 2026-10-03
+
+[Timer]
+OnCalendar=*-*-* 02:00:00 UTC
+Persistent=true
+Unit=bor-czuwa-backup.service
+
+# No Install section: backups require a new provider and explicit operator opt-in.

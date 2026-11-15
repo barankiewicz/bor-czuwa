@@ -1,0 +1,17 @@
+{
+  "source_url": "https://mapserver.bdl.lasy.gov.pl/ArcGIS/rest/services/WMS_Obwody_lowieckie/MapServer/6",
+  "source_name": "Bank Danych o Lasach",
+  "disclaimer": "Dane o obwodach łowieckich mają charakter poglądowy.",
+  "retrieved_at": "2026-09-24T18:30:41.236834+00:00",
+  "sha256": "60389e8ae5ce820c42d8e13e96a02b65113be1adf39507ca6e94f4fd8c58519a",
+  "feature_count": 8,
+  "source_years": [
+    2025
+  ],
+  "coverage_bbox_2180": [
+    742298.0668925589,
+    618265.2127666455,
+    756298.0668925589,
+    630265.2127666455
+  ]
+}

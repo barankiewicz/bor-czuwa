@@ -1,0 +1,10 @@
+[Unit]
+Description=Monthly geodata snapshot refresh
+
+[Timer]
+OnCalendar=*-*-01 03:00:00 Europe/Warsaw
+Persistent=true
+Unit=geodata-refresh.service
+
+[Install]
+WantedBy=timers.target

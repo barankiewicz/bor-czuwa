@@ -1,0 +1,8 @@
+{
+"type": "FeatureCollection",
+"name": "reserve",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:EPSG::2180" } },
+"features": [
+{ "type": "Feature", "properties": { "kodinspire": "fixture.reserve", "nazwa": "Testowy rezerwat" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 747000.0, 620000.0 ], [ 748000.0, 620000.0 ], [ 748000.0, 621000.0 ], [ 747000.0, 621000.0 ], [ 747000.0, 620000.0 ] ] ] } }
+]
+}

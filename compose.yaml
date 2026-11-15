@@ -1,0 +1,79 @@
+name: bor-czuwa
+services:
+  db:
+    image: docker.io/postgis/postgis:17-3.5
+    environment:
+      POSTGRES_USER: skeleton
+      POSTGRES_PASSWORD: skeleton-local-only
+      POSTGRES_DB: skeleton
+    command: [postgres, -c, log_statement=none, -c, log_min_error_statement=panic, -c, log_min_messages=panic]
+    ports: ["127.0.0.1:${TEST_DB_PORT:-54329}:5432"]
+    volumes: ["database:/var/lib/postgresql/data"]
+    healthcheck:
+      test: [CMD-SHELL, "pg_isready -h 127.0.0.1 -U skeleton -d skeleton"]
+      interval: 2s
+      timeout: 3s
+      retries: 30
+  fixture:
+    build:
+      context: .
+      dockerfile: containers/ingest.Containerfile
+    environment:
+      DATABASE_URL: postgres://skeleton:skeleton-local-only@db:5432/skeleton
+      GEODATA_EXTRACT_DIR: /var/lib/bor-czuwa/geodata-extracts
+    volumes: ["extracts:/var/lib/bor-czuwa/geodata-extracts"]
+    depends_on:
+      migration: { condition: service_completed_successfully }
+  migration:
+    build:
+      context: .
+      dockerfile: containers/app.Containerfile
+      target: app
+    command: ["npm", "run", "migrate"]
+    environment:
+      MIGRATION_DATABASE_URL: postgres://skeleton:skeleton-local-only@db:5432/skeleton
+      RUNTIME_DB_PASSWORD: runtime-local-only
+    depends_on:
+      db: { condition: service_healthy }
+  app:
+    build:
+      context: .
+      dockerfile: containers/app.Containerfile
+      target: app
+    environment:
+      DATABASE_URL: postgres://app_runtime:runtime-local-only@db:5432/skeleton
+      HOST: 0.0.0.0
+      TRUSTED_PROXY_IP: ${TEST_PROXY_IP:-10.89.10.3}
+    depends_on:
+      fixture: { condition: service_completed_successfully }
+    ports: ["127.0.0.1:${TEST_API_PORT:-3001}:3001"]
+    restart: unless-stopped
+    stop_grace_period: 3m
+    healthcheck:
+      test: [CMD, node, -e, "fetch('http://localhost:3001/api/ready').then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))"]
+      interval: 2s
+      timeout: 3s
+      retries: 30
+  web:
+    networks:
+      default:
+        ipv4_address: ${TEST_PROXY_IP:-10.89.10.3}
+    build:
+      context: .
+      dockerfile: containers/app.Containerfile
+      target: web
+      args:
+        VITE_CHECK_IN_ENABLED: ${VITE_CHECK_IN_ENABLED:-}
+    depends_on:
+      app: { condition: service_healthy }
+    volumes: ["extracts:/var/lib/bor-czuwa/geodata-extracts:ro"]
+    ports: ["127.0.0.1:${TEST_WEB_PORT:-3000}:8080"]
+volumes:
+  database:
+  extracts:
+
+networks:
+  default:
+    ipam:
+      config:
+        - subnet: ${TEST_SUBNET:-10.89.10}.0/24

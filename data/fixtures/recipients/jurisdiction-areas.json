@@ -1,0 +1,15 @@
+{
+  "insideOneGmina": {
+    "bounds": [22.5787, 53.3013, 22.6287, 53.3363],
+    "gminaIds": ["2008072"]
+  },
+  "crossingTwoGminy": {
+    "bounds": [22.902, 53.401, 22.952, 53.436],
+    "gminaIds": ["2008032", "2008063"]
+  },
+  "policeAndProtection": {
+    "bounds": [22.6505, 53.3754, 22.7005, 53.4104],
+    "policeId": "c753fb0c-78e2-419d-ad48-d7bf3b5218ac",
+    "nationalParkId": "PL.ZIPOP.1393.PN.22"
+  }
+}

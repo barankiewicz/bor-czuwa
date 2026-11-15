@@ -1,0 +1,252 @@
+{
+  "id": "pl-2026-09-24-v2",
+  "effective_from": "2026-01-02",
+  "published_at": "2026-09-24T20:30:00Z",
+  "dwelling_threshold_m": 150,
+  "dwelling_measure_from": "footprint_edge",
+  "distance_measured_from": "reported_point",
+  "residential_kst": "110",
+  "noc": {
+    "starts_after_sunset_minutes": 60,
+    "ends_before_sunrise_minutes": 60,
+    "species": [
+      "dzik",
+      "lis",
+      "borsuk",
+      "kuna-domowa",
+      "norka-amerykanska",
+      "ges-gegawa",
+      "ges-zbozowa",
+      "ges-bialoczelna",
+      "krzyzowka",
+      "cyraneczka"
+    ]
+  },
+  "species": {
+    "los": {
+      "label": "Łoś",
+      "closed_seasons": [
+        {
+          "from": "01-01",
+          "to": "12-31"
+        }
+      ]
+    },
+    "jelen-szlachetny": {
+      "label": "Jeleń szlachetny",
+      "closed_seasons": null
+    },
+    "daniel": {
+      "label": "Daniel",
+      "closed_seasons": null
+    },
+    "sarna": {
+      "label": "Sarna",
+      "closed_seasons": null,
+      "common_closed_window": "sarna",
+      "other_dates_need_details": true
+    },
+    "dzik": {
+      "label": "Dzik",
+      "closed_seasons": []
+    },
+    "muflon": {
+      "label": "Muflon",
+      "closed_seasons": null
+    },
+    "lis": {
+      "label": "Lis",
+      "closed_seasons": [
+        {
+          "from": "04-01",
+          "to": "05-31"
+        }
+      ],
+      "local_exception": true
+    },
+    "borsuk": {
+      "label": "Borsuk",
+      "closed_seasons": [
+        {
+          "from": "12-01",
+          "to": "08-31"
+        }
+      ],
+      "local_exception": true
+    },
+    "kuna-lesna": {
+      "label": "Kuna leśna",
+      "closed_seasons": [
+        {
+          "from": "04-01",
+          "to": "08-31"
+        }
+      ],
+      "local_exception": true
+    },
+    "kuna-domowa": {
+      "label": "Kuna domowa",
+      "closed_seasons": [
+        {
+          "from": "04-01",
+          "to": "08-31"
+        }
+      ],
+      "local_exception": true
+    },
+    "norka-amerykanska": {
+      "label": "Norka amerykańska",
+      "closed_seasons": []
+    },
+    "tchorz": {
+      "label": "Tchórz zwyczajny",
+      "closed_seasons": [
+        {
+          "from": "04-01",
+          "to": "08-31"
+        }
+      ],
+      "local_exception": true
+    },
+    "zajac-szarak": {
+      "label": "Zając szarak",
+      "closed_seasons": null
+    },
+    "dziki-krolik": {
+      "label": "Dziki królik",
+      "closed_seasons": null
+    },
+    "bazant": {
+      "label": "Bażant",
+      "closed_seasons": null
+    },
+    "kuropatwa": {
+      "label": "Kuropatwa",
+      "closed_seasons": null
+    },
+    "ges-gegawa": {
+      "label": "Gęś gęgawa",
+      "closed_seasons": null
+    },
+    "ges-zbozowa": {
+      "label": "Gęś zbożowa",
+      "closed_seasons": null
+    },
+    "ges-bialoczelna": {
+      "label": "Gęś białoczelna",
+      "closed_seasons": null
+    },
+    "krzyzowka": {
+      "label": "Krzyżówka",
+      "closed_seasons": [
+        {
+          "from": "01-01",
+          "to": "08-31"
+        }
+      ]
+    },
+    "cyraneczka": {
+      "label": "Cyraneczka",
+      "closed_seasons": [
+        {
+          "from": "01-01",
+          "to": "08-31"
+        }
+      ]
+    },
+    "golab-grzywacz": {
+      "label": "Gołąb grzywacz",
+      "closed_seasons": [
+        {
+          "from": "12-01",
+          "to": "08-14"
+        }
+      ]
+    },
+    "szakal-zlocisty": {
+      "label": "Szakal złocisty",
+      "closed_seasons": [
+        {
+          "from": "03-01",
+          "to": "07-31"
+        }
+      ],
+      "local_exception": true
+    },
+    "pizmak": {
+      "label": "Piżmak",
+      "closed_seasons": [],
+      "delisted_on": "2022-04-01",
+      "delisting_citation": "§ 1 pkt 1 lit. b rozporządzenia Ministra Klimatu i Środowiska z 25 marca 2022 r. (Dz.U. 2022 poz. 696)"
+    },
+    "jarzabek": {
+      "label": "Jarząbek",
+      "closed_seasons": [],
+      "delisted_on": "2026-01-02"
+    },
+    "glowienka": {
+      "label": "Głowienka",
+      "closed_seasons": [],
+      "delisted_on": "2026-01-02"
+    },
+    "czernica": {
+      "label": "Czernica",
+      "closed_seasons": [],
+      "delisted_on": "2026-01-02"
+    },
+    "slonka": {
+      "label": "Słonka",
+      "closed_seasons": [],
+      "delisted_on": "2026-01-02"
+    },
+    "lyska": {
+      "label": "Łyska",
+      "closed_seasons": [],
+      "delisted_on": "2026-01-02"
+    },
+    "jelen-sika": {
+      "label": "Jeleń sika",
+      "closed_seasons": null,
+      "delisted_on": "2022-04-01",
+      "delisting_citation": "§ 1 pkt 1 rozporządzenia Ministra Klimatu i Środowiska z 25 marca 2022 r. (Dz.U. 2022 poz. 696)"
+    },
+    "jenot": {
+      "label": "Jenot",
+      "closed_seasons": [
+        {
+          "from": "04-01",
+          "to": "05-31"
+        }
+      ],
+      "local_exception": true,
+      "delisted_on": "2022-04-01",
+      "delisting_citation": "§ 1 pkt 1 rozporządzenia Ministra Klimatu i Środowiska z 25 marca 2022 r. (Dz.U. 2022 poz. 696)"
+    },
+    "szop-pracz": {
+      "label": "Szop pracz",
+      "closed_seasons": [
+        {
+          "from": "04-01",
+          "to": "05-31"
+        }
+      ],
+      "local_exception": true,
+      "delisted_on": "2022-04-01",
+      "delisting_citation": "§ 1 pkt 1 rozporządzenia Ministra Klimatu i Środowiska z 25 marca 2022 r. (Dz.U. 2022 poz. 696)"
+    }
+  },
+  "citations": {
+    "noc": "§ 2 pkt 11 i § 7 ust. 1 rozporządzenia Ministra Środowiska z 23 marca 2005 r. (Dz.U. 2022 poz. 2323)",
+    "okres_ochronny": "§ 1 rozporządzenia Ministra Środowiska z 16 marca 2005 r. (Dz.U. 2023 poz. 99)",
+    "delisting": "§ 1 rozporządzenia Ministra Klimatu i Środowiska z 22 września 2025 r. (Dz.U. 2025 poz. 1286)",
+    "dwelling": "art. 42aa pkt 13 i art. 51 ust. 1 pkt 1 Prawa łowieckiego (Dz.U. 2018 poz. 651)",
+    "game_list": "§ 1 rozporządzenia Ministra Środowiska z 11 marca 2005 r. (Dz.U. 2023 poz. 2454; Dz.U. 2025 poz. 1286)"
+  },
+  "sources": [
+    "Dz.U. 2018 poz. 651",
+    "Dz.U. 2023 poz. 2454",
+    "Dz.U. 2025 poz. 1286",
+    "Dz.U. 2023 poz. 99",
+    "Dz.U. 2022 poz. 2323"
+  ]
+}

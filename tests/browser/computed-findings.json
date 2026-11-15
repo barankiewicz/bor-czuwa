@@ -1,0 +1,152 @@
+{
+  "status": "computed",
+  "rule_set_id": "pl-2026-09-24-v2-protected-v1",
+  "geodata_snapshot_id": "moniecki-2026-09-25-osm-v1",
+  "snapshot_date": "2026-09-24T16:00:00.000Z",
+  "datasets": [
+    {
+      "name": "BDOT10k BUBD",
+      "sha256": "f51c1088332ba8a7fc2f5225a95e88e084964f32a434b27833642395dae41647",
+      "source_url": "https://opendata.geoportal.gov.pl/bdot10k/schemat2021/GeoParquet/OT_BUBD_A.parquet",
+      "retrieved_at": "2026-09-24T16:00:00Z"
+    },
+    {
+      "name": "Bank Danych o Lasach",
+      "sha256": "60389e8ae5ce820c42d8e13e96a02b65113be1adf39507ca6e94f4fd8c58519a",
+      "disclaimer": "Dane o obwodach łowieckich mają charakter poglądowy.",
+      "source_url": "https://mapserver.bdl.lasy.gov.pl/ArcGIS/rest/services/WMS_Obwody_lowieckie/MapServer/6",
+      "retrieved_at": "2026-09-24T18:30:41.236834+00:00",
+      "source_years": [
+        2025
+      ]
+    },
+    {
+      "name": "GDOS:ParkiNarodowe",
+      "sha256": "8a099608f30f8d4a4fb8fff64880aac7d12d15155d40c29c084a4949a37ed799",
+      "source_url": "https://sdi.gdos.gov.pl/wfs?service=WFS&version=2.0.0&request=GetFeature&typeName=GDOS:ParkiNarodowe&outputFormat=application/json&srsName=EPSG:2180",
+      "retrieved_at": "2026-09-24T16:00:00Z"
+    },
+    {
+      "name": "GDOS:Rezerwaty",
+      "sha256": "13c51a243a932c6c80dfa152f9fa2a7227df4a803f9925327f5daad94d005fe1",
+      "source_url": "https://sdi.gdos.gov.pl/wfs?service=WFS&version=2.0.0&request=GetFeature&typeName=GDOS:Rezerwaty&outputFormat=application/json&srsName=EPSG:2180",
+      "retrieved_at": "2026-09-24T16:00:00Z"
+    },
+    {
+      "name": "GDOS:ParkiKrajobrazowe",
+      "sha256": "791e4f653d16b2f6c49dbf4c2ca9bf86cadd749df7b9c1287342bcd720e1ae2c",
+      "source_url": "https://sdi.gdos.gov.pl/wfs?service=WFS&version=2.0.0&request=GetFeature&typeName=GDOS:ParkiKrajobrazowe&outputFormat=application/json&srsName=EPSG:2180",
+      "retrieved_at": "2026-09-24T16:00:00Z"
+    },
+    {
+      "name": "GDOS:ObszarySpecjalnejOchrony",
+      "sha256": "11f0d902eb5c9abb40f434bb73435332ee8737dcfa7ed6f7bd22cca4e0a1ffbf",
+      "source_url": "https://sdi.gdos.gov.pl/wfs?service=WFS&version=2.0.0&request=GetFeature&typeName=GDOS:ObszarySpecjalnejOchrony&outputFormat=application/json&srsName=EPSG:2180",
+      "retrieved_at": "2026-09-24T16:00:00Z"
+    },
+    {
+      "name": "GDOS:SpecjalneObszaryOchrony",
+      "sha256": "907e6cfecb0b0dd27eb42556a03cfe9de99f3bd179b89630393fe3b34f436ca4",
+      "source_url": "https://sdi.gdos.gov.pl/wfs?service=WFS&version=2.0.0&request=GetFeature&typeName=GDOS:SpecjalneObszaryOchrony&outputFormat=application/json&srsName=EPSG:2180",
+      "retrieved_at": "2026-09-24T16:00:00Z"
+    },
+    {
+      "name": "CRFOP",
+      "sha256": "2aac9aa479778beae11cbae86fcf139137f45f138fe8a9a5d32d796dd866aba3",
+      "source_url": "https://api.dane.gov.pl/media/resources/20260204/rezerwaty_przyrody_-_stan_na_04.02.2026.xls",
+      "retrieved_at": "2026-09-24T16:00:00Z",
+      "publisher_date": "2026-02-04"
+    },
+    {
+      "name": "PRG",
+      "sha256": "bb923776d07a700b71dbfe888763872bbe4ca55a03e2c02ba5a86d7162be8398",
+      "source_url": "https://api.dane.gov.pl/media/resources/20260730/00_jednostki_administracyjne_gml_e0e52ce7.zip",
+      "retrieved_at": "2026-09-24T16:00:00Z",
+      "source_files": [
+        {
+          "sha256": "897d6a73b821101056b6914e17be44d6c15474c063f76964c07c340cbc364fda",
+          "source_url": "https://api.dane.gov.pl/media/resources/20260730/00_jednostki_administracyjne_gml_e0e52ce7.zip"
+        },
+        {
+          "sha256": "9d841ab0fa9e8a42e618e2e51f2874acc34cd3b189f50c0346b0f930237c4b3d",
+          "source_url": "https://api.dane.gov.pl/media/resources/20260730/00_jednostki_administracyjne_gml_e0e52ce7.zip"
+        },
+        {
+          "sha256": "0adc383d9ecc149914d8dd6583a63ffa1c000921a66b5a04df72bf94127014da",
+          "source_url": "https://api.dane.gov.pl/media/resources/20260730/00_jednostki_administracyjne_gml_e0e52ce7.zip"
+        },
+        {
+          "sha256": "49bbe2f0526b228847b967e612d3e5211b687090791f5288a4f22bb6e2a225b7",
+          "source_url": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip"
+        },
+        {
+          "sha256": "7ca0bcac3f8bd21af2a72a7fbec5b3f7ca771017c0b9eb9a0d093a4be4e5fc51",
+          "source_url": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip"
+        }
+      ],
+      "publisher_date": "2026-07-30"
+    },
+    {
+      "name": "OpenStreetMap hunting stands",
+      "sha256": "149d3e25f600eb9fad5b5aa655bc64ae65d141f96b89f08af10692d12a3d125f",
+      "source_url": "https://www.openstreetmap.org/copyright",
+      "retrieved_at": "2026-09-25T00:00:00Z",
+      "source_files": null,
+      "publisher_date": "2026-09-25"
+    }
+  ],
+  "dwelling_distance": {
+    "status": "measured",
+    "value_m": 140.0000000004262,
+    "search_radius_m": 1000
+  },
+  "obwod_lowiecki": {
+    "name": "Obwód łowiecki",
+    "number": "112",
+    "status": "inside",
+    "disclaimer": "Dane o obwodach łowieckich mają charakter poglądowy.",
+    "source_url": "https://mapserver.bdl.lasy.gov.pl/ArcGIS/rest/services/WMS_Obwody_lowieckie/MapServer/6",
+    "source_name": "Bank Danych o Lasach",
+    "source_year": 2025,
+    "retrieved_at": "2026-09-24T18:30:41.236834+00:00"
+  },
+  "accuracy_m": 8,
+  "area_bounds": null,
+  "noc": {
+    "status": "computed",
+    "sunset": "2026-09-29T18:12:02+02:00",
+    "sunrise": "2026-09-29T06:26:30+02:00",
+    "at_night": false,
+    "citation": "§ 2 pkt 11 i § 7 ust. 1 rozporządzenia Ministra Środowiska z 23 marca 2005 r. (Dz.U. 2022 poz. 2323)",
+    "species_huntable_at_night": null
+  },
+  "okres_ochronny": {
+    "status": "not_applicable_species_unset",
+    "citation": "§ 1 rozporządzenia Ministra Środowiska z 16 marca 2005 r. (Dz.U. 2023 poz. 99)"
+  },
+  "protected_areas": {
+    "rules": {
+      "citation": "Art. 15 ust. 1 pkt 4 ustawy o ochronie przyrody (Dz.U. 2004 Nr 92 poz. 880, ze zm.).",
+      "treatment": {
+        "otulina": "context",
+        "rezerwat": "ban_without_documents",
+        "park_narodowy": "ban",
+        "natura_2000_oso": "context",
+        "natura_2000_soo": "context",
+        "park_krajobrazowy": "context"
+      }
+    },
+    "status": "computed",
+    "otulina": [],
+    "rezerwat": [],
+    "park_narodowy": [],
+    "natura_2000_oso": [],
+    "natura_2000_soo": [],
+    "park_krajobrazowy": []
+  },
+  "nearest_ambona": {
+    "osm_id": "node/10000000001",
+    "status": "mapped",
+    "distance_m": 299.3014636878005
+  }
+}

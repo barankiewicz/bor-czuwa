@@ -1,0 +1,291 @@
+{
+  "units": [
+    {
+      "kind": "rdos",
+      "id": "02",
+      "name": "Regionalna Dyrekcja Ochrony Środowiska we Wrocławiu",
+      "email": "sekretariat@wroclaw.rdos.gov.pl",
+      "sourceUrl": "https://www.gov.pl/web/rdos-wroclaw/kontakt",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "psl",
+      "id": "02",
+      "name": "Państwowa Straż Łowiecka - dolnośląskie",
+      "email": "psl@duw.pl",
+      "sourceUrl": "https://www.gov.pl/web/dolnoslaski-uw/psl",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "rdos",
+      "id": "04",
+      "name": "Regionalna Dyrekcja Ochrony Środowiska w Bydgoszczy",
+      "email": "kancelaria@bydgoszcz.rdos.gov.pl",
+      "sourceUrl": "https://www.gov.pl/web/rdos-bydgoszcz/dane-teleadresowe",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "psl",
+      "id": "04",
+      "name": "Państwowa Straż Łowiecka - kujawsko-pomorskie",
+      "email": "strazlowiecka@bydgoszcz.uw.gov.pl",
+      "sourceUrl": "https://bip.bydgoszcz.uw.gov.pl/290/panstwowa-straz-lowiecka.html",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "rdos",
+      "id": "06",
+      "name": "Regionalna Dyrekcja Ochrony Środowiska w Lublinie",
+      "email": "sekretariat@lublin.rdos.gov.pl",
+      "sourceUrl": "https://www.gov.pl/web/rdos-lublin/dane-teleadresowe",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "psl",
+      "id": "06",
+      "name": "Państwowa Straż Łowiecka - lubelskie",
+      "email": "rwojcik@lublin.uw.gov.pl",
+      "sourceUrl": "https://www.gov.pl/web/uw-lubelski/panstwowa-straz-lowiecka",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "rdos",
+      "id": "08",
+      "name": "Regionalna Dyrekcja Ochrony Środowiska w Gorzowie Wielkopolskim",
+      "email": "sekretariat@gorzowwlkp.rdos.gov.pl",
+      "sourceUrl": "https://www.gov.pl/web/rdos-gorzow-wielkopolski/kontakt",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "psl",
+      "id": "08",
+      "name": "Państwowa Straż Łowiecka - lubuskie",
+      "email": null,
+      "sourceUrl": "https://www.gov.pl/web/uw-lubuski",
+      "checkedAt": "2026-09-26",
+      "missingReason": "No PSŁ intake email published on the checked urząd wojewódzki pages. Confirm the address with the urząd wojewódzki before adding it.",
+      "checkedSources": [
+        "https://www.gov.pl/web/uw-lubuski",
+        "https://www.gov.pl/web/uw-lubuski/kontakt"
+      ]
+    },
+    {
+      "kind": "rdos",
+      "id": "10",
+      "name": "Regionalna Dyrekcja Ochrony Środowiska w Łodzi",
+      "email": "sekretariat@lodz.rdos.gov.pl",
+      "sourceUrl": "https://www.gov.pl/web/rdos-lodz/kontakt",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "psl",
+      "id": "10",
+      "name": "Państwowa Straż Łowiecka - łódzkie",
+      "email": "krystian.gruchala@lodz.uw.gov.pl",
+      "sourceUrl": "https://www.gov.pl/web/uw-lodzki/panstwowa-straz-lowiecka",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "rdos",
+      "id": "12",
+      "name": "Regionalna Dyrekcja Ochrony Środowiska w Krakowie",
+      "email": "sekretariat@krakow.rdos.gov.pl",
+      "sourceUrl": "https://www.gov.pl/web/rdos-krakow/kontakt",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "psl",
+      "id": "12",
+      "name": "Państwowa Straż Łowiecka - małopolskie",
+      "email": null,
+      "sourceUrl": "https://www.malopolska.uw.gov.pl/",
+      "checkedAt": "2026-09-26",
+      "missingReason": "No PSŁ intake email published on the checked urząd wojewódzki pages. Confirm the address with the urząd wojewódzki before adding it.",
+      "checkedSources": [
+        "https://www.malopolska.uw.gov.pl/",
+        "http://bip.malopolska.pl/muw"
+      ]
+    },
+    {
+      "kind": "rdos",
+      "id": "14",
+      "name": "Regionalna Dyrekcja Ochrony Środowiska w Warszawie",
+      "email": "kancelaria@warszawa.rdos.gov.pl",
+      "sourceUrl": "https://www.gov.pl/web/rdos-warszawa/kontakt",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "psl",
+      "id": "14",
+      "name": "Państwowa Straż Łowiecka - mazowieckie",
+      "email": "PSL@mazowieckie.pl",
+      "sourceUrl": "https://www.gov.pl/web/uw-mazowiecki/panstwowa-straz-owiecka",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "rdos",
+      "id": "16",
+      "name": "Regionalna Dyrekcja Ochrony Środowiska w Opolu",
+      "email": "sekretariat@opole.rdos.gov.pl",
+      "sourceUrl": "https://www.gov.pl/web/rdos-opole/kontakt",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "psl",
+      "id": "16",
+      "name": "Państwowa Straż Łowiecka - opolskie",
+      "email": null,
+      "sourceUrl": "https://www.gov.pl/web/uw-opolski/panstwowa-straz-lowiecka2",
+      "checkedAt": "2026-09-26",
+      "missingReason": "The PSŁ page lists a postal address and phone, but no PSŁ intake email. Confirm the address with the urząd wojewódzki before adding it.",
+      "checkedSources": [
+        "https://www.gov.pl/web/uw-opolski/panstwowa-straz-lowiecka2",
+        "https://www.gov.pl/web/uw-opolski/kontakt-z-urzedem"
+      ]
+    },
+    {
+      "kind": "rdos",
+      "id": "18",
+      "name": "Regionalna Dyrekcja Ochrony Środowiska w Rzeszowie",
+      "email": "sekretariat@rzeszow.rdos.gov.pl",
+      "sourceUrl": "https://www.gov.pl/web/rdos-rzeszow/kontakt",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "psl",
+      "id": "18",
+      "name": "Państwowa Straż Łowiecka - podkarpackie",
+      "email": null,
+      "sourceUrl": "https://rzeszow.uw.gov.pl/",
+      "checkedAt": "2026-09-26",
+      "missingReason": "The urząd wojewódzki lists its general kancelaria address, but does not identify it as PSŁ intake. Confirm the PSŁ address with the urząd before adding it.",
+      "checkedSources": [
+        "https://rzeszow.uw.gov.pl/",
+        "https://rzeszow.uw.gov.pl/kontakt"
+      ]
+    },
+    {
+      "kind": "rdos",
+      "id": "20",
+      "name": "Regionalna Dyrekcja Ochrony Środowiska w Białymstoku",
+      "email": "biuro@bialystok.rdos.gov.pl",
+      "sourceUrl": "https://www.gov.pl/web/rdos-bialystok/kontakt",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "psl",
+      "id": "20",
+      "name": "Państwowa Straż Łowiecka - podlaskie",
+      "email": "sekretariatWR@bialystok.uw.gov.pl",
+      "sourceUrl": "https://puw.bip.gov.pl/psl/panstwowa-straz-lowiecka.html",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "rdos",
+      "id": "22",
+      "name": "Regionalna Dyrekcja Ochrony Środowiska w Gdańsku",
+      "email": "sekretariat@gdansk.rdos.gov.pl",
+      "sourceUrl": "https://www.gov.pl/web/rdos-gdansk/kontakt",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "psl",
+      "id": "22",
+      "name": "Państwowa Straż Łowiecka - pomorskie",
+      "email": "psł@gdansk.uw.gov.pl",
+      "sourceUrl": "https://uwgdansk.bip.gov.pl/psl/200214_panstwowa-straz-lowiecka.html",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "rdos",
+      "id": "24",
+      "name": "Regionalna Dyrekcja Ochrony Środowiska w Katowicach",
+      "email": "sekretariat@katowice.rdos.gov.pl",
+      "sourceUrl": "https://www.gov.pl/web/rdos-katowice/kontakt",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "psl",
+      "id": "24",
+      "name": "Państwowa Straż Łowiecka - śląskie",
+      "email": "straz.lowiecka@katowice.uw.gov.pl",
+      "sourceUrl": "https://www.katowice.uw.gov.pl/wydzial/panstwowa-straz-lowiecka",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "rdos",
+      "id": "26",
+      "name": "Regionalna Dyrekcja Ochrony Środowiska w Kielcach",
+      "email": "sekretariat@kielce.rdos.gov.pl",
+      "sourceUrl": "https://www.gov.pl/web/rdos-kielce/kontakty",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "psl",
+      "id": "26",
+      "name": "Państwowa Straż Łowiecka - świętokrzyskie",
+      "email": null,
+      "sourceUrl": "https://www.gov.pl/web/uw-swietokrzyski/panstwowa-straz-lowiecka",
+      "checkedAt": "2026-09-26",
+      "missingReason": "The PSŁ page lists a postal address and phone, but no PSŁ intake email. Confirm the address with the urząd wojewódzki before adding it.",
+      "checkedSources": [
+        "https://www.gov.pl/web/uw-swietokrzyski/panstwowa-straz-lowiecka",
+        "https://bip.kielce.uw.gov.pl/"
+      ]
+    },
+    {
+      "kind": "rdos",
+      "id": "28",
+      "name": "Regionalna Dyrekcja Ochrony Środowiska w Olsztynie",
+      "email": "sekretariat@olsztyn.rdos.gov.pl",
+      "sourceUrl": "https://www.gov.pl/web/rdos-olsztyn/kontakt2",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "psl",
+      "id": "28",
+      "name": "Państwowa Straż Łowiecka - warmińsko-mazurskie",
+      "email": null,
+      "sourceUrl": "https://www.gov.pl/web/uw-warminsko-mazurski",
+      "checkedAt": "2026-09-26",
+      "missingReason": "No PSŁ intake email published on the checked urząd wojewódzki pages. Confirm the address with the urząd wojewódzki before adding it.",
+      "checkedSources": [
+        "https://www.gov.pl/web/uw-warminsko-mazurski",
+        "https://www.gov.pl/web/uw-warminsko-mazurski/kontakt-z-urzedem"
+      ]
+    },
+    {
+      "kind": "rdos",
+      "id": "30",
+      "name": "Regionalna Dyrekcja Ochrony Środowiska w Poznaniu",
+      "email": "sekretariat.poznan@poznan.rdos.gov.pl",
+      "sourceUrl": "https://www.gov.pl/web/rdos-poznan/dane-kontaktowe",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "psl",
+      "id": "30",
+      "name": "Państwowa Straż Łowiecka - wielkopolskie",
+      "email": "sl@poznan.uw.gov.pl",
+      "sourceUrl": "https://strazlowiecka.poznan.uw.gov.pl/kontakt",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "rdos",
+      "id": "32",
+      "name": "Regionalna Dyrekcja Ochrony Środowiska w Szczecinie",
+      "email": "sekretariat@szczecin.rdos.gov.pl",
+      "sourceUrl": "https://www.gov.pl/web/rdos-szczecin/kontakt",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "psl",
+      "id": "32",
+      "name": "Państwowa Straż Łowiecka - zachodniopomorskie",
+      "email": "sl@szczecin.uw.gov.pl",
+      "sourceUrl": "https://www.gov.pl/web/uw-zachodniopomorski/panstwowa-straz-lowiecka",
+      "checkedAt": "2026-09-24"
+    }
+  ],
+  "assembledAt": "2026-09-26"
+}

@@ -1,0 +1,41 @@
+[Unit]
+Description=Mail daily integrity digest
+After=network-online.target postgresql.service
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+User=bor-czuwa-maint
+NoNewPrivileges=true
+WorkingDirectory=/opt/bor-czuwa/current
+EnvironmentFile=/etc/bor-czuwa/digest.env
+ExecStart=/usr/bin/npm run operator -- digest
+UMask=0077
+LimitCORE=0
+# Sandbox: no capabilities, no device or kernel access, no namespaces, no privileged or resource syscalls.
+CapabilityBoundingSet=
+AmbientCapabilities=
+PrivateDevices=true
+ProtectKernelTunables=true
+ProtectKernelModules=true
+ProtectKernelLogs=true
+ProtectControlGroups=true
+ProtectClock=true
+ProtectHostname=true
+ProtectProc=invisible
+ProcSubset=pid
+RestrictNamespaces=true
+RestrictRealtime=true
+RestrictSUIDSGID=true
+LockPersonality=true
+RemoveIPC=true
+SystemCallArchitectures=native
+SystemCallFilter=@system-service
+SystemCallFilter=~@privileged @resources
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+# No MemoryDenyWriteExecute: npm and tsx run on V8.
+RestrictAddressFamilies=AF_INET AF_INET6 AF_UNIX
+StandardOutput=null
+StandardError=null

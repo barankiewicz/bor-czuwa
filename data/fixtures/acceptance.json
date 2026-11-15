@@ -1,0 +1,52 @@
+{
+  "edge": {
+    "point": {
+      "lat": 53.403481363130055,
+      "lon": 22.658699342051676
+    },
+    "point_2180": [
+      743120.7993946081,
+      621615.8872593822
+    ],
+    "expected_m": 140.0000000004262,
+    "nearest_centroid_m": 145.8961426703283,
+    "nearest_nonresidential_m": 136.18207832391062,
+    "method": "GDAL 3.6.2, released 2023/01/02; OSR EPSG:4326 to EPSG:2180, OGR Geometry.Distance to every KODKST=110 footprint; minimum"
+  },
+  "barn": {
+    "point": {
+      "lat": 53.43234941218307,
+      "lon": 22.800530036389215
+    },
+    "point_2180": [
+      752370.3746880498,
+      625317.47
+    ],
+    "expected_m": 270.8721873747305,
+    "nearest_centroid_m": 275.10253868235804,
+    "nearest_nonresidential_m": 0.0,
+    "method": "GDAL 3.6.2, released 2023/01/02; OSR EPSG:4326 to EPSG:2180, OGR Geometry.Distance to every KODKST=110 footprint; minimum"
+  },
+  "obwod_outside": {
+    "point": {
+      "lat": 53.46785103191367,
+      "lon": 22.657112045378252
+    },
+    "expected_status": "outside",
+    "method": "GDAL 3.6.2, OSR EPSG:2180 to EPSG:4326; point outside all eight BDL fixture polygons"
+  },
+  "empty": {
+    "point": {
+      "lat": 53.453738402222136,
+      "lon": 22.650772186331594
+    },
+    "point_2180": [
+      742308.0,
+      627175.0
+    ],
+    "expected_m": 2186.7759261533756,
+    "nearest_centroid_m": 2195.1923525425327,
+    "nearest_nonresidential_m": 1373.4727407915552,
+    "method": "GDAL 3.6.2, released 2023/01/02; OSR EPSG:4326 to EPSG:2180, OGR Geometry.Distance to every KODKST=110 footprint; minimum"
+  }
+}

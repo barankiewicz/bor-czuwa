@@ -1,0 +1,56 @@
+# Container build inputs. Docker reads this file, and so does Podman when there is no
+# .containerignore. Keep it the only policy: no .containerignore, no containers/*.dockerignore. Everything is denied unless admitted here;
+# a new build input needs a line below. Check with scripts/check-private-context.mjs.
+**
+!package.json
+!package-lock.json
+!svelte.config.js
+!vite.config.ts
+!tsconfig.json
+!tsconfig.server.json
+!src
+!src/**
+!server
+!server/**
+!static
+!static/**
+!data
+!data/**
+!scripts
+!scripts/**
+!containers
+!containers/**
+!brand
+!brand/symbol
+!brand/symbol/symbol-white.svg
+
+# Private and generated files can also turn up inside an admitted directory.
+**/.*
+**/.git
+**/.scratch
+**/.aws
+**/.ssh
+**/.npmrc
+**/.env
+**/.env.*
+**/credentials
+**/credentials.*
+**/secrets
+**/secrets.*
+**/.envrc
+**/node_modules
+**/build
+**/.svelte-kit
+**/.pytest_cache
+**/test-results
+**/playwright-report
+**/coverage
+**/__pycache__
+**/*.pem
+**/*.key
+**/*.jks
+**/*.keystore
+**/*.p12
+**/*.pfx
+**/*.har
+**/*.log

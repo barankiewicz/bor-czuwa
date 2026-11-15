@@ -1,0 +1,15 @@
+Heard a shot near home, seen a person with a gun, or found a wounded animal? Bór czuwa lets you record a hunting incident in Poland and prepare a notice to the authority responsible for that place.
+
+Put your safety first. Do not approach, follow anyone or interfere with a hunt. You can leave and finish the record later.
+
+One tap saves a draft with the time and available location, without internet. Later, choose what happened: a shot, a person with a gun, remains in the forest, a wounded animal or poaching. You can add a note and, for events other than shots, photos.
+
+Once you have a connection, the server calculates measurements for the place and time. The app shows their uncertainty and the relevant rules. Measurements do not decide guilt.
+
+You can prepare separate notices for the police, Państwowa Straż Łowiecka, the gmina and, where applicable, a national park or RDOŚ. Send the notice from your own email or save a PDF. Choose whether to sign it. The recipient sees the email address you send from. Your report is counted even if you send no notice.
+
+No account is required. Notes, photos and signature details stay on your phone until you choose to send them to a recipient. The server report contains the place, time, event type and information needed for measurements. For a report made from home, the exact home location stays on your phone. You can withdraw a report in the app.
+
+The interface supports Polish and English. Notices are always written in Polish. The app's source code is open.
+
+This is not an emergency service. Recording a report does not bring help. Call 112 in an emergency. The app is independent and does not represent the police or any other authority.

@@ -1,0 +1,67 @@
+# lh.pl is Apache managed hosting with no shell and no vhost of our own, so this file is the only
+# place the landing can ask for a response header. It is a request, not a guarantee: mod_headers
+# can be off on a shared account, and nothing here counts until it has been read off the live
+# response with `curl -sSI https://<landing host>/`.
+#
+# So the site does not depend on it. The Content-Security-Policy and the Referrer-Policy both ship
+# inside every page as meta elements (svelte.config.js and src/app.html), which any host that
+# serves the file at all will carry. What is here is the part a meta element cannot express, plus
+# a header copy of the referrer policy.
+#
+# Do not repeat the page's whole policy as a header. It allows the page's inline script by hash,
+# the hash differs from page to page, and every policy that arrives has to allow a resource for it
+# to load, so one site-wide header could not name them.
+#
+# The IfModule guard is not decoration. A Header directive with mod_headers missing is a
+# configuration error, and Apache answers a configuration error in .htaccess with 500 on every
+# request: the whole site down, to add a header. It covers a missing module only. If the account's
+# AllowOverride forbids these directives, the result is still 500, which the first live curl shows.
+<IfModule mod_headers.c>
+  # frame-ancestors is ignored in a meta element, so this header is the only way the site can
+  # refuse to be framed.
+  Header always set Content-Security-Policy "frame-ancestors 'none'"
+  Header always set Referrer-Policy "no-referrer"
+  # HTTPS for a year, on this host only. No includeSubDomains and no preload: the site sits under
+  # the owner's personal domain, whose other subdomains this file must never commit to HTTPS.
+  Header always set Strict-Transport-Security "max-age=31536000"
+  Header always set X-Content-Type-Options "nosniff"
+  # Every feature the landing does not use is switched off, so nothing it loads can ask for one.
+  Header always set Permissions-Policy "accelerometer=(), autoplay=(), camera=(), display-capture=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), midi=(), payment=(), publickey-credentials-get=(), usb=(), xr-spatial-tracking=()"
+  Header always set Cross-Origin-Opener-Policy "same-origin"
+
+  # Caching. Pages and every unhashed file revalidate within five minutes, so a redeploy shows up
+  # quickly; images and fonts that keep their name may sit a day; Kit's hashed assets
+  # (name.<8 characters>.ext) never change under their name and are kept for a year.
+  Header set Cache-Control "public, max-age=300"
+  <FilesMatch "\.(png|ico|svg|woff2)$">
+    Header set Cache-Control "public, max-age=86400"
+  </FilesMatch>
+  <FilesMatch "\.[A-Za-z0-9_-]{8}\.(css|js|mjs|woff2|svg|png|webp|avif)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+</IfModule>
+
+# No directory listing. A directory with no index file answers 403 rather than a file list.
+<IfModule mod_autoindex.c>
+  Options -Indexes
+</IfModule>
+
+# Files and directories whose name starts with a dot are not served: .htaccess itself, the deploy's
+# bookkeeping, a stray .git or .env. /.well-known/ stays public (security.txt lives there).
+<IfModule mod_authz_core.c>
+  <FilesMatch "^\.">
+    Require all denied
+  </FilesMatch>
+</IfModule>
+<IfModule mod_alias.c>
+  RedirectMatch 404 "/\.(?!well-known(/|$))"
+</IfModule>
+
+# The deploy leaves its incremental-sync bookkeeping in the document root, so without this it
+# would be a public URL. It lists every file and its hash. The guard means Apache 2.4; on 2.2 the
+# block is skipped and the file stays public, so the runbook checks it answers 403.
+<IfModule mod_authz_core.c>
+  <Files ".ftp-deploy-sync-state.json">
+    Require all denied
+  </Files>
+</IfModule>

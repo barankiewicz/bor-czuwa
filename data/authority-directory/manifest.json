@@ -1,0 +1,27 @@
+{
+  "version": "2026-09-26",
+  "complete": false,
+  "coverage": {
+    "gmina": {
+      "entries": 2477,
+      "withIntakeEmail": 2477
+    },
+    "psl": {
+      "entries": 16,
+      "withIntakeEmail": 10
+    },
+    "rdos": {
+      "entries": 16,
+      "withIntakeEmail": 16
+    },
+    "police": {
+      "entries": 336,
+      "withIntakeEmail": 269
+    },
+    "nationalPark": {
+      "entries": 23,
+      "withIntakeEmail": 23
+    }
+  },
+  "assembledAt": "2026-09-26"
+}

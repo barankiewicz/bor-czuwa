@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="pl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="/brand/favicon.svg" type="image/svg+xml" />
+    <!-- What a link preview shows when the app's address is shared (ticket 14). Nothing here is
+         drawn in the app. The image has to be an absolute URL, so this names the app host; an own
+         domain later means editing these two addresses. The title is the layout's own. -->
+    <meta name="description" content="Aplikacja zapisuje miejsce i czas zdarzenia przy polowaniu i pomaga przygotować powiadomienie do policji, Państwowej Straży Łowieckiej i gminy. Bez konta." />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Bór czuwa" />
+    <meta property="og:title" content="Bór czuwa: zgłoś zdarzenie przy polowaniu" />
+    <meta property="og:description" content="Aplikacja zapisuje miejsce i czas zdarzenia przy polowaniu i pomaga przygotować powiadomienie do policji, Państwowej Straży Łowieckiej i gminy. Bez konta." />
+    <meta property="og:url" content="https://app.bor-czuwa.barankiewicz.dev/" />
+    <meta property="og:locale" content="pl_PL" />
+    <meta property="og:locale:alternate" content="en_GB" />
+    <meta property="og:image" content="https://app.bor-czuwa.barankiewicz.dev/brand/share-1200x630.png" />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Bór czuwa. Bór nie darzy. Bór czuwa." />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="theme-color" content="#f6f7f5" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#1b1a17" media="(prefers-color-scheme: dark)" />
+    <!-- Headings use both subsets for Polish; loading them with the page means the first heading never repaints. -->
+    <link rel="preload" href="/fonts/SourceSerif4-latin-wght.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/SourceSerif4-latin-ext-wght.woff2" as="font" type="font/woff2" crossorigin />
+    %sveltekit.head%
+  </head>
+  <body data-sveltekit-preload-data="hover">
+    <div style="display: contents">%sveltekit.body%</div>
+  </body>
+</html>
