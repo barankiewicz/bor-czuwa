@@ -1,0 +1,10 @@
+[Unit]
+Description=Daily integrity digest
+
+[Timer]
+OnCalendar=*-*-* 08:00:00 Europe/Warsaw
+Persistent=true
+Unit=integrity-digest.service
+
+[Install]
+WantedBy=timers.target

@@ -1,0 +1,243 @@
+/* The landing's look: direction 3 of ticket 09, signed off on 2026-11-12. The tokens and the text
+   fonts are the app's (tokens.css, imported in Shell.svelte); this file holds only the landing's
+   own rules. Dark switches on data-theme, which the page template's head script sets. */
+
+/* Archivo, the logotype's face (OFL), in the two styles the page uses. scripts/subset-archivo.sh
+   cuts them from brand/src/fonts. */
+@font-face { font-family: "Archivo"; src: url('./fonts/archivo-850-80.woff2') format('woff2'); font-weight: 850; font-stretch: 80%; font-display: swap; }
+@font-face { font-family: "Archivo"; src: url('./fonts/archivo-800-100.woff2') format('woff2'); font-weight: 800; font-stretch: 100%; font-display: swap; }
+
+/* Until a web font arrives the text is set in a local face. These fallbacks take the web fonts'
+   vertical metrics, so every baseline is already where it will be and the swap moves no line. */
+@font-face { font-family: "Atkinson fallback"; src: local("Arial"), local("Roboto"), local("Liberation Sans"), local("DejaVu Sans"), local("Helvetica"); ascent-override: 98.4%; descent-override: 31.6%; line-gap-override: 0%; }
+@font-face { font-family: "Archivo fallback"; src: local("Arial Narrow"), local("Roboto Condensed"), local("Liberation Sans Narrow"), local("Arial"), local("Roboto"), local("Liberation Sans"), local("DejaVu Sans"); ascent-override: 87.8%; descent-override: 21%; line-gap-override: 0%; }
+
+:root {
+  font-family: "Atkinson Hyperlegible Next", "Atkinson fallback", sans-serif;
+  --display: "Archivo", "Archivo fallback", sans-serif;
+  --gutter: clamp(16px, 4vw, 48px);
+}
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body { margin: 0; background: var(--paper); color: var(--ink); line-height: 1.45; }
+/* Light text on a dark ground reads denser, so dark gets more leading, as in the app. */
+:root[data-theme="dark"] body { line-height: 1.5; }
+::selection { background: var(--action); color: var(--on-action); }
+:where(a, button, [tabindex]:not([tabindex="-1"])):focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; }
+img { display: block; max-width: 100%; }
+p { margin: 0; max-width: 62ch; overflow-wrap: break-word; }
+h1, h2, h3 { margin: 0; overflow-wrap: anywhere; hyphens: auto; text-wrap: balance; }
+/* Running text is justified on every page (owner's decision, 2026-11-13; WCAG 1.4.8, a AAA
+   criterion, advises against it). Hyphenation follows each element's lang, so lines do not open
+   wide gaps. Headings, the phone picture and the supporters' names keep their own alignment. */
+main :is(p, li):not(.phone *) { text-align: justify; text-justify: inter-word; hyphens: auto; }
+main :is(h1, h2, h3), .supporters li { text-align: start; }
+.hero > *, .why > *, .how > *, .feat > *, .give > *, .steps li > *, .features li > * { min-width: 0; }
+
+/* Each kit file is drawn for its ground, so the theme swaps files rather than recolouring one. */
+.on-dark { display: none; }
+:root[data-theme="dark"] .on-dark { display: block; }
+:root[data-theme="dark"] .on-light { display: none; }
+
+.skip { position: absolute; left: 16px; top: -100px; z-index: 10; padding: 12px 16px; background: var(--ink); color: var(--paper); font-weight: 700; text-decoration: none; border-radius: 2px; }
+.skip:focus { top: 12px; }
+
+/* Links are bold words, never underlined until the pointer is on them. */
+.textlink { color: inherit; font-weight: 700; text-decoration: none; }
+.textlink:hover { text-decoration: underline; text-underline-offset: .2em; text-decoration-thickness: 2px; }
+
+.wrap { width: 100%; max-width: 1280px; margin: 0 auto; padding-inline: var(--gutter); }
+
+/* Header: the horizontal lockup at 64 px, which carries its own clear space; the page links drop to
+   a second row below 720 px; language and the theme switch close the row. */
+.site-head { display: grid; grid-template-columns: auto auto; grid-template-areas: "home end" "nav nav"; align-items: center; justify-content: space-between; gap: 0 24px; padding-block: 8px; }
+.site-head .home { grid-area: home; display: block; margin-left: -12px; }
+.site-head .home img { height: 64px; width: auto; }
+.site-nav { grid-area: nav; display: flex; flex-wrap: wrap; gap: 0 4px; margin-left: -12px; }
+.site-nav a, .site-head .lang { display: inline-flex; align-items: center; min-height: 44px; padding: 0 12px; color: inherit; font-weight: 700; text-decoration: none; }
+:is(.site-nav a, .site-head .lang):hover { text-decoration: underline; text-underline-offset: .25em; text-decoration-thickness: 2px; }
+.site-nav a[aria-current="page"] { color: var(--action); }
+.head-end { grid-area: end; display: flex; align-items: center; gap: 4px; margin-right: -12px; }
+@media (min-width: 720px) {
+  .site-head { grid-template-columns: auto 1fr auto; grid-template-areas: "home nav end"; }
+  .site-nav { justify-content: flex-end; margin-left: 0; }
+}
+.theme { display: grid; place-items: center; width: 44px; height: 44px; padding: 0; border: 0; border-radius: 2px; background: transparent; color: var(--ink); cursor: pointer; }
+.theme:hover { background: var(--fill); }
+.theme svg { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+/* Shows where it will take you: the moon in light, the sun in dark. */
+.theme[aria-pressed="true"] .moon, .theme:not([aria-pressed="true"]) .sun { display: none; }
+/* Without the head script the switch could not work, so it keeps its place but is not shown. */
+:root:not([data-theme]) .theme { visibility: hidden; }
+
+/* Hero: headline and lead on a paper box, the drawing, then the store area on a second box. */
+.hero { padding-top: clamp(24px, 5vw, 72px); overflow-x: clip; }
+.hero-copy { display: grid; justify-items: start; }
+.copy-box { display: grid; gap: 20px; justify-items: start; }
+.hl { font-family: var(--display); font-weight: 850; font-stretch: 80%; font-size: clamp(2.25rem, 1rem + 6.8vw, 7rem); line-height: var(--hl-lh, .92); letter-spacing: -.02em; word-spacing: .08em; }
+/* Each line carries the prototype's .04em of paper above and below (its highlight spans). */
+.hl span { display: block; padding-block: .04em; }
+.hl-b { color: var(--action); }
+.lead { font-size: clamp(1.15rem, 1rem + .5vw, 1.4rem); line-height: var(--lead-lh, 1.4); max-width: 36ch; }
+.hook { font-weight: 700; }
+
+/* The drawing's frame sits on the first screen; the svg draws past its box, so the upper waves rise
+   behind the headline and the lower ones run on behind the buttons. Only the page's sides clip it. */
+.illo-frame { position: relative; z-index: 0; margin-top: var(--illo-gap, 8px); height: var(--illo-h, clamp(240px, 18.5vw, 560px)); }
+.illo { display: block; width: 100%; height: 100%; overflow: visible; }
+.hero-copy, .hero-store { position: relative; z-index: 1; }
+.grain path { stroke: var(--ink); stroke-linecap: butt; }
+.grain path.fill { stroke: none; fill: var(--ink); }
+.house { fill: var(--ink); }
+.knot { fill: var(--action); }
+.measure { fill: none; stroke: var(--action); stroke-width: 4; }
+.hero-store { padding-block: var(--store-gap, clamp(28px, 4vw, 48px)) clamp(56px, 7vw, 104px); margin-top: var(--store-gap-pull, 0px); }
+/* The drawing's lowest line is painted below its frame, further the wider the window. The hero keeps
+   that much room under the frame plus a section's worth of space, so the lines end clear of the
+   section that follows (owner, 2026-11-13). The svg is a slice of its viewBox: its scale is the
+   larger of width and height over the viewBox's, and Home.svelte gives the viewBox and how far
+   under its middle the lowest line is painted (--illo-drop). */
+.hero-store { min-height: calc(max(100vw / var(--illo-vw), var(--illo-h) / var(--illo-vh)) * var(--illo-drop) - var(--illo-h) / 2 + clamp(56px, 7vw, 96px)); }
+
+/* The two paper boxes. Each is a layer behind its group and hugs it, padded on every side, so the
+   content keeps its place and only the paper grows. */
+.hero :is(.copy-box, .hero-store .store) { width: fit-content; max-width: 100%; position: relative; z-index: 0; }
+.hero :is(.copy-box, .hero-store .store)::before {
+  content: ""; position: absolute; z-index: -1; background: var(--paper);
+  inset: calc(-1 * var(--hi-pad, .64em)) calc(-1 * var(--hi-pad-x, .35em));
+}
+
+/* Store area. The web app button is the one action; Google's badge joins it only behind the flag.
+   The iPhone and 112 lines stack under the buttons. */
+.store { display: grid; gap: 16px; justify-items: start; }
+.store-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 20px; }
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 12px; min-height: 56px; padding: 12px 24px; border-radius: 2px; font-weight: 700; font-size: 1.06rem; text-decoration: none; }
+.btn-primary { background: var(--action); color: var(--on-action); }
+.btn-primary:hover { filter: brightness(.9); }
+.btn svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+/* Google's PNG, unaltered, 56 px tall (the badge inside it about 46 px), with a quarter of its
+   height clear on every side on top of the file's own transparent margin. */
+.play { display: block; padding: 12px; margin: -12px; }
+.play img { height: 56px; width: auto; }
+.store .iphone { font-weight: 600; }
+.store .help { color: var(--muted); font-size: .94rem; }
+
+.section-title { font-family: var(--display); font-weight: 800; font-stretch: 100%; font-size: clamp(1.75rem, 1.2rem + 2.2vw, 3rem); line-height: 1.05; letter-spacing: -.015em; }
+
+/* Po co czuwać: the premise, two paragraphs at the About page's intro size. No rule above
+   it either. */
+.why { display: grid; gap: 28px; padding-block: 40px 16px; }
+.why-body { display: grid; gap: 12px; max-width: 64ch; font-size: clamp(1.1rem, 1rem + .4vw, 1.3rem); }
+
+/* Jak to działa: the steps, and the app's capture screen on a phone beside them from 900 px. There
+   is no rule above it; the waves end the hero. */
+.how, .feat { display: grid; gap: 28px; padding-block: 40px clamp(56px, 7vw, 96px); border-top: 2px solid var(--ink); }
+.how { gap: 48px; border-top: 0; }
+.how-copy { display: grid; gap: 28px; align-content: start; }
+.how-phone { display: flex; justify-content: center; }
+@media (max-width: 359px) { .how-phone .phone { zoom: .9; } }
+@media (min-width: 900px) {
+  .how { grid-template-columns: minmax(0, 1fr) auto; column-gap: clamp(48px, 8vw, 140px); align-items: center; }
+}
+.steps, .features { list-style: none; margin: 0; padding: 0; }
+.steps h3, .features h3 { font-size: 1.15rem; font-weight: 700; margin-bottom: 6px; }
+.features p, .steps p { color: var(--muted); }
+.steps { display: grid; gap: 28px; }
+.steps li { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 0 20px; align-items: start; }
+.steps .num { font-family: var(--display); font-weight: 850; font-stretch: 80%; font-size: 3.5rem; line-height: .8; color: var(--action); min-width: 1.6ch; }
+.features { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr)); gap: 0 40px; }
+.features li { padding-block: 16px 24px; border-top: 1px solid var(--rule); }
+
+/* The phone: the app's capture screen at the app's own scale and type. */
+.phone { width: 300px; padding: 10px; border-radius: 40px; background: #1c1b18; box-shadow: 0 30px 60px -24px rgb(0 0 0 / .4), 0 0 0 1px rgb(255 255 255 / .1) inset; }
+.screen { height: 600px; border-radius: 30px; overflow: hidden; background: var(--paper); color: var(--ink); display: flex; flex-direction: column; font-size: 15px; line-height: 1.4; }
+.p-band { display: flex; justify-content: space-between; align-items: center; padding: 34px 14px 10px; background: var(--band); color: var(--on-band); font-weight: 700; }
+.p-brand { display: inline-flex; align-items: center; gap: 8px; font-size: 1.03em; }
+.p-brand img { width: 32px; height: 32px; }
+.p-actions { display: inline-flex; gap: 14px; align-items: center; font-size: .88em; }
+.p-actions svg { width: 22px; height: 22px; }
+.p-body { flex: 1; padding: 16px 14px; overflow: hidden; }
+.p-h1 { font-family: "Source Serif 4", Georgia, serif; font-weight: 600; font-size: 1.75em; line-height: 1.15; margin: 4px 0 14px; }
+.p-rows { display: grid; gap: 7px; }
+.p-row { display: flex; align-items: center; gap: 13px; min-height: 64px; padding: 8px 10px 8px 8px; background: var(--fill); border-radius: 2px; }
+.p-icon { flex: 0 0 46px; width: 46px; height: 46px; display: grid; place-items: center; border-radius: 2px; background: var(--action); color: var(--on-action); }
+.p-icon svg { width: 25px; height: 25px; }
+.p-copy { font-weight: 700; font-size: 1.08em; }
+.p-foot { padding: 12px 14px 22px; border-top: 1px solid var(--rule); background: var(--paper); }
+.p-primary { display: flex; justify-content: center; align-items: center; min-height: 52px; border-radius: 2px; background: var(--action); color: var(--on-action); font-weight: 700; }
+.phone svg { fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+/* Subpages: the same header, type and rules, without the drawing. */
+.page { display: grid; gap: 24px; padding-block: clamp(24px, 5vw, 72px) clamp(56px, 7vw, 104px); justify-items: start; }
+.page > * { min-width: 0; max-width: 100%; }
+.page-title { font-size: clamp(2.25rem, 1rem + 5vw, 5rem); }
+.page-intro { display: grid; gap: 12px; font-size: clamp(1.1rem, 1rem + .4vw, 1.3rem); }
+.page-part { display: grid; gap: 10px; width: 100%; margin-top: 24px; padding-top: 24px; border-top: 2px solid var(--ink); }
+.page-part h2 { font-family: var(--display); font-weight: 800; font-size: clamp(1.4rem, 1.1rem + 1vw, 2rem); line-height: 1.1; }
+.downloads { display: flex; flex-wrap: wrap; gap: 0 28px; }
+.page .textlink { display: inline-flex; align-items: center; min-height: 44px; overflow-wrap: anywhere; }
+
+/* Prywatność and Regulamin: the app's markdown, set as a document in the subpage treatment. */
+.legal { display: grid; gap: 14px; width: 100%; }
+.legal > * { min-width: 0; }
+.legal h1 { font-family: var(--display); font-weight: 850; font-stretch: 80%; font-size: clamp(2.25rem, 1rem + 5vw, 5rem); line-height: .9; letter-spacing: -.02em; margin-bottom: 8px; }
+.legal h2 { font-family: var(--display); font-weight: 800; font-size: clamp(1.3rem, 1.1rem + .8vw, 1.75rem); line-height: 1.15; margin-top: 24px; padding-top: 24px; border-top: 2px solid var(--ink); }
+.legal h3 { font-size: 1.15rem; margin-top: 8px; }
+.legal :is(p, ul, ol, blockquote) { max-width: 70ch; margin: 0; }
+.legal :is(ul, ol) { padding-left: 1.4em; display: grid; gap: 6px; }
+.legal blockquote { padding: 12px 16px; background: var(--fill); border-radius: 2px; }
+.legal a { color: inherit; font-weight: 700; text-decoration: underline; text-underline-offset: .2em; overflow-wrap: anywhere; }
+.legal table { border-collapse: collapse; display: block; max-width: 100%; overflow-x: auto; }
+.legal :is(th, td) { padding: 8px 12px; border-top: 1px solid var(--rule); text-align: left; vertical-align: top; }
+
+/* Footer, after engender's bar: one quiet row on a hairline, the mark and name in bold, small muted
+   links, the independence line at the far end (under the row below 900 px). */
+.bar { border-top: 1px solid var(--rule); margin-top: clamp(24px, 4vw, 48px); }
+.bar-row { display: flex; flex-wrap: wrap; align-items: center; gap: 0 28px; padding-block: 10px 14px; }
+.bar a { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; color: inherit; text-decoration: none; }
+.bar-brand { font-weight: 800; font-size: 1rem; }
+.bar-mark img { width: 24px; height: 24px; }
+.bar .bar-link, .bar-rights, .bar-line { font-size: .82rem; color: var(--muted); }
+.bar .bar-link:hover { color: var(--ink); text-decoration: underline; text-underline-offset: .25em; }
+.bar-brand:hover { text-decoration: underline; text-underline-offset: .25em; }
+.bar-link svg { width: 1.05em; height: 1.05em; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.bar-line { margin: 0 0 0 auto; max-width: 64ch; text-align: right; }
+@media (max-width: 899px) {
+  .bar-line { margin: 4px 0 0; flex-basis: 100%; text-align: left; }
+}
+
+/* Scroll reveals (ticket 10). static/motion.js marks only what is below the first screen when it
+   runs, so nothing already painted is ever hidden, and without the script nothing is hidden at all. */
+:root {
+  --ease-land: cubic-bezier(.16, 1, .3, 1);
+  --reveal: 520ms;
+  --reveal-rise: 16px;
+  --reveal-stagger: 60ms;
+  --reveal-trigger: 8%;      /* how far into the window an element must come before it reveals */
+}
+.motion .rv-wait { opacity: 0; }
+
+/* Wesprzyj / Support. The intro and a filled donate block side by side from 900 px; supporting
+   organisations as named tiles, each logo on white in both themes, since organisations hand over
+   logos drawn for a light ground. */
+.support-top { display: grid; gap: 24px; width: 100%; align-items: start; }
+@media (min-width: 900px) { .support-top { grid-template-columns: minmax(0, 1fr) minmax(320px, 440px); column-gap: clamp(40px, 6vw, 96px); } }
+.donate { display: grid; gap: 16px; padding: clamp(20px, 3vw, 32px); background: var(--fill); border-radius: 2px; }
+.donate .btn { width: 100%; }
+.donate p { font-size: .94rem; color: var(--muted); }
+.supporters { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 220px), 1fr)); gap: 20px; padding: 0; margin: 8px 0 0; list-style: none; }
+.supporters a { display: grid; gap: 10px; color: inherit; text-decoration: none; }
+.supporters .logo { display: grid; place-items: center; height: 128px; padding: 20px; background: #fff; border-radius: 2px; }
+.supporters img { display: block; max-width: 100%; max-height: 72px; width: auto; height: auto; }
+.supporters .name { font-weight: 700; min-height: 24px; }
+.supporters a:hover .name { text-decoration: underline; text-underline-offset: .2em; text-decoration-thickness: 2px; }
+
+/* Home's support section, after Najważniejsze: the case and the link on the left, supporting
+   organisations on the right from 900 px. */
+.give { display: grid; gap: 32px; padding-block: 40px clamp(56px, 7vw, 96px); border-top: 2px solid var(--ink); }
+.give-copy { display: grid; gap: 20px; justify-items: start; align-content: start; }
+.give-copy p { max-width: 44ch; font-size: clamp(1.05rem, 1rem + .3vw, 1.2rem); }
+.give-list { display: grid; gap: 12px; align-content: start; }
+.give-list h3 { font-size: 1rem; color: var(--muted); }
+@media (min-width: 900px) { .give { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); column-gap: clamp(48px, 8vw, 140px); } }

@@ -1,0 +1,59 @@
+[Unit]
+Description=Report API and bounded Findings and Integrity workers
+After=network-online.target postgresql.service
+Wants=network-online.target
+StartLimitIntervalSec=0
+
+[Service]
+User=bor-czuwa
+WorkingDirectory=/opt/bor-czuwa/current
+EnvironmentFile=/etc/bor-czuwa/runtime.env
+Environment=HOST=127.0.0.1
+Environment=PORT=3001
+Environment=TRUSTED_PROXY_IP=127.0.0.1
+ExecStart=/usr/bin/node --import tsx server/main.ts
+# The start check runs inside server/main.ts, so its refusal is the main process's exit status.
+# systemd honours RestartPreventExitStatus only for that, never for ExecStartPre.
+# 80 to 93, 96 and 97 are configuration refusals that a restart cannot fix; 94 and 95 keep restarting.
+# The list is spelled out: systemd accepts no range here and silently keeps restarting if given one.
+Restart=always
+RestartPreventExitStatus=80 81 82 83 84 85 86 87 88 89 90 91 92 93 96 97
+RestartSec=5
+TimeoutStopSec=180
+# Root records the refusal token for the monitor; the runtime account cannot write that file.
+ExecStopPost=-+/usr/bin/python3 /usr/local/lib/bor-czuwa-release/startup_refusals.py record /var/lib/bor-czuwa/refusals/startup-refusals
+KillSignal=SIGTERM
+UMask=0077
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+MemoryMax=768M
+LimitCORE=0
+# Sandbox: no capabilities, no device or kernel access, no namespaces, no privileged or resource syscalls.
+CapabilityBoundingSet=
+AmbientCapabilities=
+PrivateDevices=true
+ProtectKernelTunables=true
+ProtectKernelModules=true
+ProtectKernelLogs=true
+ProtectControlGroups=true
+ProtectClock=true
+ProtectHostname=true
+ProtectProc=invisible
+ProcSubset=pid
+RestrictNamespaces=true
+RestrictRealtime=true
+RestrictSUIDSGID=true
+LockPersonality=true
+RemoveIPC=true
+SystemCallArchitectures=native
+SystemCallFilter=@system-service
+SystemCallFilter=~@privileged @resources
+# No MemoryDenyWriteExecute: V8 needs writable-executable pages for its JIT.
+RestrictAddressFamilies=AF_INET AF_INET6 AF_UNIX
+StandardOutput=null
+StandardError=null
+
+[Install]
+WantedBy=multi-user.target

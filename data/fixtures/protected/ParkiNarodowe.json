@@ -1,0 +1,105 @@
+{
+  "type": "FeatureCollection",
+  "crs": {
+    "type": "EPSG",
+    "properties": {
+      "code": "2180"
+    }
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "id": "1",
+      "properties": {
+        "gid": 1,
+        "nazwa": "Testowy Park Narodowy",
+        "kodinspire": "fixture.1"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              744000,
+              620000
+            ],
+            [
+              745000,
+              620000
+            ],
+            [
+              745000,
+              621000
+            ],
+            [
+              744000,
+              621000
+            ],
+            [
+              744000,
+              620000
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "2",
+      "properties": {
+        "gid": 2,
+        "nazwa": "Testowy Park Narodowy - otulina",
+        "kodinspire": "fixture.2"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              743800,
+              619800
+            ],
+            [
+              745200,
+              619800
+            ],
+            [
+              745200,
+              621200
+            ],
+            [
+              743800,
+              621200
+            ],
+            [
+              743800,
+              619800
+            ]
+          ],
+          [
+            [
+              744000,
+              620000
+            ],
+            [
+              744000,
+              621000
+            ],
+            [
+              745000,
+              621000
+            ],
+            [
+              745000,
+              620000
+            ],
+            [
+              744000,
+              620000
+            ]
+          ]
+        ]
+      }
+    }
+  ]
+}

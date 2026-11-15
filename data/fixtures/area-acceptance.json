@@ -1,0 +1,754 @@
+{
+  "method": "GDAL 3.6.2, released 2023/01/02; WGS84 box corners to EPSG:2180 with OSR, OGR geometry calls, never application SQL",
+  "threshold_m": 150,
+  "coverage_bbox_2180": [
+    742298.0668925589,
+    618265.2127666455,
+    756298.0668925589,
+    630265.2127666455
+  ],
+  "cases": {
+    "dwelling_beyond": {
+      "bounds": [
+        22.657251,
+        53.44108,
+        22.663284,
+        53.444673
+      ],
+      "full_coverage": true,
+      "dwelling": {
+        "min_m": 582.9014508312573,
+        "within_threshold_share": 0.0,
+        "contains_dwelling": false,
+        "class": "beyond_threshold"
+      },
+      "obwody": [
+        {
+          "number": "93",
+          "source_year": 2025,
+          "share": 1.0
+        }
+      ],
+      "obwody_outside_share": 0.0,
+      "protected": [],
+      "ambona": {
+        "osm_id": "node/10000000001",
+        "edge_m": 4184.622788324407,
+        "centre_m": 4388.897513559068,
+        "centre_nearest_osm_id": "node/10000000001"
+      }
+    },
+    "dwelling_none_within_radius": {
+      "bounds": [
+        22.650644,
+        53.452326,
+        22.65517,
+        53.455021
+      ],
+      "full_coverage": false,
+      "dwelling": {
+        "min_m": null,
+        "within_threshold_share": 0.0,
+        "contains_dwelling": false,
+        "class": "beyond_threshold"
+      },
+      "obwody": [
+        {
+          "number": "93",
+          "source_year": 2025,
+          "share": 1.0
+        }
+      ],
+      "obwody_outside_share": 0.0,
+      "protected": [],
+      "ambona": {
+        "osm_id": "node/10000000001",
+        "edge_m": 5462.404644137187,
+        "centre_m": 5627.9765440516585,
+        "centre_nearest_osm_id": "node/10000000001"
+      }
+    },
+    "dwelling_none_within_radius_covered": {
+      "bounds": [
+        22.653651,
+        53.452234,
+        22.658176,
+        53.454928
+      ],
+      "full_coverage": true,
+      "dwelling": {
+        "min_m": null,
+        "within_threshold_share": 0.0,
+        "contains_dwelling": false,
+        "class": "beyond_threshold"
+      },
+      "obwody": [
+        {
+          "number": "93",
+          "source_year": 2025,
+          "share": 0.9999999999998347
+        }
+      ],
+      "obwody_outside_share": 0.0,
+      "protected": [],
+      "ambona": {
+        "osm_id": "node/10000000001",
+        "edge_m": 5436.295021049939,
+        "centre_m": 5596.939171037901,
+        "centre_nearest_osm_id": "node/10000000001"
+      }
+    },
+    "dwelling_partly_within": {
+      "bounds": [
+        22.656381,
+        53.387126,
+        22.662406,
+        53.390719
+      ],
+      "full_coverage": true,
+      "dwelling": {
+        "min_m": 49.18314927891137,
+        "within_threshold_share": 0.1125229363506275,
+        "contains_dwelling": false,
+        "class": "partly_within_threshold"
+      },
+      "obwody": [
+        {
+          "number": "112",
+          "source_year": 2025,
+          "share": 1.0
+        }
+      ],
+      "obwody_outside_share": 0.0,
+      "protected": [],
+      "ambona": {
+        "osm_id": "node/10000000001",
+        "edge_m": 1421.3901613348858,
+        "centre_m": 1640.0118585174555,
+        "centre_nearest_osm_id": "node/10000000001"
+      }
+    },
+    "dwelling_contains": {
+      "bounds": [
+        22.655686,
+        53.401685,
+        22.661713,
+        53.405278
+      ],
+      "full_coverage": true,
+      "dwelling": {
+        "min_m": 0.0,
+        "within_threshold_share": 0.5440844326352761,
+        "contains_dwelling": true,
+        "class": "contains_dwelling"
+      },
+      "obwody": [
+        {
+          "number": "112",
+          "source_year": 2025,
+          "share": 1.0
+        }
+      ],
+      "obwody_outside_share": 0.0,
+      "protected": [],
+      "ambona": {
+        "osm_id": "node/10000000001",
+        "edge_m": 98.85892320159007,
+        "centre_m": 299.2908778429943,
+        "centre_nearest_osm_id": "node/10000000001"
+      }
+    },
+    "obwody_multiple": {
+      "bounds": [
+        22.674463,
+        53.41356,
+        22.680492,
+        53.417153
+      ],
+      "full_coverage": true,
+      "dwelling": {
+        "min_m": 34.57973429289989,
+        "within_threshold_share": 0.14701933826996116,
+        "contains_dwelling": false,
+        "class": "partly_within_threshold"
+      },
+      "obwody": [
+        {
+          "number": "111",
+          "source_year": 2025,
+          "share": 0.003011285308137677
+        },
+        {
+          "number": "93",
+          "source_year": 2025,
+          "share": 0.9969887146919785
+        }
+      ],
+      "obwody_outside_share": 0.0,
+      "protected": [],
+      "ambona": {
+        "osm_id": "node/10000000002",
+        "edge_m": 1157.0088776548564,
+        "centre_m": 1407.513311074497,
+        "centre_nearest_osm_id": "node/10000000002"
+      }
+    },
+    "protected_park_wholly": {
+      "bounds": [
+        22.67553,
+        53.391035,
+        22.681556,
+        53.394628
+      ],
+      "full_coverage": true,
+      "dwelling": {
+        "min_m": 405.14463061544166,
+        "within_threshold_share": 0.0,
+        "contains_dwelling": false,
+        "class": "beyond_threshold"
+      },
+      "obwody": [
+        {
+          "number": "111",
+          "source_year": 2025,
+          "share": 1.0
+        }
+      ],
+      "obwody_outside_share": 0.0,
+      "protected": [
+        {
+          "kind": "park_narodowy",
+          "inspire_id": "fixture.1",
+          "coverage": "wholly_inside",
+          "share": 1.0,
+          "margin_m": 289.5028450692771
+        }
+      ],
+      "ambona": {
+        "osm_id": "node/10000000002",
+        "edge_m": 1047.2141958116913,
+        "centre_m": 1308.8101604980188,
+        "centre_nearest_osm_id": "node/10000000002"
+      }
+    },
+    "protected_park_partly": {
+      "bounds": [
+        22.668025,
+        53.391266,
+        22.67405,
+        53.394859
+      ],
+      "full_coverage": true,
+      "dwelling": {
+        "min_m": 444.25307795051026,
+        "within_threshold_share": 0.0,
+        "contains_dwelling": false,
+        "class": "beyond_threshold"
+      },
+      "obwody": [
+        {
+          "number": "111",
+          "source_year": 2025,
+          "share": 1.0
+        }
+      ],
+      "obwody_outside_share": 0.0,
+      "protected": [
+        {
+          "kind": "otulina",
+          "inspire_id": "fixture.2",
+          "coverage": "partly_inside",
+          "share": 0.49339977933817736
+        },
+        {
+          "kind": "park_narodowy",
+          "inspire_id": "fixture.1",
+          "coverage": "partly_inside",
+          "share": 0.49998669890395786
+        }
+      ],
+      "ambona": {
+        "osm_id": "node/10000000002",
+        "edge_m": 959.640556912099,
+        "centre_m": 1160.9279897164436,
+        "centre_nearest_osm_id": "node/10000000002"
+      }
+    },
+    "protected_rezerwat_neither_wholly": {
+      "bounds": [
+        22.720562,
+        53.389637,
+        22.726588,
+        53.39323
+      ],
+      "full_coverage": true,
+      "dwelling": {
+        "min_m": 0.0,
+        "within_threshold_share": 0.5925197072849245,
+        "contains_dwelling": true,
+        "class": "contains_dwelling"
+      },
+      "obwody": [
+        {
+          "number": "111",
+          "source_year": 2025,
+          "share": 0.9999999999998141
+        }
+      ],
+      "obwody_outside_share": 0.0,
+      "protected": [
+        {
+          "kind": "rezerwat",
+          "inspire_id": "fixture.3",
+          "coverage": "wholly_inside",
+          "share": 0.9999999999998141,
+          "margin_m": 289.3617975702509
+        }
+      ],
+      "ambona": {
+        "osm_id": "node/10000000002",
+        "edge_m": 3539.101214161977,
+        "centre_m": 3795.4058239041574,
+        "centre_nearest_osm_id": "node/10000000002"
+      }
+    },
+    "protected_rezerwat_tasks_wholly": {
+      "bounds": [
+        22.750581,
+        53.388696,
+        22.756606,
+        53.392289
+      ],
+      "full_coverage": true,
+      "dwelling": {
+        "min_m": 0.0,
+        "within_threshold_share": 0.6310313099077048,
+        "contains_dwelling": true,
+        "class": "contains_dwelling"
+      },
+      "obwody": [
+        {
+          "number": "111",
+          "source_year": 2025,
+          "share": 1.0
+        }
+      ],
+      "obwody_outside_share": 0.0,
+      "protected": [
+        {
+          "kind": "rezerwat",
+          "inspire_id": "fixture.4",
+          "coverage": "wholly_inside",
+          "share": 1.0,
+          "margin_m": 289.3132688446203
+        }
+      ],
+      "ambona": {
+        "osm_id": "node/10000000002",
+        "edge_m": 5490.293469686984,
+        "centre_m": 5732.889571808522,
+        "centre_nearest_osm_id": "node/10000000002"
+      }
+    },
+    "protected_outside": {
+      "bounds": [
+        22.824159,
+        53.453836,
+        22.830194,
+        53.45743
+      ],
+      "full_coverage": true,
+      "dwelling": {
+        "min_m": 35.582518139793684,
+        "within_threshold_share": 0.21460175663896983,
+        "contains_dwelling": false,
+        "class": "partly_within_threshold"
+      },
+      "obwody": [
+        {
+          "number": "91",
+          "source_year": 2025,
+          "share": 0.4058842952986832
+        },
+        {
+          "number": "92",
+          "source_year": 2025,
+          "share": 0.5941157047019134
+        }
+      ],
+      "obwody_outside_share": 0.0,
+      "protected": [],
+      "ambona": {
+        "osm_id": "node/10000000002",
+        "edge_m": 11668.465422041238,
+        "centre_m": 11940.543257554282,
+        "centre_nearest_osm_id": "node/10000000002"
+      }
+    },
+    "protected_context_overlap": {
+      "bounds": [
+        22.752952,
+        53.415612,
+        22.758982,
+        53.419206
+      ],
+      "full_coverage": true,
+      "dwelling": {
+        "min_m": 0.0,
+        "within_threshold_share": 0.18379147886262426,
+        "contains_dwelling": true,
+        "class": "contains_dwelling"
+      },
+      "obwody": [
+        {
+          "number": "111",
+          "source_year": 2025,
+          "share": 0.9999999999998141
+        }
+      ],
+      "obwody_outside_share": 0.0,
+      "protected": [
+        {
+          "kind": "natura_2000_oso",
+          "inspire_id": "fixture.8",
+          "coverage": "wholly_inside",
+          "share": 0.9999999999998141,
+          "margin_m": 289.2693856295664
+        },
+        {
+          "kind": "natura_2000_oso",
+          "inspire_id": "fixture.9",
+          "coverage": "wholly_inside",
+          "share": 0.9999999999998141,
+          "margin_m": 289.2693856295664
+        },
+        {
+          "kind": "natura_2000_soo",
+          "inspire_id": "fixture.10",
+          "coverage": "wholly_inside",
+          "share": 0.9999999999998141,
+          "margin_m": 289.2693856295664
+        },
+        {
+          "kind": "park_krajobrazowy",
+          "inspire_id": "fixture.7",
+          "coverage": "wholly_inside",
+          "share": 0.9999999999998141,
+          "margin_m": 289.2693856295664
+        }
+      ],
+      "ambona": {
+        "osm_id": "node/10000000002",
+        "edge_m": 5666.519115981771,
+        "centre_m": 5910.608982619101,
+        "centre_nearest_osm_id": "node/10000000002"
+      }
+    },
+    "ambona_edge_near": {
+      "bounds": [
+        22.671848,
+        53.389211,
+        22.71705,
+        53.416161
+      ],
+      "full_coverage": true,
+      "dwelling": {
+        "min_m": 0.0,
+        "within_threshold_share": 0.3107873089515099,
+        "contains_dwelling": true,
+        "class": "contains_dwelling"
+      },
+      "obwody": [
+        {
+          "number": "111",
+          "source_year": 2025,
+          "share": 0.9557055790324961
+        },
+        {
+          "number": "112",
+          "source_year": 2025,
+          "share": 0.006731992418084784
+        },
+        {
+          "number": "93",
+          "source_year": 2025,
+          "share": 0.03756242854937455
+        }
+      ],
+      "obwody_outside_share": 0.0,
+      "protected": [
+        {
+          "kind": "otulina",
+          "inspire_id": "fixture.2",
+          "coverage": "partly_inside",
+          "share": 0.04544621822199018
+        },
+        {
+          "kind": "park_narodowy",
+          "inspire_id": "fixture.1",
+          "coverage": "partly_inside",
+          "share": 0.0948136294725998
+        },
+        {
+          "kind": "rezerwat",
+          "inspire_id": "fixture.3",
+          "coverage": "partly_inside",
+          "share": 0.00507841532017116
+        }
+      ],
+      "ambona": {
+        "osm_id": "node/10000000002",
+        "edge_m": 109.64834139106088,
+        "centre_m": 1615.33581615603,
+        "centre_nearest_osm_id": "node/10000000002"
+      }
+    },
+    "ambona_inside": {
+      "bounds": [
+        22.66019,
+        53.401547,
+        22.666217,
+        53.40514
+      ],
+      "full_coverage": true,
+      "dwelling": {
+        "min_m": 131.61276263286996,
+        "within_threshold_share": 0.002063216022039749,
+        "contains_dwelling": false,
+        "class": "partly_within_threshold"
+      },
+      "obwody": [
+        {
+          "number": "112",
+          "source_year": 2025,
+          "share": 1.0
+        }
+      ],
+      "obwody_outside_share": 0.0,
+      "protected": [],
+      "ambona": {
+        "osm_id": "node/10000000001",
+        "edge_m": 0.0,
+        "centre_m": 15.344783101154482,
+        "centre_nearest_osm_id": "node/10000000001"
+      }
+    },
+    "home_cell_4km_with_park": {
+      "bounds": [
+        22.628571,
+        53.369369,
+        22.685714,
+        53.405405
+      ],
+      "full_coverage": false,
+      "dwelling": {
+        "min_m": 0.0,
+        "within_threshold_share": 0.14971729294498126,
+        "contains_dwelling": true,
+        "class": "contains_dwelling"
+      },
+      "obwody": [
+        {
+          "number": "111",
+          "source_year": 2025,
+          "share": 0.3386024532739102
+        },
+        {
+          "number": "112",
+          "source_year": 2025,
+          "share": 0.6596044280656883
+        },
+        {
+          "number": "93",
+          "source_year": 2025,
+          "share": 0.0017931186603772865
+        }
+      ],
+      "obwody_outside_share": 0.0,
+      "protected": [
+        {
+          "kind": "otulina",
+          "inspire_id": "fixture.2",
+          "coverage": "partly_inside",
+          "share": 0.044015854265046846
+        },
+        {
+          "kind": "park_narodowy",
+          "inspire_id": "fixture.1",
+          "coverage": "partly_inside",
+          "share": 0.06410705900537096
+        }
+      ],
+      "ambona": {
+        "osm_id": "node/10000000001",
+        "edge_m": 0.0,
+        "centre_m": 1835.907115109644,
+        "centre_nearest_osm_id": "node/10000000001"
+      }
+    },
+    "home_cell_8km": {
+      "bounds": [
+        22.628571,
+        53.333333,
+        22.742857,
+        53.405405
+      ],
+      "full_coverage": false,
+      "dwelling": {
+        "min_m": 0.0,
+        "within_threshold_share": 0.2561292218204265,
+        "contains_dwelling": true,
+        "class": "contains_dwelling"
+      },
+      "obwody": [
+        {
+          "number": "111",
+          "source_year": 2025,
+          "share": 0.4546247547422405
+        },
+        {
+          "number": "112",
+          "source_year": 2025,
+          "share": 0.18044678551698573
+        },
+        {
+          "number": "130",
+          "source_year": 2025,
+          "share": 0.16320562375428643
+        },
+        {
+          "number": "93",
+          "source_year": 2025,
+          "share": 0.0004488824133353941
+        }
+      ],
+      "obwody_outside_share": 0.20127395357317004,
+      "protected": [
+        {
+          "kind": "otulina",
+          "inspire_id": "fixture.2",
+          "coverage": "partly_inside",
+          "share": 0.015731803302723765
+        },
+        {
+          "kind": "park_narodowy",
+          "inspire_id": "fixture.1",
+          "coverage": "partly_inside",
+          "share": 0.016387295107003923
+        },
+        {
+          "kind": "rezerwat",
+          "inspire_id": "fixture.3",
+          "coverage": "partly_inside",
+          "share": 0.016387295107003923
+        }
+      ],
+      "ambona": {
+        "osm_id": "node/10000000001",
+        "edge_m": 0.0,
+        "centre_m": 3934.075362703478,
+        "centre_nearest_osm_id": "node/10000000002"
+      }
+    },
+    "home_cell_4km_east": {
+      "bounds": [
+        22.742857,
+        53.405405,
+        22.8,
+        53.441441
+      ],
+      "full_coverage": true,
+      "dwelling": {
+        "min_m": 0.0,
+        "within_threshold_share": 0.4395472275366237,
+        "contains_dwelling": true,
+        "class": "contains_dwelling"
+      },
+      "obwody": [
+        {
+          "number": "110",
+          "source_year": 2025,
+          "share": 0.017879383909794825
+        },
+        {
+          "number": "111",
+          "source_year": 2025,
+          "share": 0.3047731066453089
+        },
+        {
+          "number": "92",
+          "source_year": 2025,
+          "share": 0.5749001248169046
+        }
+      ],
+      "obwody_outside_share": 0.1024473846280271,
+      "protected": [
+        {
+          "kind": "natura_2000_oso",
+          "inspire_id": "fixture.8",
+          "coverage": "partly_inside",
+          "share": 0.06562737842647094
+        },
+        {
+          "kind": "natura_2000_oso",
+          "inspire_id": "fixture.9",
+          "coverage": "partly_inside",
+          "share": 0.06562737842647094
+        },
+        {
+          "kind": "natura_2000_soo",
+          "inspire_id": "fixture.10",
+          "coverage": "partly_inside",
+          "share": 0.06562737842647094
+        },
+        {
+          "kind": "park_krajobrazowy",
+          "inspire_id": "fixture.7",
+          "coverage": "partly_inside",
+          "share": 0.06562737842647094
+        }
+      ],
+      "ambona": {
+        "osm_id": "node/10000000002",
+        "edge_m": 4837.284220729046,
+        "centre_m": 7087.984616276148,
+        "centre_nearest_osm_id": "node/10000000002"
+      }
+    },
+    "home_cell_4km_ne": {
+      "bounds": [
+        22.8,
+        53.405405,
+        22.857143,
+        53.441441
+      ],
+      "full_coverage": true,
+      "dwelling": {
+        "min_m": 0.0,
+        "within_threshold_share": 0.36461953943565,
+        "contains_dwelling": true,
+        "class": "contains_dwelling"
+      },
+      "obwody": [
+        {
+          "number": "110",
+          "source_year": 2025,
+          "share": 0.6518517190926653
+        },
+        {
+          "number": "92",
+          "source_year": 2025,
+          "share": 0.30755501321758943
+        }
+      ],
+      "obwody_outside_share": 0.04059326768979457,
+      "protected": [],
+      "ambona": {
+        "osm_id": "node/10000000002",
+        "edge_m": 8635.943626703931,
+        "centre_m": 10762.835275244579,
+        "centre_nearest_osm_id": "node/10000000002"
+      }
+    }
+  }
+}

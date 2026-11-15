@@ -1,0 +1,10 @@
+[Unit]
+Description=Check Report runtime every minute
+
+[Timer]
+OnBootSec=1min
+OnUnitActiveSec=1min
+Unit=bor-czuwa-monitor.service
+
+[Install]
+WantedBy=timers.target

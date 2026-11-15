@@ -1,0 +1,66 @@
+{
+  "shot_skipped": {
+    "sentence": "Obszar wskazano bez oszacowania kierunku i odległości.",
+    "noticeLocation": "Przybliżony obszar zdarzenia: 52.000–52.040° N, 21.000–21.050° E. Obszar wskazano bez oszacowania kierunku i odległości. Nie znam dokładnego miejsca strzału."
+  },
+  "shot_both": {
+    "sentence": "Obszar oszacowano ze słuchu (kierunek ok. 180° (południe), odległość ok. 500 m).",
+    "noticeLocation": "Przybliżony obszar zdarzenia: 52.000–52.040° N, 21.000–21.050° E. Obszar oszacowano ze słuchu (kierunek ok. 180° (południe), odległość ok. 500 m). Nie jest to pomiar GPS miejsca oddania strzału."
+  },
+  "shot_direction": {
+    "sentence": "Obszar oszacowano ze słuchu (kierunek ok. 180° (południe)).",
+    "noticeLocation": "Przybliżony obszar zdarzenia: 52.000–52.040° N, 21.000–21.050° E. Obszar oszacowano ze słuchu (kierunek ok. 180° (południe)). Nie jest to pomiar GPS miejsca oddania strzału."
+  },
+  "shot_distance": {
+    "sentence": "Obszar oszacowano ze słuchu (odległość ok. 500 m).",
+    "noticeLocation": "Przybliżony obszar zdarzenia: 52.000–52.040° N, 21.000–21.050° E. Obszar oszacowano ze słuchu (odległość ok. 500 m). Nie jest to pomiar GPS miejsca oddania strzału."
+  },
+  "shot_legacy": {
+    "sentence": "Obszar oszacowano ze słuchu (odległość ponad 1 km).",
+    "noticeLocation": "Przybliżony obszar zdarzenia: 52.000–52.040° N, 21.000–21.050° E. Obszar oszacowano ze słuchu (odległość ponad 1 km). Nie jest to pomiar GPS miejsca oddania strzału."
+  },
+  "shot_home_reporter_selected_area": {
+    "sentence": "Dokładne miejsce, z którego słychać było strzał, pominięto dla ochrony miejsca zamieszkania.",
+    "noticeLocation": "Przybliżony obszar zdarzenia: 52.000–52.040° N, 21.000–21.050° E. Obszar wskazano bez oszacowania kierunku i odległości. Nie znam dokładnego miejsca strzału. Dokładne miejsce, z którego słychać było strzał, pominięto dla ochrony miejsca zamieszkania."
+  },
+  "shot_home_estimated_from_hearing": {
+    "sentence": "Dokładne miejsce, z którego słychać było strzał, pominięto dla ochrony miejsca zamieszkania.",
+    "noticeLocation": "Przybliżony obszar zdarzenia: 52.000–52.040° N, 21.000–21.050° E. Obszar oszacowano ze słuchu. Nie jest to pomiar GPS miejsca oddania strzału. Dokładne miejsce, z którego słychać było strzał, pominięto dla ochrony miejsca zamieszkania."
+  },
+  "person_with_gun_skipped": {
+    "sentence": "Obszar wskazano w przybliżeniu.",
+    "noticeLocation": "Przybliżony obszar zdarzenia: 52.000–52.040° N, 21.000–21.050° E. Obszar wskazano w przybliżeniu. Nie jest to dokładny punkt zdarzenia."
+  },
+  "person_with_gun_both": {
+    "sentence": "Obszar oszacowano z obserwacji (kierunek ok. 180° (południe), odległość ok. 500 m).",
+    "noticeLocation": "Przybliżony obszar zdarzenia: 52.000–52.040° N, 21.000–21.050° E. Obszar oszacowano z obserwacji (kierunek ok. 180° (południe), odległość ok. 500 m). Nie jest to pomiar GPS miejsca zdarzenia."
+  },
+  "person_with_gun_direction": {
+    "sentence": "Obszar oszacowano z obserwacji (kierunek ok. 180° (południe)).",
+    "noticeLocation": "Przybliżony obszar zdarzenia: 52.000–52.040° N, 21.000–21.050° E. Obszar oszacowano z obserwacji (kierunek ok. 180° (południe)). Nie jest to pomiar GPS miejsca zdarzenia."
+  },
+  "person_with_gun_distance": {
+    "sentence": "Obszar oszacowano z obserwacji (odległość ok. 500 m).",
+    "noticeLocation": "Przybliżony obszar zdarzenia: 52.000–52.040° N, 21.000–21.050° E. Obszar oszacowano z obserwacji (odległość ok. 500 m). Nie jest to pomiar GPS miejsca zdarzenia."
+  },
+  "person_with_gun_legacy": {
+    "sentence": "Obszar oszacowano z obserwacji (odległość ponad 1 km).",
+    "noticeLocation": "Przybliżony obszar zdarzenia: 52.000–52.040° N, 21.000–21.050° E. Obszar oszacowano z obserwacji (odległość ponad 1 km). Nie jest to pomiar GPS miejsca zdarzenia."
+  },
+  "person_with_gun_home_reporter_selected_area": {
+    "sentence": "Dokładne miejsce pominięto dla ochrony miejsca zamieszkania.",
+    "noticeLocation": "Przybliżony obszar zdarzenia: 52.000–52.040° N, 21.000–21.050° E. Obszar wskazano w przybliżeniu. Nie jest to dokładny punkt zdarzenia. Dokładne miejsce pominięto dla ochrony miejsca zamieszkania."
+  },
+  "person_with_gun_home_estimated_from_sighting": {
+    "sentence": "Dokładne miejsce pominięto dla ochrony miejsca zamieszkania.",
+    "noticeLocation": "Przybliżony obszar zdarzenia: 52.000–52.040° N, 21.000–21.050° E. Obszar oszacowano z obserwacji. Nie jest to pomiar GPS miejsca zdarzenia. Dokładne miejsce pominięto dla ochrony miejsca zamieszkania."
+  },
+  "manual_point": {
+    "sentence": "Miejsce wskazano ręcznie; brak dokładności GPS dla tego punktu.",
+    "noticeLocation": "Miejsce wskazano ręcznie; brak dokładności GPS dla tego punktu."
+  },
+  "device_point": {
+    "sentence": "Miejsce zapisano na podstawie pozycji telefonu.",
+    "noticeLocation": "Miejsce zapisano na podstawie pozycji telefonu."
+  }
+}

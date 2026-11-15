@@ -1,0 +1,3763 @@
+{
+  "assembledAt": "2026-09-26",
+  "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+  "idField": "IIP_IDENTY",
+  "units": [
+    {
+      "kind": "police",
+      "id": "e7ffa23f-0186-4570-bbe4-91203d78864b",
+      "name": "Komenda Miejska Policji w Białej Podlaskiej",
+      "email": "kmpbialapodlaska@lu.policja.gov.pl",
+      "sourceUrl": "https://biala-podlaska.policja.gov.pl/lbp/kontakt/komenda/63454,Komenda.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "police",
+      "id": "74ff4309-57cc-4769-8194-8c35a3057a6e",
+      "name": "Komenda Miejska Policji w Białymstoku",
+      "email": "kmp@bialystok.bk.policja.gov.pl",
+      "sourceUrl": "https://bialystok.policja.gov.pl/po2/kontakt/kmp/kierownictwo/51380,KOMENDA-MIEJSKA-POLICJI-W-BIALYMSTOKU.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "police",
+      "id": "e669ebb5-4ca5-4908-9edc-96a4b1dff5f5",
+      "name": "Komenda Miejska Policji w Bielsku-Białej",
+      "email": "komendant@bielsko.ka.policja.gov.pl",
+      "sourceUrl": "https://slaska.policja.gov.pl/ftp/kwp_ka/pliki/jednostki-slaskiej-policji-ab47-tel-spacja__32_.xls",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "police",
+      "id": "b2f82890-b1b5-4cde-853e-ddadb6b84e92",
+      "name": "Komenda Miejska Policji w Bydgoszczy",
+      "email": "komendant-bydgoszcz@bg.policja.gov.pl",
+      "sourceUrl": "https://bydgoszcz.policja.gov.pl/kb1/kontakt/8,KONTAKT.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "police",
+      "id": "d23ff523-7088-491e-9dd0-f4d608724401",
+      "name": "Komenda Miejska Policji w Bytomiu",
+      "email": "komendant@bytom.ka.policja.gov.pl",
+      "sourceUrl": "https://slaska.policja.gov.pl/ftp/kwp_ka/pliki/jednostki-slaskiej-policji-ab47-tel-spacja__32_.xls",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "police",
+      "id": "22fed4d6-4d4d-4aab-b1c3-e9f26e8a6615",
+      "name": "Komenda Miejska Policji w Chełmie",
+      "email": "komendant.kmpchelm@lu.policja.gov.pl",
+      "sourceUrl": "https://chelm.policja.gov.pl/lch/kontakt/komenda/63828,Komenda.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "police",
+      "id": "8221bce7-a613-4229-ab52-ac2522bbad7f",
+      "name": "Komenda Miejska Policji w Chorzowie",
+      "email": "komendant@chorzow.ka.policja.gov.pl",
+      "sourceUrl": "https://slaska.policja.gov.pl/ftp/kwp_ka/pliki/jednostki-slaskiej-policji-ab47-tel-spacja__32_.xls",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "police",
+      "id": "93169ea6-5cc6-4ff1-89a8-ab6e934aa720",
+      "name": "Komenda Miejska Policji w Częstochowie",
+      "email": "komendant@czestochowa.ka.policja.gov.pl",
+      "sourceUrl": "https://slaska.policja.gov.pl/ftp/kwp_ka/pliki/jednostki-slaskiej-policji-ab47-tel-spacja__32_.xls",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "police",
+      "id": "e2d66ce8-e09e-473f-893c-bd006d4006a2",
+      "name": "Komenda Miejska Policji w Dąbrowie Górniczej",
+      "email": "komendant@dabrowa.ka.policja.gov.pl",
+      "sourceUrl": "https://slaska.policja.gov.pl/ftp/kwp_ka/pliki/jednostki-slaskiej-policji-ab47-tel-spacja__32_.xls",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "police",
+      "id": "a0c8cf07-6da9-4d44-b14b-f1dc0a08f677",
+      "name": "Komenda Miejska Policji w Elblągu",
+      "email": "policja@elblag.ol.policja.gov.pl",
+      "sourceUrl": "https://elblag.policja.gov.pl/o01/kontakt/108252,Komenda-Miejska-Policji-w-Elblagu.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-26",
+      "checkedSources": [
+        "https://elblag.policja.gov.pl/o01/kontakt/108252,Komenda-Miejska-Policji-w-Elblagu.html",
+        "https://elblag.bip.policja.gov.pl/",
+        "https://warminsko-mazurska.policja.gov.pl/"
+      ]
+    },
+    {
+      "kind": "police",
+      "id": "c738062a-d3da-4412-82f3-aeae3a27d650",
+      "name": "Komenda Miejska Policji w Gdańsku",
+      "email": "komendant.kmp.gdansk@gd.policja.gov.pl",
+      "sourceUrl": "https://gdansk.policja.gov.pl/pm1/kontakt/41081,KONTAKT.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "police",
+      "id": "9f828f51-d974-4a45-a179-c07ff9cdaf55",
+      "name": "Komenda Miejska Policji w Gdyni",
+      "email": "komendant.gdynia@gd.policja.gov.pl",
+      "sourceUrl": "https://gdynia.policja.gov.pl/m17/kontakt",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "police",
+      "id": "7a17a128-2319-4215-a70f-fd67b84c2c18",
+      "name": "Komenda Miejska Policji w Gliwicach",
+      "email": "komendant@gliwice.ka.policja.gov.pl",
+      "sourceUrl": "https://slaska.policja.gov.pl/ftp/kwp_ka/pliki/jednostki-slaskiej-policji-ab47-tel-spacja__32_.xls",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "police",
+      "id": "00eec19d-9e04-4e90-aef9-a96cd8cfb4de",
+      "name": "Komenda Miejska Policji w Gorzowie Wielkopolskim",
+      "email": "sekretariat.kmp_gorzow@go.policja.gov.pl",
+      "sourceUrl": "https://gorzow-wielkopolski.policja.gov.pl/go1/kontakt/13459,Kontakt.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "police",
+      "id": "a5e69eaf-129b-4712-a2ad-dab48b273017",
+      "name": "Komenda Miejska Policji w Grudziądzu",
+      "email": "komendant-grudziadz@bg.policja.gov.pl",
+      "sourceUrl": "https://grudziadz.policja.gov.pl/kb2/kontakt/548,KONTAKT.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "police",
+      "id": "dcd07b8b-537c-4a81-99b3-a8d52c38bc32",
+      "name": "Komenda Miejska Policji w Jastrzębiu-Zdroju",
+      "email": "komendant@jastrzebie.ka.policja.gov.pl",
+      "sourceUrl": "https://slaska.policja.gov.pl/ftp/kwp_ka/pliki/jednostki-slaskiej-policji-ab47-tel-spacja__32_.xls",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "police",
+      "id": "2b6e7c42-403e-4f49-bdd3-bff0ac6920dd",
+      "name": "Komenda Miejska Policji w Jaworznie",
+      "email": "komendant@jaworzno.ka.policja.gov.pl",
+      "sourceUrl": "https://slaska.policja.gov.pl/ftp/kwp_ka/pliki/jednostki-slaskiej-policji-ab47-tel-spacja__32_.xls",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "police",
+      "id": "787f05f8-af1c-4729-b74b-9ee0a1bbae19",
+      "name": "Komenda Miejska Policji w Jeleniej Górze",
+      "email": "komendant@jelenia-gora.wr.policja.gov.pl",
+      "sourceUrl": "https://jelenia-gora.policja.gov.pl/dje/kontakt/dane-teleadresowe/23480,Dane-teleadresowe-KMP-w-Jeleniej-Gorze.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "police",
+      "id": "deb466f9-4342-4fd7-9e4c-f6e1ddb797a2",
+      "name": "Komenda Miejska Policji w Kaliszu",
+      "email": null,
+      "sourceUrl": "https://kalisz.policja.gov.pl/wl7/kontakt/dane-teleadresowe-kmp-w/197601,Dane-teleadresowe-KMP-w-Kaliszu.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-26",
+      "missingReason": "Unit contact page, unit BIP and KWP/KSP directory checked; no verified administrative intake email. Confirm an intake address with the unit or parent authority.",
+      "checkedSources": [
+        "https://kalisz.policja.gov.pl/wl7/kontakt/dane-teleadresowe-kmp-w/197601,Dane-teleadresowe-KMP-w-Kaliszu.html",
+        "https://kalisz.bip.policja.gov.pl/",
+        "https://wielkopolska.policja.gov.pl/wlk/policja-wielkopolska/jednostki-policji"
+      ]
+    },
+    {
+      "kind": "police",
+      "id": "eef2c527-3904-4fda-8421-c3b03b6cfc73",
+      "name": "Komenda Miejska Policji w Katowicach",
+      "email": "komendant@katowice.ka.policja.gov.pl",
+      "sourceUrl": "https://slaska.policja.gov.pl/ftp/kwp_ka/pliki/jednostki-slaskiej-policji-ab47-tel-spacja__32_.xls",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "police",
+      "id": "4194876a-72d7-40eb-b86f-b968b8783f95",
+      "name": "Komenda Miejska Policji w Kielcach",
+      "email": "kielce.kmp@ki.policja.gov.pl",
+      "sourceUrl": "https://kielce.bip.policja.gov.pl/",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-26",
+      "checkedSources": [
+        "https://kielce.policja.gov.pl/",
+        "https://kielce.bip.policja.gov.pl/",
+        "https://swietokrzyska.policja.gov.pl/kie/o-policji/jednostki-terenowe"
+      ]
+    },
+    {
+      "kind": "police",
+      "id": "288958b3-3bf5-48ed-bc47-e7594152bcd1",
+      "name": "Komenda Miejska Policji w Koninie",
+      "email": null,
+      "sourceUrl": "https://konin.policja.gov.pl/w10/kontakt/dane-teleadresowe/56873,Adresy-jednostek.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-26",
+      "missingReason": "Unit contact page, unit BIP and KWP/KSP directory checked; no verified administrative intake email. Confirm an intake address with the unit or parent authority.",
+      "checkedSources": [
+        "https://konin.policja.gov.pl/w10/kontakt/dane-teleadresowe/56873,Adresy-jednostek.html",
+        "https://konin.bip.policja.gov.pl/",
+        "https://wielkopolska.policja.gov.pl/wlk/policja-wielkopolska/jednostki-policji"
+      ]
+    },
+    {
+      "kind": "police",
+      "id": "ddf5f02b-2243-45f3-8390-db6d3ae6a9fe",
+      "name": "Komenda Miejska Policji w Koszalinie",
+      "email": "sekretariat.koszalin@sc.policja.gov.pl",
+      "sourceUrl": "https://koszalin.policja.gov.pl/zk/kontakt/dane-tel/18385,KOMENDA-MIEJSKA-POLICJI-W-KOSZALINIE.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "police",
+      "id": "62eaf2b7-cac3-4a07-9261-86e40468fdc7",
+      "name": "Komenda Miejska Policji w Krakowie",
+      "email": "sekretariatkmp@krakow.policja.gov.pl",
+      "sourceUrl": "https://krakow.bip.policja.gov.pl/",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-26",
+      "checkedSources": [
+        "https://krakow.policja.gov.pl/kr1/kontakt/6597,Kontakt.html",
+        "https://krakow.bip.policja.gov.pl/",
+        "https://malopolska.policja.gov.pl/krk/jednostki"
+      ]
+    },
+    {
+      "kind": "police",
+      "id": "a113878c-37e0-4332-8e18-be4fa1e24192",
+      "name": "Komenda Miejska Policji w Krośnie",
+      "email": "kmp.krosno@rz.policja.gov.pl",
+      "sourceUrl": "https://krosno.policja.gov.pl/rkr/kontakt/114465,Dane-teleadresowe.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "police",
+      "id": "80a3c5e0-d7be-4fdf-81de-bbee33ecc1f3",
+      "name": "Komenda Miejska Policji w Legnicy",
+      "email": "komendant@legnica.wr.policja.gov.pl",
+      "sourceUrl": "https://legnica.policja.gov.pl/dle/kontakt/dane-teleadresowe/22307,Dane-teleadresowe-Komendy-Miejskiej-Policji-w-Legnicy.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "police",
+      "id": "83a3e209-4e76-4ff2-b830-fda35aa51546",
+      "name": "Komenda Miejska Policji w Lesznie",
+      "email": null,
+      "sourceUrl": "https://leszno.policja.gov.pl/",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-26",
+      "missingReason": "Unit contact page, unit BIP and KWP/KSP directory checked; no verified administrative intake email. Confirm an intake address with the unit or parent authority.",
+      "checkedSources": [
+        "https://leszno.policja.gov.pl/",
+        "https://leszno.bip.policja.gov.pl/",
+        "https://wielkopolska.policja.gov.pl/wlk/policja-wielkopolska/jednostki-policji"
+      ]
+    },
+    {
+      "kind": "police",
+      "id": "f3850d2b-d732-47d8-ac45-b0a1ece384da",
+      "name": "Komenda Miejska Policji w Lublinie",
+      "email": "komendant.kmplublin@lu.policja.gov.pl",
+      "sourceUrl": "https://lublin.policja.gov.pl/llu/kontakt/komenda-miejska-policji/64408,Komenda-Miejska-Policji-w-Lublinie.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "police",
+      "id": "c7470aec-cf31-44d5-afa8-d367367a5c16",
+      "name": "Komenda Miejska Policji w Mysłowicach",
+      "email": "komendant@myslowice.ka.policja.gov.pl",
+      "sourceUrl": "https://slaska.policja.gov.pl/ftp/kwp_ka/pliki/jednostki-slaskiej-policji-ab47-tel-spacja__32_.xls",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "police",
+      "id": "2c8883f5-c0ff-4d67-84f6-9ef82e78b356",
+      "name": "Komenda Miejska Policji w Nowym Sączu",
+      "email": "komendant@nowy-sacz.policja.gov.pl",
+      "sourceUrl": "https://nowy-sacz.policja.gov.pl/kn/kontakt/komenda-miejska-policji/986,Dane-teleadresowe.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "police",
+      "id": "b0e4518e-47cb-4719-b575-cfdb39d2bb85",
+      "name": "Komenda Miejska Policji w Olsztynie",
+      "email": "komendant@olsztyn.ol.policja.gov.pl",
+      "sourceUrl": "https://olsztyn.policja.gov.pl/o02/kontakt/3238,Komenda-Miejska-Policji-w-Olsztynie.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "police",
+      "id": "c01932cc-7271-440e-9eee-a7e0ff850399",
+      "name": "Komenda Miejska Policji w Opolu",
+      "email": "wydzial.ogolny.op@op.policja.gov.pl",
+      "sourceUrl": "https://opole.policja.gov.pl/opo/kontakt/155249,Komenda-Miejska-Policji-w-Opolu.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-26",
+      "checkedSources": [
+        "https://opole.policja.gov.pl/opo/kontakt/155249,Komenda-Miejska-Policji-w-Opolu.html",
+        "https://opole.bip.policja.gov.pl/",
+        "https://opolska.policja.gov.pl/op/kwp-opole/jednostki-policji"
+      ]
+    },
+    {
+      "kind": "police",
+      "id": "0ee1f664-f07a-48e5-852b-e904d98ae6a8",
+      "name": "Komenda Miejska Policji w Ostrołęce",
+      "email": "kmpostroleka@ra.policja.gov.pl",
+      "sourceUrl": "https://mazowiecka.policja.gov.pl/wos/kontakt/18493,Kontakt-do-Komendy-Miejskiej-Policji-w-Ostrolece.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "police",
+      "id": "a9a73d9d-b109-45de-834b-df9bcf7dad26",
+      "name": "Komenda Miejska Policji w Piekarach Śląskich",
+      "email": "komendant@piekary.ka.policja.gov.pl",
+      "sourceUrl": "https://slaska.policja.gov.pl/ftp/kwp_ka/pliki/jednostki-slaskiej-policji-ab47-tel-spacja__32_.xls",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "police",
+      "id": "b1d87108-5bf6-4f4a-98c8-dde0aa48528e",
+      "name": "Komenda Miejska Policji w Piotrkowie Trybunalskim",
+      "email": "komendant@piotrkow-trybunalski.ld.policja.gov.pl",
+      "sourceUrl": "https://piotrkow-trybunalski.policja.gov.pl/ep/kontakt/dane-teleadresowe/1485,Dane-teleadresowe-Komendy-Miejskiej-Policji-w-Piotrkowie-Trybunalskim.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "police",
+      "id": "36e12d1a-5357-45d1-b6e5-ca504d4a936b",
+      "name": "Komenda Miejska Policji w Poznaniu",
+      "email": null,
+      "sourceUrl": "https://poznan.policja.gov.pl/w21/kontakt/dgfh/180897,Dane-teleadresowe-KMP-Poznan.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-26",
+      "missingReason": "Unit contact page, unit BIP and KWP/KSP directory checked; no verified administrative intake email. Confirm an intake address with the unit or parent authority.",
+      "checkedSources": [
+        "https://poznan.policja.gov.pl/w21/kontakt/dgfh/180897,Dane-teleadresowe-KMP-Poznan.html",
+        "https://poznan.bip.policja.gov.pl/",
+        "https://wielkopolska.policja.gov.pl/wlk/policja-wielkopolska/jednostki-policji"
+      ]
+    },
+    {
+      "kind": "police",
+      "id": "54797910-f97b-4406-a3d7-c012fc267437",
+      "name": "Komenda Miejska Policji w Przemyślu",
+      "email": "kmp.przemysl@rz.policja.gov.pl",
+      "sourceUrl": "https://przemysl.policja.gov.pl/rpr/kontakt/115324,Dane-teleadresowe.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "police",
+      "id": "b0060e61-4dcb-4ec5-84f0-c72c85ed99e1",
+      "name": "Komenda Miejska Policji w Płocku",
+      "email": "kmpplock@ra.policja.gov.pl",
+      "sourceUrl": "https://mazowiecka.policja.gov.pl/wpl/kontakt/komenda-m/19175,Komenda-Miejska-Policji-w-Plocku.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "police",
+      "id": "919e3a19-3b5c-460f-b928-ec1af28bb289",
+      "name": "Komenda Miejska Policji w Radomiu",
+      "email": "kmpradom@ra.policja.gov.pl",
+      "sourceUrl": "https://mazowiecka.policja.gov.pl/wra/kontakt/kontakt-kmp-w-radomiu/955,Kontakt.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "police",
+      "id": "b1509f39-49f0-4230-a475-8844ec727b94",
+      "name": "Komenda Miejska Policji w Rudzie Śląskiej",
+      "email": "komendant@ruda.ka.policja.gov.pl",
+      "sourceUrl": "https://slaska.policja.gov.pl/ftp/kwp_ka/pliki/jednostki-slaskiej-policji-ab47-tel-spacja__32_.xls",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "police",
+      "id": "22f0b585-3172-4050-8c61-89e28aa25202",
+      "name": "Komenda Miejska Policji w Rybniku",
+      "email": "komendant@rybnik.ka.policja.gov.pl",
+      "sourceUrl": "https://slaska.policja.gov.pl/ftp/kwp_ka/pliki/jednostki-slaskiej-policji-ab47-tel-spacja__32_.xls",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "police",
+      "id": "a5acfc81-0b24-4291-b5b3-9c033fe680e1",
+      "name": "Komenda Miejska Policji w Rzeszowie",
+      "email": "kmp.rzeszow@rz.policja.gov.pl",
+      "sourceUrl": "https://rzeszow.bip.policja.gov.pl/",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-26",
+      "checkedSources": [
+        "https://rzeszow.policja.gov.pl/rz/kontakt/113540,Dane-teleadresowe.html",
+        "https://rzeszow.bip.policja.gov.pl/",
+        "https://podkarpacka.policja.gov.pl/"
+      ]
+    },
+    {
+      "kind": "police",
+      "id": "0ece157c-a81e-4bfc-a3f6-a4592ac8f374",
+      "name": "Komenda Miejska Policji w Siedlcach",
+      "email": "kmpsiedlce@ra.policja.gov.pl",
+      "sourceUrl": "https://siedlce.bip.policja.gov.pl/",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-26",
+      "checkedSources": [
+        "https://mazowiecka.policja.gov.pl/wsi/kontakt",
+        "https://siedlce.bip.policja.gov.pl/",
+        "https://mazowiecka.policja.gov.pl/ra/o-policji-mazowieckiej/jednostki-terenowe"
+      ]
+    },
+    {
+      "kind": "police",
+      "id": "46203ce7-d184-460c-af41-c124af06184e",
+      "name": "Komenda Miejska Policji w Siemianowicach Śląskich",
+      "email": "komendant@siemianowice.ka.policja.gov.pl",
+      "sourceUrl": "https://slaska.policja.gov.pl/ftp/kwp_ka/pliki/jednostki-slaskiej-policji-ab47-tel-spacja__32_.xls",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "police",
+      "id": "c24f60a8-cddb-4a5f-b1be-92f9bdc25a84",
+      "name": "Komenda Miejska Policji w Skierniewicach",
+      "email": "komendant@skierniewice.ld.policja.gov.pl",
+      "sourceUrl": "https://skierniewice.policja.gov.pl/es/kontakt/dane-teleadresowe-kmp-w/1408,Dane-teleadresowe-Komendy-Miejskiej-Policji-w-Skierniewicach.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "police",
+      "id": "33c80137-5d38-4c37-ae49-8a7b27990c5c",
+      "name": "Komenda Miejska Policji w Sopocie",
+      "email": "komenda.sopot@gd.policja.gov.pl",
+      "sourceUrl": "https://sopot.policja.gov.pl/m12/kontakt/60974,Kontakt.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "police",
+      "id": "cf2dabf0-6ae9-4a3b-b5af-a4850d61a008",
+      "name": "Komenda Miejska Policji w Sosnowcu",
+      "email": "komendant@sosnowiec.ka.policja.gov.pl",
+      "sourceUrl": "https://slaska.policja.gov.pl/ftp/kwp_ka/pliki/jednostki-slaskiej-policji-ab47-tel-spacja__32_.xls",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "police",
+      "id": "a6c74b96-c6c0-493b-974a-922352527a3f",
+      "name": "Komenda Miejska Policji w Suwałkach",
+      "email": "kmp@suwalki.bk.policja.gov.pl",
+      "sourceUrl": "https://suwalki.bip.policja.gov.pl/",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-26",
+      "checkedSources": [
+        "https://suwalki.policja.gov.pl/",
+        "https://suwalki.bip.policja.gov.pl/",
+        "https://podlaska.policja.gov.pl/pod/policja-podlas/jednostki-policji/komendy-miejskie-i-powi"
+      ]
+    },
+    {
+      "kind": "police",
+      "id": "c85f68ab-455e-4046-b718-f677be5882ee",
+      "name": "Komenda Miejska Policji w Szczecinie",
+      "email": "kmpszczecin@sc.policja.gov.pl",
+      "sourceUrl": "https://szczecin.policja.gov.pl/szm/kontakt/dane-teleadresowe/1045,Dane-Teleadresowe.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "police",
+      "id": "ffd80a26-e551-452b-8e6f-edea3039cbd7",
+      "name": "Komenda Miejska Policji w Słupsku",
+      "email": "komenda.slupsk@gd.policja.gov.pl",
+      "sourceUrl": "https://slupsk.policja.gov.pl/m19/kontakt/dane-kontaktowe/77369,Dane-kontaktowe.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "police",
+      "id": "7a8eb8c2-0bce-48f5-be01-eb08c55ee7e0",
+      "name": "Komenda Miejska Policji w Tarnobrzegu",
+      "email": "kmp.tarnobrzeg@rz.policja.gov.pl",
+      "sourceUrl": "https://tarnobrzeg.policja.gov.pl/rt/kontakt/114627,Kontakt.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "police",
+      "id": "1f55478a-ee5d-4b33-b670-e2a53db797ce",
+      "name": "Komenda Miejska Policji w Tarnowie",
+      "email": "kmp@tarnow.policja.gov.pl",
+      "sourceUrl": "https://tarnow.bip.policja.gov.pl/",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-26",
+      "checkedSources": [
+        "https://tarnow.policja.gov.pl/kt/kontakt",
+        "https://tarnow.bip.policja.gov.pl/",
+        "https://malopolska.policja.gov.pl/krk/jednostki"
+      ]
+    },
+    {
+      "kind": "police",
+      "id": "c9aa18b8-f877-4c25-a019-f31291e5954e",
+      "name": "Komenda Miejska Policji w Toruniu",
+      "email": null,
+      "sourceUrl": "https://torun.policja.gov.pl/kb3/kontakt/168452,KONTAKT.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-26",
+      "missingReason": "Unit contact page, unit BIP and KWP/KSP directory checked; no verified administrative intake email. Confirm an intake address with the unit or parent authority.",
+      "checkedSources": [
+        "https://torun.policja.gov.pl/kb3/kontakt/168452,KONTAKT.html",
+        "https://torun.bip.policja.gov.pl/",
+        "https://kujawsko-pomorska.policja.gov.pl/kb/informacje/struktura-garni/komendy-miejskie-i-powi"
+      ]
+    },
+    {
+      "kind": "police",
+      "id": "5ea319e0-f292-4543-8cbd-b72b5c24851c",
+      "name": "Komenda Miejska Policji w Tychach",
+      "email": "komendant@tychy.ka.policja.gov.pl",
+      "sourceUrl": "https://slaska.policja.gov.pl/ftp/kwp_ka/pliki/jednostki-slaskiej-policji-ab47-tel-spacja__32_.xls",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "police",
+      "id": "d41a1cd2-373b-41d3-9f55-b3f70ed83c28",
+      "name": "Komenda Miejska Policji w Wałbrzychu",
+      "email": "komendant@walbrzych.wr.policja.gov.pl",
+      "sourceUrl": "https://walbrzych.policja.gov.pl/dba/kontakt/dane-teleadresowe/22249,Dane-teleadresowe.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "police",
+      "id": "8b97cd16-f836-4a8b-a50a-b05c4b60f2fc",
+      "name": "Komenda Miejska Policji w Zabrzu",
+      "email": "komendant@zabrze.ka.policja.gov.pl",
+      "sourceUrl": "https://slaska.policja.gov.pl/ftp/kwp_ka/pliki/jednostki-slaskiej-policji-ab47-tel-spacja__32_.xls",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "police",
+      "id": "f338798e-6f3d-451a-98fc-82452bf15543",
+      "name": "Komenda Miejska Policji w Zamościu",
+      "email": "kmp.zamosc@lu.policja.gov.pl",
+      "sourceUrl": "https://zamosc.policja.gov.pl/lza/kontakt/komenda/64639,Komenda-Miejska-Policji-w-Zamosciu.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "police",
+      "id": "313fedfb-1516-4a3f-846f-962b7640a382",
+      "name": "Komenda Miejska Policji w Zielonej Górze",
+      "email": "sekretariat.kmp_zgora@go.policja.gov.pl",
+      "sourceUrl": "https://zielona-gora.bip.policja.gov.pl/",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-26",
+      "checkedSources": [
+        "https://zielona-gora.policja.gov.pl/go2/kontakt/13239,Kontakt.html",
+        "https://zielona-gora.bip.policja.gov.pl/",
+        "https://lubuska.policja.gov.pl/go/o-nas/jednostki-policji-wojew"
+      ]
+    },
+    {
+      "kind": "police",
+      "id": "d27c80a7-4c2d-4bcf-9679-842587e1a371",
+      "name": "Komenda Miejska Policji w Łodzi",
+      "email": "komendant@lodz.ld.policja.gov.pl",
+      "sourceUrl": "https://lodz.policja.gov.pl/eld/kontakt/dane-teleadresowe/1582,Komenda-Miejska-Policji-w-Lodzi.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "police",
+      "id": "9feff2ac-508f-46a7-abad-c8c761b4dd1d",
+      "name": "Komenda Miejska Policji w Łomży",
+      "email": "kmp@lomza.bk.policja.gov.pl",
+      "sourceUrl": "https://lomza.policja.gov.pl/po4/kontakt/6046,Kontakt-z-Komenda-Miejska-Policji-w-Lomzy.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "police",
+      "id": "d51c65fe-4aca-4d67-b4a6-ade7ebf76f8c",
+      "name": "Komenda Miejska Policji w Świnoujściu",
+      "email": null,
+      "sourceUrl": "https://swinoujscie.policja.gov.pl/zsw/kontakt/dane-teleadresowe",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-26",
+      "missingReason": "Unit contact page, unit BIP and KWP/KSP directory checked; no verified administrative intake email. Confirm an intake address with the unit or parent authority.",
+      "checkedSources": [
+        "https://swinoujscie.policja.gov.pl/zsw/kontakt/dane-teleadresowe",
+        "https://swinoujscie.bip.policja.gov.pl/",
+        "https://zachodniopomorska.policja.gov.pl/sz/o-policji/jednostki"
+      ]
+    },
+    {
+      "kind": "police",
+      "id": "a35eccb3-457f-41df-b234-edae51f32b18",
+      "name": "Komenda Miejska Policji w Świętochłowicach",
+      "email": "komendant@swietochlowice.ka.policja.gov.pl",
+      "sourceUrl": "https://slaska.policja.gov.pl/ftp/kwp_ka/pliki/jednostki-slaskiej-policji-ab47-tel-spacja__32_.xls",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "police",
+      "id": "beaf5604-b69f-40f9-bfd9-cdfd23fb30b4",
+      "name": "Komenda Miejska Policji w Żorach",
+      "email": "komendant@zory.ka.policja.gov.pl",
+      "sourceUrl": "https://slaska.policja.gov.pl/ftp/kwp_ka/pliki/jednostki-slaskiej-policji-ab47-tel-spacja__32_.xls",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "police",
+      "id": "142edf1d-64ad-40b6-bad5-cf3426f4cd3d",
+      "name": "Komenda Miejska Policji we Wrocławiu",
+      "email": "kontakt@wroclaw.wr.policja.gov.pl",
+      "sourceUrl": "https://wroclaw.policja.gov.pl/dwr/kontakt/dane-teleadresowe/21848,Dane-teleadresowe.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "police",
+      "id": "68f9eae4-8ecb-4082-b9b9-92d3688f8529",
+      "name": "Komenda Miejska Policji we Włocławku",
+      "email": null,
+      "sourceUrl": "https://wloclawek.policja.gov.pl/kb4/kontakt/komenda-policji/85212,Kontakt-Komenda-Miejska-Policji-we-Wloclawku.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-26",
+      "missingReason": "Unit contact page, unit BIP and KWP/KSP directory checked; no verified administrative intake email. Confirm an intake address with the unit or parent authority.",
+      "checkedSources": [
+        "https://wloclawek.policja.gov.pl/kb4/kontakt/komenda-policji/85212,Kontakt-Komenda-Miejska-Policji-we-Wloclawku.html",
+        "https://wloclawek.bip.policja.gov.pl/",
+        "https://kujawsko-pomorska.policja.gov.pl/kb/informacje/struktura-garni/komendy-miejskie-i-powi"
+      ]
+    },
+    {
+      "kind": "police",
+      "id": "bf165eb1-9b6a-4b2c-8daf-95f03f24a2c1",
+      "name": "Komenda Powiatowa Policji Powiatu warszawskiego zachodniego",
+      "email": "kancelaria.kpp-zachod@ksp.policja.gov.pl",
+      "sourceUrl": "https://babice.policja.gov.pl/pwz/kontakt/komenda-powiatowa-polic/1245,Komenda-Powiatowa-Policji-dla-Powiatu-Warszawskiego-Zachodniego-z-siedziba-w-Sta.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-26",
+      "checkedSources": [
+        "https://babice.policja.gov.pl/pwz/kontakt/komenda-powiatowa-polic/1245,Komenda-Powiatowa-Policji-dla-Powiatu-Warszawskiego-Zachodniego-z-siedziba-w-Sta.html",
+        "https://warszawa-zachod.bip.policja.gov.pl/",
+        "https://ksp.policja.gov.pl/pl/o-nas/komendy-powiatowe-polic"
+      ]
+    },
+    {
+      "kind": "police",
+      "id": "89785c7b-eb71-4a79-b843-a0e15ec469a4",
+      "name": "Komenda Powiatowa Policji Powiatu łódzkiego wschodniego",
+      "email": "komendant@lodz-wschod.ld.policja.gov.pl",
+      "sourceUrl": "https://lodz-wschod.bip.policja.gov.pl/",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-26",
+      "checkedSources": [
+        "https://lodz-wschod.policja.gov.pl/",
+        "https://lodz-wschod.bip.policja.gov.pl/",
+        "https://lodzka.policja.gov.pl/ld/informacje/jednostki-podlegle"
+      ]
+    },
+    {
+      "kind": "police",
+      "id": "f793998e-5f89-49b7-b890-e6117db9f77c",
+      "name": "Komenda Powiatowa Policji w Aleksandrowie Kujawskim",
+      "email": null,
+      "sourceUrl": "https://aleksandrow.policja.gov.pl/kb5/kontakt/dane/64074,Dane-kontaktowe.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-26",
+      "missingReason": "Unit contact page, unit BIP and KWP/KSP directory checked; no verified administrative intake email. Confirm an intake address with the unit or parent authority.",
+      "checkedSources": [
+        "https://aleksandrow.policja.gov.pl/kb5/kontakt/dane/64074,Dane-kontaktowe.html",
+        "https://aleksandrow.bip.policja.gov.pl/",
+        "https://kujawsko-pomorska.policja.gov.pl/kb/informacje/struktura-garni/komendy-miejskie-i-powi"
+      ]
+    },
+    {
+      "kind": "police",
+      "id": "6fde7057-0e74-43b0-a023-cb573bc55808",
+      "name": "Komenda Powiatowa Policji w Augustowie",
+      "email": "kpp@augustow.bk.policja.gov.pl",
+      "sourceUrl": "https://augustow.bip.policja.gov.pl/",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-26",
+      "checkedSources": [
+        "https://augustow.policja.gov.pl/",
+        "https://augustow.bip.policja.gov.pl/",
+        "https://podlaska.policja.gov.pl/pod/policja-podlas/jednostki-policji/komendy-miejskie-i-powi"
+      ]
+    },
+    {
+      "kind": "police",
+      "id": "272c3947-c0dd-4aa5-a0f4-a52ff0901cb5",
+      "name": "Komenda Powiatowa Policji w Bartoszycach",
+      "email": "komendant@bartoszyce.ol.policja.gov.pl",
+      "sourceUrl": "https://bartoszyce.policja.gov.pl/o03/kontakt/2934,Komenda-Powiatowa-Policji-w-Bartoszychach.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "police",
+      "id": "db93f687-89aa-4190-9622-d7005e1828e7",
+      "name": "Komenda Powiatowa Policji w Bełchatowie",
+      "email": "komendant@belchatow.ld.policja.gov.pl",
+      "sourceUrl": "https://belchatow.policja.gov.pl/ebe/kontakt/dane-teleadresowe/2252,Komenda-Powiatowa-Policji-w-Belchatowie.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "police",
+      "id": "c8cfb2fc-766f-4dd4-82af-c1ae4f04bc19",
+      "name": "Komenda Powiatowa Policji w Białobrzegach",
+      "email": null,
+      "sourceUrl": "https://mazowiecka.policja.gov.pl/wbr/kontakt",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-26",
+      "missingReason": "Unit contact page, unit BIP and KWP/KSP directory checked; no verified administrative intake email. Confirm an intake address with the unit or parent authority.",
+      "checkedSources": [
+        "https://mazowiecka.policja.gov.pl/wbr/kontakt",
+        "https://bialobrzegi.bip.policja.gov.pl/",
+        "https://mazowiecka.policja.gov.pl/ra/o-policji-mazowieckiej/jednostki-terenowe"
+      ]
+    },
+    {
+      "kind": "police",
+      "id": "e68cdfc8-8987-47cd-a7dd-f0bedd01d20c",
+      "name": "Komenda Powiatowa Policji w Białogardzie",
+      "email": "kpp.bialogard@sc.policja.gov.pl",
+      "sourceUrl": "https://bialogard.policja.gov.pl/zbi/kontakt/dane-teleadresowe/2345,KOMENDA-POWIATOWA-POLICJI-W-BIALOGARDZIE.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "police",
+      "id": "aca5252c-8dfa-4f44-a1b7-9ea7bbd9d270",
+      "name": "Komenda Powiatowa Policji w Bielsku Podlaskim",
+      "email": "komendant.kpp@bielsk-podl.bk.policja.gov.pl",
+      "sourceUrl": "https://bielsk-podlaski.bip.policja.gov.pl/",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-26",
+      "checkedSources": [
+        "https://bielsk-podlaski.policja.gov.pl/",
+        "https://bielsk-podlaski.bip.policja.gov.pl/",
+        "https://podlaska.policja.gov.pl/pod/policja-podlas/jednostki-policji/komendy-miejskie-i-powi"
+      ]
+    },
+    {
+      "kind": "police",
+      "id": "961871ce-adc8-4ca0-9f78-e24bed695c81",
+      "name": "Komenda Powiatowa Policji w Bieruniu",
+      "email": "komendant@bierun.ka.policja.gov.pl",
+      "sourceUrl": "https://slaska.policja.gov.pl/ftp/kwp_ka/pliki/jednostki-slaskiej-policji-ab47-tel-spacja__32_.xls",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "police",
+      "id": "5ff7c585-5390-43d7-9743-e8cc077d3b9b",
+      "name": "Komenda Powiatowa Policji w Biłgoraju",
+      "email": "komendant.kppbilgoraj@lu.policja.gov.pl",
+      "sourceUrl": "https://bilgoraj.policja.gov.pl/lbg/kontakt/komenda-powiat/63656,KPP-w-Bilgoraju.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "police",
+      "id": "1b96014e-a2df-4cc9-8e07-ac4d1e536d5b",
+      "name": "Komenda Powiatowa Policji w Bochni",
+      "email": "komendant@bochnia.policja.gov.pl",
+      "sourceUrl": "https://bochnia.bip.policja.gov.pl/",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-26",
+      "checkedSources": [
+        "https://bochnia.policja.gov.pl/kbc/kontakt",
+        "https://bochnia.bip.policja.gov.pl/",
+        "https://malopolska.policja.gov.pl/krk/jednostki"
+      ]
+    },
+    {
+      "kind": "police",
+      "id": "d6b4434f-a5ea-439a-ab71-d6d24a7f1d52",
+      "name": "Komenda Powiatowa Policji w Bolesławcu",
+      "email": "komendant@boleslawiec.wr.policja.gov.pl",
+      "sourceUrl": "https://boleslawiec.policja.gov.pl/dbl/kontakt/dane-teleadresowe-komen/23203,Dane-teleadresowe-Komendy-Powiatowej-Policji-w-Boleslawcu.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "police",
+      "id": "81052c07-2922-46b2-a7ec-af8c7a388e57",
+      "name": "Komenda Powiatowa Policji w Braniewie",
+      "email": "komendant@braniewo.ol.policja.gov.pl",
+      "sourceUrl": "https://braniewo.policja.gov.pl/bra/kontakt/2834,Kontakt.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "police",
+      "id": "69cb9be0-733b-4572-9552-bdaced0e78da",
+      "name": "Komenda Powiatowa Policji w Brodnicy",
+      "email": "komendant-brodnica@bg.policja.gov.pl",
+      "sourceUrl": "https://brodnica.policja.gov.pl/kb6/kontakt/695,KONTAKT.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "police",
+      "id": "0fcee6ea-d5bb-43a4-87c7-86d84810138a",
+      "name": "Komenda Powiatowa Policji w Brzegu",
+      "email": "komendant.br@op.policja.gov.pl",
+      "sourceUrl": "https://brzeg.bip.policja.gov.pl/",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-26",
+      "checkedSources": [
+        "https://brzeg.policja.gov.pl/ob/kontakt",
+        "https://brzeg.bip.policja.gov.pl/",
+        "https://opolska.policja.gov.pl/op/kwp-opole/jednostki-policji"
+      ]
+    },
+    {
+      "kind": "police",
+      "id": "075c21e7-785b-4ea5-a2db-c8ae4412f6cc",
+      "name": "Komenda Powiatowa Policji w Brzesku",
+      "email": "sekretariat@brzesko.policja.gov.pl",
+      "sourceUrl": "https://brzesko.bip.policja.gov.pl/",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-26",
+      "checkedSources": [
+        "https://brzesko.policja.gov.pl/",
+        "https://brzesko.bip.policja.gov.pl/",
+        "https://malopolska.policja.gov.pl/krk/jednostki"
+      ]
+    },
+    {
+      "kind": "police",
+      "id": "ca478ca9-2fae-4038-a83a-a4e942e4e95d",
+      "name": "Komenda Powiatowa Policji w Brzezinach",
+      "email": "komendant@brzeziny.ld.policja.gov.pl",
+      "sourceUrl": "https://brzeziny.policja.gov.pl/ebr/kontakt/dane-teleadresowe/3662,Dane-teleadresowe.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "police",
+      "id": "8cab13ef-2234-46c6-a790-fc8eae321137",
+      "name": "Komenda Powiatowa Policji w Brzozowie",
+      "email": "brzozow@rz.policja.gov.pl",
+      "sourceUrl": "https://brzozow.policja.gov.pl/rbr/kontakt/115113,Dane-kontaktowe.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "police",
+      "id": "4ba6686d-1f9f-46f9-89bb-9be28afeeeb3",
+      "name": "Komenda Powiatowa Policji w Busku Zdroju",
+      "email": "busko@ki.policja.gov.pl",
+      "sourceUrl": "https://busko-zdroj.bip.policja.gov.pl/",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-26",
+      "checkedSources": [
+        "https://busko-zdroj.policja.gov.pl/tbu/kontak/kontakt-dla-osob-niesly/4076,Kontakt-dla-osob-nieslyszacych.html",
+        "https://busko-zdroj.bip.policja.gov.pl/",
+        "https://swietokrzyska.policja.gov.pl/kie/o-policji/jednostki-terenowe"
+      ]
+    },
+    {
+      "kind": "police",
+      "id": "ab600c40-a4ee-437c-9085-fc5879ddbbd4",
+      "name": "Komenda Powiatowa Policji w Bytowie",
+      "email": "kppbytow@gd.policja.gov.pl",
+      "sourceUrl": "https://bytow.policja.gov.pl/pm2/kontakt/47213,Kontakt.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "police",
+      "id": "bf7ff00f-7bb8-4576-be97-ca01f2d13ad9",
+      "name": "Komenda Powiatowa Policji w Będzinie",
+      "email": "komendant@bedzin.ka.policja.gov.pl",
+      "sourceUrl": "https://slaska.policja.gov.pl/ftp/kwp_ka/pliki/jednostki-slaskiej-policji-ab47-tel-spacja__32_.xls",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "police",
+      "id": "e6a092d2-468a-4262-bfc9-8b345c36a794",
+      "name": "Komenda Powiatowa Policji w Chełmnie",
+      "email": "sekretariat-chelmno@bg.policja.gov.pl",
+      "sourceUrl": "https://chelmno.policja.gov.pl/kb7/kontakt/712,KONTAKT.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "police",
+      "id": "b53b8bb6-85fe-4f9c-ae71-ecca31b09469",
+      "name": "Komenda Powiatowa Policji w Chodzieży",
+      "email": null,
+      "sourceUrl": "https://chodziez.policja.gov.pl/wl1/kontakt/2945,Kontakt.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-26",
+      "missingReason": "Unit contact page, unit BIP and KWP/KSP directory checked; no verified administrative intake email. Confirm an intake address with the unit or parent authority.",
+      "checkedSources": [
+        "https://chodziez.policja.gov.pl/wl1/kontakt/2945,Kontakt.html",
+        "https://chodziez.bip.policja.gov.pl/",
+        "https://wielkopolska.policja.gov.pl/wlk/policja-wielkopolska/jednostki-policji"
+      ]
+    },
+    {
+      "kind": "police",
+      "id": "3502fbbb-cc35-48af-8c73-8e9a27599522",
+      "name": "Komenda Powiatowa Policji w Chojnicach",
+      "email": "komenda.chojnice@gd.policja.gov.pl",
+      "sourceUrl": "https://chojnice.policja.gov.pl/pm3/kontakt/48127,KONTAKT.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "police",
+      "id": "d7826b56-3c57-4557-b304-d4b3330af59f",
+      "name": "Komenda Powiatowa Policji w Choszcznie",
+      "email": "sekretariat.choszczno@sc.policja.gov.pl",
+      "sourceUrl": "https://choszczno.policja.gov.pl/zch/kontakt/dane-teleadresowe/2580,Kontakt.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "police",
+      "id": "df4e91ff-4bcb-45c8-a42f-b6966c9ea9f8",
+      "name": "Komenda Powiatowa Policji w Chrzanowie",
+      "email": "prezydialny@chrzanow.policja.gov.pl",
+      "sourceUrl": "https://chrzanow.policja.gov.pl/kch/kontakt/11242,Komenda-Powiatowa-Policji-w-Chrzanowie.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-26",
+      "checkedSources": [
+        "https://chrzanow.policja.gov.pl/kch/kontakt/11242,Komenda-Powiatowa-Policji-w-Chrzanowie.html",
+        "https://chrzanow.bip.policja.gov.pl/",
+        "https://malopolska.policja.gov.pl/krk/jednostki"
+      ]
+    },
+    {
+      "kind": "police",
+      "id": "04394c15-0e37-4dd7-81f8-a11120833a88",
+      "name": "Komenda Powiatowa Policji w Ciechanowie",
+      "email": "kppciechanow@ra.policja.gov.pl",
+      "sourceUrl": "https://mazowiecka.policja.gov.pl/wci/kontakt/komenda-pow/1188,Dane-teleadresowe.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "police",
+      "id": "e52cf2c0-de62-4c88-b46c-f7972577c6d5",
+      "name": "Komenda Powiatowa Policji w Cieszynie",
+      "email": "komendant@cieszyn.ka.policja.gov.pl",
+      "sourceUrl": "https://slaska.policja.gov.pl/ftp/kwp_ka/pliki/jednostki-slaskiej-policji-ab47-tel-spacja__32_.xls",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "police",
+      "id": "a9735cbb-a744-49c3-b0f4-b69ddd3e8bd6",
+      "name": "Komenda Powiatowa Policji w Czarnkowie",
+      "email": null,
+      "sourceUrl": "https://czarnkow.policja.gov.pl/wl2/kontakt/dane-teleadresowe-1/6539,KONTAKT.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-26",
+      "missingReason": "Unit contact page, unit BIP and KWP/KSP directory checked; no verified administrative intake email. Confirm an intake address with the unit or parent authority.",
+      "checkedSources": [
+        "https://czarnkow.policja.gov.pl/wl2/kontakt/dane-teleadresowe-1/6539,KONTAKT.html",
+        "https://czarnkow.bip.policja.gov.pl/",
+        "https://wielkopolska.policja.gov.pl/wlk/policja-wielkopolska/jednostki-policji"
+      ]
+    },
+    {
+      "kind": "police",
+      "id": "44493e42-8830-438a-bbca-efddd7c79d6d",
+      "name": "Komenda Powiatowa Policji w Człuchowie",
+      "email": "sekretariat.czluchow@gd.policja.gov.pl",
+      "sourceUrl": "https://czluchow.policja.gov.pl/pm4/kontakt/50155,KONTAKT.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "police",
+      "id": "c04b447a-8cd2-4af1-a5b8-cd27836679ab",
+      "name": "Komenda Powiatowa Policji w Drawsku Pomorskim",
+      "email": null,
+      "sourceUrl": "https://drawsko.policja.gov.pl/zdr/kontakt/dane-teleadresowe-jedno/2840,Dane-teleadresowe.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-26",
+      "missingReason": "Unit contact page, unit BIP and KWP/KSP directory checked; no verified administrative intake email. Confirm an intake address with the unit or parent authority.",
+      "checkedSources": [
+        "https://drawsko.policja.gov.pl/zdr/kontakt/dane-teleadresowe-jedno/2840,Dane-teleadresowe.html",
+        "https://drawsko-pomorskie.bip.policja.gov.pl/",
+        "https://zachodniopomorska.policja.gov.pl/sz/o-policji/jednostki"
+      ]
+    },
+    {
+      "kind": "police",
+      "id": "e491e1d5-4b1b-4234-bb89-aa2fef8da74a",
+      "name": "Komenda Powiatowa Policji w Działdowie",
+      "email": "komendant@dzialdowo.ol.policja.gov.pl",
+      "sourceUrl": "https://dzialdowo.policja.gov.pl/o04/kontakt/3387,KOMENDA-POWIATOWA-POLICJI-W-DZIALDOWIE.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "police",
+      "id": "e5926640-9136-4338-ac5e-c473ca9b666e",
+      "name": "Komenda Powiatowa Policji w Dzierżoniowie",
+      "email": "komendant@dzierzoniow.wr.policja.gov.pl",
+      "sourceUrl": "https://dzierzoniow.policja.gov.pl/ddz/kontakt/dane-teleadresowe/23652,Dane-teleadresowe.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "police",
+      "id": "aff39f5e-1f78-4a56-a59d-fb3f1d871ca0",
+      "name": "Komenda Powiatowa Policji w Dąbrowie Tarnowskiej",
+      "email": "komendant@dabrowa-tarnowska.policja.gov.pl",
+      "sourceUrl": "https://dabrowa-tarnowska.bip.policja.gov.pl/",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-26",
+      "checkedSources": [
+        "https://dabrowa-tarnowska.policja.gov.pl/",
+        "https://dabrowa-tarnowska.bip.policja.gov.pl/",
+        "https://malopolska.policja.gov.pl/krk/jednostki"
+      ]
+    },
+    {
+      "kind": "police",
+      "id": "fcc9ef07-9461-423d-891e-fa093a70c0a8",
+      "name": "Komenda Powiatowa Policji w Dębicy",
+      "email": "debica@rz.policja.gov.pl",
+      "sourceUrl": "https://debica.policja.gov.pl/de/kontakt/115294,Kontakt.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "police",
+      "id": "31135b15-b66e-4c62-bdbc-f226e3d603b5",
+      "name": "Komenda Powiatowa Policji w Ełku",
+      "email": null,
+      "sourceUrl": "https://elk.policja.gov.pl/o05/kontakt/3283,Komenda-Powiatowa-Policji-w-Elku.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-26",
+      "missingReason": "Unit contact page, unit BIP and KWP/KSP directory checked; no verified administrative intake email. Confirm an intake address with the unit or parent authority.",
+      "checkedSources": [
+        "https://elk.policja.gov.pl/o05/kontakt/3283,Komenda-Powiatowa-Policji-w-Elku.html",
+        "https://elk.bip.policja.gov.pl/",
+        "https://warminsko-mazurska.policja.gov.pl/"
+      ]
+    },
+    {
+      "kind": "police",
+      "id": "83904cbf-ed70-47ee-b99e-8c4f08a1f084",
+      "name": "Komenda Powiatowa Policji w Garwolinie",
+      "email": "kppgarwolin@ra.policja.gov.pl",
+      "sourceUrl": "https://mazowiecka.policja.gov.pl/wg/kontakt/komenda-powiatowa-polic-1/18438,Komenda-Powiatowa-Policji-w-Garwolinie.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "police",
+      "id": "4545c557-b324-4ffd-be5c-d6967dea5505",
+      "name": "Komenda Powiatowa Policji w Giżycku",
+      "email": "komendant@gizycko.ol.policja.gov.pl",
+      "sourceUrl": "https://gizycko.bip.policja.gov.pl/",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-26",
+      "checkedSources": [
+        "https://gizycko.policja.gov.pl/o06/kontakt/2706,Komenda.html",
+        "https://gizycko.bip.policja.gov.pl/",
+        "https://warminsko-mazurska.policja.gov.pl/"
+      ]
+    },
+    {
+      "kind": "police",
+      "id": "8ecf3685-54b8-4a28-a78b-ec017c578cc5",
+      "name": "Komenda Powiatowa Policji w Gnieźnie",
+      "email": null,
+      "sourceUrl": "https://gniezno.policja.gov.pl/wl3/kontakt-1/dane-teleadresowe/182218,Dane-teleadresowe.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-26",
+      "missingReason": "Unit contact page, unit BIP and KWP/KSP directory checked; no verified administrative intake email. Confirm an intake address with the unit or parent authority.",
+      "checkedSources": [
+        "https://gniezno.policja.gov.pl/wl3/kontakt-1/dane-teleadresowe/182218,Dane-teleadresowe.html",
+        "https://gniezno.bip.policja.gov.pl/",
+        "https://wielkopolska.policja.gov.pl/wlk/policja-wielkopolska/jednostki-policji"
+      ]
+    },
+    {
+      "kind": "police",
+      "id": "d508c42a-9895-4d25-8775-a14c918a0f0b",
+      "name": "Komenda Powiatowa Policji w Goleniowie",
+      "email": "sekretariat.goleniow@sc.policja.gov.pl",
+      "sourceUrl": "https://goleniow.policja.gov.pl/zgl/kontakt/dane/1958,Dane-teleadersowe.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "police",
+      "id": "02e5cfbe-2a21-4d1a-8a87-c5fd59e9209c",
+      "name": "Komenda Powiatowa Policji w Golubiu-Dobrzyniu",
+      "email": null,
+      "sourceUrl": "https://golub-dobrzyn.policja.gov.pl/kb8/kontakt",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-26",
+      "missingReason": "Unit contact page, unit BIP and KWP/KSP directory checked; no verified administrative intake email. Confirm an intake address with the unit or parent authority.",
+      "checkedSources": [
+        "https://golub-dobrzyn.policja.gov.pl/kb8/kontakt",
+        "https://golub-dobrzyn.bip.policja.gov.pl/",
+        "https://kujawsko-pomorska.policja.gov.pl/kb/informacje/struktura-garni/komendy-miejskie-i-powi"
+      ]
+    },
+    {
+      "kind": "police",
+      "id": "2f3f811c-5c0d-4bc6-88b1-85cc4aaf8d0d",
+      "name": "Komenda Powiatowa Policji w Gorlicach",
+      "email": "komendant@gorlice.policja.gov.pl",
+      "sourceUrl": "https://gorlice.bip.policja.gov.pl/",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-26",
+      "checkedSources": [
+        "https://gorlice.policja.gov.pl/kgr/kontakt",
+        "https://gorlice.bip.policja.gov.pl/",
+        "https://malopolska.policja.gov.pl/krk/jednostki"
+      ]
+    },
+    {
+      "kind": "police",
+      "id": "6225d961-3725-420f-926d-862169d4c724",
+      "name": "Komenda Powiatowa Policji w Gostyninie",
+      "email": "kppgostynin@ra.policja.gov.pl",
+      "sourceUrl": "https://mazowiecka.policja.gov.pl/wgs/kontakt/326,KONTAKT.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "police",
+      "id": "e1f78c77-c5a5-4cfc-a5e1-bdbede70b942",
+      "name": "Komenda Powiatowa Policji w Gostyniu",
+      "email": null,
+      "sourceUrl": "https://gostyn.policja.gov.pl/wl4/kontakt/dane-tel/21474,Dane-teleadresowe.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-26",
+      "missingReason": "Unit contact page, unit BIP and KWP/KSP directory checked; no verified administrative intake email. Confirm an intake address with the unit or parent authority.",
+      "checkedSources": [
+        "https://gostyn.policja.gov.pl/wl4/kontakt/dane-tel/21474,Dane-teleadresowe.html",
+        "https://gostyn.bip.policja.gov.pl/",
+        "https://wielkopolska.policja.gov.pl/wlk/policja-wielkopolska/jednostki-policji"
+      ]
+    },
+    {
+      "kind": "police",
+      "id": "8e59b703-3408-4ae4-8f8c-f2dc1b9be8e0",
+      "name": "Komenda Powiatowa Policji w Gołdapi",
+      "email": "komendant@goldap.ol.policja.gov.pl",
+      "sourceUrl": "https://goldap.policja.gov.pl/o07/kontakt/dane-kontaktowe/52253,Komenda-Powiatowa-Policji-w-Goldapi.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "police",
+      "id": "c0af7556-62bf-4d40-ab86-bd6b52dea268",
+      "name": "Komenda Powiatowa Policji w Grajewie",
+      "email": "kpp@grajewo.bk.policja.gov.pl",
+      "sourceUrl": "https://grajewo.policja.gov.pl/po7/kontakt/kpp-w-grajewie/31672,Dane-adresowe.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "police",
+      "id": "83ea20ed-fb01-4c99-bbb3-9011d89ddb21",
+      "name": "Komenda Powiatowa Policji w Grodzisku Mazowieckim",
+      "email": "kancelaria.kpp-grodzisk@ksp.policja.gov.pl",
+      "sourceUrl": "https://grodzisk.policja.gov.pl/pgm/kontakt/komenda/708,Adres-i-telefony-KPP.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-26",
+      "checkedSources": [
+        "https://grodzisk.policja.gov.pl/pgm/kontakt/komenda/708,Adres-i-telefony-KPP.html",
+        "https://grodzisk-mazowiecki.bip.policja.gov.pl/",
+        "https://ksp.policja.gov.pl/pl/o-nas/komendy-powiatowe-polic"
+      ]
+    },
+    {
+      "kind": "police",
+      "id": "85d856f1-974e-4f72-b129-950c7fa154a8",
+      "name": "Komenda Powiatowa Policji w Grodzisku Wlkp.",
+      "email": null,
+      "sourceUrl": "https://grodzisk-wielkopolski.policja.gov.pl/",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-26",
+      "missingReason": "Unit contact page, unit BIP and KWP/KSP directory checked; no verified administrative intake email. Confirm an intake address with the unit or parent authority.",
+      "checkedSources": [
+        "https://grodzisk-wielkopolski.policja.gov.pl/",
+        "https://grodzisk-wielkopolski.bip.policja.gov.pl/",
+        "https://wielkopolska.policja.gov.pl/wlk/policja-wielkopolska/jednostki-policji"
+      ]
+    },
+    {
+      "kind": "police",
+      "id": "cbc9640c-8512-4c09-a70b-e8d22bc1d831",
+      "name": "Komenda Powiatowa Policji w Gryficach",
+      "email": null,
+      "sourceUrl": "https://gryfice.policja.gov.pl/zgy/kontakt/dane-teleadresowe-kpp/3036,KONTAKT.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-26",
+      "missingReason": "Unit contact page, unit BIP and KWP/KSP directory checked; no verified administrative intake email. Confirm an intake address with the unit or parent authority.",
+      "checkedSources": [
+        "https://gryfice.policja.gov.pl/zgy/kontakt/dane-teleadresowe-kpp/3036,KONTAKT.html",
+        "https://gryfice.bip.policja.gov.pl/",
+        "https://zachodniopomorska.policja.gov.pl/sz/o-policji/jednostki"
+      ]
+    },
+    {
+      "kind": "police",
+      "id": "94583a7a-cebe-41c7-99a5-802a37bcaf6d",
+      "name": "Komenda Powiatowa Policji w Gryfinie",
+      "email": "sekretariat.gryfino@sc.policja.gov.pl",
+      "sourceUrl": "https://gryfino.policja.gov.pl/zgr/kontakt/dane-teleadresowe/3120,Kontakt.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "police",
+      "id": "2aac6512-8249-47bf-ae3b-aba146e35e60",
+      "name": "Komenda Powiatowa Policji w Grójcu",
+      "email": "kppgrojec@ra.policja.gov.pl",
+      "sourceUrl": "https://mazowiecka.policja.gov.pl/wgr/kontakt/komenda-powiat/18712,Komenda-Powiatowa-Policji-w-Grojcu.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "police",
+      "id": "07dcdcfc-e5de-4019-a9cd-d5237c085b29",
+      "name": "Komenda Powiatowa Policji w Górze",
+      "email": "kpp@gora.wr.policja.gov.pl",
+      "sourceUrl": "https://gora.policja.gov.pl/dgr/kontakt/dane-teleadresowe/22151,Dane-teleadresowe-Komendy-Powiatowej-Policji-w-Gorze.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "police",
+      "id": "fe2b4f3d-4ed4-4f34-83b7-f0da5a080447",
+      "name": "Komenda Powiatowa Policji w Głogowie",
+      "email": "kpp@glogow.wr.policja.gov.pl",
+      "sourceUrl": "https://glogow.policja.gov.pl/dgl/kontakt/dane-teleadresowe/22980,Dane-teleadresowe.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "police",
+      "id": "6c216a1f-3e27-49f3-a1ab-8ba9c1a7474f",
+      "name": "Komenda Powiatowa Policji w Głubczycach",
+      "email": "komendant.gl@op.policja.gov.pl",
+      "sourceUrl": "https://glubczyce.bip.policja.gov.pl/",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-26",
+      "checkedSources": [
+        "https://glubczyce.policja.gov.pl/",
+        "https://glubczyce.bip.policja.gov.pl/",
+        "https://opolska.policja.gov.pl/op/kwp-opole/jednostki-policji"
+      ]
+    },
+    {
+      "kind": "police",
+      "id": "c5d2ee5c-102e-4e4a-bc12-f06e6f099986",
+      "name": "Komenda Powiatowa Policji w Hajnówce",
+      "email": "kpp@hajnowka.bk.policja.gov.pl",
+      "sourceUrl": "https://hajnowka.bip.policja.gov.pl/",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-26",
+      "checkedSources": [
+        "https://hajnowka.policja.gov.pl/",
+        "https://hajnowka.bip.policja.gov.pl/",
+        "https://podlaska.policja.gov.pl/pod/policja-podlas/jednostki-policji/komendy-miejskie-i-powi"
+      ]
+    },
+    {
+      "kind": "police",
+      "id": "eb3d3300-419b-41f5-8ece-af73042b0352",
+      "name": "Komenda Powiatowa Policji w Hrubieszowie",
+      "email": "policja.kpphrubieszow@lu.policja.gov.pl",
+      "sourceUrl": "https://hrubieszow.policja.gov.pl/lhr/kontakt/komenda/63970,KOMENDA-POWIATOWA-POLICJI-W-HRUBIESZOWIE.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "police",
+      "id": "59b210cf-da14-4ef3-9a3f-ff1f2fb18662",
+      "name": "Komenda Powiatowa Policji w Inowrocławiu",
+      "email": "inowroclaw@bg.policja.gov.pl",
+      "sourceUrl": "https://inowroclaw.policja.gov.pl/kb9/kontakt/84896,Komenda-Powiatowa-Policji.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "police",
+      "id": "7416bd3b-1690-48f5-9389-90119b56be66",
+      "name": "Komenda Powiatowa Policji w Iławie",
+      "email": "komendant@ilawa.ol.policja.gov.pl",
+      "sourceUrl": "https://ilawa.policja.gov.pl/o08/kontakt/3015,Kontakt.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "police",
+      "id": "231592bc-bef0-4880-ad52-e35b8bc8b289",
+      "name": "Komenda Powiatowa Policji w Janowie Lubelskim",
+      "email": "sekretariat.kppjanowlubelski@lu.policja.gov.pl",
+      "sourceUrl": "https://janow-lubelski.policja.gov.pl/ljl/kontakt/komenda/63638,Komenda-Powiatowa-Policji-w-Janowie-Lubelskim.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "police",
+      "id": "886c5a6d-48fa-4d1e-a567-84d30b44ac5e",
+      "name": "Komenda Powiatowa Policji w Jarocinie",
+      "email": null,
+      "sourceUrl": "https://jarocin.policja.gov.pl/",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-26",
+      "missingReason": "Unit contact page, unit BIP and KWP/KSP directory checked; no verified administrative intake email. Confirm an intake address with the unit or parent authority.",
+      "checkedSources": [
+        "https://jarocin.policja.gov.pl/",
+        "https://jarocin.bip.policja.gov.pl/",
+        "https://wielkopolska.policja.gov.pl/wlk/policja-wielkopolska/jednostki-policji"
+      ]
+    },
+    {
+      "kind": "police",
+      "id": "07c697df-d1f9-450c-8221-f944ee30c647",
+      "name": "Komenda Powiatowa Policji w Jarosławiu",
+      "email": "jaroslaw@rz.policja.gov.pl",
+      "sourceUrl": "https://jaroslaw.bip.policja.gov.pl/",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-26",
+      "checkedSources": [
+        "https://jaroslaw.policja.gov.pl/",
+        "https://jaroslaw.bip.policja.gov.pl/",
+        "https://podkarpacka.policja.gov.pl/"
+      ]
+    },
+    {
+      "kind": "police",
+      "id": "60a5d9ff-451a-44be-921f-d3d1d76487e5",
+      "name": "Komenda Powiatowa Policji w Jaworze",
+      "email": "kpp@jawor.wr.policja.gov.pl",
+      "sourceUrl": "https://jawor.policja.gov.pl/dja/kontakt/dane-teleadresowe",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "police",
+      "id": "130d0397-5307-4303-b4f3-bf84e504dad2",
+      "name": "Komenda Powiatowa Policji w Jaśle",
+      "email": "jaslo@rz.policja.gov.pl",
+      "sourceUrl": "https://jaslo.policja.gov.pl/rjs/kontakt/dane-teleadresowe/120420,Dane-teleadresowe.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "police",
+      "id": "4280cbc3-2412-422a-80d8-cdd05c312d19",
+      "name": "Komenda Powiatowa Policji w Jędrzejowie",
+      "email": "jedrzejow@ki.policja.gov.pl",
+      "sourceUrl": "https://jedrzejow.policja.gov.pl/tja/kontakt/kontakt/331,Kontakt.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "police",
+      "id": "749ec16a-f47a-4996-b180-bc2bda716b78",
+      "name": "Komenda Powiatowa Policji w Kamieniu Pomorskim",
+      "email": null,
+      "sourceUrl": "https://kamien.policja.gov.pl/zka/kontakt/kpp-w-kamieniu-pomorski/1326,Komenda-Powiatowa-Policji-w-Kamieniu-Pomorskim.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-26",
+      "missingReason": "Unit contact page, unit BIP and KWP/KSP directory checked; no verified administrative intake email. Confirm an intake address with the unit or parent authority.",
+      "checkedSources": [
+        "https://kamien.policja.gov.pl/zka/kontakt/kpp-w-kamieniu-pomorski/1326,Komenda-Powiatowa-Policji-w-Kamieniu-Pomorskim.html",
+        "https://kamien-pomorski.bip.policja.gov.pl/",
+        "https://zachodniopomorska.policja.gov.pl/sz/o-policji/jednostki"
+      ]
+    },
+    {
+      "kind": "police",
+      "id": "59b08439-e63e-40c1-9708-a0e0a6a6df11",
+      "name": "Komenda Powiatowa Policji w Kamiennej Górze",
+      "email": "komendant@kamienna-gora.wr.policja.gov.pl",
+      "sourceUrl": "https://kamienna-gora.policja.gov.pl/dka/kontakt/dane-teleadresowe/23833,Dane-teleadresowe-Komendy-Powiatowej-Policji-w-Kamiennej-Gorze.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "police",
+      "id": "5bed419a-d74a-4a07-a5fc-c8b2c2dd488e",
+      "name": "Komenda Powiatowa Policji w Kartuzach",
+      "email": null,
+      "sourceUrl": "https://kartuzy.policja.gov.pl/pm5/kontakt",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-26",
+      "missingReason": "Unit contact page, unit BIP and KWP/KSP directory checked; no verified administrative intake email. Confirm an intake address with the unit or parent authority.",
+      "checkedSources": [
+        "https://kartuzy.policja.gov.pl/pm5/kontakt",
+        "https://kartuzy.bip.policja.gov.pl/",
+        "https://pomorska.policja.gov.pl/pom/komenda/jednostki-podlegle"
+      ]
+    },
+    {
+      "kind": "police",
+      "id": "5f68c0c3-326f-45fa-b153-e2876270470f",
+      "name": "Komenda Powiatowa Policji w Kazimierzy Wielkiej",
+      "email": "komendant.kazimierza@ki.policja.gov.pl",
+      "sourceUrl": "https://kazimierza-wielka.policja.gov.pl/tka/kontakt/kontakt/1820,KOMENDA-POWIATOWA-POLICJI-W-KAZIMIERZY-WIELKIEJ.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "police",
+      "id": "c4861a43-ec8c-4076-9f89-81d72ed43687",
+      "name": "Komenda Powiatowa Policji w Kluczborku",
+      "email": null,
+      "sourceUrl": "https://kluczbork.policja.gov.pl/okl/kontakt",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-26",
+      "missingReason": "Unit contact page, unit BIP and KWP/KSP directory checked; no verified administrative intake email. Confirm an intake address with the unit or parent authority.",
+      "checkedSources": [
+        "https://kluczbork.policja.gov.pl/okl/kontakt",
+        "https://kluczbork.bip.policja.gov.pl/",
+        "https://opolska.policja.gov.pl/op/kwp-opole/jednostki-policji"
+      ]
+    },
+    {
+      "kind": "police",
+      "id": "9c3e5ada-9abf-4930-b19a-cb1b2c595113",
+      "name": "Komenda Powiatowa Policji w Kolbuszowej",
+      "email": "kolbuszowa@rz.policja.gov.pl",
+      "sourceUrl": "https://kolbuszowa.policja.gov.pl/rkl/kontakt/114485,Dane-teleadresowe.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "police",
+      "id": "04df908a-1169-4809-877d-ce215f780fb0",
+      "name": "Komenda Powiatowa Policji w Kole",
+      "email": null,
+      "sourceUrl": "https://kolo.policja.gov.pl/wl9/kontakt/dane-teleadresow/51320,Telefony-do-KPP.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-26",
+      "missingReason": "Unit contact page, unit BIP and KWP/KSP directory checked; no verified administrative intake email. Confirm an intake address with the unit or parent authority.",
+      "checkedSources": [
+        "https://kolo.policja.gov.pl/wl9/kontakt/dane-teleadresow/51320,Telefony-do-KPP.html",
+        "https://kolo.bip.policja.gov.pl/",
+        "https://wielkopolska.policja.gov.pl/wlk/policja-wielkopolska/jednostki-policji"
+      ]
+    },
+    {
+      "kind": "police",
+      "id": "9d3fb7c2-1374-4469-825c-bb218f92e2ef",
+      "name": "Komenda Powiatowa Policji w Kolnie",
+      "email": "kpp@kolno.bk.policja.gov.pl",
+      "sourceUrl": "https://kolno.policja.gov.pl/po9/kontakt/4261,Dane-Teleadresowe.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "police",
+      "id": "ca0d69b7-ed34-4dd2-a4ee-c8f7087f2deb",
+      "name": "Komenda Powiatowa Policji w Kozienicach",
+      "email": "kppkozienice@ra.policja.gov.pl",
+      "sourceUrl": "https://mazowiecka.policja.gov.pl/wkz/kontakt/18238,Kontakt-do-Komendy-Powiatowej-Policji-w-Kozienicach.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "police",
+      "id": "b9ab4189-a03a-4d35-8991-ef0d36870ab6",
+      "name": "Komenda Powiatowa Policji w Kołobrzegu",
+      "email": "sekretariat.kolobrzeg@sc.policja.gov.pl",
+      "sourceUrl": "https://kolobrzeg.policja.gov.pl/zkl/kontakt/komorki-organizacyjne-k/2309,Komorki-organizacyjne-KPP-Kolobrzeg.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "police",
+      "id": "22fc362f-799d-47e6-aa0f-86823abaeb3d",
+      "name": "Komenda Powiatowa Policji w Końskich",
+      "email": "konskie@ki.policja.gov.pl",
+      "sourceUrl": "https://konskie.policja.gov.pl/tkn/kontakt/kontakt/484,Kontakt.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "police",
+      "id": "1ca62e64-aba7-4d40-93c8-92d38997175c",
+      "name": "Komenda Powiatowa Policji w Kościanie",
+      "email": null,
+      "sourceUrl": "https://koscian.policja.gov.pl/",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-26",
+      "missingReason": "Unit contact page, unit BIP and KWP/KSP directory checked; no verified administrative intake email. Confirm an intake address with the unit or parent authority.",
+      "checkedSources": [
+        "https://koscian.policja.gov.pl/",
+        "https://koscian.bip.policja.gov.pl/",
+        "https://wielkopolska.policja.gov.pl/wlk/policja-wielkopolska/jednostki-policji"
+      ]
+    },
+    {
+      "kind": "police",
+      "id": "01634fbd-3661-4234-a1bf-ccc444e299f4",
+      "name": "Komenda Powiatowa Policji w Kościerzynie",
+      "email": "komendant.koscierzyna@gd.policja.gov.pl",
+      "sourceUrl": "https://koscierzyna.policja.gov.pl/pm6/kontakt/52475,Komenda-Powiatowa-Policji-w-Koscierzynie.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "police",
+      "id": "ce4c94d1-351c-45c2-b57a-ab71d7e89f6a",
+      "name": "Komenda Powiatowa Policji w Krakowie",
+      "email": "kpp@kpp-krakow.policja.gov.pl",
+      "sourceUrl": "https://kpp-krakow.bip.policja.gov.pl/",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-26",
+      "checkedSources": [
+        "https://kpp-krakow.policja.gov.pl/kr2/kontakt/13118,Kontakt.html",
+        "https://kpp-krakow.bip.policja.gov.pl/",
+        "https://malopolska.policja.gov.pl/krk/jednostki"
+      ]
+    },
+    {
+      "kind": "police",
+      "id": "e386faf3-3ec2-4822-97e1-d552f2b8359f",
+      "name": "Komenda Powiatowa Policji w Krapkowicach",
+      "email": null,
+      "sourceUrl": "https://krapkowice.policja.gov.pl/",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-26",
+      "missingReason": "Unit contact page, unit BIP and KWP/KSP directory checked; no verified administrative intake email. Confirm an intake address with the unit or parent authority.",
+      "checkedSources": [
+        "https://krapkowice.policja.gov.pl/",
+        "https://krapkowice.bip.policja.gov.pl/",
+        "https://opolska.policja.gov.pl/op/kwp-opole/jednostki-policji"
+      ]
+    },
+    {
+      "kind": "police",
+      "id": "55ff174a-bbc0-4646-a909-9f4731e23306",
+      "name": "Komenda Powiatowa Policji w Krasnymstawie",
+      "email": "kppkrasnystaw@lu.policja.gov.pl",
+      "sourceUrl": "https://krasnystaw.policja.gov.pl/lks/kontakt/komenda-i-posterunki/64314,Komenda-Powiatowa-Policji-w-Krasnymstawie.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "police",
+      "id": "044a8f8d-c895-4669-a765-d159d349f498",
+      "name": "Komenda Powiatowa Policji w Kraśniku",
+      "email": "komendant.kppkrasnik@lu.policja.gov.pl",
+      "sourceUrl": "https://krasnik.bip.policja.gov.pl/",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-26",
+      "checkedSources": [
+        "https://krasnik.policja.gov.pl/lkr/kontakt/komenda-powiatowa-polic/13071,Komenda-Powiatowa-Policji-w-Krasniku.html",
+        "https://krasnik.bip.policja.gov.pl/",
+        "https://lubelska.policja.gov.pl/lub/jednostki-policji"
+      ]
+    },
+    {
+      "kind": "police",
+      "id": "79b1658e-7f28-4211-aafd-f3875ef3072e",
+      "name": "Komenda Powiatowa Policji w Krotoszynie",
+      "email": null,
+      "sourceUrl": "https://krotoszyn.policja.gov.pl/w12/kontakt-1/adresy-i-telefony/187400,Dane-teleadresowe.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-26",
+      "missingReason": "Unit contact page, unit BIP and KWP/KSP directory checked; no verified administrative intake email. Confirm an intake address with the unit or parent authority.",
+      "checkedSources": [
+        "https://krotoszyn.policja.gov.pl/w12/kontakt-1/adresy-i-telefony/187400,Dane-teleadresowe.html",
+        "https://krotoszyn.bip.policja.gov.pl/",
+        "https://wielkopolska.policja.gov.pl/wlk/policja-wielkopolska/jednostki-policji"
+      ]
+    },
+    {
+      "kind": "police",
+      "id": "359af91f-e001-4da1-94d0-f8e962c73101",
+      "name": "Komenda Powiatowa Policji w Krośnie Odrzańskim",
+      "email": "sekretariat.kpp_krosno@go.policja.gov.pl",
+      "sourceUrl": "https://krosno-odrzanskie.bip.policja.gov.pl/",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-26",
+      "checkedSources": [
+        "https://krosno-odrzanskie.policja.gov.pl/go3/kontakt/dane-teleadresowe-i-wsp/265,Dane-teleadresowe-i-wspolrzedne-dojazdu.html",
+        "https://krosno-odrzanskie.bip.policja.gov.pl/",
+        "https://lubuska.policja.gov.pl/go/o-nas/jednostki-policji-wojew"
+      ]
+    },
+    {
+      "kind": "police",
+      "id": "035e3f00-30bf-4df8-a437-cdbdd3da06d5",
+      "name": "Komenda Powiatowa Policji w Kutnie",
+      "email": "komendant@kutno.ld.policja.gov.pl",
+      "sourceUrl": "https://kutno.policja.gov.pl/eku/kontakt/dane-teleadresowe/2557,Dane-teleadresowe.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "police",
+      "id": "0f44cacc-9e15-45bf-84fd-b5ead2015a70",
+      "name": "Komenda Powiatowa Policji w Kwidzynie",
+      "email": "komenda.kwidzyn@gd.policja.gov.pl",
+      "sourceUrl": "https://kwidzyn.policja.gov.pl/m18/kontakt/77191,Kontakt.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "police",
+      "id": "d3e4d4d4-a3c3-4315-ac53-dcba4e976de6",
+      "name": "Komenda Powiatowa Policji w Kędzierzynie-Koźlu",
+      "email": null,
+      "sourceUrl": "https://kedzierzyn-kozle.policja.gov.pl/ok/kontakt/4655,POLICJA-W-KEDZIERZYNIE-KOZLU.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-26",
+      "missingReason": "Unit contact page, unit BIP and KWP/KSP directory checked; no verified administrative intake email. Confirm an intake address with the unit or parent authority.",
+      "checkedSources": [
+        "https://kedzierzyn-kozle.policja.gov.pl/ok/kontakt/4655,POLICJA-W-KEDZIERZYNIE-KOZLU.html",
+        "https://kedzierzyn-kozle.bip.policja.gov.pl/",
+        "https://opolska.policja.gov.pl/op/kwp-opole/jednostki-policji"
+      ]
+    },
+    {
+      "kind": "police",
+      "id": "bf7c2cdc-50ba-4240-8b08-b21d1d256725",
+      "name": "Komenda Powiatowa Policji w Kępnie",
+      "email": null,
+      "sourceUrl": "https://kepno.policja.gov.pl/wl8/kontakt",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-26",
+      "missingReason": "Unit contact page, unit BIP and KWP/KSP directory checked; no verified administrative intake email. Confirm an intake address with the unit or parent authority.",
+      "checkedSources": [
+        "https://kepno.policja.gov.pl/wl8/kontakt",
+        "https://kepno.bip.policja.gov.pl/",
+        "https://wielkopolska.policja.gov.pl/wlk/policja-wielkopolska/jednostki-policji"
+      ]
+    },
+    {
+      "kind": "police",
+      "id": "27d66106-8526-45af-9038-cf4cde6fc18c",
+      "name": "Komenda Powiatowa Policji w Kętrzynie",
+      "email": "komendant@ketrzyn.ol.policja.gov.pl",
+      "sourceUrl": "https://ketrzyn.policja.gov.pl/o09/kontakt/10197,Kontakt.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "police",
+      "id": "b7eb3749-8251-4e2e-9ec5-c7ff1072c691",
+      "name": "Komenda Powiatowa Policji w Kłobucku",
+      "email": "komendant@klobuck.ka.policja.gov.pl",
+      "sourceUrl": "https://slaska.policja.gov.pl/ftp/kwp_ka/pliki/jednostki-slaskiej-policji-ab47-tel-spacja__32_.xls",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "police",
+      "id": "d069e7fc-35ab-4865-ac6d-9bcc3c211037",
+      "name": "Komenda Powiatowa Policji w Kłodzku",
+      "email": "kpp@klodzko.wr.policja.gov.pl",
+      "sourceUrl": "https://klodzko.policja.gov.pl/dkl/kontakt/dane-teleadresowe/22046,Dane-teleadresowe-Komendy-Powiatowej-w-Klodzku.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "police",
+      "id": "193efed9-39d9-4694-84a0-820dd76d35d8",
+      "name": "Komenda Powiatowa Policji w Legionowie",
+      "email": "kancelaria.kpp-legionowo@ksp.policja.gov.pl",
+      "sourceUrl": "https://legionowo.bip.policja.gov.pl/",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-26",
+      "checkedSources": [
+        "https://legionowo.policja.gov.pl/ple/komenda/kontakt/komenda-powiatowa-polic/1396,NUMERY-TELEFONICZNE-KPP-W-LEGIONOWIE.html",
+        "https://legionowo.bip.policja.gov.pl/",
+        "https://ksp.policja.gov.pl/pl/o-nas/komendy-powiatowe-polic"
+      ]
+    },
+    {
+      "kind": "police",
+      "id": "1bd67a10-8a96-4ec8-933f-816f183f3e03",
+      "name": "Komenda Powiatowa Policji w Lesku",
+      "email": "lesko@rz.policja.gov.pl",
+      "sourceUrl": "https://lesko.policja.gov.pl/rls/kontakt/114997,Kontakt.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "police",
+      "id": "82ec3e8b-a0fd-482f-b712-b2323c32a557",
+      "name": "Komenda Powiatowa Policji w Leżajsku",
+      "email": "lezajsk@rz.policja.gov.pl",
+      "sourceUrl": "https://lezajsk.bip.policja.gov.pl/",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-26",
+      "checkedSources": [
+        "https://lezajsk.policja.gov.pl/rle/kontakt/114564,Kontakt.html",
+        "https://lezajsk.bip.policja.gov.pl/",
+        "https://podkarpacka.policja.gov.pl/"
+      ]
+    },
+    {
+      "kind": "police",
+      "id": "662f1caa-303a-44a9-9866-9db3901daf57",
+      "name": "Komenda Powiatowa Policji w Lidzbarku Warmińskim",
+      "email": "komendant@lidzbark-warm.ol.policja.gov.pl",
+      "sourceUrl": "https://lidzbark-warminski.policja.gov.pl/o10/kontakt/1370,Kontakt.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "police",
+      "id": "f8fe0f92-fae9-4319-9ec0-c5adca590b10",
+      "name": "Komenda Powiatowa Policji w Limanowej",
+      "email": "kpp@limanowa.policja.gov.pl",
+      "sourceUrl": "https://limanowa.bip.policja.gov.pl/",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-26",
+      "checkedSources": [
+        "https://limanowa.policja.gov.pl/kli/kontakt",
+        "https://limanowa.bip.policja.gov.pl/",
+        "https://malopolska.policja.gov.pl/krk/jednostki"
+      ]
+    },
+    {
+      "kind": "police",
+      "id": "c23387c6-b42d-4917-a6cf-9f605584294a",
+      "name": "Komenda Powiatowa Policji w Lipnie",
+      "email": null,
+      "sourceUrl": "https://lipno.policja.gov.pl/k36/kontakt/dane-teleadresowe/60932,Dane-teleadresowe.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-26",
+      "missingReason": "Unit contact page, unit BIP and KWP/KSP directory checked; no verified administrative intake email. Confirm an intake address with the unit or parent authority.",
+      "checkedSources": [
+        "https://lipno.policja.gov.pl/k36/kontakt/dane-teleadresowe/60932,Dane-teleadresowe.html",
+        "https://lipno.bip.policja.gov.pl/",
+        "https://kujawsko-pomorska.policja.gov.pl/kb/informacje/struktura-garni/komendy-miejskie-i-powi"
+      ]
+    },
+    {
+      "kind": "police",
+      "id": "830813f7-8ba8-4bca-810d-efedbf16cf55",
+      "name": "Komenda Powiatowa Policji w Lipsku",
+      "email": "kpplipsko@ra.policja.gov.pl",
+      "sourceUrl": "https://mazowiecka.policja.gov.pl/wli/kontakt/komen/18328,Komenda-Powiatowa-Policji-w-Lipsku.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "police",
+      "id": "944770b8-3153-443e-a563-cdff36325fe4",
+      "name": "Komenda Powiatowa Policji w Lubaczowie",
+      "email": "lubaczow@rz.policja.gov.pl",
+      "sourceUrl": "https://lubaczow.policja.gov.pl/rlu/kontakt/dane-teleadresowe/115514,Dane-teleadresowe.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "police",
+      "id": "8c657142-cc4c-4141-a239-fdaa30237658",
+      "name": "Komenda Powiatowa Policji w Lubaniu",
+      "email": "sekretariat@luban.wr.policja.gov.pl",
+      "sourceUrl": "https://luban.policja.gov.pl/dlb/kontakt/dane-teleadresowe/23016,Dane-teleadresowe.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "police",
+      "id": "640f360c-4b3c-44a0-b0db-dbdc7c210f16",
+      "name": "Komenda Powiatowa Policji w Lubartowie",
+      "email": null,
+      "sourceUrl": "https://lubartow.policja.gov.pl/llb/kontakt/komenda/63899,Komenda.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-26",
+      "missingReason": "Unit contact page, unit BIP and KWP/KSP directory checked; no verified administrative intake email. Confirm an intake address with the unit or parent authority.",
+      "checkedSources": [
+        "https://lubartow.policja.gov.pl/llb/kontakt/komenda/63899,Komenda.html",
+        "https://lubartow.bip.policja.gov.pl/",
+        "https://lubelska.policja.gov.pl/lub/jednostki-policji"
+      ]
+    },
+    {
+      "kind": "police",
+      "id": "8dd5ddf4-dfa5-46f9-a8d6-ca60bc9657ab",
+      "name": "Komenda Powiatowa Policji w Lubinie",
+      "email": "komendant@lubin.wr.policja.gov.pl",
+      "sourceUrl": "https://lubin.policja.gov.pl/dlu/kontakt/dane-teleadresowe/23032,DANE-TELEADRESOWE-KOMENDY-POWIATOWEJ-POLICJI-W-LUBINIE.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "police",
+      "id": "8d36baf7-9ee9-4f72-9cec-e6f9cdd643d0",
+      "name": "Komenda Powiatowa Policji w Lublińcu",
+      "email": "komendant@lubliniec.ka.policja.gov.pl",
+      "sourceUrl": "https://slaska.policja.gov.pl/ftp/kwp_ka/pliki/jednostki-slaskiej-policji-ab47-tel-spacja__32_.xls",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "police",
+      "id": "4d5a5ff7-c977-419a-be62-bfeea5b09426",
+      "name": "Komenda Powiatowa Policji w Lwówku Śląskim",
+      "email": null,
+      "sourceUrl": "https://lwowek-slaski.policja.gov.pl/dlw/kontakt/dane-teleadresowe/22143,Dane-teleadresowe.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-26",
+      "missingReason": "Unit contact page, unit BIP and KWP/KSP directory checked; no verified administrative intake email. Confirm an intake address with the unit or parent authority.",
+      "checkedSources": [
+        "https://lwowek-slaski.policja.gov.pl/dlw/kontakt/dane-teleadresowe/22143,Dane-teleadresowe.html",
+        "https://lwowek-slaski.bip.policja.gov.pl/",
+        "https://dolnoslaska.policja.gov.pl/wr1/twoja-k/komendy-powiatowe-polic"
+      ]
+    },
+    {
+      "kind": "police",
+      "id": "44dfaf47-1e19-4038-9946-83c55971269a",
+      "name": "Komenda Powiatowa Policji w Lęborku",
+      "email": "komenda.lebork@gd.policja.gov.pl",
+      "sourceUrl": "https://lebork.bip.policja.gov.pl/",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-26",
+      "checkedSources": [
+        "https://lebork.policja.gov.pl/pm7/kontakt",
+        "https://lebork.bip.policja.gov.pl/",
+        "https://pomorska.policja.gov.pl/pom/komenda/jednostki-podlegle"
+      ]
+    },
+    {
+      "kind": "police",
+      "id": "d881a0be-4785-4276-8f61-a2cdcdbd8bae",
+      "name": "Komenda Powiatowa Policji w Makowie Mazowieckim",
+      "email": "kppmakowmaz@ra.policja.gov.pl",
+      "sourceUrl": "https://mazowiecka.policja.gov.pl/wma/kontakt/352,Dane-teleadresowe.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "police",
+      "id": "f1718661-c941-4889-825a-88c4f25af9d1",
+      "name": "Komenda Powiatowa Policji w Malborku",
+      "email": "komenda.malbork@gd.policja.gov.pl",
+      "sourceUrl": "https://malbork.bip.policja.gov.pl/",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-26",
+      "checkedSources": [
+        "https://malbork.policja.gov.pl/pm8/kontakt",
+        "https://malbork.bip.policja.gov.pl/",
+        "https://pomorska.policja.gov.pl/pom/komenda/jednostki-podlegle"
+      ]
+    },
+    {
+      "kind": "police",
+      "id": "f7984b31-0c49-4a8b-ab32-ebf030b0a25c",
+      "name": "Komenda Powiatowa Policji w Miechowie",
+      "email": "kpp@miechow.policja.gov.pl",
+      "sourceUrl": "https://miechow.policja.gov.pl/kmi/kontakt/15130,Kontakt.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "police",
+      "id": "49059df7-b648-4567-8028-ccb232f2e7d0",
+      "name": "Komenda Powiatowa Policji w Mielcu",
+      "email": null,
+      "sourceUrl": "https://mielec.policja.gov.pl/rmi/kontakt",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-26",
+      "missingReason": "Unit contact page, unit BIP and KWP/KSP directory checked; no verified administrative intake email. Confirm an intake address with the unit or parent authority.",
+      "checkedSources": [
+        "https://mielec.policja.gov.pl/rmi/kontakt",
+        "https://mielec.bip.policja.gov.pl/",
+        "https://podkarpacka.policja.gov.pl/"
+      ]
+    },
+    {
+      "kind": "police",
+      "id": "dca085c8-eef2-4152-8617-e3a894e7aee7",
+      "name": "Komenda Powiatowa Policji w Mikołowie",
+      "email": "komendant@mikolow.ka.policja.gov.pl",
+      "sourceUrl": "https://slaska.policja.gov.pl/ftp/kwp_ka/pliki/jednostki-slaskiej-policji-ab47-tel-spacja__32_.xls",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "police",
+      "id": "aa7ace65-93a4-4ad3-8daf-a2f446d9aab1",
+      "name": "Komenda Powiatowa Policji w Miliczu",
+      "email": "kpp@milicz.wr.policja.gov.pl",
+      "sourceUrl": "https://milicz.policja.gov.pl/dmi/kontakt/dane-teleadresowe-k/22200,Dane-teleadresowe.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "police",
+      "id": "2b5d41fc-a100-4dd6-9187-b6e21d5c7e71",
+      "name": "Komenda Powiatowa Policji w Międzychodzie",
+      "email": "komendant.miedzychod@po.policja.gov.pl",
+      "sourceUrl": "https://miedzychod.policja.gov.pl/w14/kontakt-1/dane-teleadresowe/181794,Dane-teleadresowe.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "police",
+      "id": "149368d0-3728-47f4-9ef5-a2650cb920b1",
+      "name": "Komenda Powiatowa Policji w Międzyrzeczu",
+      "email": "sekretariat.kpp_miedzyrzecz@go.policja.gov.pl",
+      "sourceUrl": "https://miedzyrzecz.policja.gov.pl/go4/kontakt/13200,Kontakt.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "police",
+      "id": "83241c8c-cfb9-4455-96ff-fe097601d40d",
+      "name": "Komenda Powiatowa Policji w Mińsku Mazowieckim",
+      "email": "kancelaria.kpp-minsk@ksp.policja.gov.pl",
+      "sourceUrl": "https://minsk.policja.gov.pl/pmm/kontakt/dane-teleadresowe/82086,Dane-teleadresowe.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-26",
+      "checkedSources": [
+        "https://minsk.policja.gov.pl/pmm/kontakt/dane-teleadresowe/82086,Dane-teleadresowe.html",
+        "https://minsk-mazowiecki.bip.policja.gov.pl/",
+        "https://ksp.policja.gov.pl/pl/o-nas/komendy-powiatowe-polic"
+      ]
+    },
+    {
+      "kind": "police",
+      "id": "058aec68-c669-49bb-b153-fddddcc5a86d",
+      "name": "Komenda Powiatowa Policji w Mogilnie",
+      "email": "mogilno@bg.policja.gov.pl",
+      "sourceUrl": "https://mogilno.bip.policja.gov.pl/",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-26",
+      "checkedSources": [
+        "https://mogilno.policja.gov.pl/k37/kontakt",
+        "https://mogilno.bip.policja.gov.pl/",
+        "https://kujawsko-pomorska.policja.gov.pl/kb/informacje/struktura-garni/komendy-miejskie-i-powi"
+      ]
+    },
+    {
+      "kind": "police",
+      "id": "c753fb0c-78e2-419d-ad48-d7bf3b5218ac",
+      "name": "Komenda Powiatowa Policji w Mońkach",
+      "email": "komendant.kpp@monki.bk.policja.gov.pl",
+      "sourceUrl": "https://monki.policja.gov.pl/p10/kontak/28424,Dane-teleadresowe.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "police",
+      "id": "b2d05b43-4ee1-4808-a6dd-9005ffa19239",
+      "name": "Komenda Powiatowa Policji w Mrągowie",
+      "email": "komendant@mragowo.ol.policja.gov.pl",
+      "sourceUrl": "https://mragowo.policja.gov.pl/o11/kontakt/1936,Dane-teleadresowe-KPP-w-Mragowie.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "police",
+      "id": "45811f00-5fa9-415e-8c37-9a019301f027",
+      "name": "Komenda Powiatowa Policji w Myszkowie",
+      "email": "komendant@myszkow.ka.policja.gov.pl",
+      "sourceUrl": "https://slaska.policja.gov.pl/ftp/kwp_ka/pliki/jednostki-slaskiej-policji-ab47-tel-spacja__32_.xls",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "police",
+      "id": "0e1e1f3e-62bc-4770-928d-8d8b42a9b5d6",
+      "name": "Komenda Powiatowa Policji w Myślenicach",
+      "email": "sekretariat@myslenice.policja.gov.pl",
+      "sourceUrl": "https://myslenice.policja.gov.pl/kmy/kontakt/kpp-w-myslenicach/3347,KPP-w-Myslenicach.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "police",
+      "id": "72298dba-06d4-4138-ba73-c0c5466121ad",
+      "name": "Komenda Powiatowa Policji w Myśliborzu",
+      "email": "kppmysliborz@sc.policja.gov.pl",
+      "sourceUrl": "https://mysliborz.bip.policja.gov.pl/",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-26",
+      "checkedSources": [
+        "https://mysliborz.policja.gov.pl/",
+        "https://mysliborz.bip.policja.gov.pl/",
+        "https://zachodniopomorska.policja.gov.pl/sz/o-policji/jednostki"
+      ]
+    },
+    {
+      "kind": "police",
+      "id": "3bf09210-480d-4808-ae75-fbdc19710e70",
+      "name": "Komenda Powiatowa Policji w Mławie",
+      "email": "kppmlawa@ra.policja.gov.pl",
+      "sourceUrl": "https://mlawa.bip.policja.gov.pl/",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-26",
+      "checkedSources": [
+        "https://mazowiecka.policja.gov.pl/wml/kontakt",
+        "https://mlawa.bip.policja.gov.pl/",
+        "https://mazowiecka.policja.gov.pl/ra/o-policji-mazowieckiej/jednostki-terenowe"
+      ]
+    },
+    {
+      "kind": "police",
+      "id": "d0e4cda5-37a6-4a6c-8b97-ab35447026bb",
+      "name": "Komenda Powiatowa Policji w Nakle nad Notecią",
+      "email": null,
+      "sourceUrl": "https://naklo.policja.gov.pl/k38/kontakt/komenda-powiatowa/59506,Dane-Kontaktowe.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-26",
+      "missingReason": "Unit contact page, unit BIP and KWP/KSP directory checked; no verified administrative intake email. Confirm an intake address with the unit or parent authority.",
+      "checkedSources": [
+        "https://naklo.policja.gov.pl/k38/kontakt/komenda-powiatowa/59506,Dane-Kontaktowe.html",
+        "https://naklo.bip.policja.gov.pl/",
+        "https://kujawsko-pomorska.policja.gov.pl/kb/informacje/struktura-garni/komendy-miejskie-i-powi"
+      ]
+    },
+    {
+      "kind": "police",
+      "id": "c9a89e0f-1309-4cb8-bcf4-c2c8ac8e4d26",
+      "name": "Komenda Powiatowa Policji w Namysłowie",
+      "email": "komendant.na@op.policja.gov.pl",
+      "sourceUrl": "https://namyslow.bip.policja.gov.pl/",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-26",
+      "checkedSources": [
+        "https://opolska.policja.gov.pl/op/kwp-opole/jednostki-policji/4560,Jednostki-Policji-wojewodztwa-opolskiego.html",
+        "https://namyslow.bip.policja.gov.pl/",
+        "https://opolska.policja.gov.pl/op/kwp-opole/jednostki-policji"
+      ]
+    },
+    {
+      "kind": "police",
+      "id": "0c71ef89-c49f-4ecc-8457-a508dfc224f8",
+      "name": "Komenda Powiatowa Policji w Nidzicy",
+      "email": "komendant@nidzica.ol.policja.gov.pl",
+      "sourceUrl": "https://nidzica.policja.gov.pl/o12/kontakt/2987,Komenda-Powiatowa-Policji-w-Nidzicy.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "police",
+      "id": "c1912fce-d718-46f3-bfd2-aa9ab072a739",
+      "name": "Komenda Powiatowa Policji w Nisku",
+      "email": "nisko@rz.policja.gov.pl",
+      "sourceUrl": "https://nisko.policja.gov.pl/rni/kontakt/115608,Komenda-Powiatowa-Policji-w-Nisku-dane-kontaktowe.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "police",
+      "id": "4de686fd-522a-42f0-bf81-f41621b1b456",
+      "name": "Komenda Powiatowa Policji w Nowej Soli",
+      "email": "sekretariat.kpp_nowasol@go.policja.gov.pl",
+      "sourceUrl": "https://nowa-sol.policja.gov.pl/go5/kontakt/13199,Kontakt.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "police",
+      "id": "51682583-5db2-4a40-a9e5-feca784a06cd",
+      "name": "Komenda Powiatowa Policji w Nowym Dworze Gdańskim",
+      "email": "komenda.ndg@gd.policja.gov.pl",
+      "sourceUrl": "https://nowydworgdanski.policja.gov.pl/pm9/kontakt/56612,Kontakt.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "police",
+      "id": "981ae675-5075-4e73-9534-92347a88d218",
+      "name": "Komenda Powiatowa Policji w Nowym Dworze Mazowieckim",
+      "email": "kancelaria.kpp-ndm@ksp.policja.gov.pl",
+      "sourceUrl": "https://nowy-dwor-mazowiecki.bip.policja.gov.pl/",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-26",
+      "checkedSources": [
+        "https://nowydwor.policja.gov.pl/pnd/kontakt",
+        "https://nowy-dwor-mazowiecki.bip.policja.gov.pl/",
+        "https://ksp.policja.gov.pl/pl/o-nas/komendy-powiatowe-polic"
+      ]
+    },
+    {
+      "kind": "police",
+      "id": "b7680950-aac0-4782-9b07-b2a7122f0766",
+      "name": "Komenda Powiatowa Policji w Nowym Mieście Lubawskim",
+      "email": "komendant@nml.ol.policja.gov.pl",
+      "sourceUrl": "https://nowe-miasto-lubawskie.policja.gov.pl/o13/kontakt/3295,kontakt.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "police",
+      "id": "1f3000e3-954b-439f-bc99-e8e1943ee5ec",
+      "name": "Komenda Powiatowa Policji w Nowym Targu",
+      "email": "sekretariat@nowy-targ.policja.gov.pl",
+      "sourceUrl": "https://nowy-targ.bip.policja.gov.pl/",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-26",
+      "checkedSources": [
+        "https://nowy-targ.policja.gov.pl/knt/kontakt/6753,Kontakt.html",
+        "https://nowy-targ.bip.policja.gov.pl/",
+        "https://malopolska.policja.gov.pl/krk/jednostki"
+      ]
+    },
+    {
+      "kind": "police",
+      "id": "cc53aff0-1640-4e7d-827f-e80c42af5fbb",
+      "name": "Komenda Powiatowa Policji w Nowym Tomyślu",
+      "email": null,
+      "sourceUrl": "https://nowy-tomysl.policja.gov.pl/w15/kontakt/74610,Komenda-Powiatowa-Policji-w-Nowym-Tomyslu.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-26",
+      "missingReason": "Unit contact page, unit BIP and KWP/KSP directory checked; no verified administrative intake email. Confirm an intake address with the unit or parent authority.",
+      "checkedSources": [
+        "https://nowy-tomysl.policja.gov.pl/w15/kontakt/74610,Komenda-Powiatowa-Policji-w-Nowym-Tomyslu.html",
+        "https://nowy-tomysl.bip.policja.gov.pl/",
+        "https://wielkopolska.policja.gov.pl/wlk/policja-wielkopolska/jednostki-policji"
+      ]
+    },
+    {
+      "kind": "police",
+      "id": "ce5c5e55-4164-4153-bc88-a6d39c7a229c",
+      "name": "Komenda Powiatowa Policji w Nysie",
+      "email": null,
+      "sourceUrl": "https://nysa.policja.gov.pl/ony/kontakt",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-26",
+      "missingReason": "Unit contact page, unit BIP and KWP/KSP directory checked; no verified administrative intake email. Confirm an intake address with the unit or parent authority.",
+      "checkedSources": [
+        "https://nysa.policja.gov.pl/ony/kontakt",
+        "https://nysa.bip.policja.gov.pl/",
+        "https://opolska.policja.gov.pl/op/kwp-opole/jednostki-policji"
+      ]
+    },
+    {
+      "kind": "police",
+      "id": "65077a24-4970-4ed2-9ecf-dea310b0843b",
+      "name": "Komenda Powiatowa Policji w Obornikach",
+      "email": null,
+      "sourceUrl": "https://oborniki.policja.gov.pl/w16/kontakt/dane-teleadresowe/dane-teleadresowe-1",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-26",
+      "missingReason": "Unit contact page, unit BIP and KWP/KSP directory checked; no verified administrative intake email. Confirm an intake address with the unit or parent authority.",
+      "checkedSources": [
+        "https://oborniki.policja.gov.pl/w16/kontakt/dane-teleadresowe/dane-teleadresowe-1",
+        "https://oborniki.bip.policja.gov.pl/",
+        "https://wielkopolska.policja.gov.pl/wlk/policja-wielkopolska/jednostki-policji"
+      ]
+    },
+    {
+      "kind": "police",
+      "id": "47e4620a-cbff-44dd-85e3-c7cca69210a4",
+      "name": "Komenda Powiatowa Policji w Olecku",
+      "email": "komendant@olecko.ol.policja.gov.pl",
+      "sourceUrl": "https://olecko.policja.gov.pl/o14/kontakt/2183,Komenda-Powiatowa-Policji-w-Olecku.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "police",
+      "id": "7d1e5848-ce4f-4724-8e29-aee126c5466f",
+      "name": "Komenda Powiatowa Policji w Oleśnicy",
+      "email": null,
+      "sourceUrl": "https://olesnica.policja.gov.pl/dol/kontakt/dane-teleadresowe/23572,Dane-teleadresowe.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-26",
+      "missingReason": "Unit contact page, unit BIP and KWP/KSP directory checked; no verified administrative intake email. Confirm an intake address with the unit or parent authority.",
+      "checkedSources": [
+        "https://olesnica.policja.gov.pl/dol/kontakt/dane-teleadresowe/23572,Dane-teleadresowe.html",
+        "https://olesnica.bip.policja.gov.pl/",
+        "https://dolnoslaska.policja.gov.pl/wr1/twoja-k/komendy-powiatowe-polic"
+      ]
+    },
+    {
+      "kind": "police",
+      "id": "b7f4c7b3-4915-4eb4-a92c-a5529b4b09ab",
+      "name": "Komenda Powiatowa Policji w Oleśnie",
+      "email": null,
+      "sourceUrl": "https://olesno.policja.gov.pl/ool/kontakt/komenda/10805,Komenda-Powiatowa-Policji-w-Olesnie.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-26",
+      "missingReason": "Unit contact page, unit BIP and KWP/KSP directory checked; no verified administrative intake email. Confirm an intake address with the unit or parent authority.",
+      "checkedSources": [
+        "https://olesno.policja.gov.pl/ool/kontakt/komenda/10805,Komenda-Powiatowa-Policji-w-Olesnie.html",
+        "https://olesno.bip.policja.gov.pl/",
+        "https://opolska.policja.gov.pl/op/kwp-opole/jednostki-policji"
+      ]
+    },
+    {
+      "kind": "police",
+      "id": "d18e9f26-9230-4238-8b89-fdbcc941d87e",
+      "name": "Komenda Powiatowa Policji w Olkuszu",
+      "email": "sekretariat.komendanta@olkusz.policja.gov.pl",
+      "sourceUrl": "https://olkusz.policja.gov.pl/kol/kontakt/dane-teleadreso/6709,Dane-teleadresowe.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "police",
+      "id": "4dc65baf-b80b-4794-b28e-e9f4e4b22027",
+      "name": "Komenda Powiatowa Policji w Opatowie",
+      "email": "opatow@ki.policja.gov.pl",
+      "sourceUrl": "https://opatow.policja.gov.pl/top/kontakt/brak/648,Dane-Teleadresowe.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "police",
+      "id": "cb75b05a-3184-4afb-92dd-dcb0ef27af89",
+      "name": "Komenda Powiatowa Policji w Opocznie",
+      "email": "komendant@opoczno.ld.policja.gov.pl",
+      "sourceUrl": "https://opoczno.policja.gov.pl/eop/kontakt/50459,Dane-teleadresowe.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "police",
+      "id": "2ef0f1ce-2f3e-40bf-9bb3-ab393d713be9",
+      "name": "Komenda Powiatowa Policji w Opolu Lubelskim",
+      "email": null,
+      "sourceUrl": "https://opole-lubelskie.policja.gov.pl/lol/kontakt/komenda/64665,Komenda-Powiatowa-Policji-w-Opolu-Lubelskim.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-26",
+      "missingReason": "Unit contact page, unit BIP and KWP/KSP directory checked; no verified administrative intake email. Confirm an intake address with the unit or parent authority.",
+      "checkedSources": [
+        "https://opole-lubelskie.policja.gov.pl/lol/kontakt/komenda/64665,Komenda-Powiatowa-Policji-w-Opolu-Lubelskim.html",
+        "https://opole-lubelskie.bip.policja.gov.pl/",
+        "https://lubelska.policja.gov.pl/lub/jednostki-policji"
+      ]
+    },
+    {
+      "kind": "police",
+      "id": "d5f5043d-afd4-401f-b54b-bd7eea4d0020",
+      "name": "Komenda Powiatowa Policji w Ostrowcu Świętokrzyskim",
+      "email": "sekretariat.ostrowiec@ki.policja.gov.pl",
+      "sourceUrl": "https://ostrowiec-swietokrzyski.policja.gov.pl/tos/kontakt/dane-teleadresowe/396,Dane-teleadresowe.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "police",
+      "id": "21280823-5d8d-478c-a31c-f1fa9bc601d9",
+      "name": "Komenda Powiatowa Policji w Ostrowi Mazowieckiej",
+      "email": "kppostrowmaz@ra.policja.gov.pl",
+      "sourceUrl": "https://mazowiecka.policja.gov.pl/wor/kontakt/komenda-powiatowa-policji-w-os/102209,Dane-teleadresowe.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "police",
+      "id": "e45b49c6-9d86-4b57-b9d7-efb84f0addd8",
+      "name": "Komenda Powiatowa Policji w Ostrowie Wlkp.",
+      "email": null,
+      "sourceUrl": "https://ostrow-wielkopolski.policja.gov.pl/w17/kontakt/dane-teleadresowe/86674,Dane-teleadresowe.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-26",
+      "missingReason": "Unit contact page, unit BIP and KWP/KSP directory checked; no verified administrative intake email. Confirm an intake address with the unit or parent authority.",
+      "checkedSources": [
+        "https://ostrow-wielkopolski.policja.gov.pl/w17/kontakt/dane-teleadresowe/86674,Dane-teleadresowe.html",
+        "https://ostrow-wielkopolski.bip.policja.gov.pl/",
+        "https://wielkopolska.policja.gov.pl/wlk/policja-wielkopolska/jednostki-policji"
+      ]
+    },
+    {
+      "kind": "police",
+      "id": "6425303c-8a21-40e1-9cee-84fe58f36a76",
+      "name": "Komenda Powiatowa Policji w Ostrzeszowie",
+      "email": null,
+      "sourceUrl": "https://ostrzeszow.policja.gov.pl/w18/kontakt/kom/205438,Komenda-Powiatowa-Policji-w-Ostrzeszowie.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-26",
+      "missingReason": "Unit contact page, unit BIP and KWP/KSP directory checked; no verified administrative intake email. Confirm an intake address with the unit or parent authority.",
+      "checkedSources": [
+        "https://ostrzeszow.policja.gov.pl/w18/kontakt/kom/205438,Komenda-Powiatowa-Policji-w-Ostrzeszowie.html",
+        "https://ostrzeszow.bip.policja.gov.pl/",
+        "https://wielkopolska.policja.gov.pl/wlk/policja-wielkopolska/jednostki-policji"
+      ]
+    },
+    {
+      "kind": "police",
+      "id": "224a2ac6-b1a0-4d7a-b453-e8c3b0de9c30",
+      "name": "Komenda Powiatowa Policji w Ostródzie",
+      "email": "komendant@ostroda.ol.policja.gov.pl",
+      "sourceUrl": "https://ostroda.policja.gov.pl/o15/kontakt/3322,KONTAKT.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "police",
+      "id": "8058595a-9dea-4d4a-9090-8c5a99cbb3d7",
+      "name": "Komenda Powiatowa Policji w Otwocku",
+      "email": "komendant.otwock@ksp.policja.gov.pl",
+      "sourceUrl": "https://otwock.policja.gov.pl/po/kontakt-1/komenda-powiatowa-p/73,Komenda-Powiatowa-Policji-w-Otwocku.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "police",
+      "id": "2d3fd505-8b2c-40ba-a2c3-828ab9c85dca",
+      "name": "Komenda Powiatowa Policji w Oławie",
+      "email": "kpp@olawa.wr.policja.gov.pl",
+      "sourceUrl": "https://olawa.policja.gov.pl/doa/kontakt/dane-teleadresowe/22266,Dane-teleadresowe-Komendy-Powiatowej-Policji-w-Olawie.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "police",
+      "id": "c0cc4ad2-2b1e-4746-96fb-9742c8c50f72",
+      "name": "Komenda Powiatowa Policji w Oświęcimiu",
+      "email": "komendant@oswiecim.policja.gov.pl",
+      "sourceUrl": "https://oswiecim.policja.gov.pl/kos/kontaktochr-danych/komenda-powiatowa-polic/1936,KOMENDA-POWIATOWA-POLICJI-W-OSWIECIMIU.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "police",
+      "id": "7b7a58ca-ffb2-4dc3-b6d8-82d5ace24be3",
+      "name": "Komenda Powiatowa Policji w Pabianicach",
+      "email": "komendant@pabianice.ld.policja.gov.pl",
+      "sourceUrl": "https://pabianice.policja.gov.pl/epa/kontakt/dane-teleadresowe/1498,Dane-teleadresowe.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "police",
+      "id": "59282817-b940-4793-af9b-9dd89324bc65",
+      "name": "Komenda Powiatowa Policji w Pajęcznie",
+      "email": "komendant@pajeczno.ld.policja.gov.pl",
+      "sourceUrl": "https://pajeczno.policja.gov.pl/epj/kontakt/dane-teleadresowe-kpp-p/1442,Dane-teleadresowe-KPP-Pajeczno.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "police",
+      "id": "f35d9ec4-a394-477e-9e5d-82b5357d5332",
+      "name": "Komenda Powiatowa Policji w Parczewie",
+      "email": "kpp.parczew@lu.policja.gov.pl",
+      "sourceUrl": "https://parczew.policja.gov.pl/lpa/kontakt/komenda/63743,Komenda-Powiatowa-Policji-w-Parczewie.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "police",
+      "id": "3ed6fcf1-57a2-4437-be49-fafee8052a92",
+      "name": "Komenda Powiatowa Policji w Piasecznie",
+      "email": "kancelaria.kpp-piaseczno@ksp.policja.gov.pl",
+      "sourceUrl": "https://piaseczno.bip.policja.gov.pl/",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-26",
+      "checkedSources": [
+        "https://piaseczno.policja.gov.pl/",
+        "https://piaseczno.bip.policja.gov.pl/",
+        "https://ksp.policja.gov.pl/pl/o-nas/komendy-powiatowe-polic"
+      ]
+    },
+    {
+      "kind": "police",
+      "id": "e5e045cb-3403-4bdb-bdd4-f90db3a2fa18",
+      "name": "Komenda Powiatowa Policji w Pile",
+      "email": "komendant.pila@po.policja.gov.pl",
+      "sourceUrl": "https://pila.policja.gov.pl/w19/kontakt/dane-teleadresowe-2/96946,Dane-teleadresowe.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "police",
+      "id": "935c323c-23bd-4fd4-b027-a10e4bd39e02",
+      "name": "Komenda Powiatowa Policji w Piszu",
+      "email": "komendant@pisz.ol.policja.gov.pl",
+      "sourceUrl": "https://pisz.bip.policja.gov.pl/",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-26",
+      "checkedSources": [
+        "https://pisz.policja.gov.pl/o16/kontakt",
+        "https://pisz.bip.policja.gov.pl/",
+        "https://warminsko-mazurska.policja.gov.pl/"
+      ]
+    },
+    {
+      "kind": "police",
+      "id": "b5bc8b37-0ba7-4f70-9bc7-bea925ad976f",
+      "name": "Komenda Powiatowa Policji w Pińczowie",
+      "email": "pinczow@ki.policja.gov.pl",
+      "sourceUrl": "https://pinczow.policja.gov.pl/tpi/kontakt/1615,Dane-teleadresowe.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "police",
+      "id": "b63ea32c-dd09-452c-89ba-c7dba3c8ffe1",
+      "name": "Komenda Powiatowa Policji w Pleszewie",
+      "email": null,
+      "sourceUrl": "https://pleszew.policja.gov.pl/w20/kontakt/komenda-powiatowa-polic",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-26",
+      "missingReason": "Unit contact page, unit BIP and KWP/KSP directory checked; no verified administrative intake email. Confirm an intake address with the unit or parent authority.",
+      "checkedSources": [
+        "https://pleszew.policja.gov.pl/w20/kontakt/komenda-powiatowa-polic",
+        "https://pleszew.bip.policja.gov.pl/",
+        "https://wielkopolska.policja.gov.pl/wlk/policja-wielkopolska/jednostki-policji"
+      ]
+    },
+    {
+      "kind": "police",
+      "id": "2af0a075-fa54-465a-9003-f3af8523cb05",
+      "name": "Komenda Powiatowa Policji w Poddębicach",
+      "email": "komendant@poddebice.ld.policja.gov.pl",
+      "sourceUrl": "https://poddebice.policja.gov.pl/epd/kontakt/dane-teleadresowe/2545,Dane-teleadresowe.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "police",
+      "id": "ccfff80b-9d39-4e5d-8275-94413f064f7c",
+      "name": "Komenda Powiatowa Policji w Policach",
+      "email": null,
+      "sourceUrl": "https://police.policja.gov.pl/",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-26",
+      "missingReason": "Unit contact page, unit BIP and KWP/KSP directory checked; no verified administrative intake email. Confirm an intake address with the unit or parent authority.",
+      "checkedSources": [
+        "https://police.policja.gov.pl/",
+        "https://police.bip.policja.gov.pl/",
+        "https://zachodniopomorska.policja.gov.pl/sz/o-policji/jednostki"
+      ]
+    },
+    {
+      "kind": "police",
+      "id": "fb64d24a-6d3a-4e48-bacf-ee7d3a7b4717",
+      "name": "Komenda Powiatowa Policji w Polkowicach",
+      "email": "kpp@polkowice.wr.policja.gov.pl",
+      "sourceUrl": "https://polkowice.policja.gov.pl/dpl/kontakt/dane-teleadresowe/23094,Dane-teleadresowe-Komendy-Powiatowej-Policji-w-Polkowicach.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "police",
+      "id": "6cdf6d06-9a18-4f4a-aac0-c47aeb561a95",
+      "name": "Komenda Powiatowa Policji w Proszowicach",
+      "email": "kpp@proszowice.policja.gov.pl",
+      "sourceUrl": "https://proszowice.bip.policja.gov.pl/",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-26",
+      "checkedSources": [
+        "https://proszowice.policja.gov.pl/kpr/kontakt",
+        "https://proszowice.bip.policja.gov.pl/",
+        "https://malopolska.policja.gov.pl/krk/jednostki"
+      ]
+    },
+    {
+      "kind": "police",
+      "id": "5be617d5-263d-473b-a0ba-900de213f886",
+      "name": "Komenda Powiatowa Policji w Prudniku",
+      "email": null,
+      "sourceUrl": "https://prudnik.policja.gov.pl/opr/kontakt",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-26",
+      "missingReason": "Unit contact page, unit BIP and KWP/KSP directory checked; no verified administrative intake email. Confirm an intake address with the unit or parent authority.",
+      "checkedSources": [
+        "https://prudnik.policja.gov.pl/opr/kontakt",
+        "https://prudnik.bip.policja.gov.pl/",
+        "https://opolska.policja.gov.pl/op/kwp-opole/jednostki-policji"
+      ]
+    },
+    {
+      "kind": "police",
+      "id": "94bf5e7d-8d05-4f65-8c99-9e81a62928f6",
+      "name": "Komenda Powiatowa Policji w Pruszczu Gdańskim",
+      "email": null,
+      "sourceUrl": "https://pruszczgdanski.policja.gov.pl/m10/kontakt/57963,Dane-kontaktowe.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-26",
+      "missingReason": "Unit contact page, unit BIP and KWP/KSP directory checked; no verified administrative intake email. Confirm an intake address with the unit or parent authority.",
+      "checkedSources": [
+        "https://pruszczgdanski.policja.gov.pl/m10/kontakt/57963,Dane-kontaktowe.html",
+        "https://pruszcz-gdanski.bip.policja.gov.pl/",
+        "https://pomorska.policja.gov.pl/pom/komenda/jednostki-podlegle"
+      ]
+    },
+    {
+      "kind": "police",
+      "id": "fda744c6-f879-4b4d-9a1d-95a6efa4d66b",
+      "name": "Komenda Powiatowa Policji w Pruszkowie",
+      "email": "komendant.pruszkow@ksp.policja.gov.pl",
+      "sourceUrl": "https://pruszkow.policja.gov.pl/ppr/kontakt/komenda-powiatowa-polic/3162,Komenda-Powiatowa-Policji-w-Pruszkowie.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "police",
+      "id": "1ae76ff9-78d9-4600-9202-f5fc88f45041",
+      "name": "Komenda Powiatowa Policji w Przasnyszu",
+      "email": null,
+      "sourceUrl": "https://mazowiecka.policja.gov.pl/wpz/kontakt",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-26",
+      "missingReason": "Unit contact page, unit BIP and KWP/KSP directory checked; no verified administrative intake email. Confirm an intake address with the unit or parent authority.",
+      "checkedSources": [
+        "https://mazowiecka.policja.gov.pl/wpz/kontakt",
+        "https://przasnysz.bip.policja.gov.pl/",
+        "https://mazowiecka.policja.gov.pl/ra/o-policji-mazowieckiej/jednostki-terenowe"
+      ]
+    },
+    {
+      "kind": "police",
+      "id": "1ce2a20c-22cf-4a36-bf2f-ea9235b9c3ec",
+      "name": "Komenda Powiatowa Policji w Przeworsku",
+      "email": "przeworsk@rz.policja.gov.pl",
+      "sourceUrl": "https://przeworsk.policja.gov.pl/rpz/kontakt/114454,KOMENDA-POWIATOWA-POLICJI-W-PRZEWORSKU.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "police",
+      "id": "beeeda72-1236-4e57-8b30-f1c015972293",
+      "name": "Komenda Powiatowa Policji w Przysusze",
+      "email": "kppprzysucha@ra.policja.gov.pl",
+      "sourceUrl": "https://mazowiecka.policja.gov.pl/wpy/kontakt/lurl1/85121,Komenda-Powiatowa-Policji-w-Przysusze.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "police",
+      "id": "47a984ea-a3a0-499b-8047-eb7ae4ee53ba",
+      "name": "Komenda Powiatowa Policji w Pszczynie",
+      "email": "komendant@pszczyna.ka.policja.gov.pl",
+      "sourceUrl": "https://slaska.policja.gov.pl/ftp/kwp_ka/pliki/jednostki-slaskiej-policji-ab47-tel-spacja__32_.xls",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "police",
+      "id": "b1ae1d3d-49fe-463a-b953-8b941f278177",
+      "name": "Komenda Powiatowa Policji w Pucku",
+      "email": "komendant.puck@gd.policja.gov.pl",
+      "sourceUrl": "https://puck.policja.gov.pl/m11/kontakt/59396,Kontakt.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "police",
+      "id": "164dc475-278e-4cda-99c8-e6f1434ee0fe",
+      "name": "Komenda Powiatowa Policji w Puławach",
+      "email": null,
+      "sourceUrl": "https://pulawy.policja.gov.pl/lpu/kontakt/komenda-powiatowa-polic/63936,Komenda.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-26",
+      "missingReason": "Unit contact page, unit BIP and KWP/KSP directory checked; no verified administrative intake email. Confirm an intake address with the unit or parent authority.",
+      "checkedSources": [
+        "https://pulawy.policja.gov.pl/lpu/kontakt/komenda-powiatowa-polic/63936,Komenda.html",
+        "https://pulawy.bip.policja.gov.pl/",
+        "https://lubelska.policja.gov.pl/lub/jednostki-policji"
+      ]
+    },
+    {
+      "kind": "police",
+      "id": "013f3b6b-1225-4d1a-bf4c-b62704bac8d5",
+      "name": "Komenda Powiatowa Policji w Pułtusku",
+      "email": "kpppultusk@ra.policja.gov.pl",
+      "sourceUrl": "https://mazowiecka.policja.gov.pl/wpu/kontakt/605,Kontakt.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "police",
+      "id": "0288d188-e07a-4937-a53d-c1f13edd12c0",
+      "name": "Komenda Powiatowa Policji w Pyrzycach",
+      "email": "sekretariat.pyrzyce@sc.policja.gov.pl",
+      "sourceUrl": "https://pyrzyce.policja.gov.pl/zpy/kontakt/dane-teleadresowe/39704,DANE-TELEADRESOWE.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "police",
+      "id": "bb0ab208-5971-410a-9863-c309f92282e1",
+      "name": "Komenda Powiatowa Policji w Płońsku",
+      "email": "kppplonsk@ra.policja.gov.pl",
+      "sourceUrl": "https://mazowiecka.policja.gov.pl/wpn/kontakt/1082,Kontakt-do-Komendy-Powiatowej-Policji-w-Plonsku.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "police",
+      "id": "b8c5ba5a-a1e3-46e9-8b25-984adf209041",
+      "name": "Komenda Powiatowa Policji w Raciborzu",
+      "email": "komendant@raciborz.ka.policja.gov.pl",
+      "sourceUrl": "https://slaska.policja.gov.pl/ftp/kwp_ka/pliki/jednostki-slaskiej-policji-ab47-tel-spacja__32_.xls",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "police",
+      "id": "3ccc31b2-5407-4945-bfdb-862537728c03",
+      "name": "Komenda Powiatowa Policji w Radomsku",
+      "email": "komendant@radomsko.ld.policja.gov.pl",
+      "sourceUrl": "https://radomsko.bip.policja.gov.pl/",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-26",
+      "checkedSources": [
+        "https://radomsko.policja.gov.pl/era/kontakt/dane-teleadresowe-kpp-oraz-pod",
+        "https://radomsko.bip.policja.gov.pl/",
+        "https://lodzka.policja.gov.pl/ld/informacje/jednostki-podlegle"
+      ]
+    },
+    {
+      "kind": "police",
+      "id": "8493508e-c7c7-4ffe-8932-dde341eeddef",
+      "name": "Komenda Powiatowa Policji w Radziejowie",
+      "email": null,
+      "sourceUrl": "https://radziejow.policja.gov.pl/k39/",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-26",
+      "missingReason": "Unit contact page, unit BIP and KWP/KSP directory checked; no verified administrative intake email. Confirm an intake address with the unit or parent authority.",
+      "checkedSources": [
+        "https://radziejow.policja.gov.pl/k39/",
+        "https://radziejow.bip.policja.gov.pl/",
+        "https://kujawsko-pomorska.policja.gov.pl/kb/informacje/struktura-garni/komendy-miejskie-i-powi"
+      ]
+    },
+    {
+      "kind": "police",
+      "id": "8fd8483e-7045-4f0d-8931-aa4f6c2bf984",
+      "name": "Komenda Powiatowa Policji w Radzyniu Podlaskim",
+      "email": "komendant.kppradzynpodlaski@lu.policja.gov.pl",
+      "sourceUrl": "https://radzyn-podlaski.policja.gov.pl/lrp/kontakt/komenda/64386,KOMENDA-POWIATOWA-POLICJI-W-RADZYNIU-PODLASKIM.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "police",
+      "id": "8c156c82-7cb7-40ad-ba0f-a38670d53ba3",
+      "name": "Komenda Powiatowa Policji w Rawiczu",
+      "email": null,
+      "sourceUrl": "https://rawicz.policja.gov.pl/w22/kontakt/dane-teleadresowe/116676,Dane-teleadresowe.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-26",
+      "missingReason": "Unit contact page, unit BIP and KWP/KSP directory checked; no verified administrative intake email. Confirm an intake address with the unit or parent authority.",
+      "checkedSources": [
+        "https://rawicz.policja.gov.pl/w22/kontakt/dane-teleadresowe/116676,Dane-teleadresowe.html",
+        "https://rawicz.bip.policja.gov.pl/",
+        "https://wielkopolska.policja.gov.pl/wlk/policja-wielkopolska/jednostki-policji"
+      ]
+    },
+    {
+      "kind": "police",
+      "id": "9a53e0b4-f79b-45c6-ade6-8999b1e22b77",
+      "name": "Komenda Powiatowa Policji w Rawie Mazowieckiej",
+      "email": "komendant@rawa-mazowiecka.ld.policja.gov.pl",
+      "sourceUrl": "https://rawa-mazowiecka.bip.policja.gov.pl/",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-26",
+      "checkedSources": [
+        "https://rawa-mazowiecka.policja.gov.pl/erw/kontakt-1/dane-teleadresowe/85986,Dane-teleadresowe.html",
+        "https://rawa-mazowiecka.bip.policja.gov.pl/",
+        "https://lodzka.policja.gov.pl/ld/informacje/jednostki-podlegle"
+      ]
+    },
+    {
+      "kind": "police",
+      "id": "7f6b47c9-b1f1-4e3e-854b-be8336c64600",
+      "name": "Komenda Powiatowa Policji w Ropczycach",
+      "email": "ropczyce@rz.policja.gov.pl",
+      "sourceUrl": "https://ropczyce.policja.gov.pl/rrs/kontakt/114188,Dane-teleadresowe.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "police",
+      "id": "7288c398-ed51-49b8-8a17-e5fb50caa755",
+      "name": "Komenda Powiatowa Policji w Rykach",
+      "email": "komendant.kppryki@lu.policja.gov.pl",
+      "sourceUrl": "https://ryki.bip.policja.gov.pl/",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-26",
+      "checkedSources": [
+        "https://ryki.policja.gov.pl/lry/kontakt/komenda-powiat/64917,Komenda-Powiatowa-Policji-w-Rykach.html",
+        "https://ryki.bip.policja.gov.pl/",
+        "https://lubelska.policja.gov.pl/lub/jednostki-policji"
+      ]
+    },
+    {
+      "kind": "police",
+      "id": "4508027e-bcb5-4a57-80f9-d708ef3a1470",
+      "name": "Komenda Powiatowa Policji w Rypinie",
+      "email": "policja@rypin.kujawsko-pomorska.policja.gov.pl",
+      "sourceUrl": "https://rypin.policja.gov.pl/k40/kontakt/komenda-powiatowa-polic/84954,Komenda-Powiatowa-Policji-w-Rypinie.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "police",
+      "id": "9e3ac27c-4c8b-4fdd-b73e-dd444bd03d16",
+      "name": "Komenda Powiatowa Policji w Sandomierzu",
+      "email": "sandomierz@ki.policja.gov.pl",
+      "sourceUrl": "https://sandomierz.bip.policja.gov.pl/",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-26",
+      "checkedSources": [
+        "https://sandomierz.policja.gov.pl/tsa/kontakt",
+        "https://sandomierz.bip.policja.gov.pl/",
+        "https://swietokrzyska.policja.gov.pl/kie/o-policji/jednostki-terenowe"
+      ]
+    },
+    {
+      "kind": "police",
+      "id": "87d7b576-b770-44da-b4fd-ac21038e749f",
+      "name": "Komenda Powiatowa Policji w Sanoku",
+      "email": "sanok@rz.policja.gov.pl",
+      "sourceUrl": "https://sanok.policja.gov.pl/rsa/kontakt/114617,Kontakt.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "police",
+      "id": "9dc56e3a-b9f7-4b5d-8198-c8c91e7d76ae",
+      "name": "Komenda Powiatowa Policji w Sejnach",
+      "email": "komendant.kpp@sejny.bk.policja.gov.pl",
+      "sourceUrl": "https://sejny.bip.policja.gov.pl/",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-26",
+      "checkedSources": [
+        "https://sejny.policja.gov.pl/p11/kontakt/56621,Kontakt.html",
+        "https://sejny.bip.policja.gov.pl/",
+        "https://podlaska.policja.gov.pl/pod/policja-podlas/jednostki-policji/komendy-miejskie-i-powi"
+      ]
+    },
+    {
+      "kind": "police",
+      "id": "c4f00ab9-3588-4692-bb93-bf949b6e54f6",
+      "name": "Komenda Powiatowa Policji w Siemiatyczach",
+      "email": "kpp@siemiatycze.bk.policja.gov.pl",
+      "sourceUrl": "https://siemiatycze.bip.policja.gov.pl/",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-26",
+      "checkedSources": [
+        "https://siemiatycze.policja.gov.pl/",
+        "https://siemiatycze.bip.policja.gov.pl/",
+        "https://podlaska.policja.gov.pl/pod/policja-podlas/jednostki-policji/komendy-miejskie-i-powi"
+      ]
+    },
+    {
+      "kind": "police",
+      "id": "6ed017e4-a6a7-4276-bca2-b870b1205c75",
+      "name": "Komenda Powiatowa Policji w Sieradzu",
+      "email": "kpp@sieradz.policja.gov.pl",
+      "sourceUrl": "https://sieradz.policja.gov.pl/esi/kontakt/dane-teleadresowe/2923,Dane-teleadresowe.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "police",
+      "id": "b228e0b1-a9c2-4bbf-b2ed-d9140b36a6f2",
+      "name": "Komenda Powiatowa Policji w Sierpcu",
+      "email": null,
+      "sourceUrl": "https://mazowiecka.policja.gov.pl/wse/",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-26",
+      "missingReason": "Unit contact page, unit BIP and KWP/KSP directory checked; no verified administrative intake email. Confirm an intake address with the unit or parent authority.",
+      "checkedSources": [
+        "https://mazowiecka.policja.gov.pl/wse/",
+        "https://sierpc.bip.policja.gov.pl/",
+        "https://mazowiecka.policja.gov.pl/ra/o-policji-mazowieckiej/jednostki-terenowe"
+      ]
+    },
+    {
+      "kind": "police",
+      "id": "46ba3846-6749-4731-848c-c5bb91210af5",
+      "name": "Komenda Powiatowa Policji w Skarżysku Kamiennej",
+      "email": "skarzysko@ki.policja.gov.pl",
+      "sourceUrl": "https://skarzysko-kamienna.bip.policja.gov.pl/",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-26",
+      "checkedSources": [
+        "https://skarzysko-kamienna.policja.gov.pl/",
+        "https://skarzysko-kamienna.bip.policja.gov.pl/",
+        "https://swietokrzyska.policja.gov.pl/kie/o-policji/jednostki-terenowe"
+      ]
+    },
+    {
+      "kind": "police",
+      "id": "feab758a-85e8-4314-99cd-c6304fc29261",
+      "name": "Komenda Powiatowa Policji w Sochaczewie",
+      "email": "kppsochaczew@ra.policja.gov.pl",
+      "sourceUrl": "https://mazowiecka.policja.gov.pl/wsc/kontakt/791,Kontakt.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "police",
+      "id": "04970fcc-2641-40ad-84dc-edc92f0f1498",
+      "name": "Komenda Powiatowa Policji w Sokołowie Podlaskim",
+      "email": null,
+      "sourceUrl": "https://mazowiecka.policja.gov.pl/wsk/",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-26",
+      "missingReason": "Unit contact page, unit BIP and KWP/KSP directory checked; no verified administrative intake email. Confirm an intake address with the unit or parent authority.",
+      "checkedSources": [
+        "https://mazowiecka.policja.gov.pl/wsk/",
+        "https://sokolow-podlaski.bip.policja.gov.pl/",
+        "https://mazowiecka.policja.gov.pl/ra/o-policji-mazowieckiej/jednostki-terenowe"
+      ]
+    },
+    {
+      "kind": "police",
+      "id": "4cafdc88-3e71-48c1-b3eb-b47c1821c83c",
+      "name": "Komenda Powiatowa Policji w Sokółce",
+      "email": "komendant.kpp@sokolka.bk.policja.gov.pl",
+      "sourceUrl": "https://sokolka.policja.gov.pl/p13/kontakt/30380,Komenda-Powiatowa-Policji-w-Sokolce.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "police",
+      "id": "f6eb0eac-994d-4db7-ac22-c9eba56fd9fe",
+      "name": "Komenda Powiatowa Policji w Stalowej Woli",
+      "email": "stalowa-wola@rz.policja.gov.pl",
+      "sourceUrl": "https://stalowa-wola.policja.gov.pl/rst/kontakt/dane-teleadresowe/123974,Dane-teleadresowe.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "police",
+      "id": "ad4f0b96-f40f-49d4-9e26-db178b80f9b8",
+      "name": "Komenda Powiatowa Policji w Starachowicach",
+      "email": null,
+      "sourceUrl": "https://starachowice.policja.gov.pl/tst/kontakt/kontakt",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-26",
+      "missingReason": "Unit contact page, unit BIP and KWP/KSP directory checked; no verified administrative intake email. Confirm an intake address with the unit or parent authority.",
+      "checkedSources": [
+        "https://starachowice.policja.gov.pl/tst/kontakt/kontakt",
+        "https://starachowice.bip.policja.gov.pl/",
+        "https://swietokrzyska.policja.gov.pl/kie/o-policji/jednostki-terenowe"
+      ]
+    },
+    {
+      "kind": "police",
+      "id": "82bbaf6b-1fef-4ee9-aed9-d57e35041a7d",
+      "name": "Komenda Powiatowa Policji w Stargardzie Szczecińskim",
+      "email": "sekretariat.stargard@sc.policja.gov.pl",
+      "sourceUrl": "https://stargard.policja.gov.pl/zst/kontakt/kpp-stargard/5569,KPP-Stargard.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "police",
+      "id": "022609d2-7afe-4ddb-ace1-d49961fa5b96",
+      "name": "Komenda Powiatowa Policji w Starogardzie Gdańskim",
+      "email": "komenda.starogard@gd.policja.gov.pl",
+      "sourceUrl": "https://starogard-gdanski.bip.policja.gov.pl/",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-26",
+      "checkedSources": [
+        "https://starogardgdanski.policja.gov.pl/",
+        "https://starogard-gdanski.bip.policja.gov.pl/",
+        "https://pomorska.policja.gov.pl/pom/komenda/jednostki-podlegle"
+      ]
+    },
+    {
+      "kind": "police",
+      "id": "1c8ae2c6-3401-42ac-88f4-bdf502162f09",
+      "name": "Komenda Powiatowa Policji w Staszowie",
+      "email": "staszow@ki.policja.gov.pl",
+      "sourceUrl": "https://staszow.policja.gov.pl/tsz/kontakt/946,Komenda-Powiatowa-Policji-w-Staszowie.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "police",
+      "id": "cc58e2b6-d290-476d-adbd-c3ddfd23eedd",
+      "name": "Komenda Powiatowa Policji w Strzelcach Krajeńskich",
+      "email": "sekretariat.kpp_strzelce@go.policja.gov.pl",
+      "sourceUrl": "https://strzelce-krajenskie.policja.gov.pl/go7/kontakt/13177,Kontakt.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-26",
+      "checkedSources": [
+        "https://strzelce-krajenskie.policja.gov.pl/go7/kontakt/13177,Kontakt.html",
+        "https://strzelce-krajenskie.bip.policja.gov.pl/",
+        "https://lubuska.policja.gov.pl/go/o-nas/jednostki-policji-wojew"
+      ]
+    },
+    {
+      "kind": "police",
+      "id": "e0c62768-bb01-4d07-8f1d-ff27f1480651",
+      "name": "Komenda Powiatowa Policji w Strzelcach Opolskich",
+      "email": null,
+      "sourceUrl": "https://strzelce-opolskie.policja.gov.pl/ost/kontakt/informacje-ko/15180,Informacje-kontaktowe.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-26",
+      "missingReason": "Unit contact page, unit BIP and KWP/KSP directory checked; no verified administrative intake email. Confirm an intake address with the unit or parent authority.",
+      "checkedSources": [
+        "https://strzelce-opolskie.policja.gov.pl/ost/kontakt/informacje-ko/15180,Informacje-kontaktowe.html",
+        "https://strzelce-opolskie.bip.policja.gov.pl/",
+        "https://opolska.policja.gov.pl/op/kwp-opole/jednostki-policji"
+      ]
+    },
+    {
+      "kind": "police",
+      "id": "743cb20f-ddee-4796-be40-877a37ed646e",
+      "name": "Komenda Powiatowa Policji w Strzelinie",
+      "email": "komendant@strzelin.wr.policja.gov.pl",
+      "sourceUrl": "https://strzelin.policja.gov.pl/dst/kontakt/dane-teleadresowe/23789,Dane-Teleadresowe.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "police",
+      "id": "de082ced-b0f6-4f9f-bafb-a508aa374905",
+      "name": "Komenda Powiatowa Policji w Strzyżowie",
+      "email": "strzyzow@rz.policja.gov.pl",
+      "sourceUrl": "https://strzyzow.policja.gov.pl/rsr/kontakt/115205,Dane-teleadresowe.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "police",
+      "id": "b4b111b6-ef94-44aa-80f8-ed80a394bd9e",
+      "name": "Komenda Powiatowa Policji w Suchej Beskidzkiej",
+      "email": "sekretariat@sucha-beskidzka.policja.gov.pl",
+      "sourceUrl": "https://sucha-beskidzka.bip.policja.gov.pl/",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-26",
+      "checkedSources": [
+        "https://sucha-beskidzka.policja.gov.pl/ksu/kontakt",
+        "https://sucha-beskidzka.bip.policja.gov.pl/",
+        "https://malopolska.policja.gov.pl/krk/jednostki"
+      ]
+    },
+    {
+      "kind": "police",
+      "id": "98b1d047-3a51-48d4-8edd-8b53da3b4a18",
+      "name": "Komenda Powiatowa Policji w Sulęcinie",
+      "email": "sekretariat.kpp_sulecin@go.policja.gov.pl",
+      "sourceUrl": "https://sulecin.policja.gov.pl/go8/kontakt/komenda-powiatowa-pol-w/2358,Komenda-Powiatowa-Policji-w-Sulecinie-dane-teleadresowe.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "police",
+      "id": "c81841fa-28f9-456a-b248-bcebab2c4f0c",
+      "name": "Komenda Powiatowa Policji w Szamotułach",
+      "email": null,
+      "sourceUrl": "https://szamotuly.policja.gov.pl/w26/kontakt",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-26",
+      "missingReason": "Unit contact page, unit BIP and KWP/KSP directory checked; no verified administrative intake email. Confirm an intake address with the unit or parent authority.",
+      "checkedSources": [
+        "https://szamotuly.policja.gov.pl/w26/kontakt",
+        "https://szamotuly.bip.policja.gov.pl/",
+        "https://wielkopolska.policja.gov.pl/wlk/policja-wielkopolska/jednostki-policji"
+      ]
+    },
+    {
+      "kind": "police",
+      "id": "2efa03f6-059b-4f12-aab8-9372e4aba0ce",
+      "name": "Komenda Powiatowa Policji w Szczecinku",
+      "email": "sekretariat.szczecinek@sc.policja.gov.pl",
+      "sourceUrl": "https://szczecinek.policja.gov.pl/zsz/kontakt/dane-teleadresowe/2579,Dane-teleadresowe.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "police",
+      "id": "56fbcc18-6a7f-4fa9-940d-ee4b2dffaccf",
+      "name": "Komenda Powiatowa Policji w Szczytnie",
+      "email": "komendant@szczytno.ol.policja.gov.pl",
+      "sourceUrl": "https://szczytno.policja.gov.pl/o17/kontakt/7872,Komenda-Powiatowa-Policji-w-Szczytnie.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "police",
+      "id": "02707124-c257-48fb-9940-ed19c8b4e8f4",
+      "name": "Komenda Powiatowa Policji w Sztumie",
+      "email": "sekretariat.sztum@gd.policja.gov.pl",
+      "sourceUrl": "https://sztum.policja.gov.pl/m14/kontakt/64530,Kontakt.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "police",
+      "id": "9cbc08d0-f3bf-4b12-84f9-be63fb21f69e",
+      "name": "Komenda Powiatowa Policji w Szydłowcu",
+      "email": null,
+      "sourceUrl": "https://mazowiecka.policja.gov.pl/wsz/kontakt",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-26",
+      "missingReason": "Unit contact page, unit BIP and KWP/KSP directory checked; no verified administrative intake email. Confirm an intake address with the unit or parent authority.",
+      "checkedSources": [
+        "https://mazowiecka.policja.gov.pl/wsz/kontakt",
+        "https://szydlowiec.bip.policja.gov.pl/",
+        "https://mazowiecka.policja.gov.pl/ra/o-policji-mazowieckiej/jednostki-terenowe"
+      ]
+    },
+    {
+      "kind": "police",
+      "id": "a575ede9-2b31-49f9-b8cb-c9d381ce43e1",
+      "name": "Komenda Powiatowa Policji w Sępólnie Krajeńskim",
+      "email": null,
+      "sourceUrl": "https://sepolno.policja.gov.pl/k41/kontakt",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-26",
+      "missingReason": "Unit contact page, unit BIP and KWP/KSP directory checked; no verified administrative intake email. Confirm an intake address with the unit or parent authority.",
+      "checkedSources": [
+        "https://sepolno.policja.gov.pl/k41/kontakt",
+        "https://sepolno.bip.policja.gov.pl/",
+        "https://kujawsko-pomorska.policja.gov.pl/kb/informacje/struktura-garni/komendy-miejskie-i-powi"
+      ]
+    },
+    {
+      "kind": "police",
+      "id": "03a7e590-e9a7-4a3c-be38-e7205a56a4d9",
+      "name": "Komenda Powiatowa Policji w Sławnie",
+      "email": null,
+      "sourceUrl": "https://slawno.policja.gov.pl/zsl/kontakt/dane-teleadresowe/2421,Dane-teleadresowe.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-26",
+      "missingReason": "Unit contact page, unit BIP and KWP/KSP directory checked; no verified administrative intake email. Confirm an intake address with the unit or parent authority.",
+      "checkedSources": [
+        "https://slawno.policja.gov.pl/zsl/kontakt/dane-teleadresowe/2421,Dane-teleadresowe.html",
+        "https://slawno.bip.policja.gov.pl/",
+        "https://zachodniopomorska.policja.gov.pl/sz/o-policji/jednostki"
+      ]
+    },
+    {
+      "kind": "police",
+      "id": "23c56291-a0ce-418a-88e2-e01ec07f29be",
+      "name": "Komenda Powiatowa Policji w Słubicach",
+      "email": "sekretariat.kpp_slubice@go.policja.gov.pl",
+      "sourceUrl": "https://slubice.policja.gov.pl/go6/kontakt/komenda-powiatowa-policji-w-sl/50661,Komenda-Powiatowa-Policji-w-Slubicach-dane-teleadresowe.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "police",
+      "id": "bc88220a-bcbf-4d1c-a9e2-d0d3bbccfb6e",
+      "name": "Komenda Powiatowa Policji w Słupcy",
+      "email": null,
+      "sourceUrl": "https://slupca.policja.gov.pl/",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-26",
+      "missingReason": "Unit contact page, unit BIP and KWP/KSP directory checked; no verified administrative intake email. Confirm an intake address with the unit or parent authority.",
+      "checkedSources": [
+        "https://slupca.policja.gov.pl/",
+        "https://slupca.bip.policja.gov.pl/",
+        "https://wielkopolska.policja.gov.pl/wlk/policja-wielkopolska/jednostki-policji"
+      ]
+    },
+    {
+      "kind": "police",
+      "id": "4cbe2f53-d1f8-4ed7-adc5-f8e1a75bd3c0",
+      "name": "Komenda Powiatowa Policji w Tarnowskich Górach",
+      "email": "komendant@tarnowskie-gory.ka.policja.gov.pl",
+      "sourceUrl": "https://slaska.policja.gov.pl/ftp/kwp_ka/pliki/jednostki-slaskiej-policji-ab47-tel-spacja__32_.xls",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "police",
+      "id": "684215f9-eea0-4e1c-994e-8d10f245b1f7",
+      "name": "Komenda Powiatowa Policji w Tczewie",
+      "email": "komenda.tczew@gd.policja.gov.pl",
+      "sourceUrl": "https://tczew.policja.gov.pl/m15/kontakt/65917,Kontakt.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "police",
+      "id": "827f4e3d-7674-4637-9938-e805540811f9",
+      "name": "Komenda Powiatowa Policji w Tomaszowie Lubelskim",
+      "email": "komendant.kpptomaszowlubelski@lu.policja.gov.pl",
+      "sourceUrl": "https://tomaszow-lubelski.policja.gov.pl/ltl/kontakt/komenda/63706,Komenda-Powiatowa-Policji-w-Tomaszowie-Lubelski.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "police",
+      "id": "64c4be80-0991-43c4-ae29-8f321f8c0c38",
+      "name": "Komenda Powiatowa Policji w Tomaszowie Mazowieckim",
+      "email": "komendant@tomaszow-mazowiecki.ld.policja.gov.pl",
+      "sourceUrl": "https://tomaszow-mazowiecki.policja.gov.pl/etm/kontakt/dane/2090,Dane-teleadresowe.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "police",
+      "id": "975bcea7-2da7-4fd3-907f-90f1e66b4d2d",
+      "name": "Komenda Powiatowa Policji w Trzebnicy",
+      "email": "komendant@trzebnica.wr.policja.gov.pl",
+      "sourceUrl": "https://trzebnica.policja.gov.pl/dtr/kontakt/dane-teleadresowe/23115,Dane-teleadresowe.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "police",
+      "id": "a7d50ce1-de3b-411d-9ac3-9263fd0f3ff2",
+      "name": "Komenda Powiatowa Policji w Tucholi",
+      "email": "komendant-tuchola@bg.policja.gov.pl",
+      "sourceUrl": "https://tuchola.policja.gov.pl/k43/kontakt/komenda-powiatowa-polic-1/1307,Komenda-Powiatowa-Policji-w-Tucholi.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "police",
+      "id": "6021f766-77f8-4b98-b01b-a16ad3a7f4a2",
+      "name": "Komenda Powiatowa Policji w Turku",
+      "email": null,
+      "sourceUrl": "https://turek.policja.gov.pl/w27/kontakt-1",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-26",
+      "missingReason": "Unit contact page, unit BIP and KWP/KSP directory checked; no verified administrative intake email. Confirm an intake address with the unit or parent authority.",
+      "checkedSources": [
+        "https://turek.policja.gov.pl/w27/kontakt-1",
+        "https://turek.bip.policja.gov.pl/",
+        "https://wielkopolska.policja.gov.pl/wlk/policja-wielkopolska/jednostki-policji"
+      ]
+    },
+    {
+      "kind": "police",
+      "id": "9111d8f8-ed6c-4ead-bd14-f612e9436894",
+      "name": "Komenda Powiatowa Policji w Ustrzykach Dolnych",
+      "email": "ustrzyki-dolne@rz.policja.gov.pl",
+      "sourceUrl": "https://ustrzyki-dolne.policja.gov.pl/rbi/kontakt/115860,Dane-Teleadresowe.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "police",
+      "id": "c7338749-cd71-435b-bdbc-fbc002fafc91",
+      "name": "Komenda Powiatowa Policji w Wadowicach",
+      "email": "kpp@wadowice.policja.gov.pl",
+      "sourceUrl": "https://wadowice.bip.policja.gov.pl/",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-26",
+      "checkedSources": [
+        "https://wadowice.policja.gov.pl/kwa/kontakt",
+        "https://wadowice.bip.policja.gov.pl/",
+        "https://malopolska.policja.gov.pl/krk/jednostki"
+      ]
+    },
+    {
+      "kind": "police",
+      "id": "58276d3d-5d18-4f0e-bb12-c1c4c93e5a6f",
+      "name": "Komenda Powiatowa Policji w Wałczu",
+      "email": "sekretariat.walcz@sc.policja.gov.pl",
+      "sourceUrl": "https://walcz.policja.gov.pl/zwa/kontakt/dane-teleadresowe/2696,Komenda-Powiatowa-Policji-w-Walczu.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "police",
+      "id": "9fa1add6-640d-4ee8-898f-be311ec73d80",
+      "name": "Komenda Powiatowa Policji w Wejherowie",
+      "email": "komenda.wejherowo@gd.policja.gov.pl",
+      "sourceUrl": "https://wejherowo.bip.policja.gov.pl/",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-26",
+      "checkedSources": [
+        "https://wejherowo.policja.gov.pl/m16/kontakt",
+        "https://wejherowo.bip.policja.gov.pl/",
+        "https://pomorska.policja.gov.pl/pom/komenda/jednostki-podlegle"
+      ]
+    },
+    {
+      "kind": "police",
+      "id": "59fab1b8-2ff1-49fb-bfdf-b149ff2e410a",
+      "name": "Komenda Powiatowa Policji w Wieliczce",
+      "email": "sekretariat@wieliczka.policja.gov.pl",
+      "sourceUrl": "https://wieliczka.policja.gov.pl/kwi/kontakt/13296,KONTAKT.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "police",
+      "id": "6a941adc-3675-4f8e-9a21-ed86c6a660b5",
+      "name": "Komenda Powiatowa Policji w Wieluniu",
+      "email": "komendant@wielun.ld.policja.gov.pl",
+      "sourceUrl": "https://wielun.policja.gov.pl/ewi/kontakt/dane/3301,Dane-teleadresowe.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "police",
+      "id": "51dc9685-3cdb-43ce-9532-dd22f8d96276",
+      "name": "Komenda Powiatowa Policji w Wieruszowie",
+      "email": "komendant@wieruszow.ld.policja.gov.pl",
+      "sourceUrl": "https://wieruszow.policja.gov.pl/ewe/kontakt/dane-teleadresowe/3624,Dane-teleadresowe.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "police",
+      "id": "ddc2fa65-d2f9-4065-8fa0-8ae2182c2509",
+      "name": "Komenda Powiatowa Policji w Wodzisławiu Śląskim",
+      "email": "komendant@wodzislaw.ka.policja.gov.pl",
+      "sourceUrl": "https://slaska.policja.gov.pl/ftp/kwp_ka/pliki/jednostki-slaskiej-policji-ab47-tel-spacja__32_.xls",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "police",
+      "id": "b8530817-2ac5-49c8-9477-e9929d21e6df",
+      "name": "Komenda Powiatowa Policji w Wolsztynie",
+      "email": "wolsztyn@po.policja.gov.pl",
+      "sourceUrl": "https://wolsztyn.policja.gov.pl/w29/kontakt/dane-teleadresowe-kpp-w/181073,Dane-teleadresowe-KPP-w-Wolsztynie.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "police",
+      "id": "b3067295-487c-4e9d-a7b7-fd50255ee1d8",
+      "name": "Komenda Powiatowa Policji w Wołominie",
+      "email": "komendant.wolomin@ksp.policja.gov.pl",
+      "sourceUrl": "https://wolomin.bip.policja.gov.pl/",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-26",
+      "checkedSources": [
+        "https://wolomin.policja.gov.pl/pw/kontakt",
+        "https://wolomin.bip.policja.gov.pl/",
+        "https://ksp.policja.gov.pl/pl/o-nas/komendy-powiatowe-polic"
+      ]
+    },
+    {
+      "kind": "police",
+      "id": "dc6d6439-aa3f-4f6c-b0a8-92fe0f871257",
+      "name": "Komenda Powiatowa Policji w Wołowie",
+      "email": "kpp@wolow.wr.policja.gov.pl",
+      "sourceUrl": "https://wolow.policja.gov.pl/dwl/kontakt/dane-teleadresowe/23243,DANE-TELEADRESOWE.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "police",
+      "id": "a667be27-464b-46ed-b520-bb06dcc178a9",
+      "name": "Komenda Powiatowa Policji w Wysokiem Mazowieckiem",
+      "email": "kpp@wysokie-maz.bk.policja.gov.pl",
+      "sourceUrl": "https://wysokie-mazowieckie.bip.policja.gov.pl/",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-26",
+      "checkedSources": [
+        "https://wysokie-mazowieckie.policja.gov.pl/",
+        "https://wysokie-mazowieckie.bip.policja.gov.pl/",
+        "https://podlaska.policja.gov.pl/pod/policja-podlas/jednostki-policji/komendy-miejskie-i-powi"
+      ]
+    },
+    {
+      "kind": "police",
+      "id": "f06ad04c-2e8a-4c65-99e1-dbd1b9cf9a65",
+      "name": "Komenda Powiatowa Policji w Wyszkowie",
+      "email": "kppwyszkow@ra.policja.gov.pl",
+      "sourceUrl": "https://mazowiecka.policja.gov.pl/wwy/kontakt/komenda-powi/335,Komenda-Powiatowa-Policji-w-Wyszkowie.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "police",
+      "id": "18713cfa-cb48-48d2-aa2c-f16573579569",
+      "name": "Komenda Powiatowa Policji w Wąbrzeźnie",
+      "email": null,
+      "sourceUrl": "https://wabrzezno.policja.gov.pl/k44/kontakt",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-26",
+      "missingReason": "Unit contact page, unit BIP and KWP/KSP directory checked; no verified administrative intake email. Confirm an intake address with the unit or parent authority.",
+      "checkedSources": [
+        "https://wabrzezno.policja.gov.pl/k44/kontakt",
+        "https://wabrzezno.bip.policja.gov.pl/",
+        "https://kujawsko-pomorska.policja.gov.pl/kb/informacje/struktura-garni/komendy-miejskie-i-powi"
+      ]
+    },
+    {
+      "kind": "police",
+      "id": "f5ccbdca-32e1-4f1f-b584-8b2f3336244a",
+      "name": "Komenda Powiatowa Policji w Wągrowcu",
+      "email": null,
+      "sourceUrl": "https://wagrowiec.policja.gov.pl/w28/kontakt/komend/181738,Dane-teleadresowe-jednostki.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-26",
+      "missingReason": "Unit contact page, unit BIP and KWP/KSP directory checked; no verified administrative intake email. Confirm an intake address with the unit or parent authority.",
+      "checkedSources": [
+        "https://wagrowiec.policja.gov.pl/w28/kontakt/komend/181738,Dane-teleadresowe-jednostki.html",
+        "https://wagrowiec.bip.policja.gov.pl/",
+        "https://wielkopolska.policja.gov.pl/wlk/policja-wielkopolska/jednostki-policji"
+      ]
+    },
+    {
+      "kind": "police",
+      "id": "a16a353f-401d-4bdc-8023-c7c6d3acc758",
+      "name": "Komenda Powiatowa Policji w Węgorzewie",
+      "email": "komendant@wegorzewo.ol.policja.gov.pl",
+      "sourceUrl": "https://wegorzewo.policja.gov.pl/o18/kontakt/2832,Kontakt.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "police",
+      "id": "3c1a1be4-3880-4457-b7f6-8e51a12a121d",
+      "name": "Komenda Powiatowa Policji w Węgrowie",
+      "email": "kppwegrow@ra.policja.gov.pl",
+      "sourceUrl": "https://mazowiecka.policja.gov.pl/wwe/kontakt/komenda-powiatowa-polic/393,Dane-teleadresowe.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "police",
+      "id": "b6f0d00f-336a-4ce7-9b22-93944bc1a77b",
+      "name": "Komenda Powiatowa Policji w Zakopanem",
+      "email": null,
+      "sourceUrl": "https://zakopane.policja.gov.pl/ktt/kontakt",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-26",
+      "missingReason": "Unit contact page, unit BIP and KWP/KSP directory checked; no verified administrative intake email. Confirm an intake address with the unit or parent authority.",
+      "checkedSources": [
+        "https://zakopane.policja.gov.pl/ktt/kontakt",
+        "https://zakopane.bip.policja.gov.pl/",
+        "https://malopolska.policja.gov.pl/krk/jednostki"
+      ]
+    },
+    {
+      "kind": "police",
+      "id": "a68bbfac-1121-49f8-a69e-f857cf3e8cde",
+      "name": "Komenda Powiatowa Policji w Zambrowie",
+      "email": "kpp@zambrow.bk.policja.gov.pl",
+      "sourceUrl": "https://zambrow.policja.gov.pl/p15/kontakt/11158,Dane-Teleadresowe.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "police",
+      "id": "af7f5cea-6646-454f-9d1a-958a3e3bc32e",
+      "name": "Komenda Powiatowa Policji w Zawierciu",
+      "email": "komendant@zawiercie.ka.policja.gov.pl",
+      "sourceUrl": "https://slaska.policja.gov.pl/ftp/kwp_ka/pliki/jednostki-slaskiej-policji-ab47-tel-spacja__32_.xls",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "police",
+      "id": "35eec7f3-c5f4-4779-b7f5-c7821a73362f",
+      "name": "Komenda Powiatowa Policji w Zduńskiej Woli",
+      "email": "prezydialny@zdunska-wola.ld.policja.gov.pl",
+      "sourceUrl": "https://zdunska-wola.bip.policja.gov.pl/",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-26",
+      "checkedSources": [
+        "https://zdunska-wola.policja.gov.pl/ezd/kontakt/dane-teleadresowe",
+        "https://zdunska-wola.bip.policja.gov.pl/",
+        "https://lodzka.policja.gov.pl/ld/informacje/jednostki-podlegle"
+      ]
+    },
+    {
+      "kind": "police",
+      "id": "4a051450-9527-4721-a978-97ec96fa71a2",
+      "name": "Komenda Powiatowa Policji w Zgierzu",
+      "email": "komendant@zgierz.ld.policja.gov.pl",
+      "sourceUrl": "https://zgierz.policja.gov.pl/ezg/kontakt/dane-teleadresowe/2477,Komenda-Powiatowa-Policji-w-Zgierzu.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "police",
+      "id": "82a80a72-7804-45db-b358-e07f7953055a",
+      "name": "Komenda Powiatowa Policji w Zgorzelcu",
+      "email": "kpp@zgorzelec.wr.policja.gov.pl",
+      "sourceUrl": "https://zgorzelec.policja.gov.pl/dzg/kontakt/dane-teleadresowe/23030,Dane-teleadresowe.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "police",
+      "id": "4a9949e7-f27c-4c12-a1d8-9a40ff27d7ae",
+      "name": "Komenda Powiatowa Policji w Zwoleniu",
+      "email": "kppzwolen@ra.policja.gov.pl",
+      "sourceUrl": "https://mazowiecka.policja.gov.pl/wzw/kontakt",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "police",
+      "id": "d1a24396-15d8-4738-af81-863824f7e027",
+      "name": "Komenda Powiatowa Policji w Ząbkowicach Śląskich",
+      "email": "komendant@zabkowice-slaskie.wr.policja.gov.pl",
+      "sourceUrl": "https://zabkowice-slaskie.policja.gov.pl/dza/kontakt/dane-teleadresowe-komen/23479,Dane-teleadresowe-KPP-w-Zabkowicach-Slaskich.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "police",
+      "id": "874fb2cd-471d-4bc9-a626-937e94609eb1",
+      "name": "Komenda Powiatowa Policji w Złotoryi",
+      "email": null,
+      "sourceUrl": "https://zlotoryja.policja.gov.pl/dzl/kontakt/dane-teleadresowe",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-26",
+      "missingReason": "Unit contact page, unit BIP and KWP/KSP directory checked; no verified administrative intake email. Confirm an intake address with the unit or parent authority.",
+      "checkedSources": [
+        "https://zlotoryja.policja.gov.pl/dzl/kontakt/dane-teleadresowe",
+        "https://zlotoryja.bip.policja.gov.pl/",
+        "https://dolnoslaska.policja.gov.pl/wr1/twoja-k/komendy-powiatowe-polic"
+      ]
+    },
+    {
+      "kind": "police",
+      "id": "562f5a7a-eca7-46b2-a0b8-b945f073bb4c",
+      "name": "Komenda Powiatowa Policji w Złotowie",
+      "email": "komendant.zlotow@po.policja.gov.pl",
+      "sourceUrl": "https://zlotow.policja.gov.pl/w31/kontakt/197689,Dane-kontaktowe.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "police",
+      "id": "86a4099c-f982-4b0d-8481-f363877570b2",
+      "name": "Komenda Powiatowa Policji w Łasku",
+      "email": "komendant@lask.ld.policja.gov.pl",
+      "sourceUrl": "https://lask.policja.gov.pl/ela/kontakt/dane-teleadresowe/3452,Dane-teleadresowe.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "police",
+      "id": "ef29dad0-5aed-4df9-b72c-933356fa8d50",
+      "name": "Komenda Powiatowa Policji w Łańcucie",
+      "email": "lancut@rz.policja.gov.pl",
+      "sourceUrl": "https://lancut.policja.gov.pl/rla/kontakt/115197,Dane-teleadresowe.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "police",
+      "id": "5921ed3f-2717-48a7-a61a-fc77ce812598",
+      "name": "Komenda Powiatowa Policji w Łobzie",
+      "email": "sekretariat.lobez@sc.policja.gov.pl",
+      "sourceUrl": "https://lobez.bip.policja.gov.pl/",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-26",
+      "checkedSources": [
+        "https://lobez.policja.gov.pl/zlo/kontakt/dane/5250,KOMENDA-POWIATOWA-POLICJI-W-LOBZIE.html",
+        "https://lobez.bip.policja.gov.pl/",
+        "https://zachodniopomorska.policja.gov.pl/sz/o-policji/jednostki"
+      ]
+    },
+    {
+      "kind": "police",
+      "id": "d9e61af3-5ecd-4eea-abe9-da9d14b3ad40",
+      "name": "Komenda Powiatowa Policji w Łosicach",
+      "email": "kpplosice@ra.policja.gov.pl",
+      "sourceUrl": "https://mazowiecka.policja.gov.pl/wls/kontakt/komenda-powiatowa-polic/3008,Dane-teleadresowe.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "police",
+      "id": "e66d3f54-a4ac-410c-b825-cabebef546b2",
+      "name": "Komenda Powiatowa Policji w Łowiczu",
+      "email": "komendant@lowicz.ld.policja.gov.pl",
+      "sourceUrl": "https://lowicz.policja.gov.pl/elc/kontakt/dane-teleadresowe/3838,Dane-teleadresowe.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "police",
+      "id": "982e26f2-d8de-455b-94a3-80f5c0da9121",
+      "name": "Komenda Powiatowa Policji w Łukowie",
+      "email": "kpp.lukow@lu.policja.gov.pl",
+      "sourceUrl": "https://lukow.policja.gov.pl/llk/kontakt/komenda/63609,Komenda-Powiatowa-Policji-w-Lukowie.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "police",
+      "id": "5de95bd8-9450-4b02-9211-929a5eae151f",
+      "name": "Komenda Powiatowa Policji w Łęcznej",
+      "email": "komendant.kppleczna@lu.policja.gov.pl",
+      "sourceUrl": "https://leczna.policja.gov.pl/lle/kontakt/komenda/63630,Komenda-Powiatowa-Policji-w-Lecznej.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "police",
+      "id": "e9c194e9-ee4f-4d5a-83a2-f336001786c6",
+      "name": "Komenda Powiatowa Policji w Łęczycy",
+      "email": "komendant@leczyca.ld.policja.gov.pl",
+      "sourceUrl": "https://leczyca.policja.gov.pl/ele/kontakt/dane-teleadresowe/52842,Dane-teleadresowe.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "police",
+      "id": "ba1128ac-61a3-4dd8-ba59-a1adf929d9d1",
+      "name": "Komenda Powiatowa Policji w Śremie",
+      "email": null,
+      "sourceUrl": "https://srem.policja.gov.pl/w24/kontakt-1/dane-teleadresowe/124362,Dane-teleadresowe.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-26",
+      "missingReason": "Unit contact page, unit BIP and KWP/KSP directory checked; no verified administrative intake email. Confirm an intake address with the unit or parent authority.",
+      "checkedSources": [
+        "https://srem.policja.gov.pl/w24/kontakt-1/dane-teleadresowe/124362,Dane-teleadresowe.html",
+        "https://srem.bip.policja.gov.pl/",
+        "https://wielkopolska.policja.gov.pl/wlk/policja-wielkopolska/jednostki-policji"
+      ]
+    },
+    {
+      "kind": "police",
+      "id": "34826d0c-387f-4b32-b86b-85a28e81f5c9",
+      "name": "Komenda Powiatowa Policji w Środzie Wlkp.",
+      "email": null,
+      "sourceUrl": "https://sroda-wielkopolska.policja.gov.pl/w25/kontakt/dane-teleadresowe",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-26",
+      "missingReason": "Unit contact page, unit BIP and KWP/KSP directory checked; no verified administrative intake email. Confirm an intake address with the unit or parent authority.",
+      "checkedSources": [
+        "https://sroda-wielkopolska.policja.gov.pl/w25/kontakt/dane-teleadresowe",
+        "https://sroda-wielkopolska.bip.policja.gov.pl/",
+        "https://wielkopolska.policja.gov.pl/wlk/policja-wielkopolska/jednostki-policji"
+      ]
+    },
+    {
+      "kind": "police",
+      "id": "83d00fd1-3301-4693-b9b5-fcbfbd26448a",
+      "name": "Komenda Powiatowa Policji w Środzie Śląskiej",
+      "email": "kpp@sroda-slaska.wr.policja.gov.pl",
+      "sourceUrl": "https://sroda-slaska.policja.gov.pl/dsr/kontakt/dane-teleadresowe/23041,Dane-teleadresowe.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "police",
+      "id": "bc7bcc5a-c6e7-413e-a3be-a5b1fd401783",
+      "name": "Komenda Powiatowa Policji w Świdnicy",
+      "email": null,
+      "sourceUrl": "https://swidnica.policja.gov.pl/dsw/kontakt/dane-teleadresowe",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-26",
+      "missingReason": "Unit contact page, unit BIP and KWP/KSP directory checked; no verified administrative intake email. Confirm an intake address with the unit or parent authority.",
+      "checkedSources": [
+        "https://swidnica.policja.gov.pl/dsw/kontakt/dane-teleadresowe",
+        "https://swidnica.bip.policja.gov.pl/",
+        "https://dolnoslaska.policja.gov.pl/wr1/twoja-k/komendy-powiatowe-polic"
+      ]
+    },
+    {
+      "kind": "police",
+      "id": "ceb3e427-e535-4ff3-a236-ed5fd9bd29fa",
+      "name": "Komenda Powiatowa Policji w Świdniku",
+      "email": "sekretariat.kppswidnik@lu.policja.gov.pl",
+      "sourceUrl": "https://swidnik.bip.policja.gov.pl/",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-26",
+      "checkedSources": [
+        "https://swidnik.policja.gov.pl/lsw/kontakt/komenda/64056,KOMENDA-POWIATOWA-POLICJI-W-SWIDNIKU.html",
+        "https://swidnik.bip.policja.gov.pl/",
+        "https://lubelska.policja.gov.pl/lub/jednostki-policji"
+      ]
+    },
+    {
+      "kind": "police",
+      "id": "ab53753e-2d5c-4c1f-a4c5-e93640136599",
+      "name": "Komenda Powiatowa Policji w Świdwinie",
+      "email": "sekretariat.swidwin@sc.policja.gov.pl",
+      "sourceUrl": "https://swidwin.bip.policja.gov.pl/",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-26",
+      "checkedSources": [
+        "https://swidwin.policja.gov.pl/zsd/kontakt/dane-teleadresowe/3626,Dane-teleadresowe.html",
+        "https://swidwin.bip.policja.gov.pl/",
+        "https://zachodniopomorska.policja.gov.pl/sz/o-policji/jednostki"
+      ]
+    },
+    {
+      "kind": "police",
+      "id": "93694437-ca55-4b06-b97f-e11e11ade65e",
+      "name": "Komenda Powiatowa Policji w Świebodzinie",
+      "email": "komendant.kpp_swiebodzin@go.policja.gov.pl",
+      "sourceUrl": "https://swiebodzin.policja.gov.pl/go9/kontakt/13150,Kontakt.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "police",
+      "id": "ae428d78-3ec7-4f5d-8c6b-9084307353e4",
+      "name": "Komenda Powiatowa Policji w Świeciu",
+      "email": "komendant-swiecie@bg.policja.gov.pl",
+      "sourceUrl": "https://swiecie.policja.gov.pl/k42/kontakt/kon/60694,Komenda-Powiatowa-Policji-w-Swieciu.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "police",
+      "id": "e9a86ea3-e8a9-4f4a-af3a-de590785ded7",
+      "name": "Komenda Powiatowa Policji w Żaganiu",
+      "email": "sekretariat.kpp_zagan@go.policja.gov.pl",
+      "sourceUrl": "https://zagan.bip.policja.gov.pl/",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-26",
+      "checkedSources": [
+        "https://zagan.policja.gov.pl/g11/kontakt/13142,Kontakt.html",
+        "https://zagan.bip.policja.gov.pl/",
+        "https://lubuska.policja.gov.pl/go/o-nas/jednostki-policji-wojew"
+      ]
+    },
+    {
+      "kind": "police",
+      "id": "40b1eb01-de39-4216-9034-d28b6fd45b8b",
+      "name": "Komenda Powiatowa Policji w Żarach",
+      "email": "sekretariat.kpp_zary@go.policja.gov.pl",
+      "sourceUrl": "https://zary.bip.policja.gov.pl/",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-26",
+      "checkedSources": [
+        "https://zary.policja.gov.pl/g12/kontakt/komenda-powiatowa-polic/37011,KOMENDA-POWIATOWA-POLICJI-W-ZARACH-dane-teleadresowe.html",
+        "https://zary.bip.policja.gov.pl/",
+        "https://lubuska.policja.gov.pl/go/o-nas/jednostki-policji-wojew"
+      ]
+    },
+    {
+      "kind": "police",
+      "id": "378f9a4c-832a-4009-8931-a8e2b925efa3",
+      "name": "Komenda Powiatowa Policji w Żninie",
+      "email": "komendant-znin@bg.policja.gov.pl",
+      "sourceUrl": "https://znin.policja.gov.pl/k45/kontakt/60703,Kontakt.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "police",
+      "id": "d5e7141d-cd19-45de-a650-a3ebcda6cebd",
+      "name": "Komenda Powiatowa Policji w Żurominie",
+      "email": "kppzuromin@ra.policja.gov.pl",
+      "sourceUrl": "https://zuromin.bip.policja.gov.pl/",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-26",
+      "checkedSources": [
+        "https://mazowiecka.policja.gov.pl/wzu/kontakt",
+        "https://zuromin.bip.policja.gov.pl/",
+        "https://mazowiecka.policja.gov.pl/ra/o-policji-mazowieckiej/jednostki-terenowe"
+      ]
+    },
+    {
+      "kind": "police",
+      "id": "59ad0ea9-3964-4e9e-9526-a5ed3ddada99",
+      "name": "Komenda Powiatowa Policji w Żyrardowie",
+      "email": "kppzyrardow@ra.policja.gov.pl",
+      "sourceUrl": "https://zyrardow.bip.policja.gov.pl/",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-26",
+      "checkedSources": [
+        "https://mazowiecka.policja.gov.pl/wzy/kontakt",
+        "https://zyrardow.bip.policja.gov.pl/",
+        "https://mazowiecka.policja.gov.pl/ra/o-policji-mazowieckiej/jednostki-terenowe"
+      ]
+    },
+    {
+      "kind": "police",
+      "id": "cb2c8000-aec6-4cb2-ace8-bdc02584d3e7",
+      "name": "Komenda Powiatowa Policji w Żywcu",
+      "email": "komendant@zywiec.ka.policja.gov.pl",
+      "sourceUrl": "https://slaska.policja.gov.pl/ftp/kwp_ka/pliki/jednostki-slaskiej-policji-ab47-tel-spacja__32_.xls",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "police",
+      "id": "6659c8d7-0e97-4972-9c9c-a3cfa075cc49",
+      "name": "Komenda Powiatowa Policji we Wrześni",
+      "email": null,
+      "sourceUrl": "https://wrzesnia.policja.gov.pl/w30/kontakt-1/dane/182662,Dane-teleadresowe.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-26",
+      "missingReason": "Unit contact page, unit BIP and KWP/KSP directory checked; no verified administrative intake email. Confirm an intake address with the unit or parent authority.",
+      "checkedSources": [
+        "https://wrzesnia.policja.gov.pl/w30/kontakt-1/dane/182662,Dane-teleadresowe.html",
+        "https://wrzesnia.bip.policja.gov.pl/",
+        "https://wielkopolska.policja.gov.pl/wlk/policja-wielkopolska/jednostki-policji"
+      ]
+    },
+    {
+      "kind": "police",
+      "id": "bfcfaca3-55bc-434e-854c-af18d9d5b7c0",
+      "name": "Komenda Powiatowa Policji we Wschowie",
+      "email": "sekretariat.kpp_wschowa@go.policja.gov.pl",
+      "sourceUrl": "https://wschowa.policja.gov.pl/g10/kontakt/13144,Kontakt.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "police",
+      "id": "8242d38e-350e-45e5-bb69-a8dbb4c09b5f",
+      "name": "Komenda Powiatowa Policji we Włodawie",
+      "email": "komendant.kppwlodawa@lu.policja.gov.pl",
+      "sourceUrl": "https://wlodawa.bip.policja.gov.pl/",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-26",
+      "checkedSources": [
+        "https://wlodawa.policja.gov.pl/",
+        "https://wlodawa.bip.policja.gov.pl/",
+        "https://lubelska.policja.gov.pl/lub/jednostki-policji"
+      ]
+    },
+    {
+      "kind": "police",
+      "id": "b022572d-1961-4afa-95df-80da8e31b571",
+      "name": "Komenda Powiatowa Policji we Włoszczowie",
+      "email": "wloszczowa@ki.policja.gov.pl",
+      "sourceUrl": "https://wloszczowa.policja.gov.pl/tlw/kontakt/dane-teleadresowe/579,Komenda-Powiatowa-Policji-we-Wloszczowie.html",
+      "jurisdictionSourceUrl": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip",
+      "checkedAt": "2026-09-24"
+    }
+  ]
+}

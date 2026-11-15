@@ -1,0 +1,9 @@
+{
+  "name": "OpenStreetMap hunting stands",
+  "source_url": "https://www.openstreetmap.org/copyright",
+  "retrieved_at": "2026-09-25T00:00:00Z",
+  "publisher_date": "2026-09-25",
+  "sha256": "149d3e25f600eb9fad5b5aa655bc64ae65d141f96b89f08af10692d12a3d125f",
+  "fixture_synthetic": true,
+  "extract_sha256": "149d3e25f600eb9fad5b5aa655bc64ae65d141f96b89f08af10692d12a3d125f"
+}

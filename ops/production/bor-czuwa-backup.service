@@ -1,0 +1,43 @@
+[Unit]
+Description=Encrypted Report backup and verified expiry
+After=postgresql.service network-online.target
+
+[Service]
+Type=oneshot
+User=bor-czuwa-maint
+NoNewPrivileges=true
+WorkingDirectory=/opt/bor-czuwa/current
+EnvironmentFile=/etc/bor-czuwa/maintenance.env
+StateDirectory=bor-czuwa/backup
+RuntimeDirectory=bor-czuwa-backup
+RuntimeDirectoryMode=0700
+ExecStart=/usr/bin/flock /run/bor-czuwa-backup/backup.lock /usr/bin/python3 ops/production/backup.py backup
+UMask=0077
+LimitCORE=0
+# Sandbox: no capabilities, no device or kernel access, no namespaces, no privileged or resource syscalls.
+CapabilityBoundingSet=
+AmbientCapabilities=
+PrivateDevices=true
+ProtectKernelTunables=true
+ProtectKernelModules=true
+ProtectKernelLogs=true
+ProtectControlGroups=true
+ProtectClock=true
+ProtectHostname=true
+ProtectProc=invisible
+ProcSubset=pid
+RestrictNamespaces=true
+RestrictRealtime=true
+RestrictSUIDSGID=true
+LockPersonality=true
+RemoveIPC=true
+SystemCallArchitectures=native
+SystemCallFilter=@system-service
+SystemCallFilter=~@privileged @resources
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+RestrictAddressFamilies=AF_INET AF_INET6 AF_UNIX
+MemoryDenyWriteExecute=true
+StandardOutput=null
+StandardError=null

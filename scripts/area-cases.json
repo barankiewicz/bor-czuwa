@@ -1,0 +1,118 @@
+{
+  "dwelling_beyond": [
+    743000,
+    626000,
+    200,
+    200
+  ],
+  "dwelling_none_within_radius": [
+    742450,
+    627175,
+    150,
+    150
+  ],
+  "dwelling_none_within_radius_covered": [
+    742650,
+    627175,
+    150,
+    150
+  ],
+  "dwelling_partly_within": [
+    743250,
+    620000,
+    200,
+    200
+  ],
+  "dwelling_contains": [
+    743120.8,
+    621615.9,
+    200,
+    200
+  ],
+  "obwody_multiple": [
+    744300,
+    623000,
+    200,
+    200
+  ],
+  "protected_park_wholly": [
+    744500,
+    620500,
+    200,
+    200
+  ],
+  "protected_park_partly": [
+    744000,
+    620500,
+    200,
+    200
+  ],
+  "protected_rezerwat_neither_wholly": [
+    747500,
+    620500,
+    200,
+    200
+  ],
+  "protected_rezerwat_tasks_wholly": [
+    749500,
+    620500,
+    200,
+    200
+  ],
+  "protected_outside": [
+    754000,
+    628000,
+    200,
+    200
+  ],
+  "protected_context_overlap": [
+    749500,
+    623500,
+    200,
+    200
+  ],
+  "ambona_edge_near": [
+    745500,
+    621650,
+    1500,
+    1500
+  ],
+  "ambona_inside": [
+    743420.8,
+    621615.9,
+    200,
+    200
+  ],
+  "home_cell_4km_with_park": {
+    "bounds": [
+      22.628571,
+      53.369369,
+      22.685714,
+      53.405405
+    ]
+  },
+  "home_cell_8km": {
+    "bounds": [
+      22.628571,
+      53.333333,
+      22.742857,
+      53.405405
+    ]
+  },
+  "home_cell_4km_east": {
+    "bounds": [
+      22.742857,
+      53.405405,
+      22.8,
+      53.441441
+    ]
+  },
+  "home_cell_4km_ne": {
+    "bounds": [
+      22.8,
+      53.405405,
+      22.857143,
+      53.441441
+    ]
+  }
+}

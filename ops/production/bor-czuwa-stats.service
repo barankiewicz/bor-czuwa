@@ -1,0 +1,55 @@
+[Unit]
+Description=GoatCounter, the landing's page-opening counter (loopback only)
+After=network.target
+
+[Service]
+User=bor-czuwa-stats
+Group=bor-czuwa-stats
+# -ratelimit: GoatCounter limits /count per client address (default 4 a second), and every request
+# reaches it from 127.0.0.1, so all visitors would share one bucket. nginx already limits each
+# visitor; this only lifts the shared bucket.
+# Loopback only: nginx forwards /_stats/website to it and nothing else reaches it. The dashboard is
+# opened over an ssh tunnel, never from the internet. TLS is nginx's job, so the counter speaks http.
+ExecStart=/opt/goatcounter/goatcounter serve -listen 127.0.0.1:8081 -tls http -automigrate -ratelimit count:50/1 -db sqlite+/var/lib/bor-czuwa-stats/db.sqlite3
+Restart=on-failure
+NoNewPrivileges=true
+ProtectSystem=strict
+ProtectHome=true
+PrivateTmp=true
+PrivateDevices=true
+ReadWritePaths=/var/lib/bor-czuwa-stats
+StateDirectory=bor-czuwa-stats
+RestrictAddressFamilies=AF_INET AF_UNIX
+# It talks to nginx on loopback and to nobody else.
+IPAddressDeny=any
+IPAddressAllow=127.0.0.1 ::1
+ProtectKernelTunables=true
+ProtectKernelModules=true
+ProtectKernelLogs=true
+ProtectControlGroups=true
+ProtectClock=true
+ProtectHostname=true
+ProtectProc=invisible
+ProcSubset=pid
+RestrictNamespaces=true
+RestrictRealtime=true
+RestrictSUIDSGID=true
+LockPersonality=true
+RemoveIPC=true
+SystemCallArchitectures=native
+# Go does not need writable-and-executable memory. Run under systemd-run with every setting in this
+# file, v2.7.0 started and answered a count; if a later release stops starting, the journal says why.
+MemoryDenyWriteExecute=true
+CapabilityBoundingSet=
+AmbientCapabilities=
+SystemCallFilter=@system-service
+SystemCallFilter=~@privileged @resources
+UMask=0077
+LimitCORE=0
+# Errors go to the journal so a crash loop leaves a trace. It receives no visitor data (a count is
+# a path and a fixed browser string from 127.0.0.1), so what it can print identifies nobody.
+StandardOutput=null
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target

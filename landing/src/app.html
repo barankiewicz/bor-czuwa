@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="%lang%">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- A visitor who follows a link out of the landing hands that site no referrer. The CSP meta
+         element is generated per page from kit.csp in svelte.config.js. -->
+    <meta name="referrer" content="no-referrer" />
+    <!-- Runs before first paint. It sets data-theme (the app's tokens switch on it) to the choice
+         stored on this device, or else to the system setting, which it keeps following until a
+         choice is made with the header switch; it also handles that switch. It adds the class
+         motion only when reduced motion is not asked for. Without it the page is light and still.
+         svelte.config.js allows this script by the hash of its text, so any edit is safe. -->
+    <script>
+      (() => {
+        const root = document.documentElement;
+        const system = matchMedia('(prefers-color-scheme: dark)');
+        const stored = () => { try { return localStorage.getItem('bc-theme'); } catch { return null; } };
+        const sync = () => document.querySelector('.theme')?.setAttribute('aria-pressed', String(root.dataset.theme === 'dark'));
+        const apply = () => {
+          const choice = stored();
+          root.dataset.theme = choice === 'light' || choice === 'dark' ? choice : system.matches ? 'dark' : 'light';
+          sync();
+        };
+        apply();
+        system.addEventListener('change', apply);
+        if (!matchMedia('(prefers-reduced-motion: reduce)').matches) root.classList.add('motion');
+        document.addEventListener('DOMContentLoaded', sync);
+        document.addEventListener('click', event => {
+          if (!(event.target instanceof Element) || !event.target.closest('.theme')) return;
+          root.dataset.theme = root.dataset.theme === 'dark' ? 'light' : 'dark';
+          try { localStorage.setItem('bc-theme', root.dataset.theme); } catch {}
+          sync();
+        });
+      })();
+    </script>
+    %sveltekit.head%
+  </head>
+  <body>
+    <div style="display: contents">%sveltekit.body%</div>
+  </body>
+</html>

@@ -1,0 +1,82 @@
+# The landing is static files on the owner's lh.pl shared hosting account, published by FTP.
+# lh.pl has no shell, so nothing builds on the server: this job builds the files and uploads them.
+# The app and its API are not touched here. They stay on the VPS and ship through the release
+# pipeline.
+#
+# Manual dispatch only, and only from main. The landing goes live together with the app release,
+# so no push, schedule or unreviewed branch may publish it. Add a push trigger only when the owner
+# says the site is live.
+#
+# The three secrets open one shared hosting account, and the neighbouring directories belong to
+# other projects. The target directory must be exactly the landing's own before anything is
+# uploaded.
+#
+# One-time setup, in the repository settings (never in a file):
+#   secrets   FTP_SERVER, FTP_USERNAME, FTP_PASSWORD
+#   variable  FTP_SERVER_DIR = public_html/bor-czuwa-landing/ (the job refuses any other value).
+name: landing-deploy
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+# One deploy at a time, and never cancelled halfway. FTP has no atomic swap, so a stopped run
+# leaves the site half old and half new.
+concurrency:
+  group: landing-deploy
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    name: build, check and publish to lh.pl
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: '24'
+          cache: npm
+      - run: npm ci --ignore-scripts
+
+      # The upload mirrors into its target and the sync state lets later runs delete there, so any
+      # other directory on the shared account (the root, a neighbour's site, a mistyped path) would
+      # be overwritten. Only the landing's own directory is accepted.
+      - name: Refuse any target but the landing's directory
+        env:
+          TARGET: ${{ vars.FTP_SERVER_DIR }}
+        run: |
+          if [ "$TARGET" != 'public_html/bor-czuwa-landing/' ]; then
+            echo "FTP_SERVER_DIR is '$TARGET'. Set it to public_html/bor-czuwa-landing/ exactly."
+            exit 1
+          fi
+
+      # The checks the landing has: types, then test:landing, which builds both sites and runs the tests
+      # (no other origins, legal text parity with the app, the CSP and referrer meta elements and
+      # the .htaccess in the build). The root typecheck in verify.yml covers the app.
+      - run: npm run check -w landing
+      - run: npx playwright install --with-deps chromium
+      - run: npm run test:landing
+
+      # landing/build is the whole payload: adapter-static writes the public files and the
+      # .htaccess there, and no source or tooling reaches it.
+      - uses: SamKirkland/FTP-Deploy-Action@8e83cea8672e3fbcbb9fdafff34debf6ae4c5f65 # v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          server-dir: ${{ vars.FTP_SERVER_DIR }}
+          local-dir: ./landing/build/
+          # lh.pl answers FTPS on 21 and its certificate does not match the hostname, which is
+          # why the check is loose here as it is for the other sites on this account. That leaves
+          # the login open to an attacker on the runner's network path: an accepted risk, recorded
+          # in the production runbook.
+          protocol: ftps
+          security: loose
+          port: 21
+          state-name: .ftp-deploy-sync-state.json

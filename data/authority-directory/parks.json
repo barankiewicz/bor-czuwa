@@ -1,0 +1,213 @@
+{
+  "assembledAt": "2026-09-24",
+  "jurisdictionSourceUrl": "https://sdi.gdos.gov.pl/wfs?service=WFS&version=2.0.0&request=GetFeature&typeNames=GDOS:ParkiNarodowe",
+  "units": [
+    {
+      "kind": "nationalPark",
+      "id": "PL.ZIPOP.1393.PN.19",
+      "name": "Babiogórski Park Narodowy z siedzibą w Zawoi",
+      "email": "park@bgpn.pl",
+      "sourceUrl": "https://bgpn.gov.pl/",
+      "jurisdictionSourceUrl": "https://sdi.gdos.gov.pl/wfs?service=WFS&version=2.0.0&request=GetFeature&typeNames=GDOS:ParkiNarodowe",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "nationalPark",
+      "id": "PL.ZIPOP.1393.PN.8",
+      "name": "Białowieski Park Narodowy",
+      "email": "bpn@bpn.com.pl",
+      "sourceUrl": "https://bpn.gov.pl/",
+      "jurisdictionSourceUrl": "https://sdi.gdos.gov.pl/wfs?service=WFS&version=2.0.0&request=GetFeature&typeNames=GDOS:ParkiNarodowe",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "nationalPark",
+      "id": "PL.ZIPOP.1393.PN.22",
+      "name": "Biebrzański Park Narodowy",
+      "email": "sekretariat@biebrza.org.pl",
+      "sourceUrl": "https://bbpn.gov.pl/",
+      "jurisdictionSourceUrl": "https://sdi.gdos.gov.pl/wfs?service=WFS&version=2.0.0&request=GetFeature&typeNames=GDOS:ParkiNarodowe",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "nationalPark",
+      "id": "PL.ZIPOP.1393.PN.7",
+      "name": "Bieszczadzki Park Narodowy",
+      "email": "dyrekcja@bdpn.pl",
+      "sourceUrl": "https://bdpn.gov.pl/",
+      "jurisdictionSourceUrl": "https://sdi.gdos.gov.pl/wfs?service=WFS&version=2.0.0&request=GetFeature&typeNames=GDOS:ParkiNarodowe",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "nationalPark",
+      "id": "PL.ZIPOP.1393.PN.18",
+      "name": "Drawieński Park Narodowy",
+      "email": "dpn@dpn.pl",
+      "sourceUrl": "https://dpn.gov.pl/",
+      "jurisdictionSourceUrl": "https://sdi.gdos.gov.pl/wfs?service=WFS&version=2.0.0&request=GetFeature&typeNames=GDOS:ParkiNarodowe",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "nationalPark",
+      "id": "PL.ZIPOP.1393.PN.21",
+      "name": "Gorczański Park Narodowy",
+      "email": "gpn@gorcepn.pl",
+      "sourceUrl": "https://gpn.gov.pl/",
+      "jurisdictionSourceUrl": "https://sdi.gdos.gov.pl/wfs?service=WFS&version=2.0.0&request=GetFeature&typeNames=GDOS:ParkiNarodowe",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "nationalPark",
+      "id": "PL.ZIPOP.1393.PN.9",
+      "name": "Kampinoski Park Narodowy",
+      "email": "dyrekcja@kampinoski-pn.gov.pl",
+      "sourceUrl": "https://bip.kampinoski-pn.gov.pl/kontakt.html",
+      "jurisdictionSourceUrl": "https://sdi.gdos.gov.pl/wfs?service=WFS&version=2.0.0&request=GetFeature&typeNames=GDOS:ParkiNarodowe",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "nationalPark",
+      "id": "PL.ZIPOP.1393.PN.11",
+      "name": "Karkonoski Park Narodowy",
+      "email": "sekretariat@kpnmab.pl",
+      "sourceUrl": "https://kpn.gov.pl/",
+      "jurisdictionSourceUrl": "https://sdi.gdos.gov.pl/wfs?service=WFS&version=2.0.0&request=GetFeature&typeNames=GDOS:ParkiNarodowe",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "nationalPark",
+      "id": "PL.ZIPOP.1393.PN.16",
+      "name": "Magurski Park Narodowy",
+      "email": "mpn@magurskipn.pl",
+      "sourceUrl": "https://mpn.gov.pl/",
+      "jurisdictionSourceUrl": "https://sdi.gdos.gov.pl/wfs?service=WFS&version=2.0.0&request=GetFeature&typeNames=GDOS:ParkiNarodowe",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "nationalPark",
+      "id": "PL.ZIPOP.1393.PN.10",
+      "name": "Narwiański Park Narodowy",
+      "email": "npn@npn.pl",
+      "sourceUrl": "https://npn.gov.pl/",
+      "jurisdictionSourceUrl": "https://sdi.gdos.gov.pl/wfs?service=WFS&version=2.0.0&request=GetFeature&typeNames=GDOS:ParkiNarodowe",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "nationalPark",
+      "id": "PL.ZIPOP.1393.PN.1",
+      "name": "Ojcowski Park Narodowy",
+      "email": "opn@opn.com.pl",
+      "sourceUrl": "https://opn.gov.pl/",
+      "jurisdictionSourceUrl": "https://sdi.gdos.gov.pl/wfs?service=WFS&version=2.0.0&request=GetFeature&typeNames=GDOS:ParkiNarodowe",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "nationalPark",
+      "id": "PL.ZIPOP.1393.PN.3",
+      "name": "Park Narodowy Bory Tucholskie",
+      "email": "sekretariat@pnbt.com.pl",
+      "sourceUrl": "https://pnbt.gov.pl/",
+      "jurisdictionSourceUrl": "https://sdi.gdos.gov.pl/wfs?service=WFS&version=2.0.0&request=GetFeature&typeNames=GDOS:ParkiNarodowe",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "nationalPark",
+      "id": "PL.ZIPOP.1393.PN.15",
+      "name": "Park Narodowy Gór Stołowych",
+      "email": "pngs@pngs.com.pl",
+      "sourceUrl": "https://pngs.gov.pl/",
+      "jurisdictionSourceUrl": "https://sdi.gdos.gov.pl/wfs?service=WFS&version=2.0.0&request=GetFeature&typeNames=GDOS:ParkiNarodowe",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "nationalPark",
+      "id": "PL.ZIPOP.1393.PN.23",
+      "name": "Park Narodowy Ujście Warty",
+      "email": "sekretariat@pnujsciewarty.gov.pl",
+      "sourceUrl": "https://pnuw.gov.pl/",
+      "jurisdictionSourceUrl": "https://sdi.gdos.gov.pl/wfs?service=WFS&version=2.0.0&request=GetFeature&typeNames=GDOS:ParkiNarodowe",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "nationalPark",
+      "id": "PL.ZIPOP.1393.PN.5",
+      "name": "Pieniński Park Narodowy",
+      "email": "biuro@pieninypn.pl",
+      "sourceUrl": "https://piepn.gov.pl/",
+      "jurisdictionSourceUrl": "https://sdi.gdos.gov.pl/wfs?service=WFS&version=2.0.0&request=GetFeature&typeNames=GDOS:ParkiNarodowe",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "nationalPark",
+      "id": "PL.ZIPOP.1393.PN.12",
+      "name": "Poleski Park Narodowy",
+      "email": "poleskipn@poleskipn.pl",
+      "sourceUrl": "https://polpn.gov.pl/",
+      "jurisdictionSourceUrl": "https://sdi.gdos.gov.pl/wfs?service=WFS&version=2.0.0&request=GetFeature&typeNames=GDOS:ParkiNarodowe",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "nationalPark",
+      "id": "PL.ZIPOP.1393.PN.17",
+      "name": "Roztoczański Park Narodowy",
+      "email": "sekretariat@roztoczanskipn.pl",
+      "sourceUrl": "https://rpn.gov.pl/",
+      "jurisdictionSourceUrl": "https://sdi.gdos.gov.pl/wfs?service=WFS&version=2.0.0&request=GetFeature&typeNames=GDOS:ParkiNarodowe",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "nationalPark",
+      "id": "PL.ZIPOP.1393.PN.24",
+      "name": "Słowiński Park Narodowy",
+      "email": "sekretariat@slowinskipn.pl",
+      "sourceUrl": "https://spn.gov.pl/",
+      "jurisdictionSourceUrl": "https://sdi.gdos.gov.pl/wfs?service=WFS&version=2.0.0&request=GetFeature&typeNames=GDOS:ParkiNarodowe",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "nationalPark",
+      "id": "PL.ZIPOP.1393.PN.14",
+      "name": "Tatrzański Park Narodowy",
+      "email": "sekretariat@tpn.pl",
+      "sourceUrl": "https://tpn.gov.pl/",
+      "jurisdictionSourceUrl": "https://sdi.gdos.gov.pl/wfs?service=WFS&version=2.0.0&request=GetFeature&typeNames=GDOS:ParkiNarodowe",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "nationalPark",
+      "id": "PL.ZIPOP.1393.PN.20",
+      "name": "Wielkopolski Park Narodowy",
+      "email": "sekretariat@wielkopolskipn.pl",
+      "sourceUrl": "https://wpn.gov.pl/",
+      "jurisdictionSourceUrl": "https://sdi.gdos.gov.pl/wfs?service=WFS&version=2.0.0&request=GetFeature&typeNames=GDOS:ParkiNarodowe",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "nationalPark",
+      "id": "PL.ZIPOP.1393.PN.2",
+      "name": "Wigierski Park Narodowy",
+      "email": "wigry_pn@wigry.org.pl",
+      "sourceUrl": "https://wigpn.gov.pl/",
+      "jurisdictionSourceUrl": "https://sdi.gdos.gov.pl/wfs?service=WFS&version=2.0.0&request=GetFeature&typeNames=GDOS:ParkiNarodowe",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "nationalPark",
+      "id": "PL.ZIPOP.1393.PN.4",
+      "name": "Woliński Park Narodowy",
+      "email": "sekretariat@wolinpn.pl",
+      "sourceUrl": "https://wopn.gov.pl/",
+      "jurisdictionSourceUrl": "https://sdi.gdos.gov.pl/wfs?service=WFS&version=2.0.0&request=GetFeature&typeNames=GDOS:ParkiNarodowe",
+      "checkedAt": "2026-09-24"
+    },
+    {
+      "kind": "nationalPark",
+      "id": "PL.ZIPOP.1393.PN.6",
+      "name": "Świętokrzyski Park Narodowy",
+      "email": "dyrekcja@swietokrzyskipn.org.pl",
+      "sourceUrl": "https://swpn.gov.pl/",
+      "jurisdictionSourceUrl": "https://sdi.gdos.gov.pl/wfs?service=WFS&version=2.0.0&request=GetFeature&typeNames=GDOS:ParkiNarodowe",
+      "checkedAt": "2026-09-24"
+    }
+  ]
+}

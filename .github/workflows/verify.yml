@@ -1,0 +1,410 @@
+name: Verify candidate
+on:
+  pull_request:
+  push:
+    branches: [main, release, 'release/**', 'release-*', 'deploy/private-*']
+  workflow_dispatch:
+    inputs:
+      mode:
+        type: choice
+        options: [staging, production]
+        default: staging
+      android_api_origin:
+        description: HTTPS Android API origin (no credentials)
+        type: string
+      demo:
+        description: Private recipient-safe demo (requires private repository demo variables)
+        type: boolean
+        default: false
+permissions:
+  contents: read
+env:
+  CANDIDATE_MODE: ${{ inputs.mode || 'staging' }}
+  MODE: ${{ inputs.mode || 'staging' }}
+  PRIVATE_DEMO: ${{ (inputs.demo || startsWith(github.ref, 'refs/heads/deploy/private-')) && 'true' || 'false' }}
+  VITE_DEMO_TEST_RECIPIENT: ${{ (inputs.demo || startsWith(github.ref, 'refs/heads/deploy/private-')) && vars.DEMO_TEST_RECIPIENT || '' }}
+  ANDROID_API_ORIGIN: ${{ inputs.android_api_origin || ((inputs.demo || startsWith(github.ref, 'refs/heads/deploy/private-')) && vars.DEMO_API_ORIGIN) || '' }}
+  CI_EVIDENCE_DIR: .scratch/ci
+  ISOLATED_REPORT_PATH: .scratch/ci/isolated-report.json
+  TZ: Europe/Warsaw
+  GRADLE_USER_HOME: ${{ github.workspace }}/.scratch/gradle
+concurrency:
+  group: verify-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  # The release archive is built and probed once. Both isolated runs and the final job take these
+  # exact bytes from the workflow artifact, so no job rebuilds the candidate.
+  candidate:
+    name: Release candidate archive
+    runs-on: ubuntu-24.04
+    timeout-minutes: 60
+    steps:
+      # Install host packages before checking out change-controlled code.
+      # No apt: Ubuntu's mirrors failed to resolve on 2026-11-11 and deployment must not depend
+      # on them. The runner image's own tools are asserted, restic is the pinned upstream
+      # release binary, and poppler comes from a pinned bundle of .deb files attached to the
+      # ci-host-packages-noble-1 release of this repository (see its MANIFEST.txt).
+      - name: Host prerequisites
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          for tool in podman zip unzip ssh gh curl sha256sum bzip2 tar dpkg dpkg-query; do
+            command -v "$tool" > /dev/null || { echo "runner image lacks $tool" >&2; exit 1; }
+          done
+          for package in libasound2t64 libatk-bridge2.0-0t64 libatk1.0-0t64 libcups2t64 libdrm2 libgbm1 \
+            libnspr4 libnss3 libxcomposite1 libxdamage1 libxfixes3 libxkbcommon0 libxrandr2 \
+            libpango-1.0-0 libcairo2; do
+            dpkg-query -W -f='${Status}' "$package" 2> /dev/null | grep -q '^install ok installed$' \
+              || { echo "runner image lacks package $package" >&2; exit 1; }
+          done
+          pinned="$(mktemp -d)"
+          curl -fsSL --retry 3 -o "$pinned/restic.bz2" \
+            https://github.com/restic/restic/releases/download/v0.19.1/restic_0.19.1_linux_amd64.bz2
+          echo "f415415624dcc452f2a02b8c33641791a8c6d6d3b65bbb3543fcf9a25151585c  $pinned/restic.bz2" | sha256sum -c -
+          bzip2 -dc "$pinned/restic.bz2" > "$pinned/restic"
+          echo "20d4142678d0d95ec11a4759def1b73fd9190abc9ca19e4b62d067c0b387e639  $pinned/restic" | sha256sum -c -
+          sudo install -m 0755 "$pinned/restic" /usr/local/bin/restic
+          gh release download ci-host-packages-noble-1 --repo "$GITHUB_REPOSITORY" \
+            --pattern ci-host-packages-noble-1.tar --dir "$pinned"
+          echo "465f3200014653b8637eef987b20cfe640cc4717937ba7099227c531582e91b4  $pinned/ci-host-packages-noble-1.tar" | sha256sum -c -
+          mkdir "$pinned/debs"
+          tar -xf "$pinned/ci-host-packages-noble-1.tar" -C "$pinned/debs"
+          sudo dpkg -i "$pinned"/debs/*.deb
+          restic version
+          pdftotext -v
+          pdfinfo -v
+          provider=""
+          for candidate in /usr/libexec/docker/cli-plugins/docker-compose /usr/local/lib/docker/cli-plugins/docker-compose; do
+            if test -x "$candidate"; then
+              provider="$candidate"
+              break
+            fi
+          done
+          test -n "$provider"
+          echo "PODMAN_COMPOSE_PROVIDER=$provider" >> "$GITHUB_ENV"
+          runtime_dir="/run/user/$(id -u)"
+          sudo mkdir -p "$runtime_dir"
+          sudo chown "$(id -u):$(id -g)" "$runtime_dir"
+          chmod 700 "$runtime_dir"
+          echo "XDG_RUNTIME_DIR=$runtime_dir" >> "$GITHUB_ENV"
+          echo "JAVA_HOME=$JAVA_HOME_21_X64" >> "$GITHUB_ENV"
+          echo "$JAVA_HOME_21_X64/bin" >> "$GITHUB_PATH"
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: '24'
+      - name: Private demo configuration
+        if: env.PRIVATE_DEMO == 'true'
+        run: |
+          test "$CANDIDATE_MODE" = staging
+          test -n "$VITE_DEMO_TEST_RECIPIENT"
+          test -n "$ANDROID_API_ORIGIN"
+      - name: Locked dependencies
+        run: npm ci --ignore-scripts
+      - name: Test tools
+        run: npx --no-install playwright install chromium
+      - name: Tested release artifact
+        continue-on-error: true
+        run: node scripts/ci/evidence.mjs run candidate -- node scripts/ci/release-artifact.mjs
+      - name: Retain candidate archive
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: candidate-${{ github.sha }}-${{ github.run_id }}-${{ github.run_attempt }}
+          path: .scratch/ci/
+          include-hidden-files: true
+          if-no-files-found: error
+          retention-days: 3
+  checks:
+    name: Static, operational and Android checks
+    runs-on: ubuntu-24.04
+    timeout-minutes: 60
+    steps:
+      # Install host packages before checking out change-controlled code.
+      # No apt: Ubuntu's mirrors failed to resolve on 2026-11-11 and deployment must not depend
+      # on them. The runner image's own tools are asserted, restic is the pinned upstream
+      # release binary, and poppler comes from a pinned bundle of .deb files attached to the
+      # ci-host-packages-noble-1 release of this repository (see its MANIFEST.txt).
+      - name: Host prerequisites
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          for tool in podman zip unzip ssh gh curl sha256sum bzip2 tar dpkg dpkg-query; do
+            command -v "$tool" > /dev/null || { echo "runner image lacks $tool" >&2; exit 1; }
+          done
+          for package in libasound2t64 libatk-bridge2.0-0t64 libatk1.0-0t64 libcups2t64 libdrm2 libgbm1 \
+            libnspr4 libnss3 libxcomposite1 libxdamage1 libxfixes3 libxkbcommon0 libxrandr2 \
+            libpango-1.0-0 libcairo2; do
+            dpkg-query -W -f='${Status}' "$package" 2> /dev/null | grep -q '^install ok installed$' \
+              || { echo "runner image lacks package $package" >&2; exit 1; }
+          done
+          pinned="$(mktemp -d)"
+          curl -fsSL --retry 3 -o "$pinned/restic.bz2" \
+            https://github.com/restic/restic/releases/download/v0.19.1/restic_0.19.1_linux_amd64.bz2
+          echo "f415415624dcc452f2a02b8c33641791a8c6d6d3b65bbb3543fcf9a25151585c  $pinned/restic.bz2" | sha256sum -c -
+          bzip2 -dc "$pinned/restic.bz2" > "$pinned/restic"
+          echo "20d4142678d0d95ec11a4759def1b73fd9190abc9ca19e4b62d067c0b387e639  $pinned/restic" | sha256sum -c -
+          sudo install -m 0755 "$pinned/restic" /usr/local/bin/restic
+          gh release download ci-host-packages-noble-1 --repo "$GITHUB_REPOSITORY" \
+            --pattern ci-host-packages-noble-1.tar --dir "$pinned"
+          echo "465f3200014653b8637eef987b20cfe640cc4717937ba7099227c531582e91b4  $pinned/ci-host-packages-noble-1.tar" | sha256sum -c -
+          mkdir "$pinned/debs"
+          tar -xf "$pinned/ci-host-packages-noble-1.tar" -C "$pinned/debs"
+          sudo dpkg -i "$pinned"/debs/*.deb
+          restic version
+          pdftotext -v
+          pdfinfo -v
+          provider=""
+          for candidate in /usr/libexec/docker/cli-plugins/docker-compose /usr/local/lib/docker/cli-plugins/docker-compose; do
+            if test -x "$candidate"; then
+              provider="$candidate"
+              break
+            fi
+          done
+          test -n "$provider"
+          echo "PODMAN_COMPOSE_PROVIDER=$provider" >> "$GITHUB_ENV"
+          runtime_dir="/run/user/$(id -u)"
+          sudo mkdir -p "$runtime_dir"
+          sudo chown "$(id -u):$(id -g)" "$runtime_dir"
+          chmod 700 "$runtime_dir"
+          echo "XDG_RUNTIME_DIR=$runtime_dir" >> "$GITHUB_ENV"
+          echo "JAVA_HOME=$JAVA_HOME_21_X64" >> "$GITHUB_ENV"
+          echo "$JAVA_HOME_21_X64/bin" >> "$GITHUB_PATH"
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: '24'
+      - name: Private demo configuration
+        if: env.PRIVATE_DEMO == 'true'
+        run: |
+          test "$CANDIDATE_MODE" = staging
+          test -n "$VITE_DEMO_TEST_RECIPIENT"
+          test -n "$ANDROID_API_ORIGIN"
+      - name: Locked dependencies
+        id: install
+        run: node scripts/ci/evidence.mjs run install -- npm ci --ignore-scripts
+      - name: Test tools
+        run: |
+          npx --no-install playwright install chromium
+          sdk_root="${ANDROID_HOME:-${ANDROID_SDK_ROOT:-}}"
+          test -n "$sdk_root"
+          "$sdk_root/cmdline-tools/latest/bin/sdkmanager" 'platforms;android-36' 'build-tools;36.0.0'
+          node scripts/ci/toolchain.mjs
+      - name: Typecheck
+        if: ${{ !cancelled() && steps.install.outcome == 'success' }}
+        continue-on-error: true
+        env:
+          # Typechecking emits no client assets and SvelteKit loads its default mode.
+          VITE_DEMO_TEST_RECIPIENT: ''
+        run: node scripts/ci/evidence.mjs run typecheck -- npm run check
+      - name: Domain and Notice goldens
+        if: ${{ !cancelled() && steps.install.outcome == 'success' }}
+        continue-on-error: true
+        run: node scripts/ci/evidence.mjs run domain -- node --import tsx --test tests/notice-composer.test.ts tests/ci.test.ts tests/isolated-runner.test.ts tests/release-candidate.test.ts
+      - name: Production marker rejection
+        if: ${{ !cancelled() && steps.install.outcome == 'success' }}
+        continue-on-error: true
+        run: node scripts/ci/evidence.mjs run marker -- node --import tsx --test tests/release-hygiene.test.ts
+      - name: Explicit staging assets
+        if: ${{ !cancelled() && steps.install.outcome == 'success' }}
+        continue-on-error: true
+        run: |
+          node scripts/ci/evidence.mjs run staging -- npm run build:staging
+          mkdir -p .scratch/ci/artifacts
+          tar -czf .scratch/ci/artifacts/staging.tar.gz -C build .
+      - name: Operational checks
+        if: ${{ !cancelled() && steps.install.outcome == 'success' }}
+        continue-on-error: true
+        run: node scripts/ci/evidence.mjs run ops -- npm run test:ops
+      - name: Android compilation with staging assets
+        if: ${{ !cancelled() && steps.install.outcome == 'success' }}
+        continue-on-error: true
+        env:
+          ANDROID_API_ORIGIN: ${{ env.ANDROID_API_ORIGIN || 'https://api.example.invalid' }}
+        run: |
+          node scripts/ci/evidence.mjs run android -- bash scripts/ci/android.sh
+      - name: Private packaging exclusion
+        if: ${{ !cancelled() && steps.install.outcome == 'success' }}
+        continue-on-error: true
+        run: node scripts/ci/evidence.mjs run packaging -- node scripts/check-private-context.mjs --engine podman --build-images
+      - name: Production dependency advisories
+        if: ${{ !cancelled() && steps.install.outcome == 'success' }}
+        continue-on-error: true
+        run: node scripts/ci/evidence.mjs run audit -- node scripts/ci/audit.mjs
+      - name: Retain check results
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: checks-${{ github.sha }}-${{ github.run_id }}-${{ github.run_attempt }}
+          path: .scratch/ci/
+          include-hidden-files: true
+          if-no-files-found: error
+          retention-days: 3
+  isolated:
+    name: Isolated run ${{ matrix.run }}
+    needs: candidate
+    runs-on: ubuntu-24.04
+    timeout-minutes: 100
+    strategy:
+      fail-fast: false
+      matrix:
+        run: [1, 2]
+    env:
+      ISOLATED_RUN: ${{ matrix.run }}
+      CI_EVIDENCE_DIR: .scratch/ci-run
+      ISOLATED_REPORT_PATH: .scratch/ci-run/isolated-report-${{ matrix.run }}.json
+      CI_CANDIDATE_ARCHIVE: .scratch/ci/artifacts/release.tar
+    steps:
+      # Install host packages before checking out change-controlled code.
+      # No apt: Ubuntu's mirrors failed to resolve on 2026-11-11 and deployment must not depend
+      # on them. The runner image's own tools are asserted, restic is the pinned upstream
+      # release binary, and poppler comes from a pinned bundle of .deb files attached to the
+      # ci-host-packages-noble-1 release of this repository (see its MANIFEST.txt).
+      - name: Host prerequisites
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          for tool in podman zip unzip ssh gh curl sha256sum bzip2 tar dpkg dpkg-query; do
+            command -v "$tool" > /dev/null || { echo "runner image lacks $tool" >&2; exit 1; }
+          done
+          for package in libasound2t64 libatk-bridge2.0-0t64 libatk1.0-0t64 libcups2t64 libdrm2 libgbm1 \
+            libnspr4 libnss3 libxcomposite1 libxdamage1 libxfixes3 libxkbcommon0 libxrandr2 \
+            libpango-1.0-0 libcairo2; do
+            dpkg-query -W -f='${Status}' "$package" 2> /dev/null | grep -q '^install ok installed$' \
+              || { echo "runner image lacks package $package" >&2; exit 1; }
+          done
+          pinned="$(mktemp -d)"
+          curl -fsSL --retry 3 -o "$pinned/restic.bz2" \
+            https://github.com/restic/restic/releases/download/v0.19.1/restic_0.19.1_linux_amd64.bz2
+          echo "f415415624dcc452f2a02b8c33641791a8c6d6d3b65bbb3543fcf9a25151585c  $pinned/restic.bz2" | sha256sum -c -
+          bzip2 -dc "$pinned/restic.bz2" > "$pinned/restic"
+          echo "20d4142678d0d95ec11a4759def1b73fd9190abc9ca19e4b62d067c0b387e639  $pinned/restic" | sha256sum -c -
+          sudo install -m 0755 "$pinned/restic" /usr/local/bin/restic
+          gh release download ci-host-packages-noble-1 --repo "$GITHUB_REPOSITORY" \
+            --pattern ci-host-packages-noble-1.tar --dir "$pinned"
+          echo "465f3200014653b8637eef987b20cfe640cc4717937ba7099227c531582e91b4  $pinned/ci-host-packages-noble-1.tar" | sha256sum -c -
+          mkdir "$pinned/debs"
+          tar -xf "$pinned/ci-host-packages-noble-1.tar" -C "$pinned/debs"
+          sudo dpkg -i "$pinned"/debs/*.deb
+          restic version
+          pdftotext -v
+          pdfinfo -v
+          provider=""
+          for candidate in /usr/libexec/docker/cli-plugins/docker-compose /usr/local/lib/docker/cli-plugins/docker-compose; do
+            if test -x "$candidate"; then
+              provider="$candidate"
+              break
+            fi
+          done
+          test -n "$provider"
+          echo "PODMAN_COMPOSE_PROVIDER=$provider" >> "$GITHUB_ENV"
+          runtime_dir="/run/user/$(id -u)"
+          sudo mkdir -p "$runtime_dir"
+          sudo chown "$(id -u):$(id -g)" "$runtime_dir"
+          chmod 700 "$runtime_dir"
+          echo "XDG_RUNTIME_DIR=$runtime_dir" >> "$GITHUB_ENV"
+          echo "JAVA_HOME=$JAVA_HOME_21_X64" >> "$GITHUB_ENV"
+          echo "$JAVA_HOME_21_X64/bin" >> "$GITHUB_PATH"
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: '24'
+      - name: Private demo configuration
+        if: env.PRIVATE_DEMO == 'true'
+        run: |
+          test "$CANDIDATE_MODE" = staging
+          test -n "$VITE_DEMO_TEST_RECIPIENT"
+          test -n "$ANDROID_API_ORIGIN"
+      - name: Locked dependencies
+        run: npm ci --ignore-scripts
+      - name: Test tools
+        run: npx --no-install playwright install chromium firefox
+      - name: Candidate archive
+        uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4.3.0
+        with:
+          name: candidate-${{ github.sha }}-${{ github.run_id }}-${{ github.run_attempt }}
+          path: .scratch/ci
+      - name: Isolated HTTP and browser run ${{ matrix.run }}
+        continue-on-error: true
+        timeout-minutes: 80
+        run: node scripts/ci/evidence.mjs run isolated -- npm run test:isolated
+      - name: Retain isolated run ${{ matrix.run }}
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: isolated-run-${{ matrix.run }}-${{ github.run_id }}-${{ github.run_attempt }}
+          path: .scratch/ci-run/
+          include-hidden-files: true
+          if-no-files-found: error
+          retention-days: 3
+  required:
+    name: Required checks
+    needs: [candidate, checks, isolated]
+    if: always()
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: '24'
+      # A missing artifact is not an error here: the merge and finalize steps record what is absent.
+      - name: Candidate archive
+        continue-on-error: true
+        uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4.3.0
+        with:
+          name: candidate-${{ github.sha }}-${{ github.run_id }}-${{ github.run_attempt }}
+          path: .scratch/ci
+      - name: Check results
+        continue-on-error: true
+        uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4.3.0
+        with:
+          name: checks-${{ github.sha }}-${{ github.run_id }}-${{ github.run_attempt }}
+          path: .scratch/ci
+      - name: Isolated run 1
+        continue-on-error: true
+        uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4.3.0
+        with:
+          name: isolated-run-1-${{ github.run_id }}-${{ github.run_attempt }}
+          path: .scratch/isolated/run-1
+      - name: Isolated run 2
+        continue-on-error: true
+        uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4.3.0
+        with:
+          name: isolated-run-2-${{ github.run_id }}-${{ github.run_attempt }}
+          path: .scratch/isolated/run-2
+      - name: Merge isolated runs
+        continue-on-error: true
+        run: |
+          mkdir -p .scratch/ci
+          node scripts/ci/merge-isolated.mjs .scratch/isolated .scratch/ci
+      - name: Candidate evidence
+        if: always()
+        id: candidate
+        continue-on-error: true
+        run: node scripts/ci/evidence.mjs finalize
+      - name: Retain results and staging artifacts
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: verification-${{ github.sha }}-${{ github.run_id }}-${{ github.run_attempt }}
+          path: .scratch/ci/
+          include-hidden-files: true
+          if-no-files-found: error
+          retention-days: 14
+      - name: Required result
+        if: always()
+        env:
+          CANDIDATE_OUTCOME: ${{ steps.candidate.outcome }}
+          JOBS: ${{ needs.candidate.result }} ${{ needs.checks.result }} ${{ needs.isolated.result }}
+        run: |
+          test "$JOBS" = "success success success"
+          test "$CANDIDATE_OUTCOME" = success

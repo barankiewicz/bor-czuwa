@@ -1,0 +1,281 @@
+{
+  "id": "pl-2018-04-01-v2",
+  "effective_from": "2018-04-01",
+  "published_at": "2026-09-24T21:00:00Z",
+  "dwelling_threshold_m": 150,
+  "dwelling_measure_from": "footprint_edge",
+  "distance_measured_from": "reported_point",
+  "residential_kst": "110",
+  "noc": {
+    "starts_after_sunset_minutes": 60,
+    "ends_before_sunrise_minutes": 60,
+    "species": [
+      "dzik",
+      "pizmak",
+      "lis",
+      "borsuk",
+      "kuna-lesna",
+      "kuna-domowa",
+      "norka-amerykanska",
+      "tchorz",
+      "jenot",
+      "szop-pracz",
+      "szakal-zlocisty",
+      "ges-gegawa",
+      "ges-zbozowa",
+      "ges-bialoczelna",
+      "krzyzowka",
+      "cyraneczka",
+      "glowienka",
+      "czernica",
+      "lyska"
+    ]
+  },
+  "species": {
+    "los": {
+      "label": "Łoś",
+      "closed_seasons": [
+        {
+          "from": "01-01",
+          "to": "12-31"
+        }
+      ]
+    },
+    "jelen-szlachetny": {
+      "label": "Jeleń szlachetny",
+      "closed_seasons": null
+    },
+    "daniel": {
+      "label": "Daniel",
+      "closed_seasons": null
+    },
+    "sarna": {
+      "label": "Sarna",
+      "closed_seasons": null,
+      "common_closed_window": "sarna",
+      "other_dates_need_details": true
+    },
+    "dzik": {
+      "label": "Dzik",
+      "closed_seasons": []
+    },
+    "muflon": {
+      "label": "Muflon",
+      "closed_seasons": null
+    },
+    "lis": {
+      "label": "Lis",
+      "closed_seasons": [
+        {
+          "from": "04-01",
+          "to": "05-31"
+        }
+      ],
+      "local_exception": true
+    },
+    "borsuk": {
+      "label": "Borsuk",
+      "closed_seasons": [
+        {
+          "from": "12-01",
+          "to": "08-31"
+        }
+      ],
+      "local_exception": true
+    },
+    "kuna-lesna": {
+      "label": "Kuna leśna",
+      "closed_seasons": [
+        {
+          "from": "04-01",
+          "to": "08-31"
+        }
+      ],
+      "local_exception": true
+    },
+    "kuna-domowa": {
+      "label": "Kuna domowa",
+      "closed_seasons": [
+        {
+          "from": "04-01",
+          "to": "08-31"
+        }
+      ],
+      "local_exception": true
+    },
+    "norka-amerykanska": {
+      "label": "Norka amerykańska",
+      "closed_seasons": [
+        {
+          "from": "04-01",
+          "to": "06-30"
+        }
+      ],
+      "local_exception": true
+    },
+    "tchorz": {
+      "label": "Tchórz zwyczajny",
+      "closed_seasons": [
+        {
+          "from": "04-01",
+          "to": "08-31"
+        }
+      ],
+      "local_exception": true
+    },
+    "zajac-szarak": {
+      "label": "Zając szarak",
+      "closed_seasons": null
+    },
+    "dziki-krolik": {
+      "label": "Dziki królik",
+      "closed_seasons": null
+    },
+    "bazant": {
+      "label": "Bażant",
+      "closed_seasons": null
+    },
+    "kuropatwa": {
+      "label": "Kuropatwa",
+      "closed_seasons": null
+    },
+    "ges-gegawa": {
+      "label": "Gęś gęgawa",
+      "closed_seasons": null
+    },
+    "ges-zbozowa": {
+      "label": "Gęś zbożowa",
+      "closed_seasons": null
+    },
+    "ges-bialoczelna": {
+      "label": "Gęś białoczelna",
+      "closed_seasons": null
+    },
+    "krzyzowka": {
+      "label": "Krzyżówka",
+      "closed_seasons": [
+        {
+          "from": "12-22",
+          "to": "08-14"
+        }
+      ]
+    },
+    "cyraneczka": {
+      "label": "Cyraneczka",
+      "closed_seasons": [
+        {
+          "from": "12-22",
+          "to": "08-14"
+        }
+      ]
+    },
+    "golab-grzywacz": {
+      "label": "Gołąb grzywacz",
+      "closed_seasons": [
+        {
+          "from": "12-01",
+          "to": "08-14"
+        }
+      ]
+    },
+    "szakal-zlocisty": {
+      "label": "Szakal złocisty",
+      "closed_seasons": null,
+      "local_exception": true
+    },
+    "pizmak": {
+      "label": "Piżmak",
+      "closed_seasons": [
+        {
+          "from": "04-16",
+          "to": "08-10"
+        }
+      ],
+      "local_exception": true
+    },
+    "jarzabek": {
+      "label": "Jarząbek",
+      "closed_seasons": [
+        {
+          "from": "12-01",
+          "to": "08-31"
+        }
+      ]
+    },
+    "glowienka": {
+      "label": "Głowienka",
+      "closed_seasons": [
+        {
+          "from": "12-22",
+          "to": "08-14"
+        }
+      ]
+    },
+    "czernica": {
+      "label": "Czernica",
+      "closed_seasons": [
+        {
+          "from": "12-22",
+          "to": "08-14"
+        }
+      ]
+    },
+    "slonka": {
+      "label": "Słonka",
+      "closed_seasons": [
+        {
+          "from": "12-22",
+          "to": "08-31"
+        }
+      ]
+    },
+    "lyska": {
+      "label": "Łyska",
+      "closed_seasons": [
+        {
+          "from": "12-22",
+          "to": "08-14"
+        }
+      ]
+    },
+    "jelen-sika": {
+      "label": "Jeleń sika",
+      "closed_seasons": null
+    },
+    "jenot": {
+      "label": "Jenot",
+      "closed_seasons": [
+        {
+          "from": "04-01",
+          "to": "05-31"
+        }
+      ],
+      "local_exception": true
+    },
+    "szop-pracz": {
+      "label": "Szop pracz",
+      "closed_seasons": [
+        {
+          "from": "04-01",
+          "to": "05-31"
+        }
+      ],
+      "local_exception": true
+    }
+  },
+  "citations": {
+    "dwelling": "art. 42aa pkt 13 i art. 51 ust. 1 pkt 1 Prawa łowieckiego (Dz.U. 2018 poz. 651)",
+    "game_list": "§ 1 rozporządzenia Ministra Środowiska z 11 marca 2005 r. (Dz.U. 2005 poz. 433; Dz.U. 2017 poz. 1484)",
+    "noc": "§ 2 pkt 11 i § 7 ust. 1 rozporządzenia Ministra Środowiska z 23 marca 2005 r. (Dz.U. 2005 poz. 548; Dz.U. 2017 poz. 1485)",
+    "okres_ochronny": "§ 1 rozporządzenia Ministra Środowiska z 16 marca 2005 r. (Dz.U. 2005 poz. 459; Dz.U. 2017 poz. 1487)"
+  },
+  "sources": [
+    "Dz.U. 2018 poz. 651",
+    "Dz.U. 2005 poz. 433",
+    "Dz.U. 2017 poz. 1484",
+    "Dz.U. 2005 poz. 548",
+    "Dz.U. 2017 poz. 1485",
+    "Dz.U. 2005 poz. 459",
+    "Dz.U. 2017 poz. 1487"
+  ]
+}

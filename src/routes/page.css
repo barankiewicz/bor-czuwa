@@ -1,0 +1,515 @@
+@import './tokens.css';
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--ground); color: var(--ink); line-height: 1.45; }
+/* Light text on a dark ground reads denser, so the dark palettes get more leading. */
+:root:is([data-theme="dark"], [data-theme="noc"]) body { line-height: 1.5; }
+button { font: inherit; color: inherit; min-height: 56px; cursor: pointer; touch-action: manipulation; border: 1px solid transparent; border-radius: 2px; background: var(--fill); padding: 12px 16px; font-weight: 600; }
+button:hover:enabled { background: var(--fill-hover); }
+button:disabled { color: var(--muted); cursor: default; }
+/* Unavailable is the paler soft fill with muted text, set apart from an enabled filled button by both.
+   A destructive button is only disabled while its action saves, so it keeps its ink fill and paper text. */
+button:disabled:not(.quiet, .event-row, .destructive) { border-color: transparent; background: var(--soft); }
+/* The default ring weighs as one class, so a surface can recolour it (paper on the orange band). */
+:where(button, a, summary, input, select, textarea, [tabindex]:not([tabindex="-1"])):focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
+/* Fields are a filled box with an ink edge along the bottom, one 56 px shape wherever they sit. */
+input:not([type="radio"], [type="checkbox"], [type="file"]), select, textarea { display: block; width: 100%; min-height: 56px; margin-top: 4px; padding: 12px; font: inherit; color: var(--ink); background: var(--fill); border: 0; border-bottom: 2px solid var(--ink); border-radius: 2px 2px 0 0; }
+svg { width: 24px; height: 24px; flex-shrink: 0; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.workspace { max-width: 1080px; width: 100%; height: calc(100dvh - 64px); margin: 32px auto; padding: 0 24px; display: flex; justify-content: center; min-height: 0; }
+.app-shell { width: min(100%, 640px); min-width: 0; height: 100%; display: flex; flex-direction: column; overflow: clip; background: var(--paper); border: 1px solid var(--rule); }
+/* The header is an orange band; the mark, the name and the controls on it are paper. */
+.masthead { padding: 8px 24px; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 8px; background: var(--band); color: var(--on-band); flex-shrink: 0; }
+.masthead button { border: 0; min-width: 56px; padding-inline: 8px; font-size: .88rem; color: var(--on-band); background: transparent; }
+.masthead button:hover:enabled { background: var(--band-hover); }
+.masthead :focus-visible { outline-color: var(--on-band); }
+.masthead .brand { display: inline-flex; align-items: center; gap: 8px; font-size: 1.03rem; text-align: left; font-weight: 700; padding-left: 0; }
+.brand-mark { width: 32px; height: 32px; flex: 0 0 32px; display: flex; }
+.brand-mark svg { width: 32px; height: 32px; }
+.masthead-actions { display: flex; align-items: center; gap: 2px; }
+/* Keep the test identity visible without displacing the capture choices with a full policy block. */
+.demo-status { flex-shrink: 0; margin: 0; padding: 2px 20px; max-width: none; font-size: .88rem; line-height: 1.3; font-weight: 600; background: var(--soft); color: var(--ink); }
+/* Menu links are filled blocks, like every other secondary control. */
+.menu-list { display: grid; gap: 8px; margin: 24px 0; }
+.menu-list a, .menu-list button { display: flex; align-items: center; min-height: 56px; padding: 12px 16px; border: 0; border-radius: 2px; color: var(--ink); font-weight: 600; background: var(--fill); text-decoration: none; }
+.menu-list button { width: 100%; text-align: left; }
+.menu-list :is(a, button):hover { background: var(--fill-hover); }
+.language-switch { display: flex; gap: 8px; margin: 16px 0; }
+.language-switch[role="group"] { flex-wrap: wrap; }
+.language-switch[role="group"] button { flex: 1; min-width: max-content; }
+.welcome-head { display: flex; flex-direction: column-reverse; }
+.welcome-language { margin: 0 0 10px; }
+.welcome-language button { scroll-margin-block: 6px; }
+.menu-status { display: flex; align-items: flex-start; gap: 12px; margin: 24px 0 12px; }
+.reminder-settings { margin: 24px 0 0; }
+/* The advice owns its margins, so revealing it moves the rows below by its whole height and no more. */
+.reminder-settings > div { display: flow-root; }
+.reminder-settings .reminder-switch { margin-bottom: 0; }
+.menu-status > div { min-width: 0; overflow-wrap: anywhere; }
+.menu-status strong { display: block; }
+.menu-status small { margin-top: 4px; }
+/* The growing row keeps its margins inside, so they grow with the reveal instead of stepping when it
+   clips. Its first margin used to merge with the offline row's 12px, which the section takes back. */
+.version-status { margin-top: -12px; }
+.version-status > div { display: flow-root; }
+.menu-status-copy { display: grid; flex: 1; }
+.menu-status-copy > div { grid-area: 1 / 1; }
+/* The saved home: the row, then its confirmation unfolding under it, then the result line in its place. */
+.home-saved { margin: 24px 0 12px; }
+.home-saved .home-row { margin: 0; align-items: center; }
+.home-row > div { flex: 1; }
+.home-remove { flex: 0 0 auto; min-height: 56px; }
+.home-confirm { margin-top: 12px; }
+.home-confirm p { margin: 0 0 8px; }
+.home-result { margin: 24px 0 12px; }
+main { display: flex; flex: 1; min-height: 0; flex-direction: column; }
+.screen-body { flex: 1; min-height: 0; overflow-y: auto; overscroll-behavior: contain; scroll-padding-block-start: 6px; padding: 24px; }
+.screen-foot { flex-shrink: 0; padding: 16px 24px max(16px, env(safe-area-inset-bottom)); background: var(--paper); border-top: 1px solid var(--rule); }
+.screen-foot button, .screen-foot a.primary, .wide { width: 100%; }
+.screen-foot small { text-align: center; margin-top: 8px; }
+.draft-missing { margin: 16px 0; }
+.draft-missing ul { margin: 4px 0 0; padding-left: 20px; }
+.draft-next { margin: 0 0 10px; font-size: .88rem; color: var(--muted); }
+.draft-next strong { color: var(--ink); }
+/* Sprawdź says that a Report brings no help right above the button that saves it; with large text it
+   moves into the step with the other footer lines, so the footer keeps only the action. */
+.no-help { margin: 0 0 12px; font-size: .94rem; }
+.foot-actions { display: flex; flex-wrap: wrap; gap: 8px; }
+.screen-foot .foot-actions button { flex: 1 1 9.9rem; width: auto; padding-inline: 12px; }
+/* Text actions are bold orange words, not underlined links; hover underlines them. */
+.quiet { border: 0; background: transparent; padding: 8px 0; text-align: left; color: var(--action); font-weight: 700; }
+.quiet:hover:enabled { background: transparent; text-decoration: underline; text-underline-offset: .2em; }
+.primary { background: var(--action); color: var(--on-action); border-color: var(--action); display: flex; justify-content: center; align-items: center; gap: 12px; }
+.primary:hover:enabled:not([aria-disabled="true"]) { filter: brightness(.9); background: var(--action); }
+/* A pressable but unavailable button (aria-disabled) keeps its look under the pointer. */
+button.primary:is(:disabled, [aria-disabled="true"]) { color: var(--muted); background: var(--soft); border-color: transparent; }
+/* Headings and record titles are a text serif at 600, never a display weight; everything else is Atkinson. */
+h1, h2, .ref-title, .history h3, .date-col b { font-family: "Source Serif 4", Georgia, serif; font-weight: 600; }
+h1 { font-size: 2rem; line-height: 1.15; letter-spacing: -.005em; margin: 6px 0 16px; text-wrap: balance; }
+/* Screen changes move focus to the heading or a result for screen readers. It is not a control the
+   Reporter chose, so it draws no ring unless a key press got them there: the browser's own heuristic
+   rings it on a cold start and after Android's Back, when no key was pressed. */
+[tabindex="-1"]:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
+:root:not([data-input="keyboard"]) [tabindex="-1"]:focus { outline: none; }
+/* One long Polish word at doubled text can outgrow a 320 px column: hyphenate, else break. */
+h1, h2, h3, .event-copy { overflow-wrap: break-word; hyphens: auto; }
+h2 { font-size: 1.35rem; line-height: 1.3; margin: 28px 0 12px; }
+.statements-heading { margin-top: 20px; }
+p { margin: 12px 0; max-width: 68ch; overflow-wrap: anywhere; }
+small, .muted, .status { color: var(--muted); }
+small { font-size: .88rem; display: block; font-weight: 400; }
+/* An Event is a filled 76 px row: its glyph on a solid orange square, then its name, with no explanation
+   or arrow. Tapping one saves the place and time just as the capture button does, so they share its colour. */
+.event-rows { display: grid; grid-template-columns: minmax(0, 1fr); gap: 8px; margin: 16px 0; }
+.event-row { width: 100%; min-height: 76px; display: flex; align-items: center; gap: 16px; padding: 10px 12px 10px 10px; text-align: left; border: 0; border-radius: 2px; background: var(--fill); }
+.event-row:hover:enabled { background: var(--fill-hover); }
+.event-copy { flex: 1; min-width: 0; font-size: 1.15rem; font-weight: 700; }
+.event-icon { flex: 0 0 52px; width: 52px; height: 52px; display: grid; place-items: center; border-radius: 2px; background: var(--action); color: var(--on-action); }
+.event-icon svg { width: 28px; height: 28px; stroke-width: 2; }
+/* One row family for Moje zapisy and the home continuation: tasks are rows on hairlines, one primary
+   target each, with secondary controls inside the row and visibly quieter. */
+/* Hairlines that collapse to nothing: Chrome paints a sub-pixel border as 1px, so a leaving row or
+   confirmation would stop at 1-2px and then vanish in one frame. Inset shadows take no layout, and an
+   empty list has no height, so its top rule leaves with the last row. */
+.record-list { margin: 12px 0 28px; box-shadow: inset 0 1px 0 var(--rule); }
+.record-card { container: record / inline-size; box-shadow: inset 0 -1px 0 var(--rule); }
+.record-top, .record-static { display: flex; align-items: stretch; }
+.record-static { align-items: center; gap: 14px; padding: 14px; }
+.record-card button { border: 0; border-radius: 0; background: transparent; text-align: left; }
+.record-card .record-main { flex: 1; min-width: 0; width: 100%; min-height: 72px; display: flex; align-items: center; gap: 14px; padding: 12px 8px 12px 0; font-weight: 400; }
+.record-card .record-main:hover:enabled { background: transparent; }
+.record-main:hover:enabled strong { text-decoration: underline; text-underline-offset: .18em; }
+.record-main > svg:last-child { flex: 0 0 18px; width: 18px; color: var(--ink); }
+.record-copy { flex: 1; min-width: 0; overflow-wrap: anywhere; }
+.record-copy strong { display: block; font-size: 1.03rem; font-weight: 600; }
+.record-copy small { display: block; font-size: .88rem; line-height: 1.3; margin-top: 2px; }
+.record-copy .next { color: var(--ink); }
+.record-copy .next b { font-weight: 600; }
+.record-card .record-delete { flex: 0 0 64px; min-width: 64px; padding: 0 6px; font-size: .88rem; text-align: center; color: var(--action); font-weight: 700; }
+.record-card .record-delete:hover:enabled, .record-card .record-delete[aria-expanded="true"] { background: transparent; text-decoration: underline; text-underline-offset: .2em; }
+.record-confirm { box-shadow: inset 0 1px 0 var(--ink); display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; padding: 12px 0 16px; }
+.record-confirm p { margin: 0; flex: 1 1 140px; font-weight: 600; }
+.record-confirm-actions { display: flex; gap: 8px; }
+.record-card .record-confirm-actions button { border-radius: 2px; background: var(--fill); text-align: center; font-weight: 600; }
+.record-card .record-confirm-actions .destructive { background: var(--ink); border-color: var(--ink); color: var(--paper); }
+.record-card .record-confirm-actions button:not(.destructive):hover:enabled { background: var(--fill-hover); }
+.record-card .record-confirm-actions .destructive:hover:enabled { filter: brightness(1.08); }
+/* The home task is a filled block above the question, compact so all five Event rows stay above the
+   footer; its fill collapses with it, so it needs no hairline. */
+.continuation.record-card { margin: -8px 0 8px; box-shadow: none; background: var(--fill); border-radius: 2px; }
+.task-row .event-icon { flex: 0 0 36px; width: 36px; height: 36px; }
+.task-row .event-icon svg { width: 22px; height: 22px; }
+.continuation .record-copy small { font-size: 1rem; color: var(--muted); }
+.continuation .camera-feedback { margin: 0; padding: 0 10px 12px; }
+.task-stack { display: grid; }
+.task-slot { grid-area: 1 / 1; display: flex; min-width: 0; }
+/* History is a plain list under month headings on an ink rule, each row led by its day in a ruled column;
+   only tasks carry actions. Dividers are inset shadows, since rows collapse when they leave and a border
+   would stop at its own width and then vanish in one frame. */
+.history h3 { font-size: 1.1rem; margin: 24px 0 0; padding-bottom: 6px; border-bottom: 2px solid var(--action); }
+.history ul { list-style: none; margin: 0; padding: 0; }
+.history li { box-shadow: inset 0 -1px 0 var(--rule); }
+.history .record-main { width: 100%; min-height: 72px; display: flex; align-items: center; gap: 14px; padding: 10px 4px 10px 0; border: 0; border-radius: 0; background: transparent; text-align: left; font-weight: 400; }
+.history .record-main:hover:enabled { background: transparent; }
+.history .record-main:focus-visible { outline-offset: -3px; }
+.history .record-static { min-height: 72px; padding: 10px 4px 10px 0; }
+.history .record-main > svg:last-child { flex: 0 0 18px; width: 18px; color: var(--ink); }
+.date-col { flex: 0 0 3.2rem; align-self: stretch; display: flex; flex-direction: column; justify-content: center; border-right: 1px solid var(--rule); }
+.date-col b { font-size: 1.5rem; line-height: 1; color: var(--action); }
+.date-col span { font-size: .88rem; color: var(--muted); }
+.history .record-copy small { font-size: 1rem; color: var(--muted); }
+.history .record-state { display: block; }
+.history .record-copy .tone-ink { color: var(--ink); }
+.history .record-copy .tone-alert { color: var(--alert); }
+/* Only the Reporter's work takes the slot; the app's own work leaves this calm line instead. */
+.calm { margin: 0 0 16px; color: var(--muted); }
+/* Not a calm line, because the Reporter has to act; not an alert, because nothing they did went wrong. */
+.note.storage-blocked { margin: 0 0 16px; transition: opacity 200ms ease-out; }
+/* Start-up finds the block before home first paints, where an intro does not run; the line still fades in, in place. */
+@starting-style { .note.storage-blocked { opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .note.storage-blocked { transition: none; } }
+/* Large text on a narrow screen: the delete column would clip, so it becomes the card's last row. */
+@container record (max-width: 15rem) {
+  .record-top { flex-direction: column; }
+  .record-card .record-delete { flex: 0 0 auto; min-height: 56px; border-top: 1px solid var(--rule); text-align: left; padding: 0; }
+  /* The task's words matter more than its tile; without it "zgłoszenie" no longer breaks mid-word. */
+  .task-row .event-icon { display: none; }
+}
+.continuation.record-card .record-main { min-height: 64px; padding: 8px 8px 8px 10px; }
+.recipient-choice { display: flex; align-items: center; gap: 14px; min-height: 76px; padding: 12px 0; border-bottom: 1px solid var(--rule); cursor: pointer; }
+.recipient-choice input { width: 24px; height: 24px; flex: 0 0 24px; accent-color: var(--action); }
+.recipient-choice span { min-width: 0; overflow-wrap: anywhere; }
+.recipient-choice small { margin-top: 2px; }
+.missing-address { color: var(--alert); }
+.recipient-search-panel { display: flow-root; }
+.recipient-gap, .recipient-gap-status { display: contents; }
+@media (orientation: landscape) and (max-height: 500px) {
+  /* Old and new status sentences crossfade inside one column, so the search column never resizes. */
+  .recipient-gap:has(> .recipient-gap-search) { display: flex; align-items: flex-start; gap: 16px; margin: 20px 0; }
+  .recipient-gap:has(> .recipient-gap-search) > .recipient-gap-status { display: block; flex: 1.6; min-width: 0; }
+  .recipient-gap:has(> .recipient-gap-search) .note { margin: 0; }
+  .recipient-gap-search { flex: 1; min-width: 0; }
+}
+.recipient-search { display: block; margin: 16px 0; font-weight: 600; }
+.recipient-group { border: 0; margin: 0 0 12px; padding: 0; min-width: 0; }
+.recipient-group legend { padding: 0; font-weight: 600; }
+.recipient-group > small { display: block; margin-top: 4px; }
+.recipient-results { list-style: none; margin: 0; padding: 0; }
+.result-count { color: var(--muted); }
+.recipient-result { display: block; width: 100%; margin: 8px 0; text-align: left; overflow-wrap: anywhere; }
+.recipient-result .chosen { font-weight: 600; }
+.notice-body, .pdf-body { white-space: pre-wrap; overflow-wrap: anywhere; font: inherit; line-height: inherit; }
+.official-filing h2 { font-family: inherit; font-size: 1.17em; font-weight: 700; line-height: inherit; margin: 1em 0; }
+.official-filing a { display: flex; align-items: center; min-height: 56px; color: var(--ink); text-underline-offset: .2em; }
+.back { border: 0; background: transparent; display: inline-flex; align-items: center; gap: 8px; margin: -16px 0 12px -12px; }
+/* Messages are ruled above and below, never boxed or tinted; an alert opens with a heavier rule in the alert
+   colour. The rules are inset shadows, so a message that collapses goes with them instead of stopping at 2px. */
+.note, .receipt, .handoff-route, .handoff-question, .withdrawal-confirm, .home-confirm, .result-line { background: transparent; box-shadow: inset 0 1px 0 var(--ink), inset 0 -1px 0 var(--ink); }
+.note { padding: 14px 0; margin: 20px 0; }
+.note[role="alert"] { box-shadow: inset 0 3px 0 var(--alert), inset 0 -1px 0 var(--ink); padding-top: 16px; }
+.note[role="alert"] strong { display: block; color: var(--alert); }
+/* Moje zapisy after a rollback: ruled like an alert note, with the restart button inside the rules. */
+.database-notice { box-shadow: inset 0 3px 0 var(--alert), inset 0 -1px 0 var(--ink); padding: 16px 0 14px; margin: 0 0 16px; }
+.database-notice p { margin: 0 0 12px; font-weight: 600; }
+.receipt { padding: 20px 0; margin: 24px 0; }
+.receipt strong { display: block; font-size: 1.3rem; margin: 10px 0; font-variant-numeric: tabular-nums; }
+.receipt.compact { display: flex; align-items: flex-start; gap: 12px; padding: 12px 0; margin: 0 0 8px; }
+.receipt.compact strong { font-size: 1rem; margin: 0; color: var(--ink); font-weight: 600; }
+.receipt.compact small { margin-top: 2px; font-variant-numeric: tabular-nums; }
+/* The quick-capture receipt: what is kept, above the question it asks. */
+#receipt { margin: 0 0 12px; }
+#receipt strong { font-size: 1.3rem; line-height: 1.25; }
+#receipt small { display: block; color: var(--ink); }
+#receipt p { margin: 6px 0 0; }
+/* With and without a fix share one cell, so the lines crossfade without moving the rows below. */
+.receipt-copy { display: grid; min-width: 0; }
+.receipt-state { grid-area: 1 / 1; }
+.receipt-question { margin-bottom: 0; }
+.receipt-question + .event-rows { margin-top: 12px; }
+.status { font-size: .88rem; }
+.signature-fields .recipient-search { margin: 12px 0; }
+.signature-fields { animation: none; }
+/* The record identity keeps one quiet rule without competing with the measurements below. */
+.ref-strip { display: grid; grid-template-columns: 1fr auto; gap: 4px 16px; margin: 0 0 4px; padding: 4px 0 12px; border-bottom: 1px solid var(--rule); }
+.ref-strip p { margin: 0; }
+.ref-event { display: flex; align-items: center; gap: 12px; min-width: 0; }
+.ref-strip .event-icon { flex-basis: 44px; width: 44px; height: 44px; }
+.ref-strip .event-icon svg { width: 24px; height: 24px; }
+.ref-title { display: block; font-size: 1.25rem; }
+.ref-no { text-align: right; }
+.ref-no b { display: block; font-weight: 600; }
+.report-status { list-style: none; margin: 0 0 10px; padding: 0; }
+.report-status > li { display: flex; gap: 12px; padding: 10px 0; }
+.report-status > li > div { min-width: 0; overflow-wrap: anywhere; }
+.report-status strong { font-size: 1rem; }
+.report-status small { margin-top: 2px; }
+.report-notices { margin: 12px 0 4px; }
+.report-action { margin: 16px 0 0; }
+.disclosure + .withdrawal { margin-top: 0; border-top: 0; }
+.report-action-note { margin: 8px 0 0; color: var(--muted); font-size: .88rem; }
+.report-done { margin: 12px 0 env(safe-area-inset-bottom); }
+.local-note { white-space: pre-wrap; }
+/* Withdrawal: the last, quiet action under a hairline, unfolding the Draft delete pattern beneath it. */
+.withdrawal { margin-top: 32px; border-top: 1px solid var(--rule); padding-top: 4px; }
+.withdrawal-action { color: var(--muted); width: 100%; }
+.withdrawal-confirm, .home-confirm { padding: 16px 0; }
+.withdrawal-confirm h2 { margin: 0 0 8px; }
+.withdrawal-confirm p { margin: 0 0 8px; }
+.withdrawal-confirm-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+.withdrawal-confirm-actions button { flex: 1 1 7rem; text-align: center; }
+.withdrawal-confirm-actions .destructive { background: var(--ink); border-color: var(--ink); color: var(--paper); }
+.withdrawal-confirm-actions .destructive:hover:enabled { background: var(--ink); filter: brightness(1.08); }
+/* A result that stays until the Reporter leaves; it takes focus, so its text is the confirmation. */
+.result-line { display: flex; gap: 10px; align-items: flex-start; padding: 12px 0; margin: 0 0 16px; font-weight: 600; }
+.result-copy { display: block; flex: 1; min-width: 0; }
+.result-stack { display: grid; }
+.result-stack > * { grid-area: 1 / 1; }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0; }
+.facts { margin: 20px 0; container-type: inline-size; }
+.facts div { display: grid; grid-template-columns: 1fr 1.2fr; gap: 16px; padding: 14px 0; border-bottom: 1px solid var(--rule); }
+/* Narrower than 18em (320 px, or a phone at 200% text) the value takes the full width under its
+   label and breaks only between words. */
+@container (max-width: 18em) { .facts div { grid-template-columns: minmax(0, 1fr); gap: 2px; } .facts dd { text-align: left; overflow-wrap: break-word; } }
+dt { color: var(--muted); }
+dd { margin: 0; text-align: right; font-weight: 600; font-variant-numeric: tabular-nums; overflow-wrap: anywhere; min-width: 0; }
+details { border-bottom: 1px solid var(--rule); }
+summary { min-height: 56px; cursor: pointer; padding: 18px 0; font-weight: 600; }
+summary small { margin-top: 6px; }
+details p { padding-bottom: 12px; }
+.disclosure-body { padding-bottom: 16px; }
+.disclosure > .choice-reveal { margin: 0; padding: 0 0 16px; animation: none; }
+.disclosure p { padding-bottom: 0; }
+.species-options { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 9.5rem), 1fr)); column-gap: 16px; border: 0; margin: 8px 0 0; padding: 0; min-width: 0; }
+/* A radio or checkbox row: the whole label is the 56 px target. Species and completion groups share it. */
+.species-option, .choice-reveal label:has(> input[type="radio"], > input[type="checkbox"]) { display: flex; align-items: center; gap: 12px; min-height: 56px; margin: 0; padding: 6px 0; border-bottom: 1px solid var(--rule); cursor: pointer; overflow-wrap: anywhere; }
+.species-option { animation: choice-reveal 140ms ease-out; }
+.species-option:has(input:checked), .choice-reveal label:has(> input[type="radio"]:checked) { font-weight: 700; }
+.species-option input, .choice-reveal label > :is(input[type="radio"], input[type="checkbox"]) { width: 24px; height: 24px; flex: 0 0 24px; margin: 0; accent-color: var(--action); }
+.review { margin: 8px 0 12px; }
+.review div { padding: 12px 0; border-bottom: 1px solid var(--rule); }
+.review dd { text-align: left; margin-top: 2px; }
+.review dd small { margin-top: 2px; }
+.review ul { margin: 0; padding-left: 20px; font-weight: 400; }
+.choice-reveal { min-width: 0; border: 0; margin: 16px 0; padding: 0; animation: choice-reveal 180ms ease-out; }
+.choice-reveal legend { font-weight: 600; }
+.choice-reveal legend small { display: inline; }
+.choice-reveal label { display: block; margin: 8px 0; }
+.choice-detail { animation: choice-reveal 180ms ease-out; }
+.compass-toggle { display: flex; align-items: center; gap: 10px; width: 100%; margin: 4px 0 8px; }
+.choice-reveal textarea { min-height: 6.5rem; resize: vertical; }
+.photo-tiles { display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0; }
+.photo-tile { width: 100px; min-height: 144px; overflow: hidden; border: 1px solid var(--rule); animation: photo-arrive 220ms ease-out both; }
+.photo-tile img { display: block; width: 100%; height: 88px; object-fit: cover; }
+.photo-tile button { width: 100%; min-height: 56px; padding: 4px; border: 0; border-radius: 0; font-size: .88rem; color: var(--action); font-weight: 700; background: transparent; }
+.file-button { position: relative; display: inline-flex !important; align-items: center; min-height: 56px; padding: 12px 16px; border-radius: 2px; background: var(--fill); cursor: pointer; font-weight: 600; }
+.file-button input { position: absolute; width: 100%; height: 100%; inset: 0; opacity: 0; cursor: pointer; }
+.file-button:focus-within { outline: 3px solid var(--focus); outline-offset: 2px; }
+#gallery-import-feedback { scroll-margin-block: 6px; }
+/* A near-black surround in every palette, so the preview reads as the photo. */
+.camera-active { --ground: #090b09; --paper: #090b09; color: var(--ink); }
+.camera-preview { display: block; width: 100%; max-height: 58dvh; margin: 16px 0; object-fit: contain; background: #000; }
+@keyframes photo-arrive { from { opacity: 0; transform: scale(.92); } to { opacity: 1; transform: scale(1); } }
+@keyframes choice-reveal { from { opacity: 0; transform: translateY(-4px); } to { opacity: 1; transform: translateY(0); } }
+@media (max-width: 760px) { .workspace { margin: 0; padding: 0; height: 100dvh; } .app-shell { width: 100%; border: 0; } .masthead { padding-inline: 20px; } .screen-body { padding: 24px 20px; } .screen-foot { padding-inline: 20px; } }
+@media (max-width: 360px) { .masthead { padding: 4px 8px; gap: 0; flex-wrap: nowrap; } .masthead .brand-name { display: none; } .masthead .brand { padding-inline: 8px; } .masthead button { padding-inline: 4px; } .screen-foot { padding-block: 8px max(8px, env(safe-area-inset-bottom)); } }
+/* Forced colours drop fills and shadows: filled blocks get an edge, a chosen answer an inner ring, and the
+   mark, paper-coloured for a band that is no longer drawn, takes the text colour. */
+@media (forced-colors: active) {
+  .task-count { outline: 1px solid CanvasText; }
+  .brand-mark { color: CanvasText; }
+  .menu-list :is(a, button), .event-row, .wide-link, .button-link, .file-button, .badge, .continuation.record-card { border: 1px solid CanvasText; }
+  :is(.answer, .segmented button, .location-methods button, .direction-actions button, .direction-view > button, .far-unknown button, .language-switch button, .recipient-result)[aria-pressed="true"]:not(:focus-visible), .choice:has(input:checked) { outline: 2px solid Highlight; outline-offset: -4px; }
+}
+
+@media (orientation: landscape) and (max-height: 500px) { .workspace { margin: 0; height: 100dvh; } .masthead { padding-block: 0; } .screen-body { padding-top: 16px; } .event-rows { grid-template-columns: repeat(2, minmax(0, 1fr)); } .screen-foot { padding-block: 8px; display: flex; align-items: center; gap: 16px; } .screen-foot button, .screen-foot small { flex: 1; } .screen-foot small { margin: 0; text-align: left; } .draft-next, .no-help { flex: 1; margin: 0; } .foot-actions { flex: 1.6; } }
+::view-transition-old(root), ::view-transition-new(root) { animation-duration: 180ms; animation-timing-function: ease-out; }
+@media (prefers-reduced-motion: reduce) { ::view-transition-old(root), ::view-transition-new(root) { animation-duration: 0ms; } }
+@media (prefers-reduced-motion: reduce) { .choice-reveal, .choice-detail, .photo-tile, .species-option { animation: none; } }
+.badge { display: inline-block; margin: 6px 0 0; padding: 2px 10px; border-radius: 2px; background: var(--fill); font-size: .88rem; font-weight: 600; line-height: 1.45; color: var(--ink); }
+.status + .badge { margin-left: 10px; }
+.rows { margin: 24px 0; border-top: 1px solid var(--rule); }
+.row { display: flex; align-items: center; gap: 14px; width: 100%; min-height: 76px; padding: 16px 0; text-align: left; border: 0; border-bottom: 1px solid var(--rule); border-radius: 0; background: transparent; }
+.row:hover:enabled { background: transparent; }
+.row:hover:enabled strong { text-decoration: underline; text-underline-offset: .18em; }
+.row > span { flex: 1; min-width: 0; overflow-wrap: anywhere; }
+.row strong { display: block; font-size: 1.03rem; }
+.row small { margin-top: 2px; }
+.row > svg:last-child { width: 18px; color: var(--ink); }
+details + .row { border-bottom: 1px solid var(--rule); }
+.stack { display: grid; gap: 10px; margin: 20px 0; }
+.stack button { width: 100%; }
+.choices { border: 0; margin: 20px 0; padding: 0; min-width: 0; }
+.choices legend { font-weight: 600; margin-bottom: 8px; }
+.choice { display: flex; align-items: center; gap: 12px; margin: 0 0 10px; padding: 14px; min-height: 64px; border: 1px solid transparent; border-radius: 2px; background: var(--fill); cursor: pointer; }
+.choice input { width: 24px; height: 24px; min-height: 24px; flex: 0 0 24px; margin: 0; accent-color: var(--action); }
+/* Chosen leaves the filled set: paper face, a 2px orange edge (inset, so nothing moves) and a bold label,
+   so it never rests on colour alone. */
+:is(.answer, .segmented button, .location-methods button, .direction-actions button, .direction-view > button, .far-unknown button, .language-switch button, .recipient-result)[aria-pressed="true"], .choice:has(input:checked) { background: var(--paper); border-color: var(--action); box-shadow: inset 0 0 0 1px var(--action); font-weight: 700; }
+.choice small { margin-top: 2px; }
+a.primary { min-height: 56px; padding: 12px 16px; border: 1px solid var(--action); border-radius: 2px; font-weight: 600; text-decoration: none; }
+a.primary:hover { filter: brightness(.9); }
+.handoff-question { margin: 28px 0 8px; padding: 4px 0; animation: choice-reveal 180ms ease-out; }
+.handoff-question h2 { margin-top: 16px; }
+.outcome-section { margin: 28px 0 8px; padding-top: 16px; border-top: 1px solid var(--rule); }
+.outcome-section label { display: block; margin: 16px 0; font-weight: 600; }
+.outcome-section button { width: 100%; }
+@media (prefers-reduced-motion: reduce) { .handoff-question { animation: none; } }
+
+.library-entry { display: flex; align-items: center; gap: 6px; }
+.task-count { flex-shrink: 0; display: inline-grid; place-items: center; min-width: 1.45em; height: 1.45em; padding: 0 .35em; border-radius: 2px; background: var(--on-band); color: var(--band); font-size: .88rem; font-weight: 600; font-variant-numeric: tabular-nums; }
+
+/* Draft completion stages: Co, Kiedy, Gdzie, Sprawdź. One question per screen, its answer in the footer. */
+.stage-head { display: flex; align-items: center; gap: 4px; margin: -8px 0 14px; }
+.back-inline { flex: 0 0 auto; min-width: 56px; margin-left: -16px; padding: 0 16px; border: 0; background: transparent; display: inline-grid; place-items: center; }
+.back-inline:hover:enabled { background: transparent; }
+/* Steps are words, not pills: the current one orange, bold and underlined, the others muted. */
+.steps { list-style: none; display: flex; flex-wrap: wrap; gap: 0 18px; margin: 0; padding: 0; flex: 1; min-width: 0; }
+.steps li { padding: 6px 0 8px; color: var(--muted); font-size: .88rem; font-weight: 400; }
+.steps li.now { color: var(--action); font-weight: 700; text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: .4em; }
+.answers { display: grid; grid-template-columns: minmax(0, 1fr); gap: 8px; margin: 12px 0; }
+.answer { display: flex; align-items: center; gap: 14px; min-height: 56px; width: 100%; text-align: left; overflow-wrap: anywhere; hyphens: auto; }
+/* The saved time sits at the row's end, so every answer is one 56 px row. */
+.answer-text { flex: 1; min-width: 0; display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 0 12px; }
+.answer-text small { margin: 0; font-variant-numeric: tabular-nums; }
+.when-note { margin: 12px 0; padding: 12px 0; font-size: .88rem; }
+.field { display: block; margin: 14px 0; font-weight: 600; }
+.field small { font-weight: 400; }
+.field-error { display: block; margin-top: 6px; color: var(--alert); font-weight: 600; }
+p.field-error { margin: 8px 0; }
+.range { margin: 16px 0; }
+/* Margins live inside, so the block's grow and shrink never ends in a jump. */
+.location-problem { padding-top: 12px; }
+.location-problem p { margin: 0 0 8px; }
+.range label { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 4px 12px; }
+.range label span { font-variant-numeric: tabular-nums; }
+.range input[type="range"] { display: block; width: 100%; min-height: 56px; margin: 4px 0 0; padding: 0; border: 0; background: transparent; accent-color: var(--action); }
+.range-ends { padding-bottom: 12px; display: flex; justify-content: space-between; margin: -6px 0 4px; font-size: .88rem; color: var(--muted); }
+.review-rows { margin: 4px 0 8px; }
+.review-row { display: flex; align-items: center; gap: 12px; min-height: 64px; padding: 8px 0; border-bottom: 1px solid var(--rule); }
+.review-row > div { flex: 1; min-width: 0; }
+.review-row strong { display: block; font-size: .88rem; font-weight: 600; color: var(--muted); }
+.review-row .value { overflow-wrap: anywhere; }
+.review-row button { flex: 0 0 auto; min-width: 56px; padding-inline: 12px; border: 0; background: transparent; color: var(--action); font-weight: 700; }
+.review-row button:hover:enabled { background: transparent; text-decoration: underline; text-underline-offset: .2em; }
+.review-row.missing .value { color: var(--alert); font-weight: 600; }
+.segmented { display: flex; flex-wrap: wrap; gap: 8px; }
+.segmented button { flex: 1 1 8rem; display: inline-flex; justify-content: center; align-items: center; gap: 8px; }
+.home-check { min-width: 0; margin: 18px 0 8px; padding: 0; border: 0; }
+.home-check legend { margin-bottom: 8px; padding: 0; font-weight: 600; }
+.home-check small { margin-top: 8px; }
+.home-check.missing legend { color: var(--alert); }
+.required-photo { padding: 4px 0 12px; }
+.required-photo h2 { margin-top: 12px; }
+.required-photo h2 small { display: inline; }
+.required-photo.missing h2 { color: var(--alert); }
+.photo-actions { display: flex; flex-wrap: wrap; gap: 8px; }
+.photo-actions > * { flex: 1 1 9rem; justify-content: center; gap: 8px; }
+.photo-actions button { display: inline-flex; align-items: center; }
+.privacy { margin: 12px 0 8px; }
+.privacy p { margin: 0; }
+.privacy .quiet { padding: 4px 0; }
+.section-label { margin: 28px 0 4px; font-family: inherit; font-size: .88rem; font-weight: 600; color: var(--muted); }
+.foot-quiet { display: flex; justify-content: center; }
+.screen-foot .foot-quiet button { width: auto; padding-inline: 16px; }
+.screen-foot > .primary + .foot-quiet { margin-top: 2px; }
+@media (orientation: landscape) and (max-height: 500px) { .screen-foot .foot-quiet { flex: 0 1 auto; min-width: 0; } .screen-foot .foot-quiet button { flex: none; } }
+
+.incident-gmina { margin: 12px 0 0; }
+.incident-gmina .choice { min-height: 56px; padding: 8px 0; margin: 0; border: 0; border-bottom: 1px solid var(--rule); border-radius: 0; background: transparent; }
+.incident-gmina .choice:has(input:checked) { border-color: var(--rule); box-shadow: none; background: transparent; }
+.gmina-caption { margin: 4px 0 16px; }
+
+/* Notice handoff (redesign ticket 04): one route, its action in the footer, then "Udało się wysłać?". */
+main { position: relative; }
+.notice-position { display: flex; flex-wrap: wrap; gap: 4px 12px; margin: 0 0 6px; color: var(--muted); font-size: .88rem; font-variant-numeric: tabular-nums; }
+.notice-position span + span::before { content: "·"; margin-right: 12px; }
+.notice-recipient { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 12px; margin: 6px 0 0; }
+.notice-recipient small { margin: 0; }
+.notice-recipient .badge { margin: 0; }
+.handoff-route { display: flex; gap: 14px; margin: 24px 0 8px; padding: 16px 0; }
+.handoff-route > div { min-width: 0; overflow-wrap: anywhere; }
+.handoff-route p { margin: 4px 0 0; padding: 0; }
+.route-address { font-weight: 600; overflow-wrap: anywhere; }
+.route-switch { margin: 4px 0 8px; }
+.route-switch small { display: inline; }
+.route-switch .quiet { padding-block: 8px; }
+.wide-link { display: flex; align-items: center; justify-content: center; gap: 10px; min-height: 56px; margin: 8px 0 16px; padding: 12px 16px; border-radius: 2px; background: var(--fill); color: var(--ink); font-weight: 600; text-decoration: none; }
+.wide-link:hover { background: var(--fill-hover); }
+.button-link { display: flex; align-items: center; justify-content: center; gap: 10px; min-height: 56px; padding: 12px 16px; border-radius: 2px; background: var(--fill); color: var(--ink); font-weight: 600; text-decoration: none; }
+.button-link:hover { background: var(--fill-hover); }
+.stack button, .stack .button-link { display: flex; align-items: center; justify-content: center; gap: 10px; }
+.handoff-question .stack { margin-top: 12px; }
+.signer-again { margin: 20px 0 8px; }
+
+/* Six-week check-in: one question, four answers of equal weight; one tap saves. */
+.check-in-context { margin: 0 0 6px; color: var(--muted); font-size: .88rem; }
+.answers { display: grid; gap: 10px; margin: 24px 0 16px; }
+.answers .answer { width: 100%; min-height: 64px; font-size: 1.03rem; text-align: left; }
+.check-in-date { display: block; margin: 8px 0 16px; font-weight: 600; }
+.quiet-links { display: flex; flex-wrap: wrap; gap: 0 24px; margin: 8px 0 16px; }
+
+/* Brief save confirmation: floats above the footer so nothing on the screen moves. */
+.brief-confirmation { position: absolute; left: 24px; right: 24px; z-index: 2; display: flex; justify-content: center; pointer-events: none; }
+.brief-confirmation p { display: flex; gap: 10px; align-items: flex-start; max-width: 32rem; margin: 0; padding: 12px 16px; background: var(--paper); color: var(--ink); font-weight: 600; border: 1px solid var(--ink); }
+@media (max-width: 760px) { .brief-confirmation { left: 20px; right: 20px; } }
+.disclosure-body.outcome-section { margin: 0; padding-top: 0; border-top: 0; }
+.notice-subject { font-weight: 600; }
+/* A press on a blocked primary turns its reason, and the question it waits on, to the alert colour. */
+.screen-foot small, .scroll-extras small { transition: color .2s ease; }
+.screen-foot small.pressed, .scroll-extras small.pressed { color: var(--alert); }
+.incident-gmina legend { transition: color .2s ease; }
+.incident-gmina.missing legend { color: var(--alert); }
+.signature-fields input { transition: border-bottom-color .2s ease; }
+input[aria-invalid="true"] { border-bottom-color: var(--alert); }
+@media (prefers-reduced-motion: reduce) { .screen-foot small, .scroll-extras small, .incident-gmina legend, .signature-fields input { transition: none; } }
+
+/* Keep the primary action in thumb reach; large text moves the rest into the scrolling step. */
+.app-shell { container-type: inline-size; }
+.scroll-extras, .library-icon { display: none; }
+@container (max-width: 20rem) {
+  .masthead { flex-wrap: nowrap; padding-inline: 8px; gap: 0; }
+  .masthead .brand-name, .library-label { display: none; }
+  .library-icon { display: flex; }
+  .masthead .brand { padding-inline: 8px; }
+  .masthead button { padding-inline: 8px; }
+  .screen-foot button, .screen-foot a.primary { line-height: 1.2; }
+  /* At doubled text 2rem is wider than the 280 px column: "podpisać?" broke as "podpisa" and "ć?". In rem, so the heading
+     still grows with the text setting and stays larger than body text. A long word (an authority's name) is hyphenated by
+     the browser's dictionary (hyphens: auto above, lang="pl" on the name); without a Polish dictionary it falls back to
+     overflow-wrap and breaks with no hyphen. */
+  h1 { font-size: 1.6rem; }
+  .scroll-extras { display: block; margin-top: 20px; }
+  /* With doubled text the record number goes under the Event, so the Event's name keeps its words whole. */
+  .ref-strip { grid-template-columns: minmax(0, 1fr); }
+  .ref-no { text-align: left; }
+  .ref-no b { display: inline; margin-left: 6px; }
+  .scroll-extras button { width: 100%; }
+  .screen-foot .foot-quiet, .screen-foot .footer-extras, .screen-foot small, .screen-foot .draft-next, .screen-foot .no-help { display: none; }
+  .screen-foot:has(> .footer-extras:only-child) { display: none; }
+}
+
+.welcome-location { margin-top: 20px; }
+.welcome-details { margin-top: 20px; }
+.welcome-links { display: flex; flex-wrap: wrap; gap: 0 16px; margin: 8px 0; }
+.welcome-links a { display: inline-flex; align-items: center; min-height: 56px; color: var(--ink); text-underline-offset: .2em; }
+.welcome-foot { display: flex; flex-direction: column; gap: 8px; }
+.welcome-foot button { flex: none; overflow-wrap: anywhere; }
+@media (orientation: landscape) and (max-height: 500px) { .welcome-foot { flex-direction: row; } .welcome-foot button { flex: 1; } }
+.location-methods { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+.location-methods button { min-height: 56px; }
+.location-methods button[aria-disabled="true"] { color: var(--muted); background: var(--soft); }
+/* Spacing inside, so the line's reveal and collapse never end in a jump. */
+.location-status { margin: 0; padding-top: 12px; font-size: .88rem; }
+.location-selection { margin: 0 0 4px; }
+.location-method-content { animation: location-appear 160ms ease-out; }
+@keyframes location-appear { from { opacity: .45; } to { opacity: 1; } }
+@media (prefers-reduced-motion: reduce) { .location-method-content { animation: none; } }
+@media (max-width: 360px) { .location-methods { grid-template-columns: 1fr; } }
+
+/* Browser surfaces take the palette too: selection, caret, scrollbars and tabular numerals. */
+::selection { background: var(--ink); color: var(--paper); }
+input, textarea { caret-color: var(--ink); }
+.screen-body { scrollbar-color: var(--control-border) transparent; }
+.app-shell { font-variant-numeric: tabular-nums; }
+.notice-place { padding-bottom: 20px; margin-bottom: 20px; border-bottom: 1px solid var(--rule); }
+.notice-place .wide { margin-top: 8px; }
+/* The start-up line keeps its line box after it fades, so an error shown below it never jumps up as it goes. */
+.startup-status { min-height: 1lh; }

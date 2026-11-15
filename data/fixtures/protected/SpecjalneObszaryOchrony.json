@@ -1,0 +1,47 @@
+{
+  "type": "FeatureCollection",
+  "crs": {
+    "type": "EPSG",
+    "properties": {
+      "code": "2180"
+    }
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "id": "10",
+      "properties": {
+        "gid": 10,
+        "nazwa": "Testowy obszar siedliskowy",
+        "kodinspire": "fixture.10"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              749000,
+              623000
+            ],
+            [
+              750000,
+              623000
+            ],
+            [
+              750000,
+              624000
+            ],
+            [
+              749000,
+              624000
+            ],
+            [
+              749000,
+              623000
+            ]
+          ]
+        ]
+      }
+    }
+  ]
+}

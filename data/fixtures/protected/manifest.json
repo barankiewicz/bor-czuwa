@@ -1,0 +1,49 @@
+{
+  "synthetic": true,
+  "description": "Synthetic acceptance geometry and CRFOP rows, not real protected areas.",
+  "datasets": [
+    {
+      "name": "GDOS:ParkiNarodowe",
+      "file": "ParkiNarodowe.json",
+      "source_url": "https://sdi.gdos.gov.pl/wfs?service=WFS&version=2.0.0&request=GetFeature&typeName=GDOS:ParkiNarodowe&outputFormat=application/json&srsName=EPSG:2180",
+      "retrieved_at": "2026-09-24T16:00:00Z",
+      "sha256": "8a099608f30f8d4a4fb8fff64880aac7d12d15155d40c29c084a4949a37ed799"
+    },
+    {
+      "name": "GDOS:Rezerwaty",
+      "file": "Rezerwaty.json",
+      "source_url": "https://sdi.gdos.gov.pl/wfs?service=WFS&version=2.0.0&request=GetFeature&typeName=GDOS:Rezerwaty&outputFormat=application/json&srsName=EPSG:2180",
+      "retrieved_at": "2026-09-24T16:00:00Z",
+      "sha256": "13c51a243a932c6c80dfa152f9fa2a7227df4a803f9925327f5daad94d005fe1"
+    },
+    {
+      "name": "GDOS:ParkiKrajobrazowe",
+      "file": "ParkiKrajobrazowe.json",
+      "source_url": "https://sdi.gdos.gov.pl/wfs?service=WFS&version=2.0.0&request=GetFeature&typeName=GDOS:ParkiKrajobrazowe&outputFormat=application/json&srsName=EPSG:2180",
+      "retrieved_at": "2026-09-24T16:00:00Z",
+      "sha256": "791e4f653d16b2f6c49dbf4c2ca9bf86cadd749df7b9c1287342bcd720e1ae2c"
+    },
+    {
+      "name": "GDOS:ObszarySpecjalnejOchrony",
+      "file": "ObszarySpecjalnejOchrony.json",
+      "source_url": "https://sdi.gdos.gov.pl/wfs?service=WFS&version=2.0.0&request=GetFeature&typeName=GDOS:ObszarySpecjalnejOchrony&outputFormat=application/json&srsName=EPSG:2180",
+      "retrieved_at": "2026-09-24T16:00:00Z",
+      "sha256": "11f0d902eb5c9abb40f434bb73435332ee8737dcfa7ed6f7bd22cca4e0a1ffbf"
+    },
+    {
+      "name": "GDOS:SpecjalneObszaryOchrony",
+      "file": "SpecjalneObszaryOchrony.json",
+      "source_url": "https://sdi.gdos.gov.pl/wfs?service=WFS&version=2.0.0&request=GetFeature&typeName=GDOS:SpecjalneObszaryOchrony&outputFormat=application/json&srsName=EPSG:2180",
+      "retrieved_at": "2026-09-24T16:00:00Z",
+      "sha256": "907e6cfecb0b0dd27eb42556a03cfe9de99f3bd179b89630393fe3b34f436ca4"
+    },
+    {
+      "name": "CRFOP",
+      "file": "crfop.xlsx",
+      "source_url": "https://api.dane.gov.pl/media/resources/20260204/rezerwaty_przyrody_-_stan_na_04.02.2026.xls",
+      "retrieved_at": "2026-09-24T16:00:00Z",
+      "publisher_date": "2026-02-04",
+      "sha256": "2aac9aa479778beae11cbae86fcf139137f45f138fe8a9a5d32d796dd866aba3"
+    }
+  ]
+}

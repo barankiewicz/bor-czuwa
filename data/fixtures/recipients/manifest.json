@@ -1,0 +1,50 @@
+{
+  "snapshot_id": "moniecki-2026-09-25-osm-v1",
+  "retrieved_at": "2026-09-24T16:00:00Z",
+  "publisher_date": "2026-07-30",
+  "synthetic_protected_areas": true,
+  "files": {
+    "gmina": {
+      "path": "gmina.geojson",
+      "sha256": "897d6a73b821101056b6914e17be44d6c15474c063f76964c07c340cbc364fda",
+      "feature_count": 4,
+      "source_url": "https://api.dane.gov.pl/media/resources/20260730/00_jednostki_administracyjne_gml_e0e52ce7.zip"
+    },
+    "powiat": {
+      "path": "powiat.geojson",
+      "sha256": "9d841ab0fa9e8a42e618e2e51f2874acc34cd3b189f50c0346b0f930237c4b3d",
+      "feature_count": 1,
+      "source_url": "https://api.dane.gov.pl/media/resources/20260730/00_jednostki_administracyjne_gml_e0e52ce7.zip"
+    },
+    "voiv": {
+      "path": "voiv.geojson",
+      "sha256": "0adc383d9ecc149914d8dd6583a63ffa1c000921a66b5a04df72bf94127014da",
+      "feature_count": 1,
+      "source_url": "https://api.dane.gov.pl/media/resources/20260730/00_jednostki_administracyjne_gml_e0e52ce7.zip"
+    },
+    "police": {
+      "path": "police.geojson",
+      "sha256": "49bbe2f0526b228847b967e612d3e5211b687090791f5288a4f22bb6e2a225b7",
+      "feature_count": 1,
+      "source_url": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip"
+    },
+    "forest": {
+      "path": "forest.geojson",
+      "sha256": "7ca0bcac3f8bd21af2a72a7fbec5b3f7ca771017c0b9eb9a0d093a4be4e5fc51",
+      "feature_count": 2,
+      "source_url": "https://api.dane.gov.pl/media/resources/20260730/00_granice_specjalne_xml_414a8615.zip"
+    },
+    "nationalPark": {
+      "path": "nationalPark.geojson",
+      "sha256": "70475a4b98d473ec20ed609f1efb9fa329127809e5f301f2a1dc996291f0f0e3",
+      "feature_count": 1,
+      "source_url": "synthetic fixture"
+    },
+    "reserve": {
+      "path": "reserve.geojson",
+      "sha256": "428f1bcf2d3826b5a619f325de19877f8480e845251e5802491108d82c3d5498",
+      "feature_count": 1,
+      "source_url": "synthetic fixture"
+    }
+  }
+}

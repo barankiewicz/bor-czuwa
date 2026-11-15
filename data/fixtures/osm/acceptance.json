@@ -1,0 +1,17 @@
+{
+  "point": "edge",
+  "osm_id": "node/10000000001",
+  "expected_m": 299.30146368796136,
+  "method": "PROJ cs2cs EPSG:4326 to EPSG:2180; Euclidean distance to fixture point",
+  "area": {
+    "bounds": [
+      22.8,
+      53.405405,
+      22.857143,
+      53.441441
+    ],
+    "osm_id": "node/10000000002",
+    "expected_m": 10762.808634825413,
+    "method": "PROJ cs2cs EPSG:4326 to EPSG:2180; Euclidean distance from area centre to fixture point"
+  }
+}
