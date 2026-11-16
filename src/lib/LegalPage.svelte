@@ -42,7 +42,7 @@
     <p>{translate(language, 'Połączenie przekazuje adres IP do Kanady. GPS może zapisać prawdziwą pozycję telefonu. Do prób używaj fikcyjnego miejsca i czasu; nie zapisuj danych prawdziwego zdarzenia.')}</p>
     <p>{translate(language, 'Mapa i wyszukiwanie miejsc łączą się z usługami OpenStreetMap. Ich zasady prywatności obowiązują także w teście.')} <a href="https://wiki.osmfoundation.org/wiki/Privacy_Policy" target="_blank" rel="noreferrer">OpenStreetMap Foundation</a>.</p>
     <p>{translate(language, 'Nazwy urzędów i dane mapowe są prawdziwe. Powiadomienia kierujemy wyłącznie do skrzynki testowej, nie do urzędów. Poczta i udostępnianie otwierają inną aplikację: sprawdź odbiorcę przed wysłaniem.')}</p>
-    <p>{translate(language, 'Zgłoszenia testowe zostają do czasu, gdy właścicielka zleci ich usunięcie. Możesz też wycofać pojedyncze zgłoszenie. Nie tworzymy kopii zapasowych aplikacji; kopie dostawcy są wyłączone. Testów nie przenosimy do wersji publicznej.')}</p>
+    <p>{translate(language, 'Zgłoszenia testowe zostają do czasu, gdy właścicielka zleci ich usunięcie. Możesz też wycofać pojedyncze zgłoszenie. Sami nie robimy kopii zapasowych; OVH trzyma jedną kopię dysku, sprzed najwyżej doby. Testów nie przenosimy do wersji publicznej.')}</p>
     <p>{translate(language, 'Poniżej zachowujemy projekt dokumentu dla wersji docelowej. Opisy serwera, publikacji i podstawy przetwarzania nie opisują tego testu ani nie oznaczają zgody na publiczne wdrożenie.')}</p>
     <details class="disclosure"><summary>{translate(language, 'Projekt dokumentu dla wersji docelowej')}</summary><article lang="pl">{@html html}</article></details>
   {:else}

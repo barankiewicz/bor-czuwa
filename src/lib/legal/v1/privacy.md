@@ -71,8 +71,9 @@ problemu. Nie prosimy o zgodę. Podanie danych jest dobrowolne.
 
 Serwer wynajmujemy w OVH, które przetwarza dane w naszym imieniu. Serwer stoi w Kanadzie, poza
 Europejskim Obszarem Gospodarczym. Kanada ma decyzję Komisji Europejskiej o odpowiednim stopniu
-ochrony danych (art. 45 RODO). Dane zgłoszeń przechowujemy tylko na nim. Nie tworzymy kopii
-zapasowych i nie zamawiamy ich u dostawcy. Pocztę projektu obsługuje Proton ze Szwajcarii. Stronę informacyjną utrzymuje
+ochrony danych (art. 45 RODO). Dane zgłoszeń przechowujemy tylko na nim. Sami nie robimy kopii
+zapasowych. OVH codziennie kopiuje dysk serwera i trzyma tylko najnowszą kopię, sprzed najwyżej
+doby. Pocztę projektu obsługuje Proton ze Szwajcarii. Stronę informacyjną utrzymuje
 LH.pl, którego serwer zapisuje adresy IP odwiedzających
 przez 30 dni. Mapy i wyszukiwanie miejsc korzystają z
 usług OpenStreetMap opisanych poniżej.
@@ -111,11 +112,12 @@ notatek ani zdjęć, bo nie mamy ich na serwerze. Nie publikujemy pozycji twojeg
 
 ## Jak długo
 
-Zgłoszenia są archiwum i nie mają daty ważności. Nie tworzymy kopii zapasowych.
+Zgłoszenia są archiwum i nie mają daty ważności. Poza dobową kopią dysku u OVH nie ma innych kopii.
 
 Zgłoszenie możesz wycofać w aplikacji. Usuwamy wtedy z serwera zgłoszenie, jego pomiary i
 przebieg powiadomień. Zostaje losowy numer zgłoszenia, skrót klucza do wycofania i czas
 wycofania z dokładnością do minuty, żeby zgłoszenie wysłane z opóźnieniem nie wróciło na serwer.
+Z kopii dysku u OVH zgłoszenie znika w ciągu doby, gdy zastąpi ją następna.
 
 ## Twoje prawa
 

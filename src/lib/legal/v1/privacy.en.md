@@ -68,8 +68,8 @@ shown. We do not ask for consent. Providing data is voluntary.
 ## Who has access
 
 We rent the server from OVH, which processes data on our behalf. The server is in Canada, outside the
-European Economic Area. Canada has a European Commission adequacy decision (Art. 45 GDPR). We keep report data only there. We make no backups and do not order them from the
-provider. The project's mail is handled by Proton, in Switzerland. The information website is
+European Economic Area. Canada has a European Commission adequacy decision (Art. 45 GDPR). We keep report data only there. We make no backups ourselves.
+OVH copies the server's disk daily and keeps only the latest copy, at most a day old. The project's mail is handled by Proton, in Switzerland. The information website is
 hosted by LH.pl, whose server records visitors' IP addresses
 for 30 days. Maps and place search use the
 OpenStreetMap services described below.
@@ -108,12 +108,12 @@ position.
 
 ## How long
 
-Reports are an archive and have no expiry date. We make no backups.
+Reports are an archive and have no expiry date. Apart from OVH's daily disk copy there are no other copies.
 
 You can withdraw a report in the app. We then delete the report, its measurements and the course of
 its notices from the server. What remains is the report's random number, a hash of the withdrawal
 key and the time of withdrawal to the minute, so that a report sent late does not come back to the
-server.
+server. The report leaves OVH's disk copy within a day, when the next copy replaces it.
 
 ## Your rights
 
