@@ -701,12 +701,13 @@ data. Check loopback `/api/worker-status` until the queue drains, then inspect
 Findings for an affected Report. Domain reasons can also be selected explicitly;
 retry them after the relevant data or Rule set has been corrected.
 
-An external EU uptime monitor must check `https://app.bor-czuwa.pl/api/ready`
-and send to that
-same authorized destination. A second check on `https://bor-czuwa.pl/` covers the
-landing on lh.pl, which this host's monitoring cannot see. Local monitoring cannot report a powered-off
-host. Register the service and verify a deliberate API stop before release;
-no external alert channel has been authorized or tested in this ticket.
+Local monitoring cannot report a powered-off host, so it also reports to an external dead man's
+switch, Healthchecks.io (open source, hosted in the EU). Set `HEALTHCHECK_URL` in `monitor.env` to
+the check's https ping URL: every run pings it, adding `/fail` when the run found an event, so a
+failure alerts at once and silence alerts after the check's grace time. Give the check a period of
+1 minute, a grace time of a few minutes and the same alert mailbox. The ping carries nothing but
+the request itself. A check of the landing on lh.pl, which this host cannot see, can be a second,
+plain HTTP check in the same service.
 
 ## Backup and recovery
 

@@ -138,6 +138,23 @@ def write_state(state, value):
     os.replace(temporary, state)
 
 
+def ping_healthcheck(failing):
+    """Tell an external dead man's switch that this run happened and whether it found trouble.
+
+    The service alerts when pings stop, which is the one failure this monitor cannot mail about
+    itself: the host down, cut off, or the timer no longer running. A ping carries no event names
+    and no response body is read; a ping that fails is ignored so it never blocks the run.
+    """
+    url = os.environ.get('HEALTHCHECK_URL', '')
+    if not url.startswith('https://'):
+        return
+    try:
+        with urlopen(url.rstrip('/') + ('/fail' if failing else ''), data=b'', timeout=10):
+            pass
+    except Exception:
+        pass
+
+
 def should_alert(current, previous):
     if isinstance(previous, list):
         previous = {'events': previous, 'failure_counts': [0, 0]}
@@ -156,6 +173,8 @@ if __name__ == '__main__':
     # systemd sets STATE_DIRECTORY from the unit's StateDirectory=, which differs on the demo host.
     state = Path(os.environ.get('STATE_DIRECTORY', '/var/lib/bor-czuwa/monitor') + '/monitor-state')
     current = events()
+    # Before the mail, so the external check hears of trouble even when mail delivery is what failed.
+    ping_healthcheck(bool(current['events']))
     previous = read_state(state)
     # An event that appears after a run that did not see it is a new outage, whatever was last delivered, and
     # stays listed until a mail has gone out, even if it clears first. The vocabulary is fixed, so the list stays short.

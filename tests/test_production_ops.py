@@ -1586,3 +1586,39 @@ class DemoMailJobs(unittest.TestCase):
         actions = self.actions([], 'production')
         self.assertIn(('enable', 'bor-czuwa-monitor.timer'), actions)
         self.assertIn(('enable', 'integrity-digest.timer'), actions)
+
+
+class HealthcheckPing(unittest.TestCase):
+    """Each monitor run pings the external dead man's switch, with /fail when it found trouble."""
+
+    def run_monitor(self, healthy, url='https://hc-ping.com/abc-123'):
+        pinged = []
+
+        def urlopen(target, *args, **kwargs):
+            target = target if isinstance(target, str) else target.full_url
+            if '/api/' not in target:
+                pinged.append((target, kwargs.get('data', args[0] if args else None)))
+                return io.BytesIO(b'OK')
+            if not healthy and target.endswith('/health'):
+                raise OSError('refused')
+            return io.BytesIO(json.dumps({'status': 'ok', 'terminal_failures': 0, 'integrity_terminal_failures': 0}).encode())
+
+        with tempfile.TemporaryDirectory() as directory:
+            env = {'STATE_DIRECTORY': directory, 'ALERT_FROM': 'a@example.test', 'ALERT_TO': 'b@example.test',
+                   'SMTP_HOST': 'smtp.example.test', 'SMTP_PORT': '587', 'SMTP_USER': 'u', 'SMTP_PASSWORD': 'p'}
+            if url is not None:
+                env['HEALTHCHECK_URL'] = url
+            script = str(ROOT / 'ops/production/monitor.py')
+            with patch.dict(os.environ, env), patch('sys.argv', [script]), \
+                    patch('urllib.request.urlopen', side_effect=urlopen), \
+                    patch('smtplib.SMTP'), patch('subprocess.run', return_value=Mock(returncode=1)):
+                runpy.run_path(script, run_name='__main__')
+        return pinged
+
+    def test_a_healthy_run_pings_and_a_failing_one_pings_fail(self):
+        self.assertEqual(self.run_monitor(True), [('https://hc-ping.com/abc-123', b'')])
+        self.assertEqual(self.run_monitor(False), [('https://hc-ping.com/abc-123/fail', b'')])
+
+    def test_no_ping_without_an_https_url(self):
+        self.assertEqual(self.run_monitor(True, None), [])
+        self.assertEqual(self.run_monitor(True, 'http://hc-ping.com/abc-123'), [])
