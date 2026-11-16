@@ -95,7 +95,7 @@ class StatsProxy(unittest.TestCase):
         request = urllib.request.Request(f'http://127.0.0.1:{PORT}/_stats/website{query}', method=method, headers={
             'X-Forwarded-For': '203.0.113.7', 'X-Real-IP': '203.0.113.8', 'Forwarded': 'for=203.0.113.9',
             'True-Client-IP': '203.0.113.10', 'Referer': 'https://example.org/secret', 'Cookie': 'session=abc',
-            'User-Agent': 'VisitorBrowser/1.0 (Secret Phone)', 'Origin': 'https://bor-czuwa.barankiewicz.dev',
+            'User-Agent': 'VisitorBrowser/1.0 (Secret Phone)', 'Origin': 'https://bor-czuwa.pl',
             'Accept-Language': 'pl-PL', 'Authorization': 'Bearer visitor'})
         try:
             with urllib.request.urlopen(request, timeout=5) as response:

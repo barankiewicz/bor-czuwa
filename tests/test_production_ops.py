@@ -331,12 +331,12 @@ class DeploymentEligibility(unittest.TestCase):
                 deployment.check_candidate(self.directory, 'production')
 
     def test_production_android_origin_is_the_app_host_not_the_apex(self):
-        self.candidate('production', None, 'https://app.bor-czuwa.barankiewicz.dev')
-        deployment.check_candidate(self.directory, 'production', 'app.bor-czuwa.barankiewicz.dev')
-        for origin in ['https://bor-czuwa.barankiewicz.dev', None]:
+        self.candidate('production', None, 'https://app.bor-czuwa.pl')
+        deployment.check_candidate(self.directory, 'production', 'app.bor-czuwa.pl')
+        for origin in ['https://bor-czuwa.pl', None]:
             self.candidate('production', None, origin)
             with self.assertRaisesRegex(ValueError, 'app host'):
-                deployment.check_candidate(self.directory, 'production', 'app.bor-czuwa.barankiewicz.dev')
+                deployment.check_candidate(self.directory, 'production', 'app.bor-czuwa.pl')
 
     def test_rollback_requires_exact_target_and_explicit_indexeddb_compatibility(self):
         receipt = {'sourceCommit': 'a' * 40, 'candidateSha256': 'b' * 64}

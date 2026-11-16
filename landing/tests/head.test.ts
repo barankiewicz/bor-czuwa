@@ -9,7 +9,7 @@ import { test } from 'node:test';
 // fails; by default it reads the real build.
 const root = process.env.LANDING_BUILD ?? path.resolve(import.meta.dirname, '../build');
 if (!existsSync(root)) throw new Error(`${root} is missing; run npm run build:landing first`);
-const site = 'https://bor-czuwa.barankiewicz.dev';
+const site = 'https://bor-czuwa.pl';
 const pages = ['/', '/prywatnosc/', '/regulamin/', '/o-projekcie/', '/wesprzyj/', '/en/', '/en/privacy/', '/en/terms/', '/en/about/', '/en/support/'];
 const read = (name: string) => readFileSync(path.join(root, name), 'utf8');
 const htmlOf = (route: string) => read(path.join(route, 'index.html'));

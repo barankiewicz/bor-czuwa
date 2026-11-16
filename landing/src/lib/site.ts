@@ -1,12 +1,12 @@
 // The site's constants. Edit them here and nowhere else.
 export const site = {
   // This site's own origin, for canonical and alternate-language links and the share image.
-  url: 'https://bor-czuwa.barankiewicz.dev',
+  url: 'https://bor-czuwa.pl',
   // Interim hosting under the owner's domain; an own domain later is a redeploy.
-  appUrl: 'https://app.bor-czuwa.barankiewicz.dev/',
+  appUrl: 'https://app.bor-czuwa.pl/',
   // Where a page opening is counted (ticket 14): the app host's nginx proxies it to a private
   // GoatCounter. It is the one address the landing may contact besides itself.
-  statsUrl: 'https://app.bor-czuwa.barankiewicz.dev/_stats/website',
+  statsUrl: 'https://app.bor-czuwa.pl/_stats/website',
   playUrl: 'https://play.google.com/store/apps/details?id=pl.borczuwa.app',
   repoUrl: 'https://github.com/barankiewicz/bor-czuwa',
   portfolioUrl: 'https://barankiewicz.dev',

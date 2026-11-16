@@ -369,25 +369,25 @@ access and snapshot retention need evidence before enabling this path.
 
 ### Where each host lives
 
-Bór czuwa answers on two names that live on two different hosts. The current names are
-`bor-czuwa.barankiewicz.dev` for the landing and `app.bor-czuwa.barankiewicz.dev` for the app.
+Bór czuwa answers on two names that live on two different hosts: `bor-czuwa.pl` (and
+`www.bor-czuwa.pl`) for the landing and `app.bor-czuwa.pl` for the app.
 
 | Name | Serves | Lives on |
 | --- | --- | --- |
-| `bor-czuwa.barankiewicz.dev` | Landing, privacy policy, terms | lh.pl shared hosting, directory `public_html/bor-czuwa-landing/` |
-| `app.bor-czuwa.barankiewicz.dev` | Web app, API | This OVH VPS, `15.235.120.240`, behind the nginx this runbook renders |
+| `bor-czuwa.pl` | Landing, privacy policy, terms | lh.pl shared hosting, directory `public_html/bor-czuwa-landing/` |
+| `app.bor-czuwa.pl` | Web app, API | This OVH VPS, `15.235.120.240`, behind the nginx this runbook renders |
 
 The VPS has one nginx server block and one certificate, for the app host, and never serves the
 landing. The app host sends `X-Robots-Tag: noindex, nofollow` on every response, documents
 included, so search results land on the landing. The API's Origin check follows the host nginx
-forwards, so it accepts `https://app.bor-czuwa.barankiewicz.dev` and `https://localhost` and
+forwards, so it accepts `https://app.bor-czuwa.pl` and `https://localhost` and
 refuses the landing's name. Build the Android release with
-`ANDROID_API_ORIGIN=https://app.bor-czuwa.barankiewicz.dev`; a production candidate is refused
+`ANDROID_API_ORIGIN=https://app.bor-czuwa.pl`; a production candidate is refused
 when that origin differs from the `DOMAIN` given to `deploy.sh`. The Play Console privacy policy
-URL is `https://bor-czuwa.barankiewicz.dev/prywatnosc/`.
+URL is `https://bor-czuwa.pl/prywatnosc/`.
 
-DNS. The `barankiewicz.dev` zone is managed in the lh.pl panel, and both names are records in
-it. Touch no other record in the zone.
+DNS. The `bor-czuwa.pl` zone is managed in the lh.pl panel, and both names are records in it.
+The zone also holds the domain's mail records (MX, SPF, DMARC); change those only on purpose.
 
 - App: an A record for `app.bor-czuwa` pointing at `15.235.120.240`, with an AAAA record only
   if the VPS has a reachable IPv6 address. Check that it resolves from outside before
@@ -396,13 +396,16 @@ it. Touch no other record in the zone.
   lh.pl, either by the hosting target the panel shows for the account or by the zone's existing
   wildcard if one covers it; do not guess the value, read it in the panel. Then, in the panel's
   domain section, map the name to the directory `public_html/bor-czuwa-landing/`. A DNS record
-  alone does not make lh.pl serve that directory. Check with `dig +short bor-czuwa.barankiewicz.dev`.
+  alone does not make lh.pl serve that directory. Check with `dig +short bor-czuwa.pl`.
 
-Never set HSTS with `includeSubDomains` on `barankiewicz.dev`: the apex and its other
-subdomains belong to other projects and are not ours to commit to HTTPS-only.
+HSTS with `includeSubDomains` or `preload` is a separate decision: it would commit every name
+under `bor-czuwa.pl` to HTTPS for the whole max-age, and cannot be recalled early.
+
+The earlier names `bor-czuwa.barankiewicz.dev` and `app.bor-czuwa.barankiewicz.dev` were
+retired on 2026-11-16; their records are deleted from the `barankiewicz.dev` zone.
 
 Certificate. Only the app host has one on the VPS. The landing's TLS is lh.pl's and is checked
-with `curl -sSI https://bor-czuwa.barankiewicz.dev/` after the first deploy.
+with `curl -sSI https://bor-czuwa.pl/` after the first deploy.
 
 Landing deploy. The landing is published by the `landing-deploy` GitHub Actions workflow, by
 manual dispatch only, because the landing goes live with the app release and not before. It
@@ -419,11 +422,11 @@ only on main. FTPS certificate checking is off (`security: loose`) because lh.pl
 does not match its FTP hostname, as for the other sites on the account. An attacker on the
 runner's network path could read the FTP login; this is an accepted risk, and rotating the lh.pl
 password is the remedy if it is ever suspected.
-Afterwards read the live headers with `curl -sSI https://bor-czuwa.barankiewicz.dev/` and check
+Afterwards read the live headers with `curl -sSI https://bor-czuwa.pl/` and check
 `Content-Security-Policy: frame-ancestors 'none'` and `Referrer-Policy: no-referrer` are present.
 If they are missing, mod_headers is off on the account: the pages still carry their own CSP and
 referrer meta elements, and only the framing ban is lost. Also check that
-`curl -sI https://bor-czuwa.barankiewicz.dev/.ftp-deploy-sync-state.json` answers 403; a 200 means
+`curl -sI https://bor-czuwa.pl/.ftp-deploy-sync-state.json` answers 403; a 200 means
 the account's Apache ignored the deny and the file list is public.
 
 App TLS. Point the app host at this host, verify DNS, then obtain TLS before
@@ -698,9 +701,9 @@ data. Check loopback `/api/worker-status` until the queue drains, then inspect
 Findings for an affected Report. Domain reasons can also be selected explicitly;
 retry them after the relevant data or Rule set has been corrected.
 
-An external EU uptime monitor must check `https://app.bor-czuwa.barankiewicz.dev/api/ready`
+An external EU uptime monitor must check `https://app.bor-czuwa.pl/api/ready`
 and send to that
-same authorized destination. A second check on `https://bor-czuwa.barankiewicz.dev/` covers the
+same authorized destination. A second check on `https://bor-czuwa.pl/` covers the
 landing on lh.pl, which this host's monitoring cannot see. Local monitoring cannot report a powered-off
 host. Register the service and verify a deliberate API stop before release;
 no external alert channel has been authorized or tested in this ticket.
@@ -945,16 +948,16 @@ the security headers and a bare status: JSON under `/api/`, one line of plain te
 still sends `Server: nginx` (stock nginx cannot remove it) but no version.
 
 ```sh
-testssl.sh --protocols --ciphers --headers --server-defaults https://app.bor-czuwa.barankiewicz.dev
+testssl.sh --protocols --ciphers --headers --server-defaults https://app.bor-czuwa.pl
 #   TLS 1.0 and 1.1 not offered, no CBC or RC4, no DH; HSTS with the max-age you set, no includeSubDomains, no preload
-curl -sSI --http2 https://app.bor-czuwa.barankiewicz.dev/ | grep -iE '^(HTTP/2|strict-transport|server)'
-curl -sSI http://app.bor-czuwa.barankiewicz.dev/ | grep -ic strict-transport    # 0
-curl -sSI https://bor-czuwa.barankiewicz.dev/ | grep -i strict-transport         # not ours: lh.pl's own header, if any
-curl -sS -X PUT -w ' %{http_code}\n' https://app.bor-czuwa.barankiewicz.dev/api/reports   # 405 {"error":"method_not_allowed"}
-curl -sS -w ' %{http_code}\n' https://app.bor-czuwa.barankiewicz.dev/.env                # 404 Not found
-curl -sSI https://app.bor-czuwa.barankiewicz.dev/missing | grep -iE 'x-content-type|strict-transport'  # both present on a 404
-(printf 'GET / HTTP/1.1\r\nHost: app.bor-czuwa.barankiewicz.dev\r\nX-Slow: a'; sleep 12) \
-  | openssl s_client -quiet -connect app.bor-czuwa.barankiewicz.dev:443    # closed or 408 after 10 s
+curl -sSI --http2 https://app.bor-czuwa.pl/ | grep -iE '^(HTTP/2|strict-transport|server)'
+curl -sSI http://app.bor-czuwa.pl/ | grep -ic strict-transport    # 0
+curl -sSI https://bor-czuwa.pl/ | grep -i strict-transport         # not ours: lh.pl's own header, if any
+curl -sS -X PUT -w ' %{http_code}\n' https://app.bor-czuwa.pl/api/reports   # 405 {"error":"method_not_allowed"}
+curl -sS -w ' %{http_code}\n' https://app.bor-czuwa.pl/.env                # 404 Not found
+curl -sSI https://app.bor-czuwa.pl/missing | grep -iE 'x-content-type|strict-transport'  # both present on a 404
+(printf 'GET / HTTP/1.1\r\nHost: app.bor-czuwa.pl\r\nX-Slow: a'; sleep 12) \
+  | openssl s_client -quiet -connect app.bor-czuwa.pl:443    # closed or 408 after 10 s
 sudo python3 /usr/local/lib/bor-czuwa-release/audit-nginx.py && echo audit ok
 ```
 

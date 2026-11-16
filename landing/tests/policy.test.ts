@@ -26,7 +26,7 @@ for (const file of files) test(`${path.relative(root, file)} carries its own CSP
   assert.deepEqual(directives.get('default-src'), ["'none'"]);
   for (const [name, sources] of directives) for (const source of sources) {
     // The one address a page may contact is the page-opening count (ticket 14), and only as connect-src.
-    if (name === 'connect-src') assert.equal(source, 'https://app.bor-czuwa.barankiewicz.dev/_stats/website', 'connect-src allows exactly the counting endpoint');
+    if (name === 'connect-src') assert.equal(source, 'https://app.bor-czuwa.pl/_stats/website', 'connect-src allows exactly the counting endpoint');
     else assert.ok(!/^(https?:|\*|wss?:)/.test(source), `${name} names another origin: ${source}`);
     if (name !== 'style-src-attr') assert.notEqual(source, "'unsafe-inline'", `${name} allows inline code`);
     assert.notEqual(source, "'unsafe-eval'");
