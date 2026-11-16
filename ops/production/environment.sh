@@ -117,16 +117,17 @@ stop_jobs() {
   systemctl stop "$api.service" "$refresh.service" "$digest.service" "$monitor.service" "$backup.service"
   systemctl disable --now "$backup.timer"
   if [[ $environment == demo ]]; then
-    # No alert/digest transport or recipient has been authorized for this deployment.
-    systemctl disable --now "$digest.timer" "$monitor.timer"
+    # A demo sends alerts and the digest only once the owner has put their mail settings on the
+    # host; without the file nothing could deliver them, so the timer stays off.
+    [[ -f $etc/digest.env ]] || systemctl disable --now "$digest.timer"
+    [[ -f $etc/monitor.env ]] || systemctl disable --now "$monitor.timer"
   fi
 }
 
 start_jobs() {
   systemctl enable --now "$refresh.timer"
-  if [[ $environment == production ]]; then
-    systemctl enable --now "$digest.timer" "$monitor.timer"
-  fi
+  if [[ $environment == production || -f $etc/digest.env ]]; then systemctl enable --now "$digest.timer"; fi
+  if [[ $environment == production || -f $etc/monitor.env ]]; then systemctl enable --now "$monitor.timer"; fi
 }
 
 ready() {

@@ -1542,3 +1542,47 @@ class DeploySudo(unittest.TestCase):
             self.skipTest('visudo not installed')
         result = subprocess.run(['visudo', '-cf', str(ROOT / 'ops/production/sudoers-deploy')], capture_output=True, text=True)
         self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+
+
+class DemoMailJobs(unittest.TestCase):
+    """A demo runs the monitor and the digest once their mail settings exist, and not before."""
+
+    def actions(self, files, environment='demo'):
+        """The (verb, unit) pairs stop_jobs and start_jobs ask systemctl for, one per unit."""
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            control, etc, log = root / 'control', root / 'etc', root / 'systemctl.log'
+            control.mkdir()
+            etc.mkdir()
+            shutil.copy(ROOT / 'ops/production/environment.sh', control)
+            (control / 'deployment.py').write_text("print('approved_domain=app.example')\n")
+            for name in files:
+                (etc / name).write_text('')
+            script = (f'control={control}; environment={environment}; source "$control/environment.sh"; '
+                      f'etc={etc}; systemctl() {{ echo "$*" >> {log}; }}; stop_jobs; start_jobs')
+            subprocess.run(['bash', '-c', script], check=True, capture_output=True)
+            pairs = set()
+            for line in log.read_text().splitlines():
+                words = line.split()
+                if words[0] in ('enable', 'disable'):
+                    verb = words[0]
+                    pairs.update((verb, unit) for unit in words[2:] if unit.endswith('.timer'))
+            return pairs
+
+    def test_demo_without_mail_settings_keeps_both_timers_off(self):
+        actions = self.actions([])
+        self.assertIn(('disable', 'bor-czuwa-demo-monitor.timer'), actions)
+        self.assertIn(('disable', 'bor-czuwa-demo-integrity-digest.timer'), actions)
+        self.assertNotIn(('enable', 'bor-czuwa-demo-monitor.timer'), actions)
+        self.assertNotIn(('enable', 'bor-czuwa-demo-integrity-digest.timer'), actions)
+
+    def test_demo_with_monitor_settings_runs_the_monitor_only(self):
+        actions = self.actions(['monitor.env'])
+        self.assertIn(('enable', 'bor-czuwa-demo-monitor.timer'), actions)
+        self.assertNotIn(('disable', 'bor-czuwa-demo-monitor.timer'), actions)
+        self.assertNotIn(('enable', 'bor-czuwa-demo-integrity-digest.timer'), actions)
+
+    def test_production_always_runs_both(self):
+        actions = self.actions([], 'production')
+        self.assertIn(('enable', 'bor-czuwa-monitor.timer'), actions)
+        self.assertIn(('enable', 'integrity-digest.timer'), actions)
