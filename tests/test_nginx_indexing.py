@@ -1,6 +1,7 @@
 """Serve generated nginx policy with synthetic documents, without approving a release."""
 import base64
 import json
+import os
 import re
 import socket
 import ssl
@@ -22,6 +23,9 @@ SPEC.loader.exec_module(indexing)
 
 class Indexing(unittest.TestCase):
     def setUp(self):
+        # nginx in the container reads the fixtures as www-data, so they must be world-readable
+        # whatever umask the runner starts with; some GitHub images start with 077.
+        self.addCleanup(os.umask, os.umask(0o022))
         temporary = tempfile.TemporaryDirectory()
         self.addCleanup(temporary.cleanup)
         self.root = Path(temporary.name)
